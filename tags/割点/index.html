@@ -32,7 +32,7 @@
       
     
     <!-- title -->
-    <title>标签: 割点</title>
+    <title>标签: 割点 - Hardsoft Blog</title>
     <!-- async scripts -->
     <!-- Google Analytics -->
 
@@ -63,7 +63,9 @@
 		  MathJax.Hub.Config({
 			tex2jax: {
 			  skipTags: ['script', 'noscript', 'style', 'textarea', 'pre'],
-			  inlineMath: [['$','$']]
+			  inlineMath: [['$','$'], ['\(', '\)']],
+        displayMath: [['$$', '$$'], ['\[', '\]']],
+        processEscapes: true
 			}
 		  });
 		</script>
