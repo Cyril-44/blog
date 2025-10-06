@@ -4,17 +4,36 @@
   
     
     <entry>
-      <title>校内模拟赛</title>
-      <link href="/blog/2025/10/05/Contest-251005/"/>
-      <url>/blog/2025/10/05/Contest-251005/</url>
+      <title>唐题记录 10.06</title>
+      <link href="/blog/2025/10/06/Record-251006/"/>
+      <url>/blog/2025/10/06/Record-251006/</url>
+      
+        <content type="html"><![CDATA[]]></content>
+      
+      
+      
+        <tags>
+            
+            <tag> LIS </tag>
+            
+            <tag> BIT </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>校内模拟赛 10.05</title>
+      <link href="/blog/2025/10/06/Contest-251005/"/>
+      <url>/blog/2025/10/06/Contest-251005/</url>
       
         <content type="html"><![CDATA[<blockquote><h2 id="题面描述："><a href="#题面描述：" class="headerlink" title="题面描述："></a>题面描述：</h2><h3 id="Description"><a href="#Description" class="headerlink" title="Description"></a>Description</h3><p>有一座地下的稀有金属矿有 $n$ 条隧道和一些连接点组成，其中每条隧道连接两个连接点。任意两个连接点之间最多只有一条隧道。为了降低矿工的危险，你的任务是在一些连接点处安装太平井和相应的逃生装置，使得不管哪个连接点倒塌，不在此连接点的所有矿工都能到达太平井逃生（假定除了倒塌的连接点不能通行外，其他隧道和连接点完好无损）。为了节约成本，你应当在尽量少的连接点安装太平井。还需要计算出当太平井的数目最小时安装方案总数。  </p><h3 id="Input"><a href="#Input" class="headerlink" title="Input"></a>Input</h3><p>输入包含多组数据。每组数据第一行为隧道的条数 $n$； 以下 $n$ 行每行两个整数，即一条隧道两端的连接点编号（所有连接点从 $1$ 开始编号）。每组数据的所有连接点保证连通。 输入数据最后一行包含一个单独的整数 $0$ 表示结束。</p><h3 id="Output"><a href="#Output" class="headerlink" title="Output"></a>Output</h3><p>对于每组数据，输出两个整数，即最少需要安装的太平井数目以及对应的方案总数。方案保证在64位带符号整数的范围内。</p><table><th> Sample Input </th><th> Sample Output </th><tr><td><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line">9</span><br><span class="line">1 3</span><br><span class="line">4 1</span><br><span class="line">3 5</span><br><span class="line">1 2</span><br><span class="line">2 6</span><br><span class="line">1 5</span><br><span class="line">6 3</span><br><span class="line">1 6</span><br><span class="line">3 2</span><br><span class="line">6</span><br><span class="line">1 2</span><br><span class="line">1 3</span><br><span class="line">2 4</span><br><span class="line">2 5</span><br><span class="line">3 6</span><br><span class="line">3 7</span><br><span class="line">0</span><br></pre></td></tr></table></figure></td><td><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">Case 1: 2 4</span><br><span class="line">Case 2: 4 1</span><br></pre></td></tr></table></figure></tr></table><h3 id="Hint"><a href="#Hint" class="headerlink" title="Hint"></a>Hint</h3><p>100% 的数据： $n\le 50000$</p></blockquote>]]></content>
       
       
       
         <tags>
-            
-            <tag> 动态规划 </tag>
             
             <tag> Tarjan </tag>
             
@@ -26,7 +45,9 @@
             
             <tag> Hash </tag>
             
-            <tag> 随机化 </tag>
+            <tag> Random </tag>
+            
+            <tag> DP </tag>
             
         </tags>
       
@@ -54,7 +75,7 @@
     
     
     <entry>
-      <title>NOIP 模拟赛</title>
+      <title>NOIP 模拟赛 10.04</title>
       <link href="/blog/2025/10/04/Contest-251004/"/>
       <url>/blog/2025/10/04/Contest-251004/</url>
       
@@ -63,7 +84,7 @@
       
       <categories>
           
-          <category> 做题记录 </category>
+          <category> Rec </category>
           
       </categories>
       
