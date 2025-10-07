@@ -58,19 +58,23 @@
     
     
 	<!-- mathjax -->
-	
-		<script type="text/x-mathjax-config">
-		  MathJax.Hub.Config({
-			tex2jax: {
-			  skipTags: ['script', 'noscript', 'style', 'textarea', 'pre'],
-			  inlineMath: [['$','$'], ['\(', '\)']],
-        displayMath: [['$$', '$$'], ['\[', '\]']],
-        processEscapes: true
-			}
-		  });
-		</script>
-		<script src='https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/latest.js?config=TeX-MML-AM_CHTML' async></script>
-	
+  
+    <script>
+      window.MathJax = {
+        loader: {load: ['[tex]/color']},
+        tex: {
+          inlineMath: [['$', '$'], ['\\(', '\\)']],
+          displayMath: [['$$', '$$'], ['\\[', '\\]']],
+          processEscapes: true,
+          packages: {'[+]': ['color']}
+        },
+        options: {
+          skipHtmlTags: ['script', 'noscript', 'style', 'textarea', 'pre']
+        }
+      };
+    </script>
+    <script src="https://cdn.jsdelivr.net/npm/mathjax@4/tex-mml-chtml.js" async></script>
+  
 <meta name="generator" content="Hexo 8.0.0"></head>
 
 <body class="max-width mx-auto px3 ltr">

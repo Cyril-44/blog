@@ -60,19 +60,23 @@
     
     
 	<!-- mathjax -->
-	
-		<script type="text/x-mathjax-config">
-		  MathJax.Hub.Config({
-			tex2jax: {
-			  skipTags: ['script', 'noscript', 'style', 'textarea', 'pre'],
-			  inlineMath: [['$','$'], ['\(', '\)']],
-        displayMath: [['$$', '$$'], ['\[', '\]']],
-        processEscapes: true
-			}
-		  });
-		</script>
-		<script src='https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/latest.js?config=TeX-MML-AM_CHTML' async></script>
-	
+  
+    <script>
+      window.MathJax = {
+        loader: {load: ['[tex]/color']},
+        tex: {
+          inlineMath: [['$', '$'], ['\\(', '\\)']],
+          displayMath: [['$$', '$$'], ['\\[', '\\]']],
+          processEscapes: true,
+          packages: {'[+]': ['color']}
+        },
+        options: {
+          skipHtmlTags: ['script', 'noscript', 'style', 'textarea', 'pre']
+        }
+      };
+    </script>
+    <script src="https://cdn.jsdelivr.net/npm/mathjax@4/tex-mml-chtml.js" async></script>
+  
 <meta name="generator" content="Hexo 8.0.0"></head>
 
 <body class="max-width mx-auto px3 ltr">
@@ -177,7 +181,7 @@
                 
             </div>
             <div class="tag-cloud-tags">
-              <a href="/blog/tags/BinarySearch/" style="font-size: 12px;">二分查找</a> <a href="/blog/tags/%E5%89%B2%E7%82%B9/" style="font-size: 12px;">割点</a> <a href="/blog/tags/DP/" style="font-size: 30px;">动态规划</a> <a href="/blog/tags/%E5%93%88%E5%B8%8C/" style="font-size: 12px;">哈希</a> <a href="/blog/tags/%E5%9B%BE%E8%AE%BA/" style="font-size: 12px;">图论</a> <a href="/blog/tags/Tarjan/" style="font-size: 12px;">塔扬算法</a> <a href="/blog/tags/%E6%95%B0%E4%BD%8D-DP/" style="font-size: 12px;">数位 DP</a> <a href="/blog/tags/LIS/" style="font-size: 12px;">最长上升子序列</a> <a href="/blog/tags/BIT/" style="font-size: 12px;">树状数组</a> <a href="/blog/tags/%E7%82%B9%E5%8F%8C/" style="font-size: 12px;">点双</a> <a href="/blog/tags/%E7%9F%A9%E9%98%B5%E5%BF%AB%E9%80%9F%E5%B9%82/" style="font-size: 12px;">矩阵快速幂</a> <a href="/blog/tags/%E7%BA%BF%E6%80%A7-DP/" style="font-size: 12px;">线性 DP</a> <a href="/blog/tags/%E9%9A%8F%E6%9C%BA%E5%8C%96/" style="font-size: 12px;">随机化</a>
+              <a href="/blog/tags/BinarySearch/" style="font-size: 12px;">二分查找</a> <a href="/blog/tags/%E5%89%B2%E7%82%B9/" style="font-size: 12px;">割点</a> <a href="/blog/tags/DP/" style="font-size: 30px;">动态规划</a> <a href="/blog/tags/%E5%93%88%E5%B8%8C/" style="font-size: 12px;">哈希</a> <a href="/blog/tags/%E5%9B%BE%E8%AE%BA/" style="font-size: 12px;">图论</a> <a href="/blog/tags/Tarjan/" style="font-size: 12px;">塔扬算法</a> <a href="/blog/tags/%E6%95%B0%E4%BD%8D-DP/" style="font-size: 12px;">数位 DP</a> <a href="/blog/tags/LIS/" style="font-size: 12px;">最长上升子序列</a> <a href="/blog/tags/BIT/" style="font-size: 12px;">树状数组</a> <a href="/blog/tags/%E7%82%B9%E5%8F%8C/" style="font-size: 12px;">点双</a> <a href="/blog/tags/%E7%9F%A9%E9%98%B5%E5%BF%AB%E9%80%9F%E5%B9%82/" style="font-size: 12px;">矩阵快速幂</a> <a href="/blog/tags/%E7%BA%BF%E6%80%A7-DP/" style="font-size: 12px;">线性 DP</a> <a href="/blog/tags/Random/" style="font-size: 12px;">随机化</a>
             </div>
           </div>
         
