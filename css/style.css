@@ -881,9 +881,6 @@ body {
 #header-post #toc a:hover {
   color: var(--color-link);
 }
-#header-post #toc .toc-level-1 > .toc-link {
-  display: none;
-}
 #header-post #toc .toc-level-2 {
   color: var(--color-text);
   font-size: 0.8rem;
@@ -1060,9 +1057,6 @@ body {
 }
 #footer-post #toc-footer a:hover {
   color: var(--color-link);
-}
-#footer-post #toc-footer .toc-level-1 > .toc-link {
-  display: none;
 }
 #footer-post #toc-footer .toc-level-2 {
   color: var(--color-text);

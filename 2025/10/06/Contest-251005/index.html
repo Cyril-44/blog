@@ -6,15 +6,15 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="HandheldFriendly" content="True">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=5" />
-    <meta name="description" content="井下矿工  题面描述： Description 有一座地下的稀有金属矿有 $n$ 条隧道和一些连接点组成，其中每条隧道连接两个连接点。任意两个连接点之间最多只有一条隧道。为了降低矿工的危险，你的任务是在一些连接点处安装太平井和相应的逃生装置，使得不管哪个连接点倒塌，不在此连接点的所有矿工都能到达太平井逃生（假定除了倒塌的连接点不能通行外，其他隧道和连接点完好无损）。为了节约成本，你应当在尽量少的连">
+    <meta name="description" content="井下矿工  Description 有一座地下的稀有金属矿有 $n$ 条隧道和一些连接点组成，其中每条隧道连接两个连接点。任意两个连接点之间最多只有一条隧道。为了降低矿工的危险，你的任务是在一些连接点处安装太平井和相应的逃生装置，使得不管哪个连接点倒塌，不在此连接点的所有矿工都能到达太平井逃生（假定除了倒塌的连接点不能通行外，其他隧道和连接点完好无损）。为了节约成本，你应当在尽量少的连接点安装太平">
 <meta property="og:type" content="article">
 <meta property="og:title" content="校内模拟赛 10.05">
 <meta property="og:url" content="http://example.com/2025/10/06/Contest-251005/">
 <meta property="og:site_name" content="Hardsoft Blog">
-<meta property="og:description" content="井下矿工  题面描述： Description 有一座地下的稀有金属矿有 $n$ 条隧道和一些连接点组成，其中每条隧道连接两个连接点。任意两个连接点之间最多只有一条隧道。为了降低矿工的危险，你的任务是在一些连接点处安装太平井和相应的逃生装置，使得不管哪个连接点倒塌，不在此连接点的所有矿工都能到达太平井逃生（假定除了倒塌的连接点不能通行外，其他隧道和连接点完好无损）。为了节约成本，你应当在尽量少的连">
+<meta property="og:description" content="井下矿工  Description 有一座地下的稀有金属矿有 $n$ 条隧道和一些连接点组成，其中每条隧道连接两个连接点。任意两个连接点之间最多只有一条隧道。为了降低矿工的危险，你的任务是在一些连接点处安装太平井和相应的逃生装置，使得不管哪个连接点倒塌，不在此连接点的所有矿工都能到达太平井逃生（假定除了倒塌的连接点不能通行外，其他隧道和连接点完好无损）。为了节约成本，你应当在尽量少的连接点安装太平">
 <meta property="og:locale" content="zh_CN">
 <meta property="article:published_time" content="2025-10-05T18:57:08.000Z">
-<meta property="article:modified_time" content="2025-10-07T15:13:48.340Z">
+<meta property="article:modified_time" content="2025-10-07T17:51:06.865Z">
 <meta property="article:author" content="Hardsoft">
 <meta property="article:tag" content="割点">
 <meta property="article:tag" content="动态规划">
@@ -149,7 +149,7 @@
     
     
       <div id="toc">
-        <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link"><span class="toc-number">1.</span> <span class="toc-text">井下矿工</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E9%A2%98%E9%9D%A2%E6%8F%8F%E8%BF%B0%EF%BC%9A"><span class="toc-number">1.1.</span> <span class="toc-text">题面描述：</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Description"><span class="toc-number">1.1.1.</span> <span class="toc-text">Description</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Input"><span class="toc-number">1.1.2.</span> <span class="toc-text">Input</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Output"><span class="toc-number">1.1.3.</span> <span class="toc-text">Output</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Hint"><span class="toc-number">1.1.4.</span> <span class="toc-text">Hint</span></a></li></ol></li></ol></li></ol>
+        <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#%E4%BA%95%E4%B8%8B%E7%9F%BF%E5%B7%A5"><span class="toc-number">1.</span> <span class="toc-text">井下矿工</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#Description"><span class="toc-number">1.1.</span> <span class="toc-text">Description</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Input"><span class="toc-number">1.2.</span> <span class="toc-text">Input</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Output"><span class="toc-number">1.3.</span> <span class="toc-text">Output</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Hint"><span class="toc-number">1.4.</span> <span class="toc-text">Hint</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E6%BC%82%E4%BA%AE%E6%95%B0"><span class="toc-number">2.</span> <span class="toc-text">漂亮数</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E9%A2%98%E7%9B%AE%E6%8F%8F%E8%BF%B0"><span class="toc-number">2.1.</span> <span class="toc-text">题目描述</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E8%BE%93%E5%85%A5%E6%A0%BC%E5%BC%8F"><span class="toc-number">2.2.</span> <span class="toc-text">输入格式</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E8%BE%93%E5%87%BA%E6%A0%BC%E5%BC%8F"><span class="toc-number">2.3.</span> <span class="toc-text">输出格式</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%A0%B7%E4%BE%8B"><span class="toc-number">2.4.</span> <span class="toc-text">样例</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E8%BF%B7%E5%AE%AB%EF%BC%88%E5%8A%A8%E6%80%81%E5%9B%B4%E5%A2%99%EF%BC%89"><span class="toc-number">3.</span> <span class="toc-text">迷宫（动态围墙）</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E9%A2%98%E9%9D%A2%E6%8F%8F%E8%BF%B0"><span class="toc-number">3.1.</span> <span class="toc-text">题面描述</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E8%BE%93%E5%85%A5%E6%A0%BC%E5%BC%8F-2"><span class="toc-number">3.2.</span> <span class="toc-text">输入格式</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E8%BE%93%E5%87%BA%E6%A0%BC%E5%BC%8F-2"><span class="toc-number">3.3.</span> <span class="toc-text">输出格式</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%BA%A6%E6%9D%9F"><span class="toc-number">3.4.</span> <span class="toc-text">约束</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%A0%B7%E4%BE%8B-2"><span class="toc-number">3.5.</span> <span class="toc-text">样例</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E5%B9%B3%E8%A1%A1%E5%AD%97%E7%AC%A6%E4%B8%B2"><span class="toc-number">4.</span> <span class="toc-text">平衡字符串</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#Description-2"><span class="toc-number">4.1.</span> <span class="toc-text">Description</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E8%BE%93%E5%85%A5"><span class="toc-number">4.2.</span> <span class="toc-text">输入</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E8%BE%93%E5%87%BA"><span class="toc-number">4.3.</span> <span class="toc-text">输出</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%A0%B7%E4%BE%8B-3"><span class="toc-number">4.4.</span> <span class="toc-text">样例</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%BA%A6%E6%9D%9F%E4%B8%8E%E6%8F%90%E7%A4%BA"><span class="toc-number">4.5.</span> <span class="toc-text">约束与提示</span></a></li></ol></li></ol>
       </div>
     
   </span>
@@ -199,30 +199,244 @@
   
 
   <div class="content e-content" itemprop="articleBody">
-    <h1>井下矿工</h1>
+    <h1 id="井下矿工">井下矿工</h1>
 <blockquote>
-<h2 id="题面描述：">题面描述：</h2>
-<h3 id="Description">Description</h3>
+<h2 id="Description">Description</h2>
 <p>有一座地下的稀有金属矿有 $n$ 条隧道和一些连接点组成，其中每条隧道连接两个连接点。任意两个连接点之间最多只有一条隧道。为了降低矿工的危险，你的任务是在一些连接点处安装太平井和相应的逃生装置，使得不管哪个连接点倒塌，不在此连接点的所有矿工都能到达太平井逃生（假定除了倒塌的连接点不能通行外，其他隧道和连接点完好无损）。为了节约成本，你应当在尽量少的连接点安装太平井。还需要计算出当太平井的数目最小时安装方案总数。</p>
-<h3 id="Input">Input</h3>
+<h2 id="Input">Input</h2>
 <p>输入包含多组数据。每组数据第一行为隧道的条数 $n$； 以下 $n$ 行每行两个整数，即一条隧道两端的连接点编号（所有连接点从 $1$ 开始编号）。每组数据的所有连接点保证连通。 输入数据最后一行包含一个单独的整数 $0$ 表示结束。</p>
-<h3 id="Output">Output</h3>
+<h2 id="Output">Output</h2>
 <p>对于每组数据，输出两个整数，即最少需要安装的太平井数目以及对应的方案总数。方案保证在64位带符号整数的范围内。</p>
 <table>
 <th> Sample Input </th>
 <th> Sample Output </th>
 <tr>
 <td>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line">9</span><br><span class="line">1 3</span><br><span class="line">4 1</span><br><span class="line">3 5</span><br><span class="line">1 2</span><br><span class="line">2 6</span><br><span class="line">1 5</span><br><span class="line">6 3</span><br><span class="line">1 6</span><br><span class="line">3 2</span><br><span class="line">6</span><br><span class="line">1 2</span><br><span class="line">1 3</span><br><span class="line">2 4</span><br><span class="line">2 5</span><br><span class="line">3 6</span><br><span class="line">3 7</span><br><span class="line">0</span><br></pre></td></tr></table></figure>
+<pre>
+9
+1 3
+4 1
+3 5
+1 2
+2 6
+1 5
+6 3
+1 6
+3 2
+6
+1 2
+1 3
+2 4
+2 5
+3 6
+3 7
+0
+</pre>
 </td>
 <td>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">Case 1: 2 4</span><br><span class="line">Case 2: 4 1</span><br></pre></td></tr></table></figure>
+<pre>
+Case 1: 2 4
+Case 2: 4 1
+</pre>
 </tr>
 </table>
-<h3 id="Hint">Hint</h3>
+<h2 id="Hint">Hint</h2>
 <p>$100\%$ 的数据： $n\le 50000$</p>
 </blockquote>
 <p><s>这题输出就很唐。</s></p>
+<h1 id="漂亮数">漂亮数</h1>
+<blockquote>
+<h2 id="题目描述">题目描述</h2>
+<p>Smart 认为一个数能被它自己的每一位非零数字都整除的数是漂亮数。现在给你两个整&gt; 数 $L, R$，输出区间 $[L, R]$ 中漂亮数的个数。</p>
+<p>例如：若 $n=128$，需检查数字 $1,2,8$（非零位）是否都整除 $128$，若都整除则 $128$ 为漂亮数。</p>
+<h2 id="输入格式">输入格式</h2>
+<p>第一行一个整数 $T$，表示测试数据组数。接下来 $T$ 行，每行包含两个整数  $L_i, R_i$，表示查询区间 $[L_i, R_i]$。</p>
+<p>约束：$1 \le T \le 10,\quad 1 \le L_i, R_i \le 9\times 10^{18}$<br>
+（20% 的数据：$1 \le L_i, R_i \le 10^5$）</p>
+<h2 id="输出格式">输出格式</h2>
+<p>输出 $T$ 行，每行一个整数，表示对应区间内漂亮数的个数。</p>
+<h2 id="样例">样例</h2>
+<table>
+  <tr>
+    <th>Sample Input</th>
+    <th>Sample Output</th>
+  </tr>
+  <tr>
+    <td>
+<pre>
+1
+1 9
+</pre>
+    </td>
+    <td>
+<pre>
+9
+</pre>
+    </td>
+  </tr>
+  <tr>
+    <td>
+<pre>
+1
+12 15
+</pre>
+    </td>
+    <td>
+<pre>
+2
+</pre>
+    </td>
+  </tr>
+</table>
+</blockquote>
+<p>这题是数位 DP。</p>
+<p>考虑最朴素的做法：<br>
+设置状态 $ f \begin{bmatrix} d &amp; \begin{matrix} x_1 \\ x_2 \\ x_3 \\ x_4 \\ x_5 \\ x_6 \\ x_7 \\ x_8 \\ x_9 \end{matrix} &amp; \begin{matrix} s_1 \\ s_2 \\ s_3 \\ s_4 \\ s_5 \\ s_6 \\ s_7 \\ s_8 \\ s_9 \end{matrix} &amp; eq \end{bmatrix} $ 表示从左往右处理到了第 $d$ 位，<br>
+现在数字和原来 $ \begin{cases} eq=1: 相等 \\ eq=0: 不相等 \end{cases} $ ，<br>
+（从左往右）前 $i$ 位数 $\bmod m$ 的值是 $x_m$，前 $i$ 位数中 $\begin{cases} s_n=0: 不含 n \\ s_n=1: 含 n \end{cases}$ ，<br>
+此时所有合法数字的个数。</p>
+<p>转移：<br>
+$$<br>
+\begin{array}{l}<br>
+\textbf{For } d = 1 \dots d_{\max} &amp;\small{d: 当前枚举从前往后位数（从小到大）} \\<br>
+\quad \textbf{For } \forall i \in \{0 \dots 9\} &amp;\small{i: 当前枚举数位} \\<br>
+\qquad \textbf{For } \forall j=\{x_1 \dots x_9\} &amp;\small{j: 当前枚举模数状态} \\<br>
+\qquad\quad \textbf{For } \forall k=\{s_1 \dots s_9\} &amp;\small{k: 当前枚举数字存在状态} \\<br>
+\qquad\qquad \begin{cases}<br>
+i &lt; n_d: \quad \textbf{Let } f[i, x(j), s(k), 0] \operatorname{ Plus } f[i-1, j, k, 0] + f[i-1, j, k, 1] \\\\<br>
+i = n_d: \quad \begin{matrix} \textbf{Let } f[i, x(j), s(k), 0] \operatorname{ Plus } f[i-1][j][k][0] \\ \textbf{Let } f[i,x(j), s(k), 1] \operatorname{Plus} f[i-1][j][k][1] \end{matrix} \\\\<br>
+i &gt; n_d: \quad \textbf{Let } f[i, x(j), s(k), 0] \operatorname{ Plus } f[i-1][j][k][0]<br>
+\end{cases} &amp;\small{x(j): j的状态在末尾加上一位i后的状态 \\ s(j): 同理 \\ n_d: 原数字中从左往右数的第d位数}<br>
+\end{array}<br>
+$$</p>
+<p>显然这种做法存都存不下，更别提这惊人的时间复杂度了。令总位数为 $n$，时间 $\mathcal O(T \cdot n \cdot 9! \cdot 2^9 \cdot 10 \cdot 2)$，空间 $\mathcal O(9! \cdot 2^9 \cdot 10 \cdot 2)$（在使用滚动数组的情况下）。</p>
+<p>容易想到优化：对于 $ x_1, x_2, \dots, x_n $ 一个一个存储记录显然有些浪费，如果记录这个数字 $\bmod \operatorname{lcm}(1,2,\dots,9)$ 效果是一样的。<br>
+于是得到了状态 $ f\,[d, x, s, eq] $，时间是 $\mathcal O(T \cdot n \cdot 2520 \cdot 2^9 \cdot 10) $。</p>
+<details><summary> Code (20pts) </summary>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;stdio.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;string.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">define</span> Now f[i&amp;1][s][m]</span></span><br><span class="line"><span class="meta">#<span class="keyword">define</span> To f[i&amp;1^1][j ? s | 1 &lt;&lt; j-1 : s][((m&lt;&lt;3) + (m&lt;&lt;1) + j) % LCM]</span></span><br><span class="line"><span class="keyword">constexpr</span> <span class="type">int</span> LCM = <span class="number">2520</span>, SN = <span class="number">1</span> &lt;&lt; <span class="number">9</span>;</span><br><span class="line"><span class="type">static</span> <span class="type">long</span> <span class="type">long</span> f[<span class="number">2</span>][SN][LCM][<span class="number">2</span>]; <span class="comment">// 1= 0&lt;</span></span><br><span class="line"><span class="function"><span class="keyword">inline</span> <span class="type">long</span> <span class="type">long</span> <span class="title">work</span><span class="params">(<span class="type">long</span> <span class="type">long</span> x)</span> </span>&#123;</span><br><span class="line">    <span class="type">int</span> a[<span class="number">20</span>]&#123;&#125;, n = <span class="number">0</span>;</span><br><span class="line">    <span class="keyword">for</span> (; x &gt; <span class="number">0</span>; x /= <span class="number">10</span>) a[n++] = x % <span class="number">10</span>;</span><br><span class="line">    <span class="keyword">for</span> (<span class="type">int</span> i = <span class="number">0</span>; i &lt; (n&gt;&gt;<span class="number">1</span>); i++) a[i] ^= a[n-i<span class="number">-1</span>] ^= a[i] ^= a[n-i<span class="number">-1</span>];</span><br><span class="line">    <span class="built_in">memset</span>(f, <span class="number">0</span>, <span class="built_in">sizeof</span>(f) &gt;&gt; <span class="number">1</span>);</span><br><span class="line">    f[<span class="number">0</span>][<span class="number">0</span>][<span class="number">0</span>][<span class="number">1</span>] = <span class="number">1</span>;</span><br><span class="line">    <span class="keyword">for</span> (<span class="type">int</span> i = <span class="number">0</span>; i &lt; n; i++) &#123;</span><br><span class="line">        <span class="built_in">memset</span>(f[i&amp;<span class="number">1</span>^<span class="number">1</span>], <span class="number">0</span>, <span class="built_in">sizeof</span>(f) &gt;&gt; <span class="number">1</span>);</span><br><span class="line">        <span class="keyword">for</span> (<span class="type">int</span> s = <span class="number">0</span>; s &lt; SN; ++s)</span><br><span class="line">            <span class="keyword">for</span> (<span class="type">int</span> m = <span class="number">0</span>; m &lt; LCM; ++m) &#123;</span><br><span class="line">                <span class="type">long</span> <span class="type">long</span> now0 = Now[<span class="number">0</span>], now1 = Now[<span class="number">1</span>];</span><br><span class="line">                <span class="keyword">if</span> (!now0 &amp;&amp; !now1) <span class="keyword">continue</span>;</span><br><span class="line">                <span class="keyword">for</span> (<span class="type">int</span> j = <span class="number">0</span>; j &lt; <span class="number">10</span>; j++) &#123;</span><br><span class="line"><span class="comment">//                    printf(&quot;Upd: [%d] (%d %d %d) -&gt; (%d %d %d)\n&quot;, j, i, s, m, i+1, j ? s | 1 &lt;&lt; j-1 : s, ((m&lt;&lt;3) + (m&lt;&lt;1) + j) % LCM);</span></span><br><span class="line">                    <span class="keyword">if</span> (j &lt; a[i])</span><br><span class="line">                        To[<span class="number">0</span>] += now0 + now1;</span><br><span class="line">                    <span class="keyword">else</span> <span class="keyword">if</span> (j == a[i])</span><br><span class="line">                        To[<span class="number">1</span>] += now1, To[<span class="number">0</span>] += now0;</span><br><span class="line">                    <span class="keyword">else</span></span><br><span class="line">                        To[<span class="number">0</span>] += now0;</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="type">int</span> i = n;</span><br><span class="line">    <span class="type">long</span> <span class="type">long</span> ans = <span class="number">0</span>;</span><br><span class="line">    <span class="keyword">for</span> (<span class="type">int</span> s = <span class="number">0</span>; s &lt; SN; ++s)</span><br><span class="line">        <span class="keyword">for</span> (<span class="type">int</span> m = <span class="number">0</span>; m &lt; LCM; ++m) &#123;</span><br><span class="line">            <span class="type">bool</span> addable = <span class="literal">true</span>;</span><br><span class="line">            <span class="keyword">for</span> (<span class="type">int</span> i = <span class="number">1</span>; i &lt;= <span class="number">9</span>; i++)</span><br><span class="line">                <span class="keyword">if</span> ((s &amp; <span class="number">1</span> &lt;&lt; i<span class="number">-1</span>) &amp;&amp; m % i)</span><br><span class="line">                    &#123; addable = <span class="literal">false</span>; <span class="keyword">break</span>; &#125;</span><br><span class="line">            <span class="keyword">if</span> (addable &amp;&amp; Now[<span class="number">0</span>] + Now[<span class="number">1</span>])</span><br><span class="line"><span class="comment">//                fprintf(stderr, &quot;Add! (%d, %d) = %d\n&quot;, s, m, Now[0] + Now[1]),</span></span><br><span class="line">                ans += Now[<span class="number">0</span>] + Now[<span class="number">1</span>];</span><br><span class="line">        &#125;</span><br><span class="line"><span class="comment">//    printf(&quot;%d\n&quot;, ans);</span></span><br><span class="line">    <span class="keyword">return</span> ans;</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">main</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    <span class="built_in">freopen</span>(<span class="string">&quot;number.in&quot;</span>, <span class="string">&quot;r&quot;</span>, stdin);</span><br><span class="line">    <span class="built_in">freopen</span>(<span class="string">&quot;number.out&quot;</span>, <span class="string">&quot;w&quot;</span>, stdout);</span><br><span class="line">    <span class="type">int</span> T;	</span><br><span class="line">    <span class="type">long</span> <span class="type">long</span> L, R;</span><br><span class="line">    <span class="built_in">scanf</span>(<span class="string">&quot;%d&quot;</span>, &amp;T);</span><br><span class="line">    <span class="keyword">while</span> (T--) &#123;</span><br><span class="line">        <span class="built_in">scanf</span>(<span class="string">&quot;%lld%lld&quot;</span>, &amp;L, &amp;R);</span><br><span class="line">        <span class="built_in">printf</span>(<span class="string">&quot;%lld\n&quot;</span>, <span class="built_in">work</span>(R) - <span class="built_in">work</span>(L<span class="number">-1</span>));</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</details>
+<p>为什么拿不到满分呢？？？<br>
+实际上，一部分原因是 OJ 太慢了。。。<br>
+但是！注意到！<br>
+我刚刚推的 DP 实际上是重复算了大量子问题：那就是 $eq=0$ 的情况！<br>
+对于这个子问题单独处理为一个 $g$，然后每次 dfs 式地去算答案，这题就能获得正解。</p>
+<details><summary> Code (std) </summary>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;bits/stdc++.h&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> std;</span><br><span class="line"></span><br><span class="line"><span class="keyword">typedef</span> <span class="type">long</span> <span class="type">long</span> ll;</span><br><span class="line"><span class="type">const</span> <span class="type">int</span> P = <span class="number">2520</span>;</span><br><span class="line"></span><br><span class="line"><span class="type">int</span> T, a[<span class="number">20</span>];</span><br><span class="line">ll l, r, ans, f[<span class="number">20</span>][<span class="number">2520</span>][<span class="number">256</span>];</span><br><span class="line"></span><br><span class="line"><span class="comment">//表示从高到低考虑前i个数位模2520为j,已经出现的非零的数字集合为S,当前数是否等于n的情况为k的方案数</span></span><br><span class="line"><span class="function">ll <span class="title">dfs</span><span class="params">(<span class="type">int</span> i, <span class="type">int</span> j, <span class="type">int</span> S, <span class="type">bool</span> k)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">if</span> (i == <span class="number">0</span>) &#123;</span><br><span class="line">        <span class="keyword">for</span> (<span class="type">int</span> t = <span class="number">2</span>; t &lt;= <span class="number">9</span>; ++t) <span class="comment">//枚举非零数字,1能整除任何数不需要判断</span></span><br><span class="line">            <span class="keyword">if</span> (S &amp; (<span class="number">1</span> &lt;&lt; (t - <span class="number">2</span>)) &amp;&amp; j % t)</span><br><span class="line">                <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">        <span class="keyword">return</span> <span class="number">1</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">if</span> (!k &amp;&amp; f[i][j][S] != <span class="number">-1</span>)</span><br><span class="line">        <span class="keyword">return</span> f[i][j][S]; <span class="comment">//状态搜索过</span></span><br><span class="line">    <span class="type">int</span> Max = <span class="number">9</span>;</span><br><span class="line">    <span class="keyword">if</span> (k)</span><br><span class="line">        Max = a[i]; <span class="comment">//这一位的最大数字</span></span><br><span class="line">    ll ret = <span class="number">0</span>;</span><br><span class="line">    <span class="keyword">for</span> (<span class="type">int</span> t = <span class="number">0</span>; t &lt;= Max; ++t) <span class="comment">//枚举第i位取的数字为t</span></span><br><span class="line">    &#123;</span><br><span class="line">        <span class="type">int</span> tj = (j * <span class="number">10</span> + t) % P;</span><br><span class="line">        <span class="type">int</span> tS = t &gt; <span class="number">1</span> ? S | (<span class="number">1</span> &lt;&lt; (t - <span class="number">2</span>)) : S;</span><br><span class="line">        <span class="type">int</span> tk = k &amp;&amp; t == Max;</span><br><span class="line">        ret += <span class="built_in">dfs</span>(i - <span class="number">1</span>, tj, tS, tk);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">if</span> (!k)</span><br><span class="line">        f[i][j][S] =</span><br><span class="line">            ret; <span class="comment">//只能记小于的情况:因为只有小于的时候后面的数可以随便取</span></span><br><span class="line">    <span class="keyword">return</span> ret;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function">ll <span class="title">cal</span><span class="params">(ll x)</span> </span>&#123;</span><br><span class="line">    <span class="type">int</span> n = <span class="number">0</span>;</span><br><span class="line">    <span class="keyword">while</span> (x) &#123;</span><br><span class="line">        a[++n] = x % <span class="number">10</span>;</span><br><span class="line">        x /= <span class="number">10</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> <span class="built_in">dfs</span>(n, <span class="number">0</span>, <span class="number">0</span>, <span class="number">1</span>);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">main</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    <span class="built_in">memset</span>(f, <span class="number">-1</span>, <span class="built_in">sizeof</span>(f));</span><br><span class="line">    <span class="built_in">scanf</span>(<span class="string">&quot;%d&quot;</span>, &amp;T);</span><br><span class="line">    <span class="keyword">while</span> (T--) &#123;</span><br><span class="line">        <span class="built_in">scanf</span>(<span class="string">&quot;%lld %lld&quot;</span>, &amp;l, &amp;r);</span><br><span class="line">        ans = <span class="built_in">cal</span>(r) - <span class="built_in">cal</span>(l - <span class="number">1</span>);</span><br><span class="line">        <span class="built_in">printf</span>(<span class="string">&quot;%lld\n&quot;</span>, ans);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</details>
+<h1 id="迷宫（动态围墙）">迷宫（动态围墙）</h1>
+<blockquote>
+<h2 id="题面描述">题面描述</h2>
+<p>Zdrcl 不慎进入了一个迷宫。这个迷宫是一个空的 $N\times M$ 网格，之后会发生 $Q$ 件事件，事件类型如下：</p>
+<ol>
+<li><code>1 x1 y1 x2 y2</code>：在由格子 $(x_1,y_1)$ 到 $(x_2,y_2)$ 所构成的矩形外围出现一堵围墙（围墙沿格边，与格子边重合）。</li>
+<li><code>2 x1 y1 x2 y2</code>：上述那堵围墙消失（保证该围墙之前确实出现过）。</li>
+<li><code>3 x1 y1 x2 y2</code>：询问 Zdrcl 是否能从 $(x_1,y_1)$ 走到 $(x_2,y_2)$（不能翻越围墙，只能沿网格的四个方向移动）。</li>
+</ol>
+<p>题目保证：任意两堵围墙之间不相交、没有公共边也没有公共点（即围墙互相独立）。</p>
+<h2 id="输入格式-2">输入格式</h2>
+<p>第一行：三个正整数 $N, M, Q$。<br>
+接下来有 $Q$ 行，每行五个整数：<code>t x1 y1 x2 y2</code>，表示一条事件。<br>
+其中对于添加/删除围墙的事件（即 <code>t=1</code> 或 <code>t=2</code>），保证<br>
+$<br>
+2 \le x_1 \le x_2 \le N-1,\qquad 2 \le y_1 \le y_2 \le M-1.<br>
+$</p>
+<h2 id="输出格式-2">输出格式</h2>
+<p>对于每个 <code>t=3</code> 的查询，输出一行：能到则输出 <code>Yes</code>，否则输出 <code>No</code>。</p>
+<h2 id="约束">约束</h2>
+<p>$<br>
+N, M \le 2500, Q \le 10^5.<br>
+$</p>
+<h2 id="样例-2">样例</h2>
+<table>
+  <tr>
+    <th>Sample Input</th>
+    <th>Sample Output</th>
+  </tr>
+  <tr>
+    <td>
+<pre>
+5 6 5
+1 2 2 4 5
+1 3 3 3 3
+3 4 4 1 1
+2 2 2 4 5
+3 1 1 4 4
+</pre>
+    </td>
+    <td>
+<pre>
+No
+Yes
+</pre>
+    </td>
+  </tr>
+</table>
+</blockquote>
+<p>显然呢这题我们立刻可以想到 矩阵区间加 和 差分思想。<br>
+想要解决这道题目，我们要先明白：使用 Hash 算法根本目的都是为了使用有限的数字去衡量一个较大的数据块，并且做到尽量唯一。<br>
+对于本题而言，我们需要一种 Hash 可以快速处理加入和删除。<br>
+我想到了使用 <code>unsigned long long</code> 自然溢出，并且对每一次“矩阵加”都赋上一个随机权值，区间加上这个权值，删除时直接减去这个权值。<br>
+std 使用的是亦或处理加入删除，但是我觉得比加减还容易被卡，但是这题数据也不强，所以就随便玩玩。<br>
+需要用到二维树状数组！这是一个非常简单的数据结构，但是想起来应用确实不容易啊。</p>
+<details><summary> Code </summary>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;stdio.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;string.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;algorithm&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;time.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;random&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;unordered_map&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> u64 = <span class="type">unsigned</span> <span class="type">long</span> <span class="type">long</span>;</span><br><span class="line"><span class="keyword">constexpr</span> <span class="type">int</span> N = <span class="number">2505</span>;</span><br><span class="line"><span class="keyword">constexpr</span> u64 B = <span class="number">31</span>;</span><br><span class="line"><span class="type">int</span> n, m;</span><br><span class="line"><span class="keyword">namespace</span> BIT &#123;</span><br><span class="line">    u64 tr[N][N];</span><br><span class="line">    <span class="function"><span class="keyword">inline</span> <span class="type">void</span> <span class="title">upd</span><span class="params">(<span class="type">const</span> <span class="type">int</span> px, <span class="type">const</span> <span class="type">int</span> py, <span class="type">const</span> u64 &amp;x)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">for</span> (<span class="type">int</span> i = px; i &lt;= n; i += i &amp; -i)</span><br><span class="line">            <span class="keyword">for</span> (<span class="type">int</span> j = py; j &lt;= m; j += j &amp; -j)</span><br><span class="line">                tr[i][j] += x;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="function"><span class="keyword">inline</span> u64 <span class="title">query</span><span class="params">(<span class="type">const</span> <span class="type">int</span> px, <span class="type">const</span> <span class="type">int</span> py)</span> </span>&#123;</span><br><span class="line">        u64 res = <span class="number">0</span>;</span><br><span class="line">        <span class="keyword">for</span> (<span class="type">int</span> i = px; i &gt; <span class="number">0</span>; i -= i &amp; -i)</span><br><span class="line">            <span class="keyword">for</span> (<span class="type">int</span> j = py; j &gt; <span class="number">0</span>; j -= j &amp; -j)</span><br><span class="line">                res += tr[i][j];</span><br><span class="line">        <span class="keyword">return</span> res;</span><br><span class="line">    &#125;</span><br><span class="line">&#125; <span class="keyword">using</span> BIT::upd; <span class="keyword">using</span> BIT::query;</span><br><span class="line"><span class="function"><span class="keyword">inline</span> u64 <span class="title">keygen</span><span class="params">(<span class="type">const</span> <span class="type">int</span> a, <span class="type">const</span> <span class="type">int</span> b, <span class="type">const</span> <span class="type">int</span> c, <span class="type">const</span> <span class="type">int</span> d)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">return</span> (u64)a &lt;&lt; <span class="number">48</span> | (u64)b &lt;&lt; <span class="number">32</span> | c &lt;&lt; <span class="number">16</span> | d;</span><br><span class="line">&#125;</span><br><span class="line">std::unordered_map&lt;u64, u64&gt; mp;</span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">main</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    <span class="type">int</span> q;</span><br><span class="line">    <span class="built_in">scanf</span>(<span class="string">&quot;%d%d%d&quot;</span>, &amp;n, &amp;m, &amp;q);</span><br><span class="line">    <span class="function">std::mt19937 <span class="title">seed</span><span class="params">(time(<span class="literal">nullptr</span>))</span></span>;</span><br><span class="line">    <span class="function">std::uniform_int_distribution&lt;<span class="type">int</span>&gt; <span class="title">rnd</span><span class="params">(<span class="number">1</span>, (<span class="type">int</span>)B<span class="number">-1</span>)</span></span>;</span><br><span class="line">    u64 base = <span class="number">1</span>;</span><br><span class="line">    <span class="keyword">for</span> (<span class="type">int</span> t, x1, x2, y1, y2; q--; ) &#123;</span><br><span class="line">        <span class="built_in">scanf</span>(<span class="string">&quot;%d%d%d%d%d&quot;</span>, &amp;t, &amp;x1, &amp;y1, &amp;x2, &amp;y2);</span><br><span class="line">        <span class="keyword">switch</span> (t) &#123;</span><br><span class="line">        <span class="keyword">case</span> <span class="number">1</span>: &#123;</span><br><span class="line">            u64 key = <span class="built_in">keygen</span>(x1, x2, y1, y2);</span><br><span class="line">            u64 id = base * <span class="built_in">rnd</span>(seed);</span><br><span class="line">            <span class="built_in">upd</span>(x1, y1, id);</span><br><span class="line">            <span class="built_in">upd</span>(x1, y2<span class="number">+1</span>, -id);</span><br><span class="line">            <span class="built_in">upd</span>(x2<span class="number">+1</span>, y1, -id);</span><br><span class="line">            <span class="built_in">upd</span>(x2<span class="number">+1</span>, y2<span class="number">+1</span>, id);</span><br><span class="line">            mp[key] = id;</span><br><span class="line">            base *= B;</span><br><span class="line">            <span class="keyword">break</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">case</span> <span class="number">2</span>: &#123;</span><br><span class="line">            u64 key = <span class="built_in">keygen</span>(x1, x2, y1, y2);</span><br><span class="line">            u64 id = mp[key];</span><br><span class="line">            <span class="built_in">upd</span>(x1, y1, -id);</span><br><span class="line">            <span class="built_in">upd</span>(x1, y2<span class="number">+1</span>, id);</span><br><span class="line">            <span class="built_in">upd</span>(x2<span class="number">+1</span>, y1, id);</span><br><span class="line">            <span class="built_in">upd</span>(x2<span class="number">+1</span>, y2<span class="number">+1</span>, -id);</span><br><span class="line">            <span class="keyword">break</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">case</span> <span class="number">3</span>: </span><br><span class="line">            <span class="built_in">puts</span>(<span class="built_in">query</span>(x1, y1) == <span class="built_in">query</span>(x2, y2) ? <span class="string">&quot;Yes&quot;</span> : <span class="string">&quot;No&quot;</span>);</span><br><span class="line">        &#125;</span><br><span class="line">        </span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</details>
+<h1 id="平衡字符串">平衡字符串</h1>
+<blockquote>
+<h2 id="Description-2">Description</h2>
+<p>尼克对研究字符串非常着迷。他喜欢翻转它们、排序它们，或者将一个字符串的字母重新排列。一次他写下了一个仅包含字母 a、b、c 的字符串 $S$（长度为 $N$），并可以对该字符串重复执行下面两类操作中的任意一个：</p>
+<ol>
+<li>选择两个相邻字母，将第二个替换第一个（例如将 “ab” 变为 “bb”）。</li>
+<li>选择两个相邻字母，将第一个替换第二个（例如将 “ab” 变为 “aa”）。</li>
+</ol>
+<p>例如，从 “abc” 可以得到的字符串包括 “bbc”、“abb”、“acc” 等。</p>
+<p>记字母 $x$ 在字符串中的频率为 $|x|$（即出现次数）。当对字符串应用上述操作后，若字符串中任意两种字母的频率差不超过 $1$，则称该字符串为平衡串。也就是说要求同时满足<br>
+$-1 \le |a|-|b| \le 1$，$-1 \le |a|-|c| \le 1$，$-1 \le |b|-|c| \le 1$。</p>
+<p>给定初始字符串 $S$，请计算能够通过对 $S$ 进行一次或多次上述操作得到的不同平衡串的数量（若初始字符串已平衡，也应计入）。结果对 $51123987$ 取模后输出。</p>
+<h2 id="输入">输入</h2>
+<p>第一行是整数 $N$，表示字符串 $S$ 的长度。<br>
+第二行是字符串 $S$，仅包含字符 a、b、c。</p>
+<p>注意初始字符串也可能已经是平衡串并应被计入。</p>
+<h2 id="输出">输出</h2>
+<p>输出一行：不同的可达平衡串的数量对 $51123987$ 取模的结果。</p>
+<h2 id="样例-3">样例</h2>
+<table>
+  <thead>
+    <tr>
+      <th>样例组</th>
+      <th>Sample Input</th>
+      <th>Sample Output</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>#1</td>
+      <td><pre>4
+abca</pre></td>
+      <td><pre>7</pre></td>
+    </tr>
+    <tr>
+      <td>#2</td>
+      <td><pre>4
+abbc</pre></td>
+      <td><pre>3</pre></td>
+    </tr>
+    <tr>
+      <td>#3</td>
+      <td><pre>2
+ab</pre></td>
+      <td><pre>1</pre></td>
+    </tr>
+  </tbody>
+</table>
+<p>样例说明：样例 #1 中合法的字符串有 7 个：“abca”、“aabc”、“abbc”、“abcc”、“bbca”、“bcca”、“bcaa”。</p>
+<h2 id="约束与提示">约束与提示</h2>
+<ul>
+<li>$45\%$ 的数据： $N \le 100$；</li>
+<li>$100\%$ 的数据： $N \le 150$。</li>
+<li>模数：$51123987$。</li>
+</ul>
+</blockquote>
 
   </div>
 </article>
@@ -254,7 +468,7 @@
     
     
       <div id="toc-footer" style="display: none">
-        <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link"><span class="toc-number">1.</span> <span class="toc-text">井下矿工</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E9%A2%98%E9%9D%A2%E6%8F%8F%E8%BF%B0%EF%BC%9A"><span class="toc-number">1.1.</span> <span class="toc-text">题面描述：</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Description"><span class="toc-number">1.1.1.</span> <span class="toc-text">Description</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Input"><span class="toc-number">1.1.2.</span> <span class="toc-text">Input</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Output"><span class="toc-number">1.1.3.</span> <span class="toc-text">Output</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Hint"><span class="toc-number">1.1.4.</span> <span class="toc-text">Hint</span></a></li></ol></li></ol></li></ol>
+        <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#%E4%BA%95%E4%B8%8B%E7%9F%BF%E5%B7%A5"><span class="toc-number">1.</span> <span class="toc-text">井下矿工</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#Description"><span class="toc-number">1.1.</span> <span class="toc-text">Description</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Input"><span class="toc-number">1.2.</span> <span class="toc-text">Input</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Output"><span class="toc-number">1.3.</span> <span class="toc-text">Output</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Hint"><span class="toc-number">1.4.</span> <span class="toc-text">Hint</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E6%BC%82%E4%BA%AE%E6%95%B0"><span class="toc-number">2.</span> <span class="toc-text">漂亮数</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E9%A2%98%E7%9B%AE%E6%8F%8F%E8%BF%B0"><span class="toc-number">2.1.</span> <span class="toc-text">题目描述</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E8%BE%93%E5%85%A5%E6%A0%BC%E5%BC%8F"><span class="toc-number">2.2.</span> <span class="toc-text">输入格式</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E8%BE%93%E5%87%BA%E6%A0%BC%E5%BC%8F"><span class="toc-number">2.3.</span> <span class="toc-text">输出格式</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%A0%B7%E4%BE%8B"><span class="toc-number">2.4.</span> <span class="toc-text">样例</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E8%BF%B7%E5%AE%AB%EF%BC%88%E5%8A%A8%E6%80%81%E5%9B%B4%E5%A2%99%EF%BC%89"><span class="toc-number">3.</span> <span class="toc-text">迷宫（动态围墙）</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E9%A2%98%E9%9D%A2%E6%8F%8F%E8%BF%B0"><span class="toc-number">3.1.</span> <span class="toc-text">题面描述</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E8%BE%93%E5%85%A5%E6%A0%BC%E5%BC%8F-2"><span class="toc-number">3.2.</span> <span class="toc-text">输入格式</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E8%BE%93%E5%87%BA%E6%A0%BC%E5%BC%8F-2"><span class="toc-number">3.3.</span> <span class="toc-text">输出格式</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%BA%A6%E6%9D%9F"><span class="toc-number">3.4.</span> <span class="toc-text">约束</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%A0%B7%E4%BE%8B-2"><span class="toc-number">3.5.</span> <span class="toc-text">样例</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E5%B9%B3%E8%A1%A1%E5%AD%97%E7%AC%A6%E4%B8%B2"><span class="toc-number">4.</span> <span class="toc-text">平衡字符串</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#Description-2"><span class="toc-number">4.1.</span> <span class="toc-text">Description</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E8%BE%93%E5%85%A5"><span class="toc-number">4.2.</span> <span class="toc-text">输入</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E8%BE%93%E5%87%BA"><span class="toc-number">4.3.</span> <span class="toc-text">输出</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%A0%B7%E4%BE%8B-3"><span class="toc-number">4.4.</span> <span class="toc-text">样例</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%BA%A6%E6%9D%9F%E4%B8%8E%E6%8F%90%E7%A4%BA"><span class="toc-number">4.5.</span> <span class="toc-text">约束与提示</span></a></li></ol></li></ol>
       </div>
     
 
