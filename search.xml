@@ -47,8 +47,6 @@
       
         <tags>
             
-            <tag> 动态规划 </tag>
-            
             <tag> 塔扬算法 </tag>
             
             <tag> 割点 </tag>
@@ -60,6 +58,8 @@
             <tag> 哈希 </tag>
             
             <tag> 随机化 </tag>
+            
+            <tag> 动态规划 </tag>
             
         </tags>
       
@@ -84,9 +84,9 @@
       
         <tags>
             
-            <tag> 二分查找 </tag>
-            
             <tag> 动态规划 </tag>
+            
+            <tag> 二分查找 </tag>
             
             <tag> 线性 DP </tag>
             
