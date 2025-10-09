@@ -14,7 +14,7 @@
 <meta property="og:description" content="井下矿工  Description 有一座地下的稀有金属矿有 $n$ 条隧道和一些连接点组成，其中每条隧道连接两个连接点。任意两个连接点之间最多只有一条隧道。为了降低矿工的危险，你的任务是在一些连接点处安装太平井和相应的逃生装置，使得不管哪个连接点倒塌，不在此连接点的所有矿工都能到达太平井逃生（假定除了倒塌的连接点不能通行外，其他隧道和连接点完好无损）。为了节约成本，你应当在尽量少的连接点安装太平">
 <meta property="og:locale" content="zh_CN">
 <meta property="article:published_time" content="2025-10-05T18:57:08.000Z">
-<meta property="article:modified_time" content="2025-10-07T17:51:06.865Z">
+<meta property="article:modified_time" content="2025-10-07T18:30:51.988Z">
 <meta property="article:author" content="Hardsoft">
 <meta property="article:tag" content="割点">
 <meta property="article:tag" content="动态规划">
@@ -306,7 +306,7 @@ $$<br>
 i &lt; n_d: \quad \textbf{Let } f[i, x(j), s(k), 0] \operatorname{ Plus } f[i-1, j, k, 0] + f[i-1, j, k, 1] \\\\<br>
 i = n_d: \quad \begin{matrix} \textbf{Let } f[i, x(j), s(k), 0] \operatorname{ Plus } f[i-1][j][k][0] \\ \textbf{Let } f[i,x(j), s(k), 1] \operatorname{Plus} f[i-1][j][k][1] \end{matrix} \\\\<br>
 i &gt; n_d: \quad \textbf{Let } f[i, x(j), s(k), 0] \operatorname{ Plus } f[i-1][j][k][0]<br>
-\end{cases} &amp;\small{x(j): j的状态在末尾加上一位i后的状态 \\ s(j): 同理 \\ n_d: 原数字中从左往右数的第d位数}<br>
+\end{cases} &amp;\small{x(j): j 在末尾加上一位 i 后的状态 \\ s(j): 同理 \\ n_d: 原数字中从左往右数的第d位数}<br>
 \end{array}<br>
 $$</p>
 <p>显然这种做法存都存不下，更别提这惊人的时间复杂度了。令总位数为 $n$，时间 $\mathcal O(T \cdot n \cdot 9! \cdot 2^9 \cdot 10 \cdot 2)$，空间 $\mathcal O(9! \cdot 2^9 \cdot 10 \cdot 2)$（在使用滚动数组的情况下）。</p>
