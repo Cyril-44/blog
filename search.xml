@@ -4,6 +4,35 @@
   
     
     <entry>
+      <title>md</title>
+      <link href="/blog/2025/10/12/Contest-251007/"/>
+      <url>/blog/2025/10/12/Contest-251007/</url>
+      
+        <content type="html"><![CDATA[<blockquote><h1 id="abcd">abcd</h1><h2 id="描述">描述</h2><p>有 4 个长度为 $N$ 的数组 $a,b,c,d$。现在需要你选择 $N$ 个数构成数组 $e$，满足对所有 $i$ 有<br>$ a_i \le e_i \le b_i $<br>并且满足约束<br>$ \displaystyle \sum_{i=1}^N e_i c_i = 0 $。<br>目标是使得<br>$ \displaystyle \sum_{i=1}^N e_i d_i $<br>最大化。题目保证至少存在一个可行解。</p><h2 id="输入">输入</h2><p>输入共 $N+1$ 行。<br>第 $1$ 行包含一个正整数 $N$。<br>第 $i+1$ 行包含 4 个整数 $a_i\; b_i\; c_i\; d_i$（按顺序）。</p><h2 id="输出">输出</h2><p>输出共 $1$ 行，包含 $1$ 个整数，表示所给目标的最大值。</p><h2 id="约束">约束</h2><ul><li>对于 $20\%$ 的数据：$N \le 10,\ -2 \le a_i &lt; b_i \le 2$；</li><li>对于 $60\%$ 的数据：$N \le 50,\ -20 \le a_i &lt; b_i \le 20$；</li><li>对于 $100\%$ 的数据：$N \le 200,\ -25 \le a_i &lt; b_i \le 25,\ 1 \le c_i \le 20,\ 0 \le d_i \le 100000$。</li></ul><h2 id="样例（分组）">样例（分组）</h2><table>  <thead>    <tr>      <th>样例组</th>      <th>Sample Input</th>      <th>Sample Output</th>    </tr>  </thead>  <tbody>    <tr>      <td>#1</td>      <td><pre>5-1 1 2 5-2 2 1 20 1 1 3-2 -1 3 10-2 2 3 9</pre></td>      <td><pre>2</pre></td>    </tr>    <tr>      <td>#2</td>      <td><pre>101 10 1 7-10 10 2 0-10 10 2 2-10 10 2 01 10 1 0-10 10 2 010 10 2 01 10 1 0-10 10 2 01 10 1 0</pre></td>      <td><pre>90</pre></td>    </tr>    <tr>      <td>#3</td>      <td><pre>101 10 1 0-10 10 2 2-10 10 2 2-10 10 2 21 10 1 0-10 10 2 2-10 10 2 21 10 1 0-10 10 2 21 10 1 0</pre></td>      <td><pre>-4</pre></td>    </tr>  </tbody></table></blockquote><p>这题显然转化为<strong>多重背包</strong>问题，要求背包内物品“体积”和严格为 $0$，计算价值的最大值。<br>形式化的，每种物品有体积 $c_i$，价值 $d_i$，数量 $b_i-a_i$，最终答案为 $(\sum\limits_{i=1}^n e_i \cdot a_i) + f[0]$，其中 $f[0]$ 为体积和为 $0$ 时物品最大价值。</p><p>理论上，我们可以使用 SIMD AVX2 优化通过此题，我赛时也是这样写的。<br>二进制分组也不妨是一个优秀的选择。<br>但是考虑到如果数据更加极限，比如调小 $c_i$ 调大 $b_i-a_i$，那这两种都可以被卡掉。<br>所以，这题应该使用<strong>优先队列</strong>优化多重背包计算。</p><p>注意到，朴素多重背包转移：</p><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">for</span> (<span class="type">int</span> i = <span class="number">1</span>; i &lt;= n; i++)</span><br><span class="line">    <span class="keyword">for</span> (<span class="type">int</span> j = mn; j &lt;= mx; j++)</span><br><span class="line">        <span class="keyword">for</span> (<span class="type">int</span> k = <span class="number">1</span>; k &lt;= amount[i]; k++)</span><br><span class="line">            <span class="built_in">update_max</span>(f[i][j], f[i][j - k * size[i]] + k * value[i]);</span><br></pre></td></tr></table></figure><p>这其中的 <code>j</code> 转移的时候都是从 $[j] \pmod{size_i}$ 这个同余类转移过来的，也就是说，我们可以更加快速地转移 <code>f[i][j]</code>。容易想到一些区间算法，但是不如二进制分组，所以不加以阐述。<br>我们考虑使用单调队列维护对于</p>]]></content>
+      
+      
+      <categories>
+          
+          <category> 做题记录 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> 背包DP </tag>
+            
+            <tag> 单调队列 </tag>
+            
+            <tag> 指令集优化 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>Codeforces Round 2153 (Div 2)</title>
       <link href="/blog/2025/10/11/CF-2153/"/>
       <url>/blog/2025/10/11/CF-2153/</url>
