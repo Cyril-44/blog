@@ -1,0 +1,392 @@
+<!DOCTYPE html>
+<html lang=zh>
+<head>
+    <!-- so meta -->
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="HandheldFriendly" content="True">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=5" />
+    <meta name="description" content="[2160A	MEX Partition] (https:&#x2F;&#x2F;codeforces.com&#x2F;problemset&#x2F;problem&#x2F;2160&#x2F;A) 这题是一道结论题。 观察到当原序列没有 $0$ 的时候，答案一定是 $0$。 观察到当原序列存在 $0$ 的时候，答案就是原数组的 $\operatorname{MEX}$， 因为没有更小的值使其 $\exist$ 一种划分，使得每个子数组的 $\ope">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Codeforces Round 1058 (Div 2)">
+<meta property="og:url" content="http://example.com/2025/10/13/CF-2160/">
+<meta property="og:site_name" content="Hardsoft Blog">
+<meta property="og:description" content="[2160A	MEX Partition] (https:&#x2F;&#x2F;codeforces.com&#x2F;problemset&#x2F;problem&#x2F;2160&#x2F;A) 这题是一道结论题。 观察到当原序列没有 $0$ 的时候，答案一定是 $0$。 观察到当原序列存在 $0$ 的时候，答案就是原数组的 $\operatorname{MEX}$， 因为没有更小的值使其 $\exist$ 一种划分，使得每个子数组的 $\ope">
+<meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2025-10-13T07:21:43.000Z">
+<meta property="article:modified_time" content="2025-10-13T15:58:23.072Z">
+<meta property="article:author" content="Hardsoft">
+<meta name="twitter:card" content="summary">
+    
+    
+      
+        
+          <link rel="shortcut icon" href="/blog/images/favicon.ico">
+        
+      
+      
+        
+          <link rel="icon" type="image/png" href="/blog/images/favicon-192x192.png" sizes="192x192">
+        
+      
+      
+        
+          <link rel="apple-touch-icon" sizes="180x180" href="/blog/images/apple-touch-icon.png">
+        
+      
+    
+    <!-- title -->
+    <title>Codeforces Round 1058 (Div 2) - Hardsoft Blog</title>
+    <!-- async scripts -->
+    <!-- Google Analytics -->
+
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-DVXX59Q8R0"></script>
+  <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-DVXX59Q8R0');
+  </script>
+
+
+    <!-- Umami Analytics -->
+
+
+    <!-- styles -->
+    
+<link rel="stylesheet" href="/blog/css/style.css">
+
+    <!-- persian styles -->
+    
+    <!-- rss -->
+    
+    
+	<!-- mathjax -->
+  
+    <script>
+      window.MathJax = {
+        loader: {load: ['[tex]/color']},
+        tex: {
+          inlineMath: [['$', '$'], ['\\(', '\\)']],
+          displayMath: [['$$', '$$'], ['\\[', '\\]']],
+          processEscapes: true,
+          packages: {'[+]': ['color']}
+        },
+        options: {
+          skipHtmlTags: ['script', 'noscript', 'style', 'textarea', 'pre']
+        }
+      };
+    </script>
+    <script src="https://cdn.jsdelivr.net/npm/mathjax@4/tex-mml-chtml.js" async></script>
+  
+<meta name="generator" content="Hexo 8.0.0"></head>
+
+<body class="max-width mx-auto px3 ltr">
+    
+      <div id="header-post">
+  <a id="menu-icon" href="#" aria-label="目录"><i class="fa-solid fa-bars fa-lg"></i></a>
+  <a id="menu-icon-tablet" href="#" aria-label="目录"><i class="fa-solid fa-bars fa-lg"></i></a>
+  <a id="top-icon-tablet" href="#" aria-label="顶部" onclick="$('html, body').animate({ scrollTop: 0 }, 'fast');" style="display:none;"><i class="fa-solid fa-chevron-up fa-lg"></i></a>
+  <span id="menu">
+    <span id="nav">
+      <ul>
+        <!--
+       --><li><a href="/blog/">首页</a></li><!--
+     --><!--
+       --><li><a href="/blog/about/">关于</a></li><!--
+     --><!--
+       --><li><a href="/blog/archives/">归档</a></li><!--
+     --><!--
+       --><li><a href="/blog/search/">搜索</a></li><!--
+     --><!--
+       --><li><a href="/blog/tags/">标签</a></li><!--
+     --><!--
+       --><li><a href="/blog/categories/">分类</a></li><!--
+     -->
+      </ul>
+    </span>
+    <br/>
+    <span id="actions">
+      <ul>
+        
+        
+        <li><a class="icon" aria-label="下一篇" href="/blog/2025/10/12/Contest-251007/"><i class="fa-solid fa-chevron-right" aria-hidden="true" onmouseover="$('#i-next').toggle();" onmouseout="$('#i-next').toggle();"></i></a></li>
+        
+        <li><a class="icon" aria-label="返回顶部" href="#" onclick="$('html, body').animate({ scrollTop: 0 }, 'fast');"><i class="fa-solid fa-chevron-up" aria-hidden="true" onmouseover="$('#i-top').toggle();" onmouseout="$('#i-top').toggle();"></i></a></li>
+        <li><a class="icon" aria-label="分享文章" href="#"><i class="fa-solid fa-share-alt" aria-hidden="true" onmouseover="$('#i-share').toggle();" onmouseout="$('#i-share').toggle();" onclick="$('#share').toggle();return false;"></i></a></li>
+      </ul>
+      <span id="i-prev" class="info" style="display:none;">上一篇</span>
+      <span id="i-next" class="info" style="display:none;">下一篇</span>
+      <span id="i-top" class="info" style="display:none;">返回顶部</span>
+      <span id="i-share" class="info" style="display:none;">分享文章</span>
+    </span>
+    <br/>
+    <div id="share" style="display: none">
+      <ul>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://www.facebook.com/sharer.php?u=http://example.com/2025/10/13/CF-2160/"><i class="fab fa-facebook " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="https://twitter.com/share?url=http://example.com/2025/10/13/CF-2160/&text=Codeforces Round 1058 (Div 2)"><i class="fab fa-twitter " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://www.linkedin.com/shareArticle?url=http://example.com/2025/10/13/CF-2160/&title=Codeforces Round 1058 (Div 2)"><i class="fab fa-linkedin " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="https://pinterest.com/pin/create/bookmarklet/?url=http://example.com/2025/10/13/CF-2160/&is_video=false&description=Codeforces Round 1058 (Div 2)"><i class="fab fa-pinterest " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="mailto:?subject=Codeforces Round 1058 (Div 2)&body=Check out this article: http://example.com/2025/10/13/CF-2160/"><i class="fa-solid fa-envelope " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="https://getpocket.com/save?url=http://example.com/2025/10/13/CF-2160/&title=Codeforces Round 1058 (Div 2)"><i class="fab fa-get-pocket " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://reddit.com/submit?url=http://example.com/2025/10/13/CF-2160/&title=Codeforces Round 1058 (Div 2)"><i class="fab fa-reddit " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://www.stumbleupon.com/submit?url=http://example.com/2025/10/13/CF-2160/&title=Codeforces Round 1058 (Div 2)"><i class="fab fa-stumbleupon " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://digg.com/submit?url=http://example.com/2025/10/13/CF-2160/&title=Codeforces Round 1058 (Div 2)"><i class="fab fa-digg " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://www.tumblr.com/share/link?url=http://example.com/2025/10/13/CF-2160/&name=Codeforces Round 1058 (Div 2)&description="><i class="fab fa-tumblr " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="https://news.ycombinator.com/submitlink?u=http://example.com/2025/10/13/CF-2160/&t=Codeforces Round 1058 (Div 2)"><i class="fab fa-hacker-news " aria-hidden="true"></i></a></li>
+</ul>
+
+    </div>
+    
+    
+      <div id="toc">
+        <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#2160AMEX-Partition-https-codeforces-com-problemset-problem-2160-A"><span class="toc-number">1.</span> <span class="toc-text">[2160A	MEX Partition] (https:&#x2F;&#x2F;codeforces.com&#x2F;problemset&#x2F;problem&#x2F;2160&#x2F;A)</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#2160BDistinct-Elements"><span class="toc-number">2.</span> <span class="toc-text">2160B	Distinct Elements</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#2160CReverse-XOR"><span class="toc-number">3.</span> <span class="toc-text">2160C	Reverse XOR</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#2159AMAD-Interactive-Problem"><span class="toc-number">4.</span> <span class="toc-text">2159A	MAD Interactive Problem</span></a></li></ol>
+      </div>
+    
+  </span>
+</div>
+
+    
+    <div class="content index py4 ">
+        
+        <article class="post h-entry" itemscope itemtype="http://schema.org/BlogPosting">
+  <header>
+    
+    <h1 class="posttitle p-name" itemprop="name headline">
+        Codeforces Round 1058 (Div 2)
+    </h1>
+
+
+
+    <div class="meta">
+      <span class="author p-author h-card" itemprop="author" itemscope itemtype="http://schema.org/Person">
+        <span class="p-name" itemprop="name">Hardsoft</span>
+      </span>
+      
+    <div class="postdate">
+      
+        <time datetime="2025-10-13T07:21:43.000Z" class="dt-published" itemprop="datePublished">2025-10-13</time>
+        
+      
+    </div>
+
+
+      
+    <div class="article-category">
+        <i class="fa-solid fa-archive"></i>
+        <a class="category-link" href="/blog/categories/Rec/">做题记录</a>
+    </div>
+
+
+      
+
+    </div>
+  </header>
+  
+
+  <div class="content e-content" itemprop="articleBody">
+    <h1 id="2160AMEX-Partition-https-codeforces-com-problemset-problem-2160-A">[2160A	MEX Partition] (https://codeforces.com/problemset/problem/2160/A)</h1>
+<p>这题是一道结论题。<br>
+观察到当原序列没有 $0$ 的时候，答案一定是 $0$。<br>
+观察到当原序列存在 $0$ 的时候，答案就是原数组的 $\operatorname{MEX}$，<br>
+因为没有更小的值使其 $\exist$ 一种划分，使得每个子数组的 $\operatorname{MEX}$ 相同。<br>
+<a target="_blank" rel="noopener" href="https://codeforces.com/contest/2160/submission/343311453">Contest Submission</a></p>
+<h1 id="2160BDistinct-Elements"><a target="_blank" rel="noopener" href="https://codeforces.com/problemset/problem/2160/B">2160B	Distinct Elements</a></h1>
+<p>这一题的关键是一定存在一种解。如果一定存在，我们就可以直接构造了。<br>
+详细解释一下，考虑每一次加入 $a_i$ 后和之前重复的数目 $\Delta b_i = i - (b_i - b_{i-1})$，如果我们令 $ a_i = \begin{cases} a_{\Delta b_i} &amp;(\Delta b_i &gt; 0) \\ \texttt{++tot} &amp;(\Delta b_i = 0) \end{cases} $ 的话，$ f(a[1,1]), \dots, f(a[1,\Delta b_i])$ 就会有一个重复，换言之，它们的值不增加。<br>
+而这题又一定保证有解，所以不用担心出现 $\exist\, p&gt;\Delta b_i,\; a_p=a_{\Delta b_i}$ 的情况。<br>
+<a target="_blank" rel="noopener" href="https://codeforces.com/contest/2160/submission/343330822">Contest Submission</a></p>
+<h1 id="2160CReverse-XOR"><a target="_blank" rel="noopener" href="https://codeforces.com/problemset/problem/2160/C">2160C	Reverse XOR</a></h1>
+<p>这题是一个。。。找规律？的题。<br>
+赛时找到规律了，但就是犯唐，位数处理不够，不开 <code>long long</code>，然后直接挂掉。<br>
+规律很简单，就是在 $n$ 的二进制形式中，两边除去 $0$（或者你想成加上任意多个 $0$ 也行）后一定是一个回文串，而且如果长度为奇数，那么最中间的数位不能是 $1$。<br>
+什么玩意啊？！tnnd耍我呢！<br>
+事实上，这题可以这样想：<br>
+假设我随机弄了一个 $x=(\overline{a_6a_5a_4a_3a_2a_1a_0})<em>{\texttt{B}}$，计算 $f(x)=(\overline{a_0a_1a_2a_3a_4a_5a_6})</em>{\texttt{B}}$。<br>
+$$<br>
+\begin{array}{c}<br>
+&amp;&amp;(\overline{a_6a_5a_4a_3a_2a_1a_0})<em>{\texttt{B}} &amp; x \\<br>
+&amp;\operatorname{XOR} &amp;(\overline{a_0a_1a_2a_3a_4a_5a_6})</em>{\texttt{B}} &amp; f(x) \\<br>
+\hline<br>
+&amp;= &amp;(\overline{x_0x_1x_20x_2x_1x_0})_{\texttt{B}} &amp;x \oplus f(x)<br>
+\end{array}<br>
+$$<br>
+我们发现，因为 $a_0 \operatorname{XOR} a_6 = a_6 \operatorname{XOR} a_0, \cdots$，所以事实上 $x \operatorname{XOR} f(x)$ 左右两边是相等的（这里左右位数是以 $x$ 为基准的）。我们又发现，无论如何，$x \operatorname{XOR} x=0$，所以如果是奇数位，中间一定是 $0$。<br>
+是不是很美妙？<br>
+<a target="_blank" rel="noopener" href="https://codeforces.com/contest/2160/submission/343547214">Practice Submission</a></p>
+<h1 id="2159AMAD-Interactive-Problem"><a href="">2159A	MAD Interactive Problem</a></h1>
+
+  </div>
+</article>
+
+
+    <div class="blog-post-comments">
+        <div id="utterances_thread">
+            <noscript>加载评论需要在浏览器启用 JavaScript 脚本支持。</noscript>
+        </div>
+    </div>
+
+
+        
+          <div id="footer-post-container">
+  <div id="footer-post">
+
+    <div id="nav-footer" style="display: none">
+      <ul>
+        
+          <li><a href="/blog/">首页</a></li>
+        
+          <li><a href="/blog/about/">关于</a></li>
+        
+          <li><a href="/blog/archives/">归档</a></li>
+        
+          <li><a href="/blog/search/">搜索</a></li>
+        
+          <li><a href="/blog/tags/">标签</a></li>
+        
+          <li><a href="/blog/categories/">分类</a></li>
+        
+      </ul>
+    </div>
+
+    
+    
+      <div id="toc-footer" style="display: none">
+        <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#2160AMEX-Partition-https-codeforces-com-problemset-problem-2160-A"><span class="toc-number">1.</span> <span class="toc-text">[2160A	MEX Partition] (https:&#x2F;&#x2F;codeforces.com&#x2F;problemset&#x2F;problem&#x2F;2160&#x2F;A)</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#2160BDistinct-Elements"><span class="toc-number">2.</span> <span class="toc-text">2160B	Distinct Elements</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#2160CReverse-XOR"><span class="toc-number">3.</span> <span class="toc-text">2160C	Reverse XOR</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#2159AMAD-Interactive-Problem"><span class="toc-number">4.</span> <span class="toc-text">2159A	MAD Interactive Problem</span></a></li></ol>
+      </div>
+    
+
+    <div id="share-footer" style="display: none">
+      <ul>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://www.facebook.com/sharer.php?u=http://example.com/2025/10/13/CF-2160/"><i class="fab fa-facebook fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="https://twitter.com/share?url=http://example.com/2025/10/13/CF-2160/&text=Codeforces Round 1058 (Div 2)"><i class="fab fa-twitter fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://www.linkedin.com/shareArticle?url=http://example.com/2025/10/13/CF-2160/&title=Codeforces Round 1058 (Div 2)"><i class="fab fa-linkedin fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="https://pinterest.com/pin/create/bookmarklet/?url=http://example.com/2025/10/13/CF-2160/&is_video=false&description=Codeforces Round 1058 (Div 2)"><i class="fab fa-pinterest fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="mailto:?subject=Codeforces Round 1058 (Div 2)&body=Check out this article: http://example.com/2025/10/13/CF-2160/"><i class="fa-solid fa-envelope fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="https://getpocket.com/save?url=http://example.com/2025/10/13/CF-2160/&title=Codeforces Round 1058 (Div 2)"><i class="fab fa-get-pocket fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://reddit.com/submit?url=http://example.com/2025/10/13/CF-2160/&title=Codeforces Round 1058 (Div 2)"><i class="fab fa-reddit fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://www.stumbleupon.com/submit?url=http://example.com/2025/10/13/CF-2160/&title=Codeforces Round 1058 (Div 2)"><i class="fab fa-stumbleupon fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://digg.com/submit?url=http://example.com/2025/10/13/CF-2160/&title=Codeforces Round 1058 (Div 2)"><i class="fab fa-digg fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://www.tumblr.com/share/link?url=http://example.com/2025/10/13/CF-2160/&name=Codeforces Round 1058 (Div 2)&description="><i class="fab fa-tumblr fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="https://news.ycombinator.com/submitlink?u=http://example.com/2025/10/13/CF-2160/&t=Codeforces Round 1058 (Div 2)"><i class="fab fa-hacker-news fa-lg" aria-hidden="true"></i></a></li>
+</ul>
+
+    </div>
+
+    <div id="actions-footer">
+        <a id="menu" class="icon" href="#" onclick="$('#nav-footer').toggle();return false;"><i class="fa-solid fa-bars fa-lg" aria-hidden="true"></i> 菜单</a>
+        
+          <a id="toc" class="icon" href="#" onclick="$('#toc-footer').toggle();return false;"><i class="fa-solid fa-list fa-lg" aria-hidden="true"></i> 目录</a>
+        
+        <a id="share" class="icon" href="#" onclick="$('#share-footer').toggle();return false;"><i class="fa-solid fa-share-alt fa-lg" aria-hidden="true"></i> 分享</a>
+        <a id="top" style="display:none" class="icon" href="#" onclick="$('html, body').animate({ scrollTop: 0 }, 'fast');"><i class="fa-solid fa-chevron-up fa-lg" aria-hidden="true"></i> 返回顶部</a>
+    </div>
+
+  </div>
+</div>
+
+        
+        <footer id="footer">
+  <div class="footer-left">
+    Copyright &copy;
+    
+    
+    2025
+    Hardsoft
+  </div>
+  <div class="footer-right">
+    <nav>
+      <ul>
+        <!--
+       --><li><a href="/blog/">首页</a></li><!--
+     --><!--
+       --><li><a href="/blog/about/">关于</a></li><!--
+     --><!--
+       --><li><a href="/blog/archives/">归档</a></li><!--
+     --><!--
+       --><li><a href="/blog/search/">搜索</a></li><!--
+     --><!--
+       --><li><a href="/blog/tags/">标签</a></li><!--
+     --><!--
+       --><li><a href="/blog/categories/">分类</a></li><!--
+     -->
+      </ul>
+    </nav>
+  </div>
+</footer>
+
+    </div>
+    <!-- styles -->
+
+
+
+  <link rel="preload" as="style" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" crossorigin="anonymous" onload="this.onload=null;this.rel='stylesheet'"/>
+
+
+    <!-- jquery -->
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js" crossorigin="anonymous"></script>
+
+
+
+
+<!-- clipboard -->
+
+  
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.7/clipboard.min.js" crossorigin="anonymous"></script>
+  
+  <script type="text/javascript">
+  $(function() {
+    // copy-btn HTML
+    var btn = "<span class=\"btn-copy tooltipped tooltipped-sw\" aria-label=\"复制到粘贴板！\">";
+    btn += '<i class="fa-regular fa-clone"></i>';
+    btn += '</span>';
+    // mount it!
+    $(".highlight table").before(btn);
+    var clip = new ClipboardJS('.btn-copy', {
+      text: function(trigger) {
+        return Array.from(trigger.nextElementSibling.querySelectorAll('.code')).reduce((str,it)=>str+it.innerText+'\n','')
+      }
+    });
+    clip.on('success', function(e) {
+      e.trigger.setAttribute('aria-label', "复制成功！");
+      e.clearSelection();
+    })
+  })
+  </script>
+
+
+<script src="/blog/js/main.js"></script>
+
+<!-- search -->
+
+<!-- Baidu Analytics -->
+
+<!-- Cloudflare Analytics -->
+
+<!-- Disqus Comments -->
+
+<!-- utterances Comments -->
+
+    <script type="text/javascript">
+      var utterances_repo = 'Cyril-44/blog';
+      var utterances_issue_term = 'pathname';
+      var utterances_label = 'Comment';
+      var utterances_theme = 'preferred-color-scheme';
+
+      (function(){
+          var script = document.createElement('script');
+
+          script.src = 'https://utteranc.es/client.js';
+          script.setAttribute('repo', utterances_repo);
+          script.setAttribute('issue-term', 'pathname');
+          script.setAttribute('label', utterances_label);
+          script.setAttribute('theme', utterances_theme);
+          script.setAttribute('crossorigin', 'anonymous');
+          script.async = true;
+          (document.getElementById('utterances_thread')).appendChild(script);
+      }());
+  </script>
+
+</body>
+</html>

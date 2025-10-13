@@ -4,6 +4,25 @@
   
     
     <entry>
+      <title>Codeforces Round 1058 (Div 2)</title>
+      <link href="/blog/2025/10/13/CF-2160/"/>
+      <url>/blog/2025/10/13/CF-2160/</url>
+      
+        <content type="html"><![CDATA[<h1 id="2160AMEX-Partition-https-codeforces-com-problemset-problem-2160-A">[2160AMEX Partition] (https://codeforces.com/problemset/problem/2160/A)</h1><p>这题是一道结论题。<br>观察到当原序列没有 $0$ 的时候，答案一定是 $0$。<br>观察到当原序列存在 $0$ 的时候，答案就是原数组的 $\operatorname{MEX}$，<br>因为没有更小的值使其 $\exist$ 一种划分，使得每个子数组的 $\operatorname{MEX}$ 相同。<br><a href="https://codeforces.com/contest/2160/submission/343311453">Contest Submission</a></p><h1 id="2160BDistinct-Elements"><a href="https://codeforces.com/problemset/problem/2160/B">2160BDistinct Elements</a></h1><p>这一题的关键是一定存在一种解。如果一定存在，我们就可以直接构造了。<br>详细解释一下，考虑每一次加入 $a_i$ 后和之前重复的数目 $\Delta b_i = i - (b_i - b_{i-1})$，如果我们令 $ a_i = \begin{cases} a_{\Delta b_i} &amp;(\Delta b_i &gt; 0) \\ \texttt{++tot} &amp;(\Delta b_i = 0) \end{cases} $ 的话，$ f(a[1,1]), \dots, f(a[1,\Delta b_i])$ 就会有一个重复，换言之，它们的值不增加。<br>而这题又一定保证有解，所以不用担心出现 $\exist\, p&gt;\Delta b_i,\; a_p=a_{\Delta b_i}$ 的情况。<br><a href="https://codeforces.com/contest/2160/submission/343330822">Contest Submission</a></p><h1 id="2160CReverse-XOR"><a href="https://codeforces.com/problemset/problem/2160/C">2160CReverse XOR</a></h1><p>这题是一个。。。找规律？的题。<br>赛时找到规律了，但就是犯唐，位数处理不够，不开 <code>long long</code>，然后直接挂掉。<br>规律很简单，就是在 $n$ 的二进制形式中，两边除去 $0$（或者你想成加上任意多个 $0$ 也行）后一定是一个回文串，而且如果长度为奇数，那么最中间的数位不能是 $1$。<br>什么玩意啊？！tnnd耍我呢！<br>事实上，这题可以这样想：<br>假设我随机弄了一个 $x=(\overline{a_6a_5a_4a_3a_2a_1a_0})<em>{\texttt{B}}$，计算 $f(x)=(\overline{a_0a_1a_2a_3a_4a_5a_6})</em>{\texttt{B}}$。<br>$$<br>\begin{array}{c}<br>&amp;&amp;(\overline{a_6a_5a_4a_3a_2a_1a_0})<em>{\texttt{B}} &amp; x \\<br>&amp;\operatorname{XOR} &amp;(\overline{a_0a_1a_2a_3a_4a_5a_6})</em>{\texttt{B}} &amp; f(x) \\<br>\hline<br>&amp;= &amp;(\overline{x_0x_1x_20x_2x_1x_0})_{\texttt{B}} &amp;x \oplus f(x)<br>\end{array}<br>$$<br>我们发现，因为 $a_0 \operatorname{XOR} a_6 = a_6 \operatorname{XOR} a_0, \cdots$，所以事实上 $x \operatorname{XOR} f(x)$ 左右两边是相等的（这里左右位数是以 $x$ 为基准的）。我们又发现，无论如何，$x \operatorname{XOR} x=0$，所以如果是奇数位，中间一定是 $0$。<br>是不是很美妙？<br><a href="https://codeforces.com/contest/2160/submission/343547214">Practice Submission</a></p><h1 id="2159AMAD-Interactive-Problem"><a href="">2159AMAD Interactive Problem</a></h1>]]></content>
+      
+      
+      <categories>
+          
+          <category> 做题记录 </category>
+          
+      </categories>
+      
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>md</title>
       <link href="/blog/2025/10/12/Contest-251007/"/>
       <url>/blog/2025/10/12/Contest-251007/</url>
@@ -33,11 +52,11 @@
     
     
     <entry>
-      <title>Codeforces Round 2153 (Div 2)</title>
+      <title>Codeforces Round 1057 (Div 2)</title>
       <link href="/blog/2025/10/11/CF-2153/"/>
       <url>/blog/2025/10/11/CF-2153/</url>
       
-        <content type="html"><![CDATA[<h1 id="2153ACircle-of-Apple-Trees"><a href="https://codeforces.com/problemset/problem/2153/A">2153ACircle of Apple Trees</a></h1><p><s>奶龙。</s><br>答案是 $b$ 中不同元素的个数。<br><a href="https://codeforces.com/contest/2153/submission/342921200">Contest Submission</a></p><h1 id="2153BBitwise-Reversion"><a href="https://codeforces.com/problemset/problem/2153/B">2153BBitwise Reversion</a></h1><p>这题很有意思，显然你可以一位一位枚举看看合不合法，因为每一位都不互相影响。<br>但是！我们考虑 YES 的必要条件： $ \def\and{\operatorname{and}} x \and y = y \and z = z \and x $，这很好理解。<br>现在我告诉你，这是充要条件。<br>先用显然的证法——构造。令 $a=0$，那么 $b=x$，$c=z$，所以 $ b \and c = y $ 即 $ x \and z = y$。对吧。<br>然后我们来好好证明：对于每一二进制位，不能是 $x,y,z$ 中只有一个为 $1$。因为有一个 $1$ 必然 $a,b,c$ 中有一个 $1$，所以 $x,y,z$ 中至少有两个 $1$。$\newcommand{\qed}{\text{Q.E.D.}} \qed$<br><a href="https://codeforces.com/contest/2153/submission/342921200">Contest Submission</a></p><h1 id="2153CSymmetrical-Polygons"><a href="https://codeforces.com/problemset/problem/2153/C">2153CSymmetrical Polygons</a></h1><p>显然选偶数条相同边，然后最多选 $2$ 条奇数边。注意判断是否满足多边形条件。<br><a href="https://codeforces.com/contest/2153/submission/342960604">Contest Submission</a></p><h1 id="2153DNot-Alone"><a href="https://codeforces.com/problemset/problem/2153/D">2153DNot Alone</a></h1><h3 id="这题真得太好了！">这题真得太好了！</h3><p>这题就是转化为将序列变成部分相等的小块。<br>我们令 取 $x$ 个 表示为这相邻的 $x$ 个数都变成相等的所需最小代价。</p><p>观察：</p><ol><li>取 $3$ 个一定优于取 $2$ 个，取 $2$ 个一定优于取 $4$ 个，取 $4+n$ 个一定优于取 $5+n$ 个 $(n \in \N)$。</li><li>当 $ n \bmod 3 \neq 0 $ 的时候，不能一直取 $3$ 个（不然有可能满足不了条件），于是考虑在 取$3$ 和 取$2$ 中选最佳值。<br>于是我们就得到了一个线性的 DP 式子：$f_i = \min( f_{i-2} + |a_i-a_{i-1}|, f_{i-3} + \max\{ a_i, a_{i-1}, a_{i-2} \} - \min\{ a_i, a_{i-1}, a_{i-2} \} )$。</li></ol><p>考虑到这题需要 <strong>破环成链</strong>，我们 DP 最多从 $3$ 个状态前转移，所以设置循环 $3$ 次，结果取 $\min$。</p><blockquote><p><a href="https://codeforces.com/contest/2153/submission/343136340">After Contest Submission</a></p></blockquote>]]></content>
+        <content type="html"><![CDATA[<h1 id="2153ACircle-of-Apple-Trees"><a href="https://codeforces.com/problemset/problem/2153/A">2153ACircle of Apple Trees</a></h1><p><s>奶龙。</s><br>答案是 $b$ 中不同元素的个数。<br><a href="https://codeforces.com/contest/2153/submission/342921200">Contest Submission</a></p><h1 id="2153BBitwise-Reversion"><a href="https://codeforces.com/problemset/problem/2153/B">2153BBitwise Reversion</a></h1><p>这题很有意思，显然你可以一位一位枚举看看合不合法，因为每一位都不互相影响。<br>但是！我们考虑 YES 的必要条件： $ \def\and{\operatorname{and}} x \and y = y \and z = z \and x $，这很好理解。<br>现在我告诉你，这是充要条件。<br>先用显然的证法——构造。令 $a=0$，那么 $b=x$，$c=z$，所以 $ b \and c = y $ 即 $ x \and z = y$。对吧。<br>然后我们来好好证明：对于每一二进制位，不能是 $x,y,z$ 中只有一个为 $1$。因为有一个 $1$ 必然 $a,b,c$ 中有一个 $1$，所以 $x,y,z$ 中至少有两个 $1$。$\newcommand{\qed}{\text{Q.E.D.}} \qed$<br><a href="https://codeforces.com/contest/2153/submission/342921200">Contest Submission</a></p><h1 id="2153CSymmetrical-Polygons"><a href="https://codeforces.com/problemset/problem/2153/C">2153CSymmetrical Polygons</a></h1><p>显然选偶数条相同边，然后最多选 $2$ 条奇数边。注意判断是否满足多边形条件。<br><a href="https://codeforces.com/contest/2153/submission/342960604">Contest Submission</a></p><h1 id="2153DNot-Alone"><a href="https://codeforces.com/problemset/problem/2153/D">2153DNot Alone</a></h1><h3 id="这题真得太好了！">这题真得太好了！</h3><p>这题就是转化为将序列变成部分相等的小块。<br>我们令 取 $x$ 个 表示为这相邻的 $x$ 个数都变成相等的所需最小代价。</p><p>观察：</p><ol><li>取 $3$ 个一定优于取 $2$ 个，取 $2$ 个一定优于取 $4$ 个，取 $4+n$ 个一定优于取 $5+n$ 个 $(n \in \N)$。</li><li>当 $ n \bmod 3 \neq 0 $ 的时候，不能一直取 $3$ 个（不然有可能满足不了条件），于是考虑在 取$3$ 和 取$2$ 中选最佳值。<br>于是我们就得到了一个线性的 DP 式子：$f_i = \min( f_{i-2} + |a_i-a_{i-1}|, f_{i-3} + \max\{ a_i, a_{i-1}, a_{i-2} \} - \min\{ a_i, a_{i-1}, a_{i-2} \} )$。</li></ol><p>考虑到这题需要 <strong>破环成链</strong>，我们 DP 最多从 $3$ 个状态前转移，所以设置循环 $3$ 次，结果取 $\min$。<br><a href="https://codeforces.com/contest/2153/submission/343136340">Practice Submission</a></p>]]></content>
       
       
       <categories>
@@ -52,6 +71,12 @@
             <tag> 构造 </tag>
             
             <tag> 数学 </tag>
+            
+            <tag> 动态规划 </tag>
+            
+            <tag> 线性DP </tag>
+            
+            <tag> 破环成链 </tag>
             
         </tags>
       
@@ -159,9 +184,9 @@
       
         <tags>
             
-            <tag> 二分查找 </tag>
-            
             <tag> 动态规划 </tag>
+            
+            <tag> 二分查找 </tag>
             
             <tag> 线性 DP </tag>
             

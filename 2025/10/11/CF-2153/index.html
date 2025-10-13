@@ -8,16 +8,19 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=5" />
     <meta name="description" content="2153A	Circle of Apple Trees 奶龙。 答案是 $b$ 中不同元素的个数。 Contest Submission 2153B	Bitwise Reversion 这题很有意思，显然你可以一位一位枚举看看合不合法，因为每一位都不互相影响。 但是！我们考虑 YES 的必要条件： $ \def\and{\operatorname{and}} x \and y &#x3D; y \and z">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Codeforces Round 2153 (Div 2)">
+<meta property="og:title" content="Codeforces Round 1057 (Div 2)">
 <meta property="og:url" content="http://example.com/2025/10/11/CF-2153/">
 <meta property="og:site_name" content="Hardsoft Blog">
 <meta property="og:description" content="2153A	Circle of Apple Trees 奶龙。 答案是 $b$ 中不同元素的个数。 Contest Submission 2153B	Bitwise Reversion 这题很有意思，显然你可以一位一位枚举看看合不合法，因为每一位都不互相影响。 但是！我们考虑 YES 的必要条件： $ \def\and{\operatorname{and}} x \and y &#x3D; y \and z">
 <meta property="og:locale" content="zh_CN">
 <meta property="article:published_time" content="2025-10-11T05:32:16.000Z">
-<meta property="article:modified_time" content="2025-10-11T15:26:48.296Z">
+<meta property="article:modified_time" content="2025-10-13T15:40:58.892Z">
 <meta property="article:author" content="Hardsoft">
+<meta property="article:tag" content="动态规划">
 <meta property="article:tag" content="数学">
 <meta property="article:tag" content="构造">
+<meta property="article:tag" content="破环成链">
+<meta property="article:tag" content="线性DP">
 <meta name="twitter:card" content="summary">
     
     
@@ -38,7 +41,7 @@
       
     
     <!-- title -->
-    <title>Codeforces Round 2153 (Div 2) - Hardsoft Blog</title>
+    <title>Codeforces Round 1057 (Div 2) - Hardsoft Blog</title>
     <!-- async scripts -->
     <!-- Google Analytics -->
 
@@ -128,16 +131,16 @@
     <div id="share" style="display: none">
       <ul>
   <li><a class="icon" target="_blank" rel="noopener" href="http://www.facebook.com/sharer.php?u=http://example.com/2025/10/11/CF-2153/"><i class="fab fa-facebook " aria-hidden="true"></i></a></li>
-  <li><a class="icon" target="_blank" rel="noopener" href="https://twitter.com/share?url=http://example.com/2025/10/11/CF-2153/&text=Codeforces Round 2153 (Div 2)"><i class="fab fa-twitter " aria-hidden="true"></i></a></li>
-  <li><a class="icon" target="_blank" rel="noopener" href="http://www.linkedin.com/shareArticle?url=http://example.com/2025/10/11/CF-2153/&title=Codeforces Round 2153 (Div 2)"><i class="fab fa-linkedin " aria-hidden="true"></i></a></li>
-  <li><a class="icon" target="_blank" rel="noopener" href="https://pinterest.com/pin/create/bookmarklet/?url=http://example.com/2025/10/11/CF-2153/&is_video=false&description=Codeforces Round 2153 (Div 2)"><i class="fab fa-pinterest " aria-hidden="true"></i></a></li>
-  <li><a class="icon" href="mailto:?subject=Codeforces Round 2153 (Div 2)&body=Check out this article: http://example.com/2025/10/11/CF-2153/"><i class="fa-solid fa-envelope " aria-hidden="true"></i></a></li>
-  <li><a class="icon" target="_blank" rel="noopener" href="https://getpocket.com/save?url=http://example.com/2025/10/11/CF-2153/&title=Codeforces Round 2153 (Div 2)"><i class="fab fa-get-pocket " aria-hidden="true"></i></a></li>
-  <li><a class="icon" target="_blank" rel="noopener" href="http://reddit.com/submit?url=http://example.com/2025/10/11/CF-2153/&title=Codeforces Round 2153 (Div 2)"><i class="fab fa-reddit " aria-hidden="true"></i></a></li>
-  <li><a class="icon" target="_blank" rel="noopener" href="http://www.stumbleupon.com/submit?url=http://example.com/2025/10/11/CF-2153/&title=Codeforces Round 2153 (Div 2)"><i class="fab fa-stumbleupon " aria-hidden="true"></i></a></li>
-  <li><a class="icon" target="_blank" rel="noopener" href="http://digg.com/submit?url=http://example.com/2025/10/11/CF-2153/&title=Codeforces Round 2153 (Div 2)"><i class="fab fa-digg " aria-hidden="true"></i></a></li>
-  <li><a class="icon" target="_blank" rel="noopener" href="http://www.tumblr.com/share/link?url=http://example.com/2025/10/11/CF-2153/&name=Codeforces Round 2153 (Div 2)&description="><i class="fab fa-tumblr " aria-hidden="true"></i></a></li>
-  <li><a class="icon" target="_blank" rel="noopener" href="https://news.ycombinator.com/submitlink?u=http://example.com/2025/10/11/CF-2153/&t=Codeforces Round 2153 (Div 2)"><i class="fab fa-hacker-news " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="https://twitter.com/share?url=http://example.com/2025/10/11/CF-2153/&text=Codeforces Round 1057 (Div 2)"><i class="fab fa-twitter " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://www.linkedin.com/shareArticle?url=http://example.com/2025/10/11/CF-2153/&title=Codeforces Round 1057 (Div 2)"><i class="fab fa-linkedin " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="https://pinterest.com/pin/create/bookmarklet/?url=http://example.com/2025/10/11/CF-2153/&is_video=false&description=Codeforces Round 1057 (Div 2)"><i class="fab fa-pinterest " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="mailto:?subject=Codeforces Round 1057 (Div 2)&body=Check out this article: http://example.com/2025/10/11/CF-2153/"><i class="fa-solid fa-envelope " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="https://getpocket.com/save?url=http://example.com/2025/10/11/CF-2153/&title=Codeforces Round 1057 (Div 2)"><i class="fab fa-get-pocket " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://reddit.com/submit?url=http://example.com/2025/10/11/CF-2153/&title=Codeforces Round 1057 (Div 2)"><i class="fab fa-reddit " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://www.stumbleupon.com/submit?url=http://example.com/2025/10/11/CF-2153/&title=Codeforces Round 1057 (Div 2)"><i class="fab fa-stumbleupon " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://digg.com/submit?url=http://example.com/2025/10/11/CF-2153/&title=Codeforces Round 1057 (Div 2)"><i class="fab fa-digg " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://www.tumblr.com/share/link?url=http://example.com/2025/10/11/CF-2153/&name=Codeforces Round 1057 (Div 2)&description="><i class="fab fa-tumblr " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="https://news.ycombinator.com/submitlink?u=http://example.com/2025/10/11/CF-2153/&t=Codeforces Round 1057 (Div 2)"><i class="fab fa-hacker-news " aria-hidden="true"></i></a></li>
 </ul>
 
     </div>
@@ -157,7 +160,7 @@
   <header>
     
     <h1 class="posttitle p-name" itemprop="name headline">
-        Codeforces Round 2153 (Div 2)
+        Codeforces Round 1057 (Div 2)
     </h1>
 
 
@@ -185,7 +188,7 @@
       
     <div class="article-tag">
         <i class="fa-solid fa-tag"></i>
-        <a class="p-category" href="/blog/tags/Math/" rel="tag">数学</a>, <a class="p-category" href="/blog/tags/Fabric/" rel="tag">构造</a>
+        <a class="p-category" href="/blog/tags/DP/" rel="tag">动态规划</a>, <a class="p-category" href="/blog/tags/Math/" rel="tag">数学</a>, <a class="p-category" href="/blog/tags/Fabric/" rel="tag">构造</a>, <a class="p-category" href="/blog/tags/%E7%A0%B4%E7%8E%AF%E6%88%90%E9%93%BE/" rel="tag">破环成链</a>, <a class="p-category" href="/blog/tags/%E7%BA%BF%E6%80%A7DP/" rel="tag">线性DP</a>
     </div>
 
 
@@ -218,10 +221,8 @@
 <li>当 $ n \bmod 3 \neq 0 $ 的时候，不能一直取 $3$ 个（不然有可能满足不了条件），于是考虑在 取$3$ 和 取$2$ 中选最佳值。<br>
 于是我们就得到了一个线性的 DP 式子：$f_i = \min( f_{i-2} + |a_i-a_{i-1}|, f_{i-3} + \max\{ a_i, a_{i-1}, a_{i-2} \} - \min\{ a_i, a_{i-1}, a_{i-2} \} )$。</li>
 </ol>
-<p>考虑到这题需要 <strong>破环成链</strong>，我们 DP 最多从 $3$ 个状态前转移，所以设置循环 $3$ 次，结果取 $\min$。</p>
-<blockquote>
-<p><a target="_blank" rel="noopener" href="https://codeforces.com/contest/2153/submission/343136340">After Contest Submission</a></p>
-</blockquote>
+<p>考虑到这题需要 <strong>破环成链</strong>，我们 DP 最多从 $3$ 个状态前转移，所以设置循环 $3$ 次，结果取 $\min$。<br>
+<a target="_blank" rel="noopener" href="https://codeforces.com/contest/2153/submission/343136340">Practice Submission</a></p>
 
   </div>
 </article>
@@ -266,16 +267,16 @@
     <div id="share-footer" style="display: none">
       <ul>
   <li><a class="icon" target="_blank" rel="noopener" href="http://www.facebook.com/sharer.php?u=http://example.com/2025/10/11/CF-2153/"><i class="fab fa-facebook fa-lg" aria-hidden="true"></i></a></li>
-  <li><a class="icon" target="_blank" rel="noopener" href="https://twitter.com/share?url=http://example.com/2025/10/11/CF-2153/&text=Codeforces Round 2153 (Div 2)"><i class="fab fa-twitter fa-lg" aria-hidden="true"></i></a></li>
-  <li><a class="icon" target="_blank" rel="noopener" href="http://www.linkedin.com/shareArticle?url=http://example.com/2025/10/11/CF-2153/&title=Codeforces Round 2153 (Div 2)"><i class="fab fa-linkedin fa-lg" aria-hidden="true"></i></a></li>
-  <li><a class="icon" target="_blank" rel="noopener" href="https://pinterest.com/pin/create/bookmarklet/?url=http://example.com/2025/10/11/CF-2153/&is_video=false&description=Codeforces Round 2153 (Div 2)"><i class="fab fa-pinterest fa-lg" aria-hidden="true"></i></a></li>
-  <li><a class="icon" href="mailto:?subject=Codeforces Round 2153 (Div 2)&body=Check out this article: http://example.com/2025/10/11/CF-2153/"><i class="fa-solid fa-envelope fa-lg" aria-hidden="true"></i></a></li>
-  <li><a class="icon" target="_blank" rel="noopener" href="https://getpocket.com/save?url=http://example.com/2025/10/11/CF-2153/&title=Codeforces Round 2153 (Div 2)"><i class="fab fa-get-pocket fa-lg" aria-hidden="true"></i></a></li>
-  <li><a class="icon" target="_blank" rel="noopener" href="http://reddit.com/submit?url=http://example.com/2025/10/11/CF-2153/&title=Codeforces Round 2153 (Div 2)"><i class="fab fa-reddit fa-lg" aria-hidden="true"></i></a></li>
-  <li><a class="icon" target="_blank" rel="noopener" href="http://www.stumbleupon.com/submit?url=http://example.com/2025/10/11/CF-2153/&title=Codeforces Round 2153 (Div 2)"><i class="fab fa-stumbleupon fa-lg" aria-hidden="true"></i></a></li>
-  <li><a class="icon" target="_blank" rel="noopener" href="http://digg.com/submit?url=http://example.com/2025/10/11/CF-2153/&title=Codeforces Round 2153 (Div 2)"><i class="fab fa-digg fa-lg" aria-hidden="true"></i></a></li>
-  <li><a class="icon" target="_blank" rel="noopener" href="http://www.tumblr.com/share/link?url=http://example.com/2025/10/11/CF-2153/&name=Codeforces Round 2153 (Div 2)&description="><i class="fab fa-tumblr fa-lg" aria-hidden="true"></i></a></li>
-  <li><a class="icon" target="_blank" rel="noopener" href="https://news.ycombinator.com/submitlink?u=http://example.com/2025/10/11/CF-2153/&t=Codeforces Round 2153 (Div 2)"><i class="fab fa-hacker-news fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="https://twitter.com/share?url=http://example.com/2025/10/11/CF-2153/&text=Codeforces Round 1057 (Div 2)"><i class="fab fa-twitter fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://www.linkedin.com/shareArticle?url=http://example.com/2025/10/11/CF-2153/&title=Codeforces Round 1057 (Div 2)"><i class="fab fa-linkedin fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="https://pinterest.com/pin/create/bookmarklet/?url=http://example.com/2025/10/11/CF-2153/&is_video=false&description=Codeforces Round 1057 (Div 2)"><i class="fab fa-pinterest fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="mailto:?subject=Codeforces Round 1057 (Div 2)&body=Check out this article: http://example.com/2025/10/11/CF-2153/"><i class="fa-solid fa-envelope fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="https://getpocket.com/save?url=http://example.com/2025/10/11/CF-2153/&title=Codeforces Round 1057 (Div 2)"><i class="fab fa-get-pocket fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://reddit.com/submit?url=http://example.com/2025/10/11/CF-2153/&title=Codeforces Round 1057 (Div 2)"><i class="fab fa-reddit fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://www.stumbleupon.com/submit?url=http://example.com/2025/10/11/CF-2153/&title=Codeforces Round 1057 (Div 2)"><i class="fab fa-stumbleupon fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://digg.com/submit?url=http://example.com/2025/10/11/CF-2153/&title=Codeforces Round 1057 (Div 2)"><i class="fab fa-digg fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://www.tumblr.com/share/link?url=http://example.com/2025/10/11/CF-2153/&name=Codeforces Round 1057 (Div 2)&description="><i class="fab fa-tumblr fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="https://news.ycombinator.com/submitlink?u=http://example.com/2025/10/11/CF-2153/&t=Codeforces Round 1057 (Div 2)"><i class="fab fa-hacker-news fa-lg" aria-hidden="true"></i></a></li>
 </ul>
 
     </div>
