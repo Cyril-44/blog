@@ -1,15 +1,15 @@
 :root {
 /* Light scheme (default) */
   --color-background: #fafafa;
-  --color-footer-mobile-1: color-mix(in srgb, #fafafa 98%%, black);
-  --color-footer-mobile-2: color-mix(in srgb, #fafafa 90%%, black);
-  --color-background-code: color-mix(in srgb, #fafafa 98%%, black);
+  --color-footer-mobile-1: color-mix(in srgb, #fafafa 2%, #fafafa);
+  --color-footer-mobile-2: color-mix(in srgb, #fafafa 10%, #fafafa);
+  --color-background-code: color-mix(in srgb, #fafafa 2%, #fafafa);
   --color-border: #666;
   --color-scrollbar: #aaa;
-  --color-scrollbar-hover: color-mix(in srgb, #aaa 80%%, black);
-  --color-scrollbar-active: color-mix(in srgb, #aaa 70%%, black);
+  --color-scrollbar-hover: color-mix(in srgb, #aaa 20%, #aaa);
+  --color-scrollbar-active: color-mix(in srgb, #aaa 30%, #aaa);
   --color-meta: #666;
-  --color-meta-code: color-mix(in srgb, #666 90%%, white);
+  --color-meta-code: color-mix(in srgb, #666 10%, #666);
   --color-link: rgba(86,124,119,0.4);
   --color-text: #22272a;
   --color-accent-1: #cc2a41;
@@ -26,13 +26,13 @@
   :root {
 /* Dark scheme */
     --color-background: #1d1f21;
-    --color-footer-mobile-1: color-mix(in srgb, #1d1f21 98%%, white);
-    --color-footer-mobile-2: color-mix(in srgb, #1d1f21 90%%, white);
-    --color-background-code: color-mix(in srgb, #1d1f21 98%%, white);
+    --color-footer-mobile-1: color-mix(in srgb, #1d1f21 2%, #1d1f21);
+    --color-footer-mobile-2: color-mix(in srgb, #1d1f21 10%, #1d1f21);
+    --color-background-code: color-mix(in srgb, #1d1f21 2%, #1d1f21);
     --color-border: #908d8d;
     --color-scrollbar: #999;
-    --color-scrollbar-hover: color-mix(in srgb, #999 90%%, white);
-    --color-scrollbar-active: color-mix(in srgb, #999 80%%, white);
+    --color-scrollbar-hover: color-mix(in srgb, #999 10%, #999);
+    --color-scrollbar-active: color-mix(in srgb, #999 20%, #999);
     --color-meta: #908d8d;
     --color-meta-code: #dcdcdc;
     --color-link: #d480aa;
@@ -507,10 +507,10 @@ body td {
   border-radius: 6px;
 }
 *::-webkit-scrollbar-thumb:hover {
-  background-color: color-mix(in srgb, var(--color-scrollbar) 80%%, black);
+  background-color: color-mix(in srgb, var(--color-scrollbar) 20%, var(--color-scrollbar));
 }
 *::-webkit-scrollbar-thumb:active {
-  background-color: color-mix(in srgb, var(--color-scrollbar) 70%%, black);
+  background-color: color-mix(in srgb, var(--color-scrollbar) 30%, var(--color-scrollbar));
 }
 html {
   margin: 0;
@@ -527,7 +527,7 @@ body {
   color: var(--color-text);
   font-weight: 400;
   font-size: 14px;
-  font-family: "Menlo", "Meslo LG", monospace;
+  font-family: "Monaco", "Consolas", "Fira Code", "Ubuntu Mono", "Hack", "Menlo", "Meslo LG", monospace;
   line-height: 1.725;
   text-rendering: geometricPrecision;
   -moz-osx-font-smoothing: grayscale;
@@ -899,7 +899,7 @@ body {
   font-size: 0.7rem;
 }
 #header-post #toc .toc-level-4 {
-  color: color-mix(in srgb, var(--color-meta) 80%%, black);
+  color: color-mix(in srgb, var(--color-meta) 20%, var(--color-meta));
   font-size: 0.4rem;
 }
 #header-post #toc .toc-level-5 {
@@ -1211,8 +1211,8 @@ article .content blockquote footer a {
   color: var(--color-meta);
 }
 article .content blockquote footer a:hover {
-  background-image: linear-gradient(transparent, transparent 4px, color-mix(in srgb, var(--color-meta) 80%%, white) 4px, color-mix(in srgb, var(--color-meta) 80%%, white));
-  color: color-mix(in srgb, var(--color-meta) 80%%, white);
+  background-image: linear-gradient(transparent, transparent 4px, color-mix(in srgb, var(--color-meta) 20%, var(--color-meta)) 4px, color-mix(in srgb, var(--color-meta) 20%, var(--color-meta)));
+  color: color-mix(in srgb, var(--color-meta) 20%, var(--color-meta));
 }
 article .content blockquote footer cite:before {
   padding: 0 0.5em;
@@ -1338,7 +1338,7 @@ article .content .caption {
   background-image: none;
 }
 #footer a:hover {
-  color: color-mix(in srgb, var(--color-meta) 80%%, white);
+  color: color-mix(in srgb, var(--color-meta) 20%, var(--color-meta));
 }
 #footer .footer-left {
   height: 20px;
@@ -1455,7 +1455,7 @@ article .content .caption {
   font-display: swap;
   font-weight: 400;
   font-size: 11.200000000000001px;
-  font-family: "Menlo", "Meslo LG", monospace;
+  font-family: "Monaco", "Consolas", "Fira Code", "Ubuntu Mono", "Hack", "Menlo", "Meslo LG", monospace;
   line-height: 1.725;
   text-rendering: geometricPrecision;
   text-align: center;
@@ -1619,7 +1619,7 @@ pre {
   border: 1px dotted var(--color-border);
   border-radius: 4px;
   font-size: 13px;
-  font-family: "Menlo", "Meslo LG", monospace;
+  font-family: "Monaco", "Consolas", "Fira Code", "Ubuntu Mono", "Hack", "Menlo", "Meslo LG", monospace;
   line-height: 22px;
   -webkit-border-radius: 4px;
 }
@@ -1640,7 +1640,7 @@ code {
   padding: 10px 15px;
   border-radius: 4px;
   background: var(--color-background-code);
-  font-family: "Menlo", "Meslo LG", monospace;
+  font-family: "Monaco", "Consolas", "Fira Code", "Ubuntu Mono", "Hack", "Menlo", "Meslo LG", monospace;
   -webkit-border-radius: 4px;
 }
 .highlight figcaption {
@@ -1660,7 +1660,7 @@ code {
   background-repeat: repeat-x;
 }
 .highlight figcaption a:hover {
-  color: color-mix(in srgb, var(--color-meta-code) 80%%, white);
+  color: color-mix(in srgb, var(--color-meta-code) 20%, var(--color-meta-code));
 }
 .highlight figcaption:before,
 .highlight figcaption content: "" {

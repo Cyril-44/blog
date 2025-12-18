@@ -80,9 +80,13 @@
       };
     </script>
     <script src="https://cdn.jsdmirror.com/npm/mathjax@4/tex-mml-chtml.js" async></script>
+    <script src="https://cdn.jsdmirror.com/npm/mermaid@10/dist/mermaid.min.js"></script>
+    <script>
+      mermaid.initialize({ startOnLoad: true });
+    </script>
     <!-- <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script> -->
   
-<meta name="generator" content="Hexo 8.0.0"></head>
+<meta name="generator" content="Hexo 8.1.1"></head>
 
 <body class="max-width mx-auto px3 ltr">
     
@@ -207,11 +211,11 @@
 规律很简单，就是在 $n$ 的二进制形式中，两边除去 $0$（或者你想成加上任意多个 $0$ 也行）后一定是一个回文串，而且如果长度为奇数，那么最中间的数位不能是 $1$。<br>
 什么玩意啊？！tnnd耍我呢！<br>
 事实上，这题可以这样想：<br>
-假设我随机弄了一个 $ x=(\overline{a_6a_5a_4a_3a_2a_1a_0})_{\texttt{B}} $，计算 $f(x)=(\overline{a_0a_1a_2a_3a_4a_5a_6})_{\texttt{B}}$。</p>
+假设我随机弄了一个 $ x=(\overline{a_6a_5a_4a_3a_2a_1a_0})<em>{\texttt{B}} $，计算 $f(x)=(\overline{a_0a_1a_2a_3a_4a_5a_6})</em>{\texttt{B}}$。</p>
 <p>$$<br>
 \begin{array}{c}<br>
-&amp;&amp;(\overline{a_6a_5a_4a_3a_2a_1a_0})_{\texttt{B}} &amp; x \\<br>
-&amp;\operatorname{XOR} &amp;(\overline{a_0a_1a_2a_3a_4a_5a_6})_{\texttt{B}} &amp; f(x) \\<br>
+&amp;&amp;(\overline{a_6a_5a_4a_3a_2a_1a_0})<em>{\texttt{B}} &amp; x \\<br>
+&amp;\operatorname{XOR} &amp;(\overline{a_0a_1a_2a_3a_4a_5a_6})</em>{\texttt{B}} &amp; f(x) \\<br>
 \hline<br>
 &amp;= &amp;(\overline{x_0x_1x_20x_2x_1x_0})_{\texttt{B}} &amp;x \oplus f(x)<br>
 \end{array}<br>

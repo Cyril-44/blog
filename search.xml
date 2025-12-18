@@ -4,6 +4,31 @@
   
     
     <entry>
+      <title>Splay, Treap 学习笔记</title>
+      <link href="/blog/2025/12/18/BT-Splay-Treap/"/>
+      <url>/blog/2025/12/18/BT-Splay-Treap/</url>
+      
+        <content type="html"><![CDATA[<h1 id="Splay">Splay</h1><p>Splay 是一个基于 BST (Binary Search Tree 二叉搜索树) 的<strong>动态</strong>数据结构。<br>Splay 所操作的对象必须要有 $key$ 且 $key$ 严格弱序（可以计算排名）。<br>它支持以<strong>均摊</strong>单次 $\mathcal O(\log n)$ 的时间复杂度进行如下操作：</p><ol><li><code>insert(x)</code> 插入一个元素，以 $x$ 为 $key$。</li><li><code>erase(x)</code> 删除 $key=x$ 的元素。</li><li><code>find(x)</code> 查找值为 $x$ 的元素的信息。</li><li><code>at(k)</code> 查找排名第 $k$ 的元素的信息。</li><li><code>range(l, r)</code> 提取出排名在 $l \sim r$ 的区间</li><li><code>merge(tr)</code> 将另外一颗 splay 树拼接到这颗 splay 树上。<br>要求：若要将 $Tb$ <code>merge</code> 到 $Ta$，必须满足 $\max\{i : i \in Tb\} \le \min\{j : j \in Ta\}$ 或者 $\min\{i : i \in Tb\} \ge \max\{j : j \in Ta\}$</li></ol><h2 id="性质">性质</h2><p>假设现在 Splay 维护了一个有序的序列，以 $key$ 为关键字。<br>这里，给出 Splay 的几条性质：</p><ol><li>Splay 树上的每一个节点都代表原序列中的一段区间。</li><li>Splay 树上的每一颗子树都是 Splay 树。</li><li>Splay 树的中序遍历就是排好序的原序列。</li><li>Splay 树支持缓存，即访问越频繁，访问速度越快。</li><li><strong>Splay 不支持可持久化。</strong></li></ol><h2 id="算法流程">算法流程</h2><h3 id="节点构造">节点构造</h3><p>我们使用一个三元组 $(size, key, ch_0, ch_1, fa, dat)$ 来表示 Splay 树上的一个节点。</p><ul><li>$size$：当前子树内元素个数。</li><li>$key$：当前节点对应元素的键值。</li><li>$ch_{0/1}$：左/右孩子。</li><li>$fa$：父亲。</li><li>$dat$：节点的附加信息。</li></ul><h3 id="建树">建树</h3><p>如果我们有一个<strong>已经有序</strong>的序列 $a_{1…n} = (key_1, dat_1), (key_2, dat_2), \dots, (key_n, dat_n)$，<br>那我们直接根据 BST 的性质建树即可，即建一颗只有右孩子的二叉树。</p><ul><li>通常来说，为了方便之后的操作，我们会设置两个哨兵节点，一首一尾。</li></ul><pre class="mermaid">graph TD    A{1. Root} --> B[NULL]; A --> C(2);    C --> D[NULL]; C --> E(3);    E --> F[NULL]; E --> G(4);    G --> H[NULL]; G --> I{Guard}</pre><h3 id="维护">维护</h3><h4 id="在节点上">在节点上</h4><p>分为 <code>pushup</code> 和 <code>pushdown</code>，其中 <code>pushup</code> 需要统计 $size$ 即 $size := size_0 + 1 + size_1$。</p><h4 id="在树的结构上">在树的结构上</h4><p>分为 <em>zig</em>、<em>zig-zig</em>、<em>zig-zag</em>。</p><pre class="mermaid">flowchart LR[zig]subgraph Before[ ]    direction TB    f0((anc)) <--> y0((y))    y0 <--> x0((x))    x0 <--> a0(A)    x0 <--> b0(B)    y0 <--> c0(C)endsubgraph After[ ]    direction TB    f1((anc)) <--> x1((x))    x1 <--> a1(A)    x1 <--> y1((y))    y1 <--> b1(B)    y1 <--> c1(C)endBefore -->|右旋| AfterBefore <---|左旋| AfterlinkStyle 0,1,3,10 stroke:red,stroke-width:2pxlinkStyle 5,7,8,11 stroke:cyan,stroke-width:2px</pre><pre class="mermaid">flowchart LR[zig-zig]subgraph Beg1[ ]    direction TB    x0((x)) --> y0((y)) --> z0((z)) --> c0(C)    x0 --> a0(A)    y0 --> b0(B)    z0 --> d0(D)endsubgraph Mid1[ ]    direction TB    y1((y)) --> x1((x)) --> a1(A)    x1 --> b1(B)    y1 --> z1((z)) --> c1(C)    z1 --> d1((D))endsubgraph End1[ ]    direction TB    z2((z)) --> a2(A)    z2 --> y2((y)) --> b2(B)    y2 --> x2((x)) --> c2(C)    x2 --> d2(D)endBeg1 -->|右旋| Mid1 -->|右旋| End1Beg1 <---|左旋| Mid1 <---|左旋| End1linkStyle 18,19 stroke:red,stroke-width:2pxlinkStyle 20,21 stroke:cyan,stroke-width:2pxstyle y0 fill:redstyle x1 fill:redstyle z1 fill:greenstyle y2 fill:green</pre><pre class="mermaid">flowchart LR[zig-zag]subgraph Beg[ ]    direction TB;    x0((x)) --> y0((y)) --> a0(A); y0 --> z0((z)) --> b0(B); z0 --> c0(C); x0 --> d0(D);endsubgraph Mid[ ]    direction TB;    y1((y)) --> x1((x)) --> a1(A); x1 -> b1(B); y1 --> z1((z)) --> c1(C); z1 --> d1(D);endsubgraph End[ ]    direction TB;    z2((z)) --> a0(A); z2 --> y2((y)) --> x2((x)) --> b2(B); x2 --> c2(C); y2 --> d2(D);endBegBeg -->|右旋| Mid -->|右旋| EndBeg <---|左旋| Mid <---|左旋| EndlinkStyle 18,19 stroke:red,stroke-width:2pxlinkStyle 20,21 stroke:cyan,stroke-width:2pxstyle y0 fill:redstyle x1 fill:redstyle z1 fill:greenstyle y2 fill:green</pre><h3 id="查询">查询</h3><h4 id="tt-find-x">$\tt{find(x)}$</h4><p>令 $\text{value}_{0/1}$ 表示左/右孩子的 $\text{value}$，<br>直接使用类似于二分的策略，当前节点 $\begin{cases}<br>size_0 + 1 = x &amp;&amp; \text{Ret} &amp; \texttt{this} \\<br>x \le size_0 &amp;&amp; \text{Ret} &amp; \texttt{find(x)} \text{ of } ch_0 \\<br>x \gt size_0 + 1 &amp;&amp; \text{Ret} &amp; \texttt{find(x} - sz_0 - 1\texttt{)} \text{ of } ch_1<br>\end{cases}$。<s>所以还是很简单的。</s><br>注意，为了确保正确的时间复杂度和 Splay 的缓存机制，请你</p>]]></content>
+      
+      
+      <categories>
+          
+          <category> 学习记录 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> 平衡树 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>KD-Tree 学习笔记</title>
       <link href="/blog/2025/12/11/KD-Tree/"/>
       <url>/blog/2025/12/11/KD-Tree/</url>
@@ -20,7 +45,7 @@
       
         <tags>
             
-            <tag> KDT </tag>
+            <tag> KD Tree </tag>
             
         </tags>
       
@@ -52,7 +77,7 @@
       <link href="/blog/2025/10/13/CF-2160/"/>
       <url>/blog/2025/10/13/CF-2160/</url>
       
-        <content type="html"><![CDATA[<h1 id="2160AMEX-Partition"><a href="https://codeforces.com/problemset/problem/2160/A">2160AMEX Partition</a></h1><p>这题是一道结论题。<br>观察到当原序列没有 $0$ 的时候，答案一定是 $0$。<br>观察到当原序列存在 $0$ 的时候，答案就是原数组的 $\operatorname{MEX}$，<br>因为没有更小的值使其 $\exists$ 一种划分，使得每个子数组的 $\operatorname{MEX}$ 相同。<br><a href="https://codeforces.com/contest/2160/submission/343311453">Contest Submission</a></p><h1 id="2160BDistinct-Elements"><a href="https://codeforces.com/problemset/problem/2160/B">2160BDistinct Elements</a></h1><p>这一题的关键是一定存在一种解。如果一定存在，我们就可以直接构造了。<br>详细解释一下，考虑每一次加入 $a_i$ 后和之前重复的数目 $\Delta b_i = i - (b_i - b_{i-1})$，如果我们令 $ a_i = \begin{cases} a_{\Delta b_i} &amp;(\Delta b_i &gt; 0) \\ \texttt{++tot} &amp;(\Delta b_i = 0) \end{cases} $ 的话，$ f(a[1,1]), \dots, f(a[1,\Delta b_i])$ 就会有一个重复，换言之，它们的值不增加。<br>而这题又一定保证有解，所以不用担心出现 $\exists\, p&gt;\Delta b_i,\; a_p=a_{\Delta b_i}$ 的情况。<br><a href="https://codeforces.com/contest/2160/submission/343330822">Contest Submission</a></p><h1 id="2160CReverse-XOR"><a href="https://codeforces.com/problemset/problem/2160/C">2160CReverse XOR</a></h1><p>这题是一个。。。找规律？的题。<br>赛时找到规律了，但就是犯唐，位数处理不够，不开 <code>long long</code>，然后直接挂掉。<br>规律很简单，就是在 $n$ 的二进制形式中，两边除去 $0$（或者你想成加上任意多个 $0$ 也行）后一定是一个回文串，而且如果长度为奇数，那么最中间的数位不能是 $1$。<br>什么玩意啊？！tnnd耍我呢！<br>事实上，这题可以这样想：<br>假设我随机弄了一个 $ x=(\overline{a_6a_5a_4a_3a_2a_1a_0})_{\texttt{B}} $，计算 $f(x)=(\overline{a_0a_1a_2a_3a_4a_5a_6})_{\texttt{B}}$。</p><p>$$<br>\begin{array}{c}<br>&amp;&amp;(\overline{a_6a_5a_4a_3a_2a_1a_0})_{\texttt{B}} &amp; x \\<br>&amp;\operatorname{XOR} &amp;(\overline{a_0a_1a_2a_3a_4a_5a_6})_{\texttt{B}} &amp; f(x) \\<br>\hline<br>&amp;= &amp;(\overline{x_0x_1x_20x_2x_1x_0})_{\texttt{B}} &amp;x \oplus f(x)<br>\end{array}<br>$$</p><p>我们发现，因为 $a_0 \operatorname{XOR} a_6 = a_6 \operatorname{XOR} a_0, \cdots$，所以事实上 $x \operatorname{XOR} f(x)$ 左右两边是相等的（这里左右位数是以 $x$ 为基准的）。我们又发现，无论如何，$x \operatorname{XOR} x=0$，所以如果是奇数位，中间一定是 $0$。证毕！<br><a href="https://codeforces.com/contest/2160/submission/343547214">Practice Submission</a></p><h1 id="2160DMAD-Interactive-Problem"><a href="https://codeforces.com/problemset/problem/2160/D">2160DMAD Interactive Problem</a></h1><p>这题，是真的非常，非常巧妙！<br>让我们想一件事情，假如现在我已经有了一个下标集合 $S$ 并且 $\forall \{p,q\} \subset S, \;a_p \ne a_q $，那么此时我们在 $S$ 中加入一个新元素 $x(x \notin S)$ 并询问这个集合的 $\texttt{jury}$，并且我们得到了一个 <strong>非 $0$</strong> 的返回 $q$，那么说明什么？？<br>说明！$a_p=q$！是不是？因为前面没有相同的，而来了一个 $p$ 就出现了 $q$ 是相同的，所以前面一定有一个 $q$，$a_p$ 也肯定是 $q$。<br>我们先这样做，假设初始 $S=\{1\}$，每次按照 $p=2,3, \dots, 2n$ 的顺序，插入 $S$ 并查询，如果遇到非 $9$ 值，那么就赋值并在 $S$ 中删除 $p$，以保证 $S$ 的性质。<br>经过 $2n-1$ 次询问后，我们成功得到了 $n$ 个 $a_i$ 的值。现在，我们令 $S’=\{p:a_p 已确认\}$，然后对于每一个没有确认的 $a_i$ 查询 $S\cup \{i\}$，因为 $|S’|=n$，而 $S’$ 也满足 $S$ 的性质，所以查询结果一定不是 $0$，所以我们直接令 $a_i=q$ 即可。于是这就花掉了 $n$ 次查询。<br>最终，我们仅用了，且稳定用了 $3n-1$ 次查询就得到了 $a_1, \cdots, a_{2n}$ ！<br><a href="https://codeforces.com/contest/2160/submission/343550028">Practice Submission</a></p><h1 id="2160E-Rectangles"><a href="https://codeforces.com/problemset/problem/2160/E">2160E Rectangles</a></h1><p>这题事实上挺唐的。属于是一眼题了，洛谷也许给不到蓝。。。<br>我们考虑使用 $O(n^3)$ 量级的解法，先枚举左右端点 $[l,r] \subset [1,n] \; (l \ne r)$，然后枚举 $j \in [1,m]$，得到 $\{j:G_{l,j}=G_{r,j}=1\}$，用这些矩形的面积 对所有在相应矩形内的点更新即可。此时仍然是 $\mathcal O(n^2m^2)$，我当时使用线段树优化，$\mathcal O(nm\min\{n,m\}\log_2\max\{n,m\})$ 还是过不掉。<br>优化呢，“用脚都能想到”。（¿）<br>注意到，我们枚举 $r$ 的时候，$l$ 不变。所以从 $l$ 到 $n$ 这些区间我们可以取一个最小，也就是等 $r$ 做完之后再取后缀最小。然后每次枚举 $l$ 更新一次最终的答案矩阵。这样时间复杂度就是严格的 $O(n^3)$ 量级。<br><img src="/blog/images/251014-1.jpg" alt=""><br>但是这题还是有点烦的，因为你要对于 $n \le m$ 和 $n &gt; m$ 分开做，或者干脆输入输出的时候翻转一下。这个细节也不能忘了。<br><a href="https://codeforces.com/contest/2160/submission/343560968">Practice Submission</a></p>]]></content>
+        <content type="html"><![CDATA[<h1 id="2160AMEX-Partition"><a href="https://codeforces.com/problemset/problem/2160/A">2160AMEX Partition</a></h1><p>这题是一道结论题。<br>观察到当原序列没有 $0$ 的时候，答案一定是 $0$。<br>观察到当原序列存在 $0$ 的时候，答案就是原数组的 $\operatorname{MEX}$，<br>因为没有更小的值使其 $\exists$ 一种划分，使得每个子数组的 $\operatorname{MEX}$ 相同。<br><a href="https://codeforces.com/contest/2160/submission/343311453">Contest Submission</a></p><h1 id="2160BDistinct-Elements"><a href="https://codeforces.com/problemset/problem/2160/B">2160BDistinct Elements</a></h1><p>这一题的关键是一定存在一种解。如果一定存在，我们就可以直接构造了。<br>详细解释一下，考虑每一次加入 $a_i$ 后和之前重复的数目 $\Delta b_i = i - (b_i - b_{i-1})$，如果我们令 $ a_i = \begin{cases} a_{\Delta b_i} &amp;(\Delta b_i &gt; 0) \\ \texttt{++tot} &amp;(\Delta b_i = 0) \end{cases} $ 的话，$ f(a[1,1]), \dots, f(a[1,\Delta b_i])$ 就会有一个重复，换言之，它们的值不增加。<br>而这题又一定保证有解，所以不用担心出现 $\exists\, p&gt;\Delta b_i,\; a_p=a_{\Delta b_i}$ 的情况。<br><a href="https://codeforces.com/contest/2160/submission/343330822">Contest Submission</a></p><h1 id="2160CReverse-XOR"><a href="https://codeforces.com/problemset/problem/2160/C">2160CReverse XOR</a></h1><p>这题是一个。。。找规律？的题。<br>赛时找到规律了，但就是犯唐，位数处理不够，不开 <code>long long</code>，然后直接挂掉。<br>规律很简单，就是在 $n$ 的二进制形式中，两边除去 $0$（或者你想成加上任意多个 $0$ 也行）后一定是一个回文串，而且如果长度为奇数，那么最中间的数位不能是 $1$。<br>什么玩意啊？！tnnd耍我呢！<br>事实上，这题可以这样想：<br>假设我随机弄了一个 $ x=(\overline{a_6a_5a_4a_3a_2a_1a_0})<em>{\texttt{B}} $，计算 $f(x)=(\overline{a_0a_1a_2a_3a_4a_5a_6})</em>{\texttt{B}}$。</p><p>$$<br>\begin{array}{c}<br>&amp;&amp;(\overline{a_6a_5a_4a_3a_2a_1a_0})<em>{\texttt{B}} &amp; x \\<br>&amp;\operatorname{XOR} &amp;(\overline{a_0a_1a_2a_3a_4a_5a_6})</em>{\texttt{B}} &amp; f(x) \\<br>\hline<br>&amp;= &amp;(\overline{x_0x_1x_20x_2x_1x_0})_{\texttt{B}} &amp;x \oplus f(x)<br>\end{array}<br>$$</p><p>我们发现，因为 $a_0 \operatorname{XOR} a_6 = a_6 \operatorname{XOR} a_0, \cdots$，所以事实上 $x \operatorname{XOR} f(x)$ 左右两边是相等的（这里左右位数是以 $x$ 为基准的）。我们又发现，无论如何，$x \operatorname{XOR} x=0$，所以如果是奇数位，中间一定是 $0$。证毕！<br><a href="https://codeforces.com/contest/2160/submission/343547214">Practice Submission</a></p><h1 id="2160DMAD-Interactive-Problem"><a href="https://codeforces.com/problemset/problem/2160/D">2160DMAD Interactive Problem</a></h1><p>这题，是真的非常，非常巧妙！<br>让我们想一件事情，假如现在我已经有了一个下标集合 $S$ 并且 $\forall \{p,q\} \subset S, \;a_p \ne a_q $，那么此时我们在 $S$ 中加入一个新元素 $x(x \notin S)$ 并询问这个集合的 $\texttt{jury}$，并且我们得到了一个 <strong>非 $0$</strong> 的返回 $q$，那么说明什么？？<br>说明！$a_p=q$！是不是？因为前面没有相同的，而来了一个 $p$ 就出现了 $q$ 是相同的，所以前面一定有一个 $q$，$a_p$ 也肯定是 $q$。<br>我们先这样做，假设初始 $S=\{1\}$，每次按照 $p=2,3, \dots, 2n$ 的顺序，插入 $S$ 并查询，如果遇到非 $9$ 值，那么就赋值并在 $S$ 中删除 $p$，以保证 $S$ 的性质。<br>经过 $2n-1$ 次询问后，我们成功得到了 $n$ 个 $a_i$ 的值。现在，我们令 $S’=\{p:a_p 已确认\}$，然后对于每一个没有确认的 $a_i$ 查询 $S\cup \{i\}$，因为 $|S’|=n$，而 $S’$ 也满足 $S$ 的性质，所以查询结果一定不是 $0$，所以我们直接令 $a_i=q$ 即可。于是这就花掉了 $n$ 次查询。<br>最终，我们仅用了，且稳定用了 $3n-1$ 次查询就得到了 $a_1, \cdots, a_{2n}$ ！<br><a href="https://codeforces.com/contest/2160/submission/343550028">Practice Submission</a></p><h1 id="2160E-Rectangles"><a href="https://codeforces.com/problemset/problem/2160/E">2160E Rectangles</a></h1><p>这题事实上挺唐的。属于是一眼题了，洛谷也许给不到蓝。。。<br>我们考虑使用 $O(n^3)$ 量级的解法，先枚举左右端点 $[l,r] \subset [1,n] \; (l \ne r)$，然后枚举 $j \in [1,m]$，得到 $\{j:G_{l,j}=G_{r,j}=1\}$，用这些矩形的面积 对所有在相应矩形内的点更新即可。此时仍然是 $\mathcal O(n^2m^2)$，我当时使用线段树优化，$\mathcal O(nm\min\{n,m\}\log_2\max\{n,m\})$ 还是过不掉。<br>优化呢，“用脚都能想到”。（¿）<br>注意到，我们枚举 $r$ 的时候，$l$ 不变。所以从 $l$ 到 $n$ 这些区间我们可以取一个最小，也就是等 $r$ 做完之后再取后缀最小。然后每次枚举 $l$ 更新一次最终的答案矩阵。这样时间复杂度就是严格的 $O(n^3)$ 量级。<br><img src="/blog/images/251014-1.jpg" alt=""><br>但是这题还是有点烦的，因为你要对于 $n \le m$ 和 $n &gt; m$ 分开做，或者干脆输入输出的时候翻转一下。这个细节也不能忘了。<br><a href="https://codeforces.com/contest/2160/submission/343560968">Practice Submission</a></p>]]></content>
       
       
       <categories>
@@ -112,11 +137,11 @@
       
         <tags>
             
+            <tag> 动态规划 </tag>
+            
             <tag> 构造 </tag>
             
             <tag> 数学 </tag>
-            
-            <tag> 动态规划 </tag>
             
             <tag> 线性DP </tag>
             
@@ -228,9 +253,9 @@
       
         <tags>
             
-            <tag> 动态规划 </tag>
-            
             <tag> 二分查找 </tag>
+            
+            <tag> 动态规划 </tag>
             
             <tag> 线性 DP </tag>
             
