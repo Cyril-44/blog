@@ -70,12 +70,12 @@
   
     <script>
       window.MathJax = {
-        loader: {load: ['[tex]/color']},
+        loader: {load: ['[tex]/color', '[tex]/extpfeil']},
         tex: {
           inlineMath: [['$', '$']],
           displayMath: [['$$', '$$']],
           processEscapes: true,
-          packages: {'[+]': ['color']}
+          packages: {'[+]': ['color', 'extpfeil']}
         },
         options: {
           skipHtmlTags: ['script', 'noscript', 'style', 'textarea', 'pre']
