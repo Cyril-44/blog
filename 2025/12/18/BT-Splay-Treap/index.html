@@ -14,7 +14,7 @@
 <meta property="og:description" content="Splay Splay 是一个基于 BST (Binary Search Tree 二叉搜索树) 的动态数据结构。 Splay 所操作的对象必须要有 $key$ 且 $key$ 严格弱序（可以计算排名）。 它支持以均摊单次 $\mathcal O(\log n)$ 的时间复杂度进行如下操作：  insert(x) 插入一个元素，以 $x$ 为 $key$。 erase(x) 删除 $key&#x3D;x$">
 <meta property="og:locale" content="zh_CN">
 <meta property="article:published_time" content="2025-12-18T04:29:55.000Z">
-<meta property="article:modified_time" content="2025-12-18T15:59:36.480Z">
+<meta property="article:modified_time" content="2025-12-18T17:15:03.592Z">
 <meta property="article:author" content="Hardsoft">
 <meta property="article:tag" content="平衡树">
 <meta name="twitter:card" content="summary">
@@ -146,7 +146,7 @@
     
     
       <div id="toc">
-        <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#Splay"><span class="toc-number">1.</span> <span class="toc-text">Splay</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%80%A7%E8%B4%A8"><span class="toc-number">1.1.</span> <span class="toc-text">性质</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%AE%97%E6%B3%95%E6%B5%81%E7%A8%8B"><span class="toc-number">1.2.</span> <span class="toc-text">算法流程</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E8%8A%82%E7%82%B9%E6%9E%84%E9%80%A0"><span class="toc-number">1.2.1.</span> <span class="toc-text">节点构造</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%BB%BA%E6%A0%91"><span class="toc-number">1.2.2.</span> <span class="toc-text">建树</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%BB%B4%E6%8A%A4"><span class="toc-number">1.2.3.</span> <span class="toc-text">维护</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%9C%A8%E8%8A%82%E7%82%B9%E4%B8%8A"><span class="toc-number">1.2.3.1.</span> <span class="toc-text">在节点上</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%9C%A8%E6%A0%91%E7%9A%84%E7%BB%93%E6%9E%84%E4%B8%8A"><span class="toc-number">1.2.3.2.</span> <span class="toc-text">在树的结构上</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%9F%A5%E8%AF%A2"><span class="toc-number">1.2.4.</span> <span class="toc-text">查询</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#tt-find-x"><span class="toc-number">1.2.4.1.</span> <span class="toc-text">$\tt{find(x)}$</span></a></li></ol></li></ol></li></ol></li></ol>
+        <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#Splay"><span class="toc-number">1.</span> <span class="toc-text">Splay</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%80%A7%E8%B4%A8"><span class="toc-number">1.1.</span> <span class="toc-text">性质</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%AE%97%E6%B3%95%E6%B5%81%E7%A8%8B"><span class="toc-number">1.2.</span> <span class="toc-text">算法流程</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E8%8A%82%E7%82%B9%E6%9E%84%E9%80%A0"><span class="toc-number">1.2.1.</span> <span class="toc-text">节点构造</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%BB%BA%E6%A0%91"><span class="toc-number">1.2.2.</span> <span class="toc-text">建树</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%BB%B4%E6%8A%A4"><span class="toc-number">1.2.3.</span> <span class="toc-text">维护</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%9C%A8%E8%8A%82%E7%82%B9%E4%B8%8A"><span class="toc-number">1.2.3.1.</span> <span class="toc-text">在节点上</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%9C%A8%E6%A0%91%E7%9A%84%E7%BB%93%E6%9E%84%E4%B8%8A"><span class="toc-number">1.2.3.2.</span> <span class="toc-text">在树的结构上</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%9F%A5%E8%AF%A2"><span class="toc-number">1.2.4.</span> <span class="toc-text">查询</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#tt-find-x"><span class="toc-number">1.2.4.1.</span> <span class="toc-text">$\tt{find(x)}$</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#tt-at-x"><span class="toc-number">1.2.4.2.</span> <span class="toc-text">$\tt{at(x)}$</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E9%87%8D%E7%82%B9%E6%B3%A8%E6%84%8F"><span class="toc-number">1.2.4.3.</span> <span class="toc-text">重点注意</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%BF%AE%E6%94%B9"><span class="toc-number">1.2.5.</span> <span class="toc-text">修改</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%90%88%E5%B9%B6"><span class="toc-number">1.2.6.</span> <span class="toc-text">合并</span></a></li></ol></li></ol></li></ol>
       </div>
     
   </span>
@@ -245,7 +245,7 @@ Splay 所操作的对象必须要有 $key$ 且 $key$ 严格弱序（可以计算
 <p>分为 <code>pushup</code> 和 <code>pushdown</code>，其中 <code>pushup</code> 需要统计 $size$ 即 $size := size_0 + 1 + size_1$。</p>
 <h4 id="在树的结构上">在树的结构上</h4>
 <p>分为 <em>zig</em>、<em>zig-zig</em>、<em>zig-zag</em>。</p>
-<pre class="mermaid">flowchart LR[zig]
+<pre class="mermaid">flowchart LR
 subgraph Before[ ]
     direction TB
     f0((anc)) <--> y0((y))
@@ -268,7 +268,7 @@ Before -->|右旋| After
 Before <---|左旋| After
 linkStyle 0,1,3,10 stroke:red,stroke-width:2px
 linkStyle 5,7,8,11 stroke:cyan,stroke-width:2px</pre>
-<pre class="mermaid">flowchart LR[zig-zig]
+<pre class="mermaid">flowchart LR
 subgraph Beg1[ ]
     direction TB
     x0((x)) --> y0((y)) --> z0((z)) --> c0(C)
@@ -293,33 +293,44 @@ end
 Beg1 -->|右旋| Mid1 -->|右旋| End1
 Beg1 <---|左旋| Mid1 <---|左旋| End1
 linkStyle 18,19 stroke:red,stroke-width:2px
-linkStyle 20,21 stroke:cyan,stroke-width:2px
+linkStyle 20,21 stroke:green,stroke-width:2px
 style y0 fill:red
 style x1 fill:red
 style z1 fill:green
 style y2 fill:green</pre>
-<pre class="mermaid">flowchart LR[zig-zag]
+<pre class="mermaid">flowchart LR
 subgraph Beg[ ]
     direction TB;
     x0((x)) --> y0((y)) --> a0(A); y0 --> z0((z)) --> b0(B); z0 --> c0(C); x0 --> d0(D);
 end
 subgraph Mid[ ]
     direction TB;
-    y1((y)) --> x1((x)) --> a1(A); x1 -> b1(B); y1 --> z1((z)) --> c1(C); z1 --> d1(D);
+    x1((x)) --> z1((z)) --> y1((y)) --> a1(A); y1 --> b1(B); z1 --> c1(C); x1 --> d1(D);
 end
 subgraph End[ ]
     direction TB;
-    z2((z)) --> a0(A); z2 --> y2((y)) --> x2((x)) --> b2(B); x2 --> c2(C); y2 --> d2(D);
+    z2((z)) --> x2((x)) --> a2(A); x2 --> b2(B); z2 --> y2((y)) --> c2(C); y2 --> d2(D);
 end
-Beg
+subgraph iMid[ ]
+    direction TB;
+    x3((x)) --> a3(A); x3 --> z3((z)) --> b3(B); z3 --> y3((y)) --> c3(C); y3 --> d3(C);
+end
+subgraph iBeg[ ]
+    direction TB;
+    x4((x)) --> a4(A); x4 --> y4((y)) --> z4((z)) --> b4(B); z4 --> c4(C); y4 --> d4(D);
+end
 Beg -->|右旋| Mid -->|右旋| End
-Beg <---|左旋| Mid <---|左旋| End
-linkStyle 18,19 stroke:red,stroke-width:2px
-linkStyle 20,21 stroke:cyan,stroke-width:2px
-style y0 fill:red
-style x1 fill:red
-style z1 fill:green
-style y2 fill:green</pre>
+iBeg -->|左旋| iMid -->|左旋| End
+linkStyle 30,31 stroke:red,stroke-width:2px
+linkStyle 32,33 stroke:green,stroke-width:2px
+style z0 fill:red
+style z1 fill:red
+style z3 fill:green
+style z4 fill:green</pre>
+<p>如你所见，我们这么大费周折地进行旋转，无非就是为了在保证 BST 的性质下尽可能地降低当前节点的深度。<br>
+所以只要我们一直做 zig-zig 或者 zig-zag，直到不行为止。最后判断要不要补一个 zig 就可以将给定节点旋转到根了。<br>
+其实 <code>rotate</code> 关键就是重建 3 条边（有的时候因为空节点没那么多），注意双向（$ch,fa$），<s>记牢了不容易忘</s>。</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">struct</span> <span class="title class_">Node</span> &#123;</span><br><span class="line">    Node *ch[<span class="number">2</span>], *fa;</span><br><span class="line">    <span class="function"><span class="type">bool</span> <span class="title">type</span><span class="params">()</span> <span class="type">const</span> </span>&#123; <span class="keyword">return</span> fa-&gt;ch[<span class="number">1</span>] == <span class="keyword">this</span>; &#125; <span class="comment">// 返回节点的类型（左/右）</span></span><br><span class="line">    <span class="comment">// Data &amp; Func decl here.....</span></span><br><span class="line">    <span class="function"><span class="type">void</span> <span class="title">rotate</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        fa-&gt;<span class="built_in">pushdown</span>(), <span class="built_in">pushdown</span>();</span><br><span class="line">        <span class="keyword">auto</span> anc = fa-&gt;fa;</span><br><span class="line">        <span class="type">int</span> tp = <span class="built_in">type</span>(), ftp = anc ? fa-&gt;<span class="built_in">type</span>() : <span class="number">-1</span>;</span><br><span class="line">        fa-&gt;ch[tp] = ch[tp ^ <span class="number">1</span>]; <span class="keyword">if</span> (ch[tp ^ <span class="number">1</span>]) ch[tp ^ <span class="number">1</span>]-&gt;fa = fa;</span><br><span class="line">        ch[tp ^ <span class="number">1</span>] = fa; fa-&gt;fa = <span class="keyword">this</span>;</span><br><span class="line">        <span class="keyword">if</span> (anc) anc-&gt;ch[ftp] = <span class="keyword">this</span>; fa = anc;</span><br><span class="line">        ch[tp ^ <span class="number">1</span>]-&gt;<span class="built_in">pushup</span>(), <span class="built_in">pushup</span>();</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="type">void</span> <span class="title">splay</span><span class="params">(Node *u, Node *goal = <span class="literal">nullptr</span>)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">while</span> (u-&gt;fa != goal) &#123;    <span class="comment">// 这两行里面外面一样的</span></span><br><span class="line">        <span class="keyword">if</span> (u-&gt;fa-&gt;fa != goal) <span class="comment">// 一般喜欢放里面，情况少</span></span><br><span class="line">            u-&gt;<span class="built_in">type</span>() == u-&gt;fa-&gt;<span class="built_in">type</span>() ? u-&gt;fa-&gt;<span class="built_in">rotate</span>() : u-&gt;<span class="built_in">rotate</span>();</span><br><span class="line">        u-&gt;<span class="built_in">rotate</span>();</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">if</span> (!goal) root = u; <span class="comment">// 注意如果旋转到真的树根，要更新 Splay 的 root</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <h3 id="查询">查询</h3>
 <h4 id="tt-find-x">$\tt{find(x)}$</h4>
 <p>令 $\text{value}_{0/1}$ 表示左/右孩子的 $\text{value}$，<br>
@@ -328,7 +339,18 @@ size_0 + 1 = x &amp;&amp; \text{Ret} &amp; \texttt{this} \\<br>
 x \le size_0 &amp;&amp; \text{Ret} &amp; \texttt{find(x)} \text{ of } ch_0 \\<br>
 x \gt size_0 + 1 &amp;&amp; \text{Ret} &amp; \texttt{find(x} - sz_0 - 1\texttt{)} \text{ of } ch_1<br>
 \end{cases}$。<s>所以还是很简单的。</s><br>
-注意，为了确保正确的时间复杂度和 Splay 的缓存机制，请你</p>
+注意，为了确保正确的时间复杂度和 Splay 的缓存机制，请你<strong>必须</strong>将查询节点<strong>旋转到根</strong>。</p>
+<h4 id="tt-at-x">$\tt{at(x)}$</h4>
+<p>这个就是直接 BST 上搜索就可以了。如果 $x \le key$ 就返回 $ch_0.\tt{at(x)}$，否则就是 $ch_1.\tt{at(x)}$。如果发现 $ch_{0/1}$ 是空的那就结束。<br>
+注意最后<strong>旋转到根</strong>。</p>
+<h4 id="重点注意">重点注意</h4>
+<ul>
+<li>需要在访问节点的 $ch_?$ 的时候进行 <code>pushdown</code>，不要忘记。</li>
+</ul>
+<h3 id="修改">修改</h3>
+<p>先调用 $\tt{find(x)}$，对他的 $dat$ 进行修改，然后<strong>旋转到根</strong>。</p>
+<h3 id="合并">合并</h3>
+<p>注意到我们将排名为 $size$ 的节点旋转到根后，右子树为空，直接把另外一颗 Splay 树接上去就可以了（反之亦然）。</p>
 
   </div>
 </article>
@@ -366,7 +388,7 @@ x \gt size_0 + 1 &amp;&amp; \text{Ret} &amp; \texttt{find(x} - sz_0 - 1\texttt{)
     
     
       <div id="toc-footer" style="display: none">
-        <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#Splay"><span class="toc-number">1.</span> <span class="toc-text">Splay</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%80%A7%E8%B4%A8"><span class="toc-number">1.1.</span> <span class="toc-text">性质</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%AE%97%E6%B3%95%E6%B5%81%E7%A8%8B"><span class="toc-number">1.2.</span> <span class="toc-text">算法流程</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E8%8A%82%E7%82%B9%E6%9E%84%E9%80%A0"><span class="toc-number">1.2.1.</span> <span class="toc-text">节点构造</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%BB%BA%E6%A0%91"><span class="toc-number">1.2.2.</span> <span class="toc-text">建树</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%BB%B4%E6%8A%A4"><span class="toc-number">1.2.3.</span> <span class="toc-text">维护</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%9C%A8%E8%8A%82%E7%82%B9%E4%B8%8A"><span class="toc-number">1.2.3.1.</span> <span class="toc-text">在节点上</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%9C%A8%E6%A0%91%E7%9A%84%E7%BB%93%E6%9E%84%E4%B8%8A"><span class="toc-number">1.2.3.2.</span> <span class="toc-text">在树的结构上</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%9F%A5%E8%AF%A2"><span class="toc-number">1.2.4.</span> <span class="toc-text">查询</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#tt-find-x"><span class="toc-number">1.2.4.1.</span> <span class="toc-text">$\tt{find(x)}$</span></a></li></ol></li></ol></li></ol></li></ol>
+        <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#Splay"><span class="toc-number">1.</span> <span class="toc-text">Splay</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%80%A7%E8%B4%A8"><span class="toc-number">1.1.</span> <span class="toc-text">性质</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%AE%97%E6%B3%95%E6%B5%81%E7%A8%8B"><span class="toc-number">1.2.</span> <span class="toc-text">算法流程</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E8%8A%82%E7%82%B9%E6%9E%84%E9%80%A0"><span class="toc-number">1.2.1.</span> <span class="toc-text">节点构造</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%BB%BA%E6%A0%91"><span class="toc-number">1.2.2.</span> <span class="toc-text">建树</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%BB%B4%E6%8A%A4"><span class="toc-number">1.2.3.</span> <span class="toc-text">维护</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%9C%A8%E8%8A%82%E7%82%B9%E4%B8%8A"><span class="toc-number">1.2.3.1.</span> <span class="toc-text">在节点上</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%9C%A8%E6%A0%91%E7%9A%84%E7%BB%93%E6%9E%84%E4%B8%8A"><span class="toc-number">1.2.3.2.</span> <span class="toc-text">在树的结构上</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%9F%A5%E8%AF%A2"><span class="toc-number">1.2.4.</span> <span class="toc-text">查询</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#tt-find-x"><span class="toc-number">1.2.4.1.</span> <span class="toc-text">$\tt{find(x)}$</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#tt-at-x"><span class="toc-number">1.2.4.2.</span> <span class="toc-text">$\tt{at(x)}$</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E9%87%8D%E7%82%B9%E6%B3%A8%E6%84%8F"><span class="toc-number">1.2.4.3.</span> <span class="toc-text">重点注意</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%BF%AE%E6%94%B9"><span class="toc-number">1.2.5.</span> <span class="toc-text">修改</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%90%88%E5%B9%B6"><span class="toc-number">1.2.6.</span> <span class="toc-text">合并</span></a></li></ol></li></ol></li></ol>
       </div>
     
 
