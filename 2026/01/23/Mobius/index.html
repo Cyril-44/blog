@@ -14,7 +14,7 @@
 <meta property="og:description" content="一、什么是数论函数 定义 $f(n)$ 为数论函数，当其定义域和值域 $D,I\in\mathbb Z$。 这样的函数有很多很好的性质，比如可以写成一个无穷向量，可以用来卷积等等。 二、迪利克雷卷积 如果将两个函数写成向量形式，我们就可以定义一个新的符号 $*$。 定义 $(f*g)(n)&#x3D;\displaystyle\sum_{d|n}f(d)\cdot g(\frac n d)$ 这里的 $(f">
 <meta property="og:locale" content="zh_CN">
 <meta property="article:published_time" content="2026-01-23T04:39:38.000Z">
-<meta property="article:modified_time" content="2026-01-27T03:12:36.459Z">
+<meta property="article:modified_time" content="2026-03-04T08:50:39.826Z">
 <meta property="article:author" content="Hardsoft">
 <meta property="article:tag" content="数论">
 <meta property="article:tag" content="莫比乌斯反演">
@@ -269,7 +269,7 @@
 \epsilon&amp;=I*\mu \impliedby \sum_{d|n} \mu(d) = 0 \implies \mu(n) = -\sum_{d|n\,\land\,d\neq n}\mu(d) \\<br>
 I=\tau*\mu \iff \tau&amp;=I * I \\<br>
 \id=\sigma*\mu \iff \sigma&amp;=I*\id \\<br>
-\varphi=I*\mu \iff \id&amp;=I*\varphi \impliedby \sum_{d|n} \varphi(d)=n \impliedby<br>
+\varphi=\id*\mu \iff \id&amp;=I*\varphi \impliedby \sum_{d|n} \varphi(d)=n \impliedby<br>
 \begin{cases}<br>
 \text{Denote } S_d=\{k:k\in [1,n]\cap\mathbb Z, \gcd(k,n)=d\} \\<br>
 \text{So } \bigcap_{d=1}^n S_d = \varnothing \text{ and } \bigcup_{d=1}^n S_d = [1,n] \cap \mathbb Z \\<br>
