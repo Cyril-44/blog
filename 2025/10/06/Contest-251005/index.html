@@ -78,6 +78,9 @@
           displayMath: [['$$', '$$']],
           processEscapes: true,
           packages: {'[+]': ['color', 'extpfeil', 'ams']},
+            macros: {
+            bm: ["\\boldsymbol{#1}", 1]
+          },
         },
         options: {
           skipHtmlTags: ['script', 'noscript', 'style', 'textarea', 'pre']
