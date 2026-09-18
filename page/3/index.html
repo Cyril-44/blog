@@ -1,0 +1,682 @@
+<!DOCTYPE html>
+<html lang="en" data-preset="chirpy" data-scheme="auto">
+<head>
+  <meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<title>Hexo</title>
+<meta name="description" content="">
+<meta name="author" content="Your Name">
+
+<link rel="shortcut icon" href="/blog/favicon.ico">
+<link rel="icon" href="/blog/favicon.ico">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap">
+
+<link rel="stylesheet" href="/blog/css/main.css">
+
+<script>
+  (function() {
+    try {
+      var savedScheme = localStorage.getItem('chirpy_scheme');
+      if (savedScheme && (savedScheme === 'dark' || savedScheme === 'light')) {
+        document.documentElement.setAttribute('data-scheme', savedScheme);
+      } else {
+        // 当地时间 18:00 到次日 06:00 默认夜间模式 (dark)，其余时间段为白天模式 (light)
+        var hours = new Date().getHours();
+        var timeBasedScheme = (hours >= 18 || hours < 6) ? 'dark' : 'light';
+        document.documentElement.setAttribute('data-scheme', timeBasedScheme);
+      }
+    } catch(e) {}
+  })();
+</script>
+
+
+
+
+
+  
+    <style>:root { --color-accent: #7952b3; }</style>
+  
+<meta name="generator" content="Hexo 8.1.2"><style>mjx-container[jax="SVG"] {
+  direction: ltr;
+}
+
+mjx-container[jax="SVG"] > svg {
+  overflow: visible;
+}
+
+mjx-container[jax="SVG"][display="true"] {
+  display: block;
+  text-align: center;
+  margin: 1em 0;
+}
+
+mjx-container[jax="SVG"][justify="left"] {
+  text-align: left;
+}
+
+mjx-container[jax="SVG"][justify="right"] {
+  text-align: right;
+}
+
+g[data-mml-node="merror"] > g {
+  fill: red;
+  stroke: red;
+}
+
+g[data-mml-node="merror"] > rect[data-background] {
+  fill: yellow;
+  stroke: none;
+}
+
+g[data-mml-node="mtable"] > line[data-line] {
+  stroke-width: 70px;
+  fill: none;
+}
+
+g[data-mml-node="mtable"] > rect[data-frame] {
+  stroke-width: 70px;
+  fill: none;
+}
+
+g[data-mml-node="mtable"] > .mjx-dashed {
+  stroke-dasharray: 140;
+}
+
+g[data-mml-node="mtable"] > .mjx-dotted {
+  stroke-linecap: round;
+  stroke-dasharray: 0,140;
+}
+
+g[data-mml-node="mtable"] > svg {
+  overflow: visible;
+}
+
+[jax="SVG"] mjx-tool {
+  display: inline-block;
+  position: relative;
+  width: 0;
+  height: 0;
+}
+
+[jax="SVG"] mjx-tool > mjx-tip {
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+
+mjx-tool > mjx-tip {
+  display: inline-block;
+  padding: .2em;
+  border: 1px solid #888;
+  font-size: 70%;
+  background-color: #F8F8F8;
+  color: black;
+  box-shadow: 2px 2px 5px #AAAAAA;
+}
+
+g[data-mml-node="maction"][data-toggle] {
+  cursor: pointer;
+}
+
+mjx-status {
+  display: block;
+  position: fixed;
+  left: 1em;
+  bottom: 1em;
+  min-width: 25%;
+  padding: .2em .4em;
+  border: 1px solid #888;
+  font-size: 90%;
+  background-color: #F8F8F8;
+  color: black;
+}
+
+foreignObject[data-mjx-xml] {
+  font-family: initial;
+  line-height: normal;
+  overflow: visible;
+}
+
+.MathJax path {
+  stroke-width: 3;
+}
+
+mjx-container[display="true"] {
+  overflow: auto hidden;
+}
+
+mjx-container[display="true"] + br {
+  display: none;
+}
+</style></head>
+<body class="chirpy-body preset-chirpy">
+  
+    <div id="reading-progress" class="reading-progress"></div>
+  
+
+  <!-- Mobile Top Navbar -->
+  <nav class="mobile-topbar" id="mobile-topbar">
+    <button class="mobile-menu-btn btn-icon" id="sidebar-toggle" aria-label="打开菜单">
+      <i class="fa-solid fa-bars"></i>
+    </button>
+    <a href="/blog/" class="mobile-site-title">Hexo</a>
+    <div class="mobile-topbar-right">
+      <button id="mode-toggle-mobile" class="btn-icon" title="切换暗黑/浅色模式">
+        <i class="fa-solid fa-adjust"></i>
+      </button>
+    </div>
+  </nav>
+
+  <!-- Sidebar Overlay (Mobile) -->
+  <div class="sidebar-overlay" id="sidebar-overlay"></div>
+
+  <div class="app-layout">
+    <!-- 1st Column: Left Sidebar Nav -->
+    <aside id="sidebar" class="chirpy-sidebar">
+  <!-- Mobile Close Button -->
+  <button class="sidebar-close-btn btn-icon" id="sidebar-close" aria-label="关闭菜单">
+    <i class="fa-solid fa-xmark"></i>
+  </button>
+  <div class="sidebar-wrapper">
+    <div class="profile-area">
+      <a href="/blog/" class="avatar-link">
+        <img src="/blog/images/avatar.jpg" alt="Your Name" class="avatar-img" onError="this.onerror=null;this.src='https://ui-avatars.com/api/?name=Your%20Name&background=171717&color=fff';" />
+      </a>
+      <h1 class="site-title">
+        <a href="/blog/">Your Name</a>
+      </h1>
+      <p class="site-subtitle">Sharing thoughts and knowledge</p>
+    </div>
+
+    <nav class="sidebar-nav">
+      <ul>
+        <li class="nav-item active">
+          <a href="/blog/">
+            <i class="fa-solid fa-house fa-fw"></i>
+            <span>首页</span>
+          </a>
+        </li>
+        <li class="nav-item ">
+          <a href="/blog/categories">
+            <i class="fa-solid fa-bars-staggered fa-fw"></i>
+            <span>分类</span>
+          </a>
+        </li>
+        <li class="nav-item ">
+          <a href="/blog/tags">
+            <i class="fa-solid fa-tags fa-fw"></i>
+            <span>标签</span>
+          </a>
+        </li>
+        <li class="nav-item ">
+          <a href="/blog/archives">
+            <i class="fa-solid fa-box-archive fa-fw"></i>
+            <span>归档</span>
+          </a>
+        </li>
+        <li class="nav-item ">
+          <a href="/blog/links">
+            <i class="fa-solid fa-link fa-fw"></i>
+            <span>友链</span>
+          </a>
+        </li>
+        <li class="nav-item ">
+          <a href="/blog/about">
+            <i class="fa-solid fa-user fa-fw"></i>
+            <span>关于</span>
+          </a>
+        </li>
+      </ul>
+    </nav>
+
+    <div class="sidebar-bottom">
+      <button id="mode-toggle" class="btn-icon" title="切换暗黑/浅色模式">
+        <i class="fa-solid fa-adjust"></i>
+      </button>
+
+      <div class="social-links">
+        
+        
+          <a href="https://github.com" target="_blank" rel="noreferrer" title="GitHub">
+            <i class="fa-brands fa-github"></i>
+          </a>
+        
+
+        
+          <a href="/blog/atom.xml" target="_blank" title="RSS Feed">
+            <i class="fa-solid fa-rss"></i>
+          </a>
+        
+
+        
+
+        
+
+        
+      </div>
+    </div>
+  </div>
+</aside>
+
+
+    <!-- 2nd Column: Main Content -->
+    <main class="main-content">
+      <div class="content-container">
+        <div class="posts-list">
+  
+    
+    <article class="post-card " data-title="temp">
+      <a href="/blog/temp/" class="post-card-overlay-link" aria-label="temp"></a>
+
+
+      <div class="post-card-body">
+        <h2 class="post-card-title">
+          <a href="/blog/temp/">temp</a>
+        </h2>
+
+        <div class="post-meta">
+          <span class="meta-item">
+            <i class="fa-regular fa-calendar"></i>
+            2025-11-02
+          </span>
+          
+            <span class="meta-item">
+              <i class="fa-regular fa-folder"></i>
+              做题记录
+            </span>
+          
+        </div>
+
+        <div class="post-excerpt">
+          
+            <p>12345678910111213141516171819202122232425262728293031323334353637383940414243444546474849505152535455565758596061626364656667686970717273747...</p>
+          
+        </div>
+
+        <div class="post-card-footer">
+          <span class="read-more">
+            阅读全文 <i class="fa-solid fa-arrow-right"></i>
+          </span>
+        </div>
+      </div>
+
+      
+    </article>
+  
+    
+    <article class="post-card " data-title="codeforces round 1058 (div 2)">
+      <a href="/blog/CF-2160/" class="post-card-overlay-link" aria-label="Codeforces Round 1058 (Div 2)"></a>
+
+
+      <div class="post-card-body">
+        <h2 class="post-card-title">
+          <a href="/blog/CF-2160/">Codeforces Round 1058 (Div 2)</a>
+        </h2>
+
+        <div class="post-meta">
+          <span class="meta-item">
+            <i class="fa-regular fa-calendar"></i>
+            2025-10-13
+          </span>
+          
+            <span class="meta-item">
+              <i class="fa-regular fa-folder"></i>
+              做题记录
+            </span>
+          
+        </div>
+
+        <div class="post-excerpt">
+          
+            <p>2160A	MEX Partition
+这题是一道结论题。
+观察到当原序列没有  的时候，答案一定是 。
+观察到当原序列存在  的时候，答案就是原数组的 ，
+因为没有更小的值使其  一种划分，使得每个子数组的  相同。
+Contest Submission
+2160B	Disti...</p>
+          
+        </div>
+
+        <div class="post-card-footer">
+          <span class="read-more">
+            阅读全文 <i class="fa-solid fa-arrow-right"></i>
+          </span>
+        </div>
+      </div>
+
+      
+    </article>
+  
+    
+    <article class="post-card " data-title="校内模拟赛 10.08">
+      <a href="/blog/Contest-251008/" class="post-card-overlay-link" aria-label="校内模拟赛 10.08"></a>
+
+
+      <div class="post-card-body">
+        <h2 class="post-card-title">
+          <a href="/blog/Contest-251008/">校内模拟赛 10.08</a>
+        </h2>
+
+        <div class="post-meta">
+          <span class="meta-item">
+            <i class="fa-regular fa-calendar"></i>
+            2025-10-12
+          </span>
+          
+            <span class="meta-item">
+              <i class="fa-regular fa-folder"></i>
+              做题记录
+            </span>
+          
+        </div>
+
+        <div class="post-excerpt">
+          
+            <p>
+abcd
+描述
+有 4 个长度为  的数组 。现在需要你选择  个数构成数组 ，满足对所有  有    并且满足约束  。
+目标是使得  最大化。题目保证至少存在一个可行解。
+输入
+输入共   行。
+第  行包含一个正整数 。
+第   行包含 4 个整数    （按顺序）。
+输...</p>
+          
+        </div>
+
+        <div class="post-card-footer">
+          <span class="read-more">
+            阅读全文 <i class="fa-solid fa-arrow-right"></i>
+          </span>
+        </div>
+      </div>
+
+      
+    </article>
+  
+    
+    <article class="post-card " data-title="codeforces round 1057 (div 2)">
+      <a href="/blog/CF-2153/" class="post-card-overlay-link" aria-label="Codeforces Round 1057 (Div 2)"></a>
+
+
+      <div class="post-card-body">
+        <h2 class="post-card-title">
+          <a href="/blog/CF-2153/">Codeforces Round 1057 (Div 2)</a>
+        </h2>
+
+        <div class="post-meta">
+          <span class="meta-item">
+            <i class="fa-regular fa-calendar"></i>
+            2025-10-11
+          </span>
+          
+            <span class="meta-item">
+              <i class="fa-regular fa-folder"></i>
+              做题记录
+            </span>
+          
+        </div>
+
+        <div class="post-excerpt">
+          
+            <p>2153A	Circle of Apple Trees
+奶龙。
+答案是  中不同元素的个数。
+Contest Submission
+2153B	Bitwise Reversion
+这题很有意思，显然你可以一位一位枚举看看合不合法，因为每一位都不互相影响。
+但是！我们考虑 YES ...</p>
+          
+        </div>
+
+        <div class="post-card-footer">
+          <span class="read-more">
+            阅读全文 <i class="fa-solid fa-arrow-right"></i>
+          </span>
+        </div>
+      </div>
+
+      
+    </article>
+  
+    
+    <article class="post-card " data-title="a-story-of-mc-mfas">
+      <a href="/blog/A-Story-Of-MC-MFAs/" class="post-card-overlay-link" aria-label="A-Story-Of-MC-MFAs"></a>
+
+
+      <div class="post-card-body">
+        <h2 class="post-card-title">
+          <a href="/blog/A-Story-Of-MC-MFAs/">A-Story-Of-MC-MFAs</a>
+        </h2>
+
+        <div class="post-meta">
+          <span class="meta-item">
+            <i class="fa-regular fa-calendar"></i>
+            2025-10-07
+          </span>
+          
+            <span class="meta-item">
+              <i class="fa-regular fa-folder"></i>
+              生活日常
+            </span>
+          
+        </div>
+
+        <div class="post-excerpt">
+          
+            <p>
+这是一个有关于 Minecraft 账号  被盗的故事。
+
+[20:23:57] [48⭐] [MVP+] _taipoo: who want VIP? 
+[20:24:02] [7⭐] ChickenDrinkMilk: me 
+[20:24:09] [232⭐] [MVP+...</p>
+          
+        </div>
+
+        <div class="post-card-footer">
+          <span class="read-more">
+            阅读全文 <i class="fa-solid fa-arrow-right"></i>
+          </span>
+        </div>
+      </div>
+
+      
+    </article>
+  
+    
+    <article class="post-card " data-title="唐题记录 10.06">
+      <a href="/blog/Record-251006/" class="post-card-overlay-link" aria-label="唐题记录 10.06"></a>
+
+
+      <div class="post-card-body">
+        <h2 class="post-card-title">
+          <a href="/blog/Record-251006/">唐题记录 10.06</a>
+        </h2>
+
+        <div class="post-meta">
+          <span class="meta-item">
+            <i class="fa-regular fa-calendar"></i>
+            2025-10-06
+          </span>
+          
+            <span class="meta-item">
+              <i class="fa-regular fa-folder"></i>
+              做题记录
+            </span>
+          
+        </div>
+
+        <div class="post-excerpt">
+          
+            <p>P14078
+这题是一道唐题，但是我没有写出来。。。
+所以。
+问题可以转化为，先按照  从小到大排序，然后令   ，求该序列的 LIS长度 即可。
+唐诗题目。螳臂我。
+Code
+...</p>
+          
+        </div>
+
+        <div class="post-card-footer">
+          <span class="read-more">
+            阅读全文 <i class="fa-solid fa-arrow-right"></i>
+          </span>
+        </div>
+      </div>
+
+      
+    </article>
+  
+</div>
+
+
+  <nav class="pagination">
+    <a class="extend prev" rel="prev" href="/blog/page/2/"><i class="fa-solid fa-chevron-left"></i> Previous</a><a class="page-number" href="/blog/">1</a><a class="page-number" href="/blog/page/2/">2</a><span class="page-number current">3</span><a class="page-number" href="/blog/page/4/">4</a><a class="extend next" rel="next" href="/blog/page/4/">Next <i class="fa-solid fa-chevron-right"></i></a>
+  </nav>
+
+
+
+
+      </div>
+
+      <footer class="chirpy-footer">
+</footer>
+
+
+
+    </main>
+
+    <!-- 3rd Column: Right Sidebar (Home/List pages) or TOC (Article pages) -->
+    
+      <aside class="right-sidebar">
+  <div class="right-sidebar-wrapper">
+    <!-- 1. Search Box Widget -->
+    <div class="widget widget-search">
+      <div class="search-input-box">
+        <i class="fa-solid fa-magnifying-glass search-icon"></i>
+        <input type="text" id="sidebar-search-input" placeholder="搜索全站文章标题..." autocomplete="off" />
+      </div>
+      <div id="search-results-dropdown" class="search-results-dropdown"></div>
+    </div>
+
+
+    <!-- 2. Recently Updated Posts Widget -->
+    <div class="widget widget-recent">
+      <h3 class="widget-title"><i class="fa-regular fa-clock"></i> 最近更新</h3>
+      <ul class="recent-posts-list">
+        
+          <li class="recent-post-item">
+            <a href="/blog/test/" class="recent-post-title">temp</a>
+            <span class="recent-post-date">2027-11-02</span>
+          </li>
+        
+          <li class="recent-post-item">
+            <a href="/blog/hello-world/" class="recent-post-title">Hello World</a>
+            <span class="recent-post-date">2026-09-18</span>
+          </li>
+        
+          <li class="recent-post-item">
+            <a href="/blog/Poly/" class="recent-post-title">多项式学习</a>
+            <span class="recent-post-date">2026-05-22</span>
+          </li>
+        
+          <li class="recent-post-item">
+            <a href="/blog/ExGCD_CRT_BSGS/" class="recent-post-title">同余类数论学习</a>
+            <span class="recent-post-date">2026-05-07</span>
+          </li>
+        
+          <li class="recent-post-item">
+            <a href="/blog/NetFlow/" class="recent-post-title">网络流 网络流构图 二分图 学习笔记</a>
+            <span class="recent-post-date">2026-02-08</span>
+          </li>
+        
+      </ul>
+    </div>
+
+    <!-- 3. Trending Tags Cloud Widget -->
+    <div class="widget widget-tags">
+      <h3 class="widget-title"><i class="fa-solid fa-fire"></i> 热门标签</h3>
+      <div class="widget-tag-cloud">
+        
+          <a href="/blog/tags/DP/" class="widget-tag-pill">
+            动态规划 <span class="tag-count">(3)</span>
+          </a>
+        
+          <a href="/blog/tags/MathTheory/" class="widget-tag-pill">
+            数论 <span class="tag-count">(3)</span>
+          </a>
+        
+          <a href="/blog/tags/BT/" class="widget-tag-pill">
+            平衡树 <span class="tag-count">(3)</span>
+          </a>
+        
+          <a href="/blog/tags/Mobius/" class="widget-tag-pill">
+            莫比乌斯反演 <span class="tag-count">(2)</span>
+          </a>
+        
+          <a href="/blog/tags/Fabric/" class="widget-tag-pill">
+            构造 <span class="tag-count">(1)</span>
+          </a>
+        
+          <a href="/blog/tags/Math/" class="widget-tag-pill">
+            数学 <span class="tag-count">(1)</span>
+          </a>
+        
+          <a href="/blog/tags/%E7%BA%BF%E6%80%A7DP/" class="widget-tag-pill">
+            线性DP <span class="tag-count">(1)</span>
+          </a>
+        
+          <a href="/blog/tags/%E7%A0%B4%E7%8E%AF%E6%88%90%E9%93%BE/" class="widget-tag-pill">
+            破环成链 <span class="tag-count">(1)</span>
+          </a>
+        
+          <a href="/blog/tags/BinarySearch/" class="widget-tag-pill">
+            二分查找 <span class="tag-count">(1)</span>
+          </a>
+        
+          <a href="/blog/tags/%E7%BA%BF%E6%80%A7-DP/" class="widget-tag-pill">
+            线性 DP <span class="tag-count">(1)</span>
+          </a>
+        
+          <a href="/blog/tags/%E5%9B%BE%E8%AE%BA/" class="widget-tag-pill">
+            图论 <span class="tag-count">(1)</span>
+          </a>
+        
+          <a href="/blog/tags/%E7%9F%A9%E9%98%B5%E5%BF%AB%E9%80%9F%E5%B9%82/" class="widget-tag-pill">
+            矩阵快速幂 <span class="tag-count">(1)</span>
+          </a>
+        
+      </div>
+    </div>
+
+    <!-- 4. Site Stats Widget -->
+    <div class="widget widget-info">
+      <h3 class="widget-title"><i class="fa-solid fa-chart-simple"></i> 站点信息</h3>
+      <div class="site-stats-grid">
+        <div class="stat-box">
+          <span class="stat-val">20</span>
+          <span class="stat-lbl">文章</span>
+        </div>
+        <div class="stat-box">
+          <span class="stat-val">3</span>
+          <span class="stat-lbl">分类</span>
+        </div>
+        <div class="stat-box">
+          <span class="stat-val">36</span>
+          <span class="stat-lbl">标签</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</aside>
+
+    
+  </div>
+
+  <script src="/blog/js/main.js"></script>
+</body>
+</html>

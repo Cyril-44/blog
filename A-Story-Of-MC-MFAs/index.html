@@ -1,0 +1,434 @@
+<!DOCTYPE html>
+<html lang="en" data-preset="chirpy" data-scheme="auto">
+<head>
+  <meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<title>A-Story-Of-MC-MFAs | Hexo</title>
+<meta name="description" content="">
+<meta name="author" content="Your Name">
+
+<link rel="shortcut icon" href="/blog/favicon.ico">
+<link rel="icon" href="/blog/favicon.ico">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap">
+
+<link rel="stylesheet" href="/blog/css/main.css">
+
+<script>
+  (function() {
+    try {
+      var savedScheme = localStorage.getItem('chirpy_scheme');
+      if (savedScheme && (savedScheme === 'dark' || savedScheme === 'light')) {
+        document.documentElement.setAttribute('data-scheme', savedScheme);
+      } else {
+        // 当地时间 18:00 到次日 06:00 默认夜间模式 (dark)，其余时间段为白天模式 (light)
+        var hours = new Date().getHours();
+        var timeBasedScheme = (hours >= 18 || hours < 6) ? 'dark' : 'light';
+        document.documentElement.setAttribute('data-scheme', timeBasedScheme);
+      }
+    } catch(e) {}
+  })();
+</script>
+
+
+
+
+
+  
+    <style>:root { --color-accent: #7952b3; }</style>
+  
+<meta name="generator" content="Hexo 8.1.2"><style>mjx-container[jax="SVG"] {
+  direction: ltr;
+}
+
+mjx-container[jax="SVG"] > svg {
+  overflow: visible;
+}
+
+mjx-container[jax="SVG"][display="true"] {
+  display: block;
+  text-align: center;
+  margin: 1em 0;
+}
+
+mjx-container[jax="SVG"][justify="left"] {
+  text-align: left;
+}
+
+mjx-container[jax="SVG"][justify="right"] {
+  text-align: right;
+}
+
+g[data-mml-node="merror"] > g {
+  fill: red;
+  stroke: red;
+}
+
+g[data-mml-node="merror"] > rect[data-background] {
+  fill: yellow;
+  stroke: none;
+}
+
+g[data-mml-node="mtable"] > line[data-line] {
+  stroke-width: 70px;
+  fill: none;
+}
+
+g[data-mml-node="mtable"] > rect[data-frame] {
+  stroke-width: 70px;
+  fill: none;
+}
+
+g[data-mml-node="mtable"] > .mjx-dashed {
+  stroke-dasharray: 140;
+}
+
+g[data-mml-node="mtable"] > .mjx-dotted {
+  stroke-linecap: round;
+  stroke-dasharray: 0,140;
+}
+
+g[data-mml-node="mtable"] > svg {
+  overflow: visible;
+}
+
+[jax="SVG"] mjx-tool {
+  display: inline-block;
+  position: relative;
+  width: 0;
+  height: 0;
+}
+
+[jax="SVG"] mjx-tool > mjx-tip {
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+
+mjx-tool > mjx-tip {
+  display: inline-block;
+  padding: .2em;
+  border: 1px solid #888;
+  font-size: 70%;
+  background-color: #F8F8F8;
+  color: black;
+  box-shadow: 2px 2px 5px #AAAAAA;
+}
+
+g[data-mml-node="maction"][data-toggle] {
+  cursor: pointer;
+}
+
+mjx-status {
+  display: block;
+  position: fixed;
+  left: 1em;
+  bottom: 1em;
+  min-width: 25%;
+  padding: .2em .4em;
+  border: 1px solid #888;
+  font-size: 90%;
+  background-color: #F8F8F8;
+  color: black;
+}
+
+foreignObject[data-mjx-xml] {
+  font-family: initial;
+  line-height: normal;
+  overflow: visible;
+}
+
+.MathJax path {
+  stroke-width: 3;
+}
+
+mjx-container[display="true"] {
+  overflow: auto hidden;
+}
+
+mjx-container[display="true"] + br {
+  display: none;
+}
+</style></head>
+<body class="chirpy-body preset-chirpy">
+  
+    <div id="reading-progress" class="reading-progress"></div>
+  
+
+  <!-- Mobile Top Navbar -->
+  <nav class="mobile-topbar" id="mobile-topbar">
+    <button class="mobile-menu-btn btn-icon" id="sidebar-toggle" aria-label="打开菜单">
+      <i class="fa-solid fa-bars"></i>
+    </button>
+    <a href="/blog/" class="mobile-site-title">Hexo</a>
+    <div class="mobile-topbar-right">
+      <button id="mode-toggle-mobile" class="btn-icon" title="切换暗黑/浅色模式">
+        <i class="fa-solid fa-adjust"></i>
+      </button>
+    </div>
+  </nav>
+
+  <!-- Sidebar Overlay (Mobile) -->
+  <div class="sidebar-overlay" id="sidebar-overlay"></div>
+
+  <div class="app-layout">
+    <!-- 1st Column: Left Sidebar Nav -->
+    <aside id="sidebar" class="chirpy-sidebar">
+  <!-- Mobile Close Button -->
+  <button class="sidebar-close-btn btn-icon" id="sidebar-close" aria-label="关闭菜单">
+    <i class="fa-solid fa-xmark"></i>
+  </button>
+  <div class="sidebar-wrapper">
+    <div class="profile-area">
+      <a href="/blog/" class="avatar-link">
+        <img src="/blog/images/avatar.jpg" alt="Your Name" class="avatar-img" onError="this.onerror=null;this.src='https://ui-avatars.com/api/?name=Your%20Name&background=171717&color=fff';" />
+      </a>
+      <h1 class="site-title">
+        <a href="/blog/">Your Name</a>
+      </h1>
+      <p class="site-subtitle">Sharing thoughts and knowledge</p>
+    </div>
+
+    <nav class="sidebar-nav">
+      <ul>
+        <li class="nav-item ">
+          <a href="/blog/">
+            <i class="fa-solid fa-house fa-fw"></i>
+            <span>首页</span>
+          </a>
+        </li>
+        <li class="nav-item ">
+          <a href="/blog/categories">
+            <i class="fa-solid fa-bars-staggered fa-fw"></i>
+            <span>分类</span>
+          </a>
+        </li>
+        <li class="nav-item ">
+          <a href="/blog/tags">
+            <i class="fa-solid fa-tags fa-fw"></i>
+            <span>标签</span>
+          </a>
+        </li>
+        <li class="nav-item ">
+          <a href="/blog/archives">
+            <i class="fa-solid fa-box-archive fa-fw"></i>
+            <span>归档</span>
+          </a>
+        </li>
+        <li class="nav-item ">
+          <a href="/blog/links">
+            <i class="fa-solid fa-link fa-fw"></i>
+            <span>友链</span>
+          </a>
+        </li>
+        <li class="nav-item ">
+          <a href="/blog/about">
+            <i class="fa-solid fa-user fa-fw"></i>
+            <span>关于</span>
+          </a>
+        </li>
+      </ul>
+    </nav>
+
+    <div class="sidebar-bottom">
+      <button id="mode-toggle" class="btn-icon" title="切换暗黑/浅色模式">
+        <i class="fa-solid fa-adjust"></i>
+      </button>
+
+      <div class="social-links">
+        
+        
+          <a href="https://github.com" target="_blank" rel="noreferrer" title="GitHub">
+            <i class="fa-brands fa-github"></i>
+          </a>
+        
+
+        
+          <a href="/blog/atom.xml" target="_blank" title="RSS Feed">
+            <i class="fa-solid fa-rss"></i>
+          </a>
+        
+
+        
+
+        
+
+        
+      </div>
+    </div>
+  </div>
+</aside>
+
+
+    <!-- 2nd Column: Main Content -->
+    <main class="main-content">
+      <div class="content-container">
+        <article class="post-detail">
+  <header class="post-header">
+    <h1 class="post-title">A-Story-Of-MC-MFAs</h1>
+
+    <div class="post-meta">
+      <span class="meta-item">
+        <i class="fa-regular fa-calendar"></i>
+        发布于 2025-10-07
+      </span>
+      
+        <span class="meta-item">
+          <i class="fa-regular fa-clock"></i>
+          更新于 2026-09-18
+        </span>
+      
+      
+        <span class="meta-item">
+          <i class="fa-regular fa-folder"></i>
+          生活日常
+        </span>
+      
+    </div>
+  </header>
+
+  <div class="post-content markdown-body">
+    <mjx-container class="MathJax" jax="SVG" overflow="overflow" display="true"><svg style="vertical-align: -0.043ex;" xmlns="http://www.w3.org/2000/svg" width="1.633ex" height="1.593ex" role="img" focusable="false" viewBox="0 -685 722 704"><g stroke="currentColor" fill="currentColor" stroke-width="0" transform="scale(1,-1)"><g data-mml-node="math" data-latex=" \N "><g data-mml-node="TeXAtom" data-latex="\mathbb{N}" data-mjx-texclass="ORD"><g data-mml-node="mi" data-latex="N"><path data-c="2115" d="M665 685L521 685C496 685 484 678 484 663C484 651 495 644 517 642C543 640 559 635 564 628C571 618 575 600 575 573L575 276L284 670C277 680 264 685 245 685L73 685C49 685 37 678 37 663C37 650 45 643 61 642C81 640 98 631 113 615C112 609 111 601 111 592L111 110C111 55 106 47 56 42C35 41 25 34 25 22C25 4 40 0 63 0L216 0C240 0 252 7 252 22C252 34 241 41 219 42C167 47 160 56 160 112L160 553L580-3C589-14 597-19 604-19C618-19 625-7 625 18L625 576C625 626 629 642 675 642C693 643 702 650 702 663C702 682 689 685 665 685M582 195L582 66L160 625C155 632 150 637 145 642L251 642Z"></path></g></g></g></g></svg></mjx-container>
+<p>这是一个有关于 Minecraft 账号 <mjx-container class="MathJax" jax="SVG" overflow="overflow"><svg style="vertical-align: -0.025ex;" xmlns="http://www.w3.org/2000/svg" width="19.005ex" height="1.432ex" role="img" focusable="false" viewBox="0 -622 8400 633"><g stroke="currentColor" fill="currentColor" stroke-width="0" transform="scale(1,-1)"><g data-mml-node="math" data-latex="\tt{ChickenDrinkMilk}"><g data-mml-node="TeXAtom" data-latex="\tt{ChickenDrinkMilk}" data-mjx-texclass="ORD"><g data-mml-node="mi" data-latex="C"><path data-c="1D672" d="M484 440L484 578C484 607 473 622 451 622C439 622 428 616 419 603C419 600 415 592 407 577C370 607 328 622 281 622C206 622 146 587 100 516C60 454 40 384 40 306C40 227 60 157 100 95C146 24 207-11 282-11C334-11 380 6 420 39C463 74 484 118 484 170C484 194 471 206 446 206C423 206 410 195 408 174C404 107 356 57 286 57C232 57 189 86 156 145C129 194 116 248 116 306C116 363 129 417 156 466C189 525 232 554 285 554C354 554 397 495 407 432C411 406 420 396 446 396C474 396 484 409 484 440Z"></path></g><g data-mml-node="mi" data-latex="h" transform="translate(525,0)"><path data-c="1D691" d="M128 611L56 611C27 611 12 599 12 576C12 554 26 543 55 543L96 543L96 68L56 68C27 68 12 57 12 34C12 11 26 0 55 0L212 0C241 0 255 11 255 34C255 57 240 68 211 68L171 68L171 239C171 312 218 371 291 371C341 371 353 342 353 288L353 68L318 68C289 68 274 57 274 34C274 11 289 0 318 0L469 0C498 0 512 11 512 34C512 57 497 68 468 68L428 68L428 293C428 390 384 439 296 439C247 439 206 423 171 392L171 567C171 601 162 611 128 611Z"></path></g><g data-mml-node="mi" data-latex="i" transform="translate(1050,0)"><path data-c="1D692" d="M316 552C316 581 292 605 263 605C234 605 210 581 210 552C210 522 233 498 263 498C293 498 316 522 316 552M269 433L130 433C101 433 86 422 86 400C86 377 101 365 130 365L237 365L237 68L122 68C93 68 78 57 78 34C78 11 93 0 122 0L411 0C440 0 455 11 455 34C455 57 440 68 411 68L312 68L312 389C312 423 303 433 269 433Z"></path></g><g data-mml-node="mi" data-latex="c" transform="translate(1575,0)"><path data-c="1D68C" d="M148 216C148 246 158 278 178 311C202 352 244 372 304 372C341 372 359 370 359 367C360 332 375 315 406 315C434 315 454 336 454 364C454 415 404 440 304 440C223 440 163 413 124 360C90 314 73 266 73 216C73 154 94 101 136 58C178 15 231-6 293-6C358-6 404 11 432 46C455 74 466 96 466 111C466 132 453 142 428 142C409 142 397 134 392 118C374 81 343 62 298 62C214 62 148 132 148 216Z"></path></g><g data-mml-node="mi" data-latex="k" transform="translate(2100,0)"><path data-c="1D694" d="M247 399C247 376 262 365 291 365L317 365L172 228L172 567C172 602 163 611 128 611L64 611C35 611 21 600 21 577C21 553 37 543 64 543L109 543L109 68L64 68C35 68 21 57 21 35C21 10 38 0 64 0L216 0C245 0 259 11 259 34C259 59 243 68 216 68L172 68L172 142L246 211L355 68C323 68 304 64 304 34C304 11 319 0 348 0L464 0C493 0 508 11 508 34C508 57 493 68 464 68L435 68L292 255L409 365L442 365C471 365 486 376 486 399C486 422 471 433 442 433L291 433C263 433 247 424 247 399Z"></path></g><g data-mml-node="mi" data-latex="e" transform="translate(2625,0)"><path data-c="1D68E" d="M133 188L421 188C453 188 464 195 464 228C464 352 391 440 270 440C209 440 158 418 117 374C76 330 55 278 55 217C55 154 77 101 122 58C167 15 222-6 285-6C347-6 393 10 424 43C451 71 464 94 464 111C464 132 451 142 426 142C409 142 397 134 390 118C374 81 341 62 291 62C210 62 149 119 133 188M270 372C339 372 378 333 386 254L134 254C148 314 198 372 270 372Z"></path></g><g data-mml-node="mi" data-latex="n" transform="translate(3150,0)"><path data-c="1D697" d="M128 431L56 431C27 431 12 420 12 397C12 374 26 363 55 363L96 363L96 68L56 68C27 68 12 56 12 33C12 11 26 0 55 0L212 0C241 0 255 11 255 33C255 56 240 68 211 68L171 68L171 238C171 310 219 369 291 369C341 369 353 341 353 287L353 68L318 68C289 68 274 56 274 33C274 11 289 0 318 0L469 0C498 0 512 11 512 33C512 56 497 68 468 68L428 68L428 292C428 389 384 437 296 437C247 437 206 421 171 390C170 424 163 431 128 431Z"></path></g><g data-mml-node="mi" data-latex="D" transform="translate(3675,0)"><path data-c="1D673" d="M266 0C336 0 392 34 433 102C468 160 485 226 485 301C485 376 468 444 433 504C392 575 336 611 266 611L63 611C34 611 19 599 19 576C19 554 34 543 63 543L81 543L81 68L63 68C34 68 19 57 19 34C19 11 34 0 63 0M247 543C300 543 342 515 373 458C397 412 409 360 409 301C409 243 397 192 372 148C342 95 300 68 247 68L157 68L157 543Z"></path></g><g data-mml-node="mi" data-latex="r" transform="translate(4200,0)"><path data-c="1D69B" d="M487 372C487 386 481 400 470 413C456 429 429 437 390 437C327 437 272 413 227 364L227 387C227 422 218 431 183 431L75 431C46 431 32 420 32 398C32 373 49 363 75 363L151 363L151 68L75 68C46 68 32 57 32 34C32 10 48 0 75 0L332 0C361 0 376 11 376 33C376 56 361 68 332 68L227 68L227 187C227 290 294 368 396 369C399 340 415 326 442 326C467 326 487 347 487 372Z"></path></g><g data-mml-node="mi" data-latex="i" transform="translate(4725,0)"><path data-c="1D692" d="M316 552C316 581 292 605 263 605C234 605 210 581 210 552C210 522 233 498 263 498C293 498 316 522 316 552M269 433L130 433C101 433 86 422 86 400C86 377 101 365 130 365L237 365L237 68L122 68C93 68 78 57 78 34C78 11 93 0 122 0L411 0C440 0 455 11 455 34C455 57 440 68 411 68L312 68L312 389C312 423 303 433 269 433Z"></path></g><g data-mml-node="mi" data-latex="n" transform="translate(5250,0)"><path data-c="1D697" d="M128 431L56 431C27 431 12 420 12 397C12 374 26 363 55 363L96 363L96 68L56 68C27 68 12 56 12 33C12 11 26 0 55 0L212 0C241 0 255 11 255 33C255 56 240 68 211 68L171 68L171 238C171 310 219 369 291 369C341 369 353 341 353 287L353 68L318 68C289 68 274 56 274 33C274 11 289 0 318 0L469 0C498 0 512 11 512 33C512 56 497 68 468 68L428 68L428 292C428 389 384 437 296 437C247 437 206 421 171 390C170 424 163 431 128 431Z"></path></g><g data-mml-node="mi" data-latex="k" transform="translate(5775,0)"><path data-c="1D694" d="M247 399C247 376 262 365 291 365L317 365L172 228L172 567C172 602 163 611 128 611L64 611C35 611 21 600 21 577C21 553 37 543 64 543L109 543L109 68L64 68C35 68 21 57 21 35C21 10 38 0 64 0L216 0C245 0 259 11 259 34C259 59 243 68 216 68L172 68L172 142L246 211L355 68C323 68 304 64 304 34C304 11 319 0 348 0L464 0C493 0 508 11 508 34C508 57 493 68 464 68L435 68L292 255L409 365L442 365C471 365 486 376 486 399C486 422 471 433 442 433L291 433C263 433 247 424 247 399Z"></path></g><g data-mml-node="mi" data-latex="M" transform="translate(6300,0)"><path data-c="1D67C" d="M69 543L69 68C36 68 17 65 17 34C17 11 31 0 60 0L141 0C170 0 184 11 184 34C184 65 164 68 132 68L132 509C158 426 178 365 191 324C200 294 226 221 229 218C238 207 249 201 262 201C278 201 291 208 300 224C309 240 321 274 337 326C353 382 377 456 392 508L392 68C359 68 340 65 340 34C340 11 354 0 383 0L464 0C493 0 507 11 507 34C507 64 487 68 455 68L455 543C488 543 507 546 507 577C507 600 493 611 464 611L409 611C373 611 362 599 352 569L286 369C275 337 267 311 262 290C248 341 216 439 167 585C161 602 144 611 115 611L60 611C31 611 17 600 17 577C17 547 37 543 69 543Z"></path></g><g data-mml-node="mi" data-latex="i" transform="translate(6825,0)"><path data-c="1D692" d="M316 552C316 581 292 605 263 605C234 605 210 581 210 552C210 522 233 498 263 498C293 498 316 522 316 552M269 433L130 433C101 433 86 422 86 400C86 377 101 365 130 365L237 365L237 68L122 68C93 68 78 57 78 34C78 11 93 0 122 0L411 0C440 0 455 11 455 34C455 57 440 68 411 68L312 68L312 389C312 423 303 433 269 433Z"></path></g><g data-mml-node="mi" data-latex="l" transform="translate(7350,0)"><path data-c="1D695" d="M424 68L300 68L300 567C300 601 291 611 257 611L102 611C73 611 58 599 58 576C58 554 72 543 101 543L225 543L225 68L102 68C73 68 58 57 58 34C58 11 72 0 101 0L424 0C453 0 467 11 467 34C467 58 451 68 424 68Z"></path></g><g data-mml-node="mi" data-latex="k" transform="translate(7875,0)"><path data-c="1D694" d="M247 399C247 376 262 365 291 365L317 365L172 228L172 567C172 602 163 611 128 611L64 611C35 611 21 600 21 577C21 553 37 543 64 543L109 543L109 68L64 68C35 68 21 57 21 35C21 10 38 0 64 0L216 0C245 0 259 11 259 34C259 59 243 68 216 68L172 68L172 142L246 211L355 68C323 68 304 64 304 34C304 11 319 0 348 0L464 0C493 0 508 11 508 34C508 57 493 68 464 68L435 68L292 255L409 365L442 365C471 365 486 376 486 399C486 422 471 433 442 433L291 433C263 433 247 424 247 399Z"></path></g></g></g></g></svg></mjx-container> 被盗的故事。</p>
+<blockquote>
+<p>[20:23:57] <span style="color:#AAAAAA">[48⭐]</span> <span style="color:#55FFFF">[MVP</span><span style="color:#FF55FF">+</span><span style="color:#55FFFF">] _taipoo</span><span style="color:#FFFFFF">: who want VIP? </span><br>
+[20:24:02] <span style="color:#AAAAAA">[7⭐]</span> <span style="color:#AAAAAA">ChickenDrinkMilk</span><span style="color:#AAAAAA">: me </span><br>
+[20:24:09] <span style="color:#FFAA00">[232⭐]</span> <span style="color:#55FFFF">[MVP</span><span style="color:#00AA00">+</span><span style="color:#55FFFF">] znds</span><span style="color:#FFFFFF">: "we" </span><br>
+[20:24:13] -----------------------------------------------------<br>
+[20:24:13] [MVP+] _taipoo邀请你加入其组队！<br>
+[20:24:13] 你有60秒时间接受。点击这里以加入！<br>
+[20:24:13] -----------------------------------------------------<br>
+[20:24:16] -----------------------------------------------------<br>
+[20:24:16] 你加入了[MVP+] _taipoo的组队！<br>
+[20:24:16] -----------------------------------------------------<br>
+[20:24:21] -----------------------------<br>
+[20:24:21] 组队队长[MVP+] _taipoo， 召集你到其所在的服务器。<br>
+[20:24:21] -----------------------------<br>
+[20:24:25] <span style="color:#5555FF">组队 </span><span style="color:#555555">&gt; </span><span style="color:#55FFFF">[MVP</span><span style="color:#FF55FF">+</span><span style="color:#55FFFF">] _taipoo</span><span style="color:#FFFFFF">: i have a challenge if you done you get VIP ok? </span><br>
+[20:24:30] <span style="color:#5555FF">组队 </span><span style="color:#555555">&gt; </span><span style="color:#AAAAAA">ChickenDrinkMilk</span><span style="color:#FFFFFF">: ok </span><br>
+[20:24:36] <span style="color:#5555FF">组队 </span><span style="color:#555555">&gt; </span><span style="color:#55FFFF">[MVP</span><span style="color:#FF55FF">+</span><span style="color:#55FFFF">] _taipoo</span><span style="color:#FFFFFF">: i will tell a word if you type it in 4sec you win ready? </span><br>
+[20:24:49] <span style="color:#5555FF">组队 </span><span style="color:#555555">&gt; </span><span style="color:#AAAAAA">ChickenDrinkMilk</span><span style="color:#FFFFFF">: em </span><br>
+[20:24:55] <span style="color:#5555FF">组队 </span><span style="color:#555555">&gt; </span><span style="color:#AAAAAA">ChickenDrinkMilk</span><span style="color:#FFFFFF">: well </span><br>
+[20:25:06] <span style="color:#5555FF">组队 </span><span style="color:#555555">&gt; </span><span style="color:#55FFFF">[MVP</span><span style="color:#FF55FF">+</span><span style="color:#55FFFF">] _taipoo</span><span style="color:#FFFFFF">: type "hypixel" less then 4sec and you win </span><br>
+[20:25:12] <span style="color:#5555FF">组队 </span><span style="color:#555555">&gt; </span><span style="color:#AAAAAA">ChickenDrinkMilk</span><span style="color:#FFFFFF">: hupxiel </span><br>
+[20:25:25] <span style="color:#5555FF">组队 </span><span style="color:#555555">&gt; </span><span style="color:#55FFFF">[MVP</span><span style="color:#FF55FF">+</span><span style="color:#55FFFF">] _taipoo</span><span style="color:#FFFFFF">: you lose:/ </span><br>
+[20:25:38] <span style="color:#5555FF">组队 </span><span style="color:#555555">&gt; </span><span style="color:#AAAAAA">ChickenDrinkMilk</span><span style="color:#FFFFFF">: . </span><br>
+[20:25:48] <span style="color:#5555FF">组队 </span><span style="color:#555555">&gt; </span><span style="color:#55FFFF">[MVP</span><span style="color:#FF55FF">+</span><span style="color:#55FFFF">] _taipoo</span><span style="color:#FFFFFF">: i give you 2nd chance </span><br>
+[20:25:54] <span style="color:#5555FF">组队 </span><span style="color:#555555">&gt; </span><span style="color:#AAAAAA">ChickenDrinkMilk</span><span style="color:#FFFFFF">: ok </span><br>
+[20:26:10] <span style="color:#5555FF">组队 </span><span style="color:#555555">&gt; </span><span style="color:#AAAAAA">ChickenDrinkMilk</span><span style="color:#FFFFFF">: ready </span><br>
+[20:26:12] <span style="color:#5555FF">组队 </span><span style="color:#555555">&gt; </span><span style="color:#55FFFF">[MVP</span><span style="color:#FF55FF">+</span><span style="color:#55FFFF">] _taipoo</span><span style="color:#FFFFFF">: type "lunar" less then 4sec and you win </span><br>
+[20:26:15] <span style="color:#5555FF">组队 </span><span style="color:#555555">&gt; </span><span style="color:#AAAAAA">ChickenDrinkMilk</span><span style="color:#FFFFFF">: lunar </span><br>
+[20:26:16] <span style="color:#5555FF">组队 </span><span style="color:#555555">&gt; </span><span style="color:#55FFFF">[MVP</span><span style="color:#FF55FF">+</span><span style="color:#55FFFF">] _taipoo</span><span style="color:#FFFFFF">: niceeeeee </span><br>
+[20:26:24] <span style="color:#5555FF">组队 </span><span style="color:#555555">&gt; </span><span style="color:#55FFFF">[MVP</span><span style="color:#FF55FF">+</span><span style="color:#55FFFF">] _taipoo</span><span style="color:#FFFFFF">: let me give your VIP </span><br>
+[20:26:29] <span style="color:#5555FF">组队 </span><span style="color:#555555">&gt; </span><span style="color:#AAAAAA">ChickenDrinkMilk</span><span style="color:#FFFFFF">: wow </span><br>
+[20:26:49] <span style="color:#5555FF">组队 </span><span style="color:#555555">&gt; </span><span style="color:#55FFFF">[MVP</span><span style="color:#FF55FF">+</span><span style="color:#55FFFF">] _taipoo</span><span style="color:#FFFFFF">: <a target="_blank" rel="noopener" href="https://hypixel">https://hypixel</a> .gifts/claim/vip-rank-7388409 </span><br>
+[20:26:59] <span style="color:#5555FF">组队 </span><span style="color:#555555">&gt; </span><span style="color:#55FFFF">[MVP</span><span style="color:#FF55FF">+</span><span style="color:#55FFFF">] _taipoo</span><span style="color:#FFFFFF">: copy paste it in google and go get it buddy </span><br>
+[20:27:11] <span style="color:#5555FF">组队 </span><span style="color:#555555">&gt; </span><span style="color:#AAAAAA">ChickenDrinkMilk</span><span style="color:#FFFFFF">: thx </span><br>
+[20:27:20] <span style="color:#5555FF">组队 </span><span style="color:#555555">&gt; </span><span style="color:#55FFFF">[MVP</span><span style="color:#FF55FF">+</span><span style="color:#55FFFF">] _taipoo</span><span style="color:#FFFFFF">: wlc </span><br>
+[20:27:30] <span style="color:#5555FF">组队 </span><span style="color:#555555">&gt; </span><span style="color:#AAAAAA">ChickenDrinkMilk</span><span style="color:#FFFFFF">: im chineses actually </span><br>
+[20:27:35] 执行失败： 此命令正在冷却！ 在大约 1 秒后重试！<br>
+[20:27:35] 执行失败： 此命令正在冷却！ 在大约 1 秒后重试！<br>
+[20:27:48] <span style="color:#5555FF">组队 </span><span style="color:#555555">&gt; </span><span style="color:#55FFFF">[MVP</span><span style="color:#FF55FF">+</span><span style="color:#55FFFF">] _taipoo</span><span style="color:#FFFFFF">: alr im waiting for you </span><br>
+[20:29:30] <span style="color:#5555FF">组队 </span><span style="color:#555555">&gt; </span><span style="color:#AAAAAA">ChickenDrinkMilk</span><span style="color:#FFFFFF">: then? </span><br>
+[20:29:45] <span style="color:#5555FF">组队 </span><span style="color:#555555">&gt; </span><span style="color:#AAAAAA">ChickenDrinkMilk</span><span style="color:#FFFFFF">: creater code? </span><br>
+[20:31:37] -----------------------------<br>
+[20:31:37] 组队队长[MVP+] _taipoo， 召集你到其所在的服务器。<br>
+[20:31:37] -----------------------------<br>
+[20:31:47] Your connection timed out to the server, so you have been routed to limbo!<br>
+[20:31:48] You were spawned in Limbo.<br>
+[20:31:48] /limbo for more information.<br>
+[20:31:51] <span style="color:#5555FF">组队 </span><span style="color:#555555">&gt; </span><span style="color:#55FFFF">[MVP</span><span style="color:#FF55FF">+</span><span style="color:#55FFFF">] _taipoo</span><span style="color:#FFFFFF">: no need to creator code </span><br>
+[20:31:55] -----------------------------<br>
+[20:31:55] 组队队长[MVP+] _taipoo， 召集你到其所在的服务器。<br>
+[20:31:55] -----------------------------<br>
+[20:32:04] <span style="color:#5555FF">组队 </span><span style="color:#555555">&gt; </span><span style="color:#55FFFF">[MVP</span><span style="color:#FF55FF">+</span><span style="color:#55FFFF">] _taipoo</span><span style="color:#FFFFFF">: zip code: 92708 </span><br>
+[20:32:19] <span style="color:#5555FF">组队 </span><span style="color:#555555">&gt; </span><span style="color:#AAAAAA">ChickenDrinkMilk</span><span style="color:#FFFFFF">: r u serious? </span><br>
+[20:32:34] <span style="color:#5555FF">组队 </span><span style="color:#555555">&gt; </span><span style="color:#AAAAAA">ChickenDrinkMilk</span><span style="color:#FFFFFF">: not any jokes? </span><br>
+[20:32:50] <span style="color:#5555FF">组队 </span><span style="color:#555555">&gt; </span><span style="color:#55FFFF">[MVP</span><span style="color:#FF55FF">+</span><span style="color:#55FFFF">] _taipoo</span><span style="color:#FFFFFF">: why joke bro? </span><br>
+[20:33:13] -----------------------------<br>
+[20:33:13] 组队队长[MVP+] _taipoo， 召集你到其所在的服务器。<br>
+[20:33:13] -----------------------------<br>
+[20:35:03] Retry session set to: 8bafb7e9-9d24-4477-ac2e-e622b30cc000<br>
+[20:35:13] 你现在处于离开状态。移动以退出离开状态。<br>
+[20:36:00] -----------------------------------------------------<br>
+[20:36:00] 组队队长[MVP+] _taipoo已断开连接，若5分钟内未重新连接则组队解散。<br>
+[20:36:00] -----------------------------------------------------<br>
+[20:36:17] -----------------------------------------------------<br>
+[20:36:17] The party leader [MVP+] _taipoo has rejoined.<br>
+[20:36:17] -----------------------------------------------------<br>
+[20:36:48] -----------------------------<br>
+[20:36:48] 组队队长[MVP+] _taipoo， 召集你到其所在的服务器。<br>
+[20:36:48] -----------------------------<br>
+[20:36:53] -----------------------------------------------------<br>
+[20:36:53] [MVP+] _taipoo解散了组队！<br>
+[20:36:53] -----------------------------------------------------</p>
+</blockquote>
+<p>在访问 <code>hypixel.gifts/【generated code】</code> 后，攻击者会将您重定向到 <mjx-container class="MathJax" jax="SVG" overflow="overflow"><svg style="vertical-align: -0.452ex;" xmlns="http://www.w3.org/2000/svg" width="44.796ex" height="2.149ex" role="img" focusable="false" viewBox="0 -750 19800 950"><g stroke="currentColor" fill="currentColor" stroke-width="0" transform="scale(1,-1)"><g data-mml-node="math" data-latex="\texttt{store.hyp}{\color{red}\texttt{ì}}\texttt{xel.net}"><g data-mml-node="merror" data-mjx-error="Undefined control sequence \color"><rect data-background="true" width="19800" height="950" y="-200"></rect><g data-mml-node="mtext" style="font-family: serif;"><text data-variant="-explicitFont" transform="scale(1,-1)" font-size="884px">Undefined control sequence \color</text></g></g></g></g></svg></mjx-container>，然后要求您登录微软账户并授权<strong>极高权限</strong>的 OAuth 令牌（即常说的 refresh token）。</p>
+<p>与此同时，自动化程序获取令牌并执行一系列操作：</p>
+<ol>
+<li>使用令牌获得账户长期访问权限</li>
+<li>对账户的安全信息进行更改，获取 MFA (Mail Full Access)</li>
+<li>删除 victim 的所有安全验证信息和别名</li>
+<li>清除所有已经登陆的账号和绑定的 OAuth 授权，达成销声匿迹的效果</li>
+<li>再次重定向 <code>hypixel.gifts/【generated code】</code> 到官方的 <code>store.hypixel.net</code>，实现无法复现受害者场景</li>
+</ol>
+<p>高啊！</p>
+<p>[Oct. 7, 2025]：通过邮箱尝试登录 MS 账号，失败，“该用户不存在”。</p>
+<p>互联网上套路深，陌生人不可轻信。<br>
+没有天上掉馅饼，遇到钓鱼会甄别。<br>
+一定要设双因素，不然找都找不回。<br>
+不可乱登录账号，发现授权要谨慎。</p>
+
+  </div>
+
+  
+
+  
+    <nav class="post-navigation">
+      <div class="nav-box nav-prev">
+        
+          <a href="/blog/CF-2153/" rel="prev">
+            <span class="nav-sub"><i class="fa-solid fa-arrow-left"></i> 上一篇</span>
+            <span class="nav-title">Codeforces Round 1057 (Div 2)</span>
+          </a>
+        
+      </div>
+      <div class="nav-box nav-next">
+        
+          <a href="/blog/Record-251006/" rel="next">
+            <span class="nav-sub">下一篇 <i class="fa-solid fa-arrow-right"></i></span>
+            <span class="nav-title">唐题记录 10.06</span>
+          </a>
+        
+      </div>
+    </nav>
+  
+
+  
+
+
+</article>
+
+      </div>
+
+      <footer class="chirpy-footer">
+</footer>
+
+
+
+    </main>
+
+    <!-- 3rd Column: Right Sidebar (Home/List pages) or TOC (Article pages) -->
+    
+      
+        <aside class="right-panel">
+          
+
+        </aside>
+      
+    
+  </div>
+
+  <script src="/blog/js/main.js"></script>
+</body>
+</html>

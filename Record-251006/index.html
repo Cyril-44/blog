@@ -1,0 +1,369 @@
+<!DOCTYPE html>
+<html lang="en" data-preset="chirpy" data-scheme="auto">
+<head>
+  <meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<title>唐题记录 10.06 | Hexo</title>
+<meta name="description" content="">
+<meta name="author" content="Your Name">
+
+<link rel="shortcut icon" href="/blog/favicon.ico">
+<link rel="icon" href="/blog/favicon.ico">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap">
+
+<link rel="stylesheet" href="/blog/css/main.css">
+
+<script>
+  (function() {
+    try {
+      var savedScheme = localStorage.getItem('chirpy_scheme');
+      if (savedScheme && (savedScheme === 'dark' || savedScheme === 'light')) {
+        document.documentElement.setAttribute('data-scheme', savedScheme);
+      } else {
+        // 当地时间 18:00 到次日 06:00 默认夜间模式 (dark)，其余时间段为白天模式 (light)
+        var hours = new Date().getHours();
+        var timeBasedScheme = (hours >= 18 || hours < 6) ? 'dark' : 'light';
+        document.documentElement.setAttribute('data-scheme', timeBasedScheme);
+      }
+    } catch(e) {}
+  })();
+</script>
+
+
+
+
+
+  
+    <style>:root { --color-accent: #7952b3; }</style>
+  
+<meta name="generator" content="Hexo 8.1.2"><style>mjx-container[jax="SVG"] {
+  direction: ltr;
+}
+
+mjx-container[jax="SVG"] > svg {
+  overflow: visible;
+}
+
+mjx-container[jax="SVG"][display="true"] {
+  display: block;
+  text-align: center;
+  margin: 1em 0;
+}
+
+mjx-container[jax="SVG"][justify="left"] {
+  text-align: left;
+}
+
+mjx-container[jax="SVG"][justify="right"] {
+  text-align: right;
+}
+
+g[data-mml-node="merror"] > g {
+  fill: red;
+  stroke: red;
+}
+
+g[data-mml-node="merror"] > rect[data-background] {
+  fill: yellow;
+  stroke: none;
+}
+
+g[data-mml-node="mtable"] > line[data-line] {
+  stroke-width: 70px;
+  fill: none;
+}
+
+g[data-mml-node="mtable"] > rect[data-frame] {
+  stroke-width: 70px;
+  fill: none;
+}
+
+g[data-mml-node="mtable"] > .mjx-dashed {
+  stroke-dasharray: 140;
+}
+
+g[data-mml-node="mtable"] > .mjx-dotted {
+  stroke-linecap: round;
+  stroke-dasharray: 0,140;
+}
+
+g[data-mml-node="mtable"] > svg {
+  overflow: visible;
+}
+
+[jax="SVG"] mjx-tool {
+  display: inline-block;
+  position: relative;
+  width: 0;
+  height: 0;
+}
+
+[jax="SVG"] mjx-tool > mjx-tip {
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+
+mjx-tool > mjx-tip {
+  display: inline-block;
+  padding: .2em;
+  border: 1px solid #888;
+  font-size: 70%;
+  background-color: #F8F8F8;
+  color: black;
+  box-shadow: 2px 2px 5px #AAAAAA;
+}
+
+g[data-mml-node="maction"][data-toggle] {
+  cursor: pointer;
+}
+
+mjx-status {
+  display: block;
+  position: fixed;
+  left: 1em;
+  bottom: 1em;
+  min-width: 25%;
+  padding: .2em .4em;
+  border: 1px solid #888;
+  font-size: 90%;
+  background-color: #F8F8F8;
+  color: black;
+}
+
+foreignObject[data-mjx-xml] {
+  font-family: initial;
+  line-height: normal;
+  overflow: visible;
+}
+
+.MathJax path {
+  stroke-width: 3;
+}
+
+mjx-container[display="true"] {
+  overflow: auto hidden;
+}
+
+mjx-container[display="true"] + br {
+  display: none;
+}
+</style></head>
+<body class="chirpy-body preset-chirpy">
+  
+    <div id="reading-progress" class="reading-progress"></div>
+  
+
+  <!-- Mobile Top Navbar -->
+  <nav class="mobile-topbar" id="mobile-topbar">
+    <button class="mobile-menu-btn btn-icon" id="sidebar-toggle" aria-label="打开菜单">
+      <i class="fa-solid fa-bars"></i>
+    </button>
+    <a href="/blog/" class="mobile-site-title">Hexo</a>
+    <div class="mobile-topbar-right">
+      <button id="mode-toggle-mobile" class="btn-icon" title="切换暗黑/浅色模式">
+        <i class="fa-solid fa-adjust"></i>
+      </button>
+    </div>
+  </nav>
+
+  <!-- Sidebar Overlay (Mobile) -->
+  <div class="sidebar-overlay" id="sidebar-overlay"></div>
+
+  <div class="app-layout">
+    <!-- 1st Column: Left Sidebar Nav -->
+    <aside id="sidebar" class="chirpy-sidebar">
+  <!-- Mobile Close Button -->
+  <button class="sidebar-close-btn btn-icon" id="sidebar-close" aria-label="关闭菜单">
+    <i class="fa-solid fa-xmark"></i>
+  </button>
+  <div class="sidebar-wrapper">
+    <div class="profile-area">
+      <a href="/blog/" class="avatar-link">
+        <img src="/blog/images/avatar.jpg" alt="Your Name" class="avatar-img" onError="this.onerror=null;this.src='https://ui-avatars.com/api/?name=Your%20Name&background=171717&color=fff';" />
+      </a>
+      <h1 class="site-title">
+        <a href="/blog/">Your Name</a>
+      </h1>
+      <p class="site-subtitle">Sharing thoughts and knowledge</p>
+    </div>
+
+    <nav class="sidebar-nav">
+      <ul>
+        <li class="nav-item ">
+          <a href="/blog/">
+            <i class="fa-solid fa-house fa-fw"></i>
+            <span>首页</span>
+          </a>
+        </li>
+        <li class="nav-item ">
+          <a href="/blog/categories">
+            <i class="fa-solid fa-bars-staggered fa-fw"></i>
+            <span>分类</span>
+          </a>
+        </li>
+        <li class="nav-item ">
+          <a href="/blog/tags">
+            <i class="fa-solid fa-tags fa-fw"></i>
+            <span>标签</span>
+          </a>
+        </li>
+        <li class="nav-item ">
+          <a href="/blog/archives">
+            <i class="fa-solid fa-box-archive fa-fw"></i>
+            <span>归档</span>
+          </a>
+        </li>
+        <li class="nav-item ">
+          <a href="/blog/links">
+            <i class="fa-solid fa-link fa-fw"></i>
+            <span>友链</span>
+          </a>
+        </li>
+        <li class="nav-item ">
+          <a href="/blog/about">
+            <i class="fa-solid fa-user fa-fw"></i>
+            <span>关于</span>
+          </a>
+        </li>
+      </ul>
+    </nav>
+
+    <div class="sidebar-bottom">
+      <button id="mode-toggle" class="btn-icon" title="切换暗黑/浅色模式">
+        <i class="fa-solid fa-adjust"></i>
+      </button>
+
+      <div class="social-links">
+        
+        
+          <a href="https://github.com" target="_blank" rel="noreferrer" title="GitHub">
+            <i class="fa-brands fa-github"></i>
+          </a>
+        
+
+        
+          <a href="/blog/atom.xml" target="_blank" title="RSS Feed">
+            <i class="fa-solid fa-rss"></i>
+          </a>
+        
+
+        
+
+        
+
+        
+      </div>
+    </div>
+  </div>
+</aside>
+
+
+    <!-- 2nd Column: Main Content -->
+    <main class="main-content">
+      <div class="content-container">
+        <article class="post-detail">
+  <header class="post-header">
+    <h1 class="post-title">唐题记录 10.06</h1>
+
+    <div class="post-meta">
+      <span class="meta-item">
+        <i class="fa-regular fa-calendar"></i>
+        发布于 2025-10-06
+      </span>
+      
+        <span class="meta-item">
+          <i class="fa-regular fa-clock"></i>
+          更新于 2026-09-18
+        </span>
+      
+      
+        <span class="meta-item">
+          <i class="fa-regular fa-folder"></i>
+          做题记录
+        </span>
+      
+    </div>
+  </header>
+
+  <div class="post-content markdown-body">
+    <h2 id="P14078"><a target="_blank" rel="noopener" href="https://www.luogu.com.cn/problem/P14078">P14078</a></h2>
+<p>这题是一道唐题，但是我没有写出来。。。<br>
+所以。<br>
+问题可以转化为，先按照 <mjx-container class="MathJax" jax="SVG" overflow="overflow"><svg style="vertical-align: -0.357ex;" xmlns="http://www.w3.org/2000/svg" width="2.034ex" height="1.357ex" role="img" focusable="false" viewBox="0 -442 899 599.8"><g stroke="currentColor" fill="currentColor" stroke-width="0" transform="scale(1,-1)"><g data-mml-node="math" data-latex="x_i"><g data-mml-node="msub" data-latex="x_i"><g data-mml-node="mi" data-latex="x"><path data-c="1D465" d="M527 373C527 419 482 442 432 442C389 442 355 419 329 373C308 419 273 442 222 442C173 442 133 419 101 374C74 335 60 306 60 287C60 278 65 273 75 273C84 273 90 278 92 287C111 345 153 413 220 413C253 413 269 392 269 351C269 330 251 252 216 118C199 51 169 18 126 18C112 18 99 21 88 26C114 36 127 54 127 80C127 106 114 119 87 119C54 119 29 91 29 58C29 12 76-11 125-11C167-11 201 12 228 58C247 12 283-11 335-11C383-11 423 12 455 57C482 96 496 125 496 144C496 153 491 158 481 158C472 158 467 153 464 144C447 87 402 18 337 18C304 18 287 38 287 79C287 92 292 120 303 165L337 300C356 375 387 413 431 413C445 413 458 410 469 405C442 396 429 378 429 351C429 325 443 312 470 312C502 312 527 341 527 373Z"></path></g><g data-mml-node="mi" transform="translate(605,-150) scale(0.707)" data-latex="i"><path data-c="1D456" d="M284 621C284 648 271 661 244 661C216 661 188 633 188 605C188 578 202 565 229 565C257 565 284 593 284 621M259 138C237 59 205 19 164 19C151 19 144 28 144 47C144 64 173 150 232 306C240 329 244 347 244 360C244 409 210 445 161 445C118 445 84 420 59 369C39 328 29 301 29 288C29 279 34 275 45 275C58 275 60 281 64 295C87 375 118 415 158 415C171 415 178 406 178 387C178 373 175 357 168 338C145 275 121 208 101 155C86 115 78 88 78 74C78 25 114-11 162-11C205-11 239 14 264 64C283 103 293 130 293 145C293 154 288 159 277 159C274 159 259 150 259 138Z"></path></g></g></g></g></svg></mjx-container> 从小到大排序，然后令 <mjx-container class="MathJax" jax="SVG" overflow="overflow"><svg style="vertical-align: -0.566ex;" xmlns="http://www.w3.org/2000/svg" width="1.837ex" height="2.262ex" role="img" focusable="false" viewBox="0 -750 812 1000"><g stroke="currentColor" fill="currentColor" stroke-width="0" transform="scale(1,-1)"><g data-mml-node="math" data-latex="v_i = t_i - x_i"><g data-mml-node="msub" data-latex="v_i"><g data-mml-node="mi" data-latex="v"><path data-c="1D463" d="M369 391C369 383 378 370 394 350C410 330 418 307 418 281C418 252 404 203 375 134C354 86 306 18 247 18C201 18 178 45 178 100C178 139 197 208 235 307C243 328 247 345 247 357C247 407 213 442 163 442C119 442 84 417 59 367C39 326 29 300 29 287C29 278 34 273 45 273C58 273 60 279 64 293C87 373 119 413 160 413C173 413 180 404 180 385C180 369 175 347 164 318C127 219 108 152 108 115C108 64 125 29 159 10C186-4 214-11 243-11C332-11 394 85 420 162C452 256 468 325 468 369C468 418 452 442 421 442C396 442 369 416 369 391Z"></path></g><g data-mml-node="mi" transform="translate(518,-150) scale(0.707)" data-latex="i"><path data-c="1D456" d="M284 621C284 648 271 661 244 661C216 661 188 633 188 605C188 578 202 565 229 565C257 565 284 593 284 621M259 138C237 59 205 19 164 19C151 19 144 28 144 47C144 64 173 150 232 306C240 329 244 347 244 360C244 409 210 445 161 445C118 445 84 420 59 369C39 328 29 301 29 288C29 279 34 275 45 275C58 275 60 281 64 295C87 375 118 415 158 415C171 415 178 406 178 387C178 373 175 357 168 338C145 275 121 208 101 155C86 115 78 88 78 74C78 25 114-11 162-11C205-11 239 14 264 64C283 103 293 130 293 145C293 154 288 159 277 159C274 159 259 150 259 138Z"></path></g></g></g></g></svg><mjx-break size="4"> </mjx-break><svg style="vertical-align: -0.566ex;" xmlns="http://www.w3.org/2000/svg" width="3.945ex" height="2.262ex" role="img" focusable="false" viewBox="0 -750 1743.7 1000"><g stroke="currentColor" fill="currentColor" stroke-width="0" transform="scale(1,-1)"><g data-mml-node="math" data-latex="v_i = t_i - x_i"><g data-mml-node="mo" data-latex="="><path data-c="3D" d="M698 367L80 367C64 367 56 359 56 344C56 329 64 321 80 321L698 321C714 321 722 329 722 344C722 356 711 367 698 367M698 179L80 179C64 179 56 171 56 156C56 141 64 133 80 133L698 133C714 133 722 141 722 156C722 169 711 179 698 179Z"></path></g><g data-mml-node="msub" data-latex="t_i" transform="translate(1055.8,0)"><g data-mml-node="mi" data-latex="t"><path data-c="1D461" d="M330 419C330 428 320 433 299 433L218 433C244 537 257 591 257 595C257 616 246 626 225 626C202 626 188 613 182 587L145 433L56 433C34 433 23 432 23 411C23 400 33 395 54 395L135 395C86 200 62 97 62 84C62 28 100-11 156-11C194-11 227 6 256 41C280 70 297 98 308 125C312 136 314 142 314 145C314 154 309 159 299 159C291 159 285 154 281 143C247 60 206 19 157 19C140 19 131 33 131 60C131 75 133 91 137 107L208 395L297 395C323 395 330 397 330 419Z"></path></g><g data-mml-node="mi" transform="translate(394,-150) scale(0.707)" data-latex="i"><path data-c="1D456" d="M284 621C284 648 271 661 244 661C216 661 188 633 188 605C188 578 202 565 229 565C257 565 284 593 284 621M259 138C237 59 205 19 164 19C151 19 144 28 144 47C144 64 173 150 232 306C240 329 244 347 244 360C244 409 210 445 161 445C118 445 84 420 59 369C39 328 29 301 29 288C29 279 34 275 45 275C58 275 60 281 64 295C87 375 118 415 158 415C171 415 178 406 178 387C178 373 175 357 168 338C145 275 121 208 101 155C86 115 78 88 78 74C78 25 114-11 162-11C205-11 239 14 264 64C283 103 293 130 293 145C293 154 288 159 277 159C274 159 259 150 259 138Z"></path></g></g></g></g></svg><mjx-break size="3"> </mjx-break><svg style="vertical-align: -0.566ex;" xmlns="http://www.w3.org/2000/svg" width="4.297ex" height="2.262ex" role="img" focusable="false" viewBox="0 -750 1899.2 1000"><g stroke="currentColor" fill="currentColor" stroke-width="0" transform="scale(1,-1)"><g data-mml-node="math" data-latex="v_i = t_i - x_i"><g data-mml-node="mo" data-latex="-"><path data-c="2212" d="M698 270L80 270C64 270 56 263 56 250C56 237 64 230 80 230L698 230C714 230 722 237 722 250C722 262 710 270 698 270Z"></path></g><g data-mml-node="msub" data-latex="x_i" transform="translate(1000.2,0)"><g data-mml-node="mi" data-latex="x"><path data-c="1D465" d="M527 373C527 419 482 442 432 442C389 442 355 419 329 373C308 419 273 442 222 442C173 442 133 419 101 374C74 335 60 306 60 287C60 278 65 273 75 273C84 273 90 278 92 287C111 345 153 413 220 413C253 413 269 392 269 351C269 330 251 252 216 118C199 51 169 18 126 18C112 18 99 21 88 26C114 36 127 54 127 80C127 106 114 119 87 119C54 119 29 91 29 58C29 12 76-11 125-11C167-11 201 12 228 58C247 12 283-11 335-11C383-11 423 12 455 57C482 96 496 125 496 144C496 153 491 158 481 158C472 158 467 153 464 144C447 87 402 18 337 18C304 18 287 38 287 79C287 92 292 120 303 165L337 300C356 375 387 413 431 413C445 413 458 410 469 405C442 396 429 378 429 351C429 325 443 312 470 312C502 312 527 341 527 373Z"></path></g><g data-mml-node="mi" transform="translate(605,-150) scale(0.707)" data-latex="i"><path data-c="1D456" d="M284 621C284 648 271 661 244 661C216 661 188 633 188 605C188 578 202 565 229 565C257 565 284 593 284 621M259 138C237 59 205 19 164 19C151 19 144 28 144 47C144 64 173 150 232 306C240 329 244 347 244 360C244 409 210 445 161 445C118 445 84 420 59 369C39 328 29 301 29 288C29 279 34 275 45 275C58 275 60 281 64 295C87 375 118 415 158 415C171 415 178 406 178 387C178 373 175 357 168 338C145 275 121 208 101 155C86 115 78 88 78 74C78 25 114-11 162-11C205-11 239 14 264 64C283 103 293 130 293 145C293 154 288 159 277 159C274 159 259 150 259 138Z"></path></g></g></g></g></svg></mjx-container>，求该序列的 LIS长度 即可。<br>
+唐诗题目。螳臂我。<br>
+<a target="_blank" rel="noopener" href="https://github.com/Cyril-44/C-Cpp/blob/master/!Luogu/P14078.cpp">Code</a></p>
+
+  </div>
+
+  
+    <footer class="post-tags">
+      <i class="fa-solid fa-tags"></i>
+      
+        <a href="/blog/tags/LIS/" class="tag-badge">#最长上升子序列</a>
+      
+        <a href="/blog/tags/BIT/" class="tag-badge">#树状数组</a>
+      
+    </footer>
+  
+
+  
+    <nav class="post-navigation">
+      <div class="nav-box nav-prev">
+        
+          <a href="/blog/A-Story-Of-MC-MFAs/" rel="prev">
+            <span class="nav-sub"><i class="fa-solid fa-arrow-left"></i> 上一篇</span>
+            <span class="nav-title">A-Story-Of-MC-MFAs</span>
+          </a>
+        
+      </div>
+      <div class="nav-box nav-next">
+        
+          <a href="/blog/Contest-251005/" rel="next">
+            <span class="nav-sub">下一篇 <i class="fa-solid fa-arrow-right"></i></span>
+            <span class="nav-title">校内模拟赛 10.05</span>
+          </a>
+        
+      </div>
+    </nav>
+  
+
+  
+
+
+</article>
+
+      </div>
+
+      <footer class="chirpy-footer">
+</footer>
+
+
+
+    </main>
+
+    <!-- 3rd Column: Right Sidebar (Home/List pages) or TOC (Article pages) -->
+    
+      
+        <aside class="right-panel">
+          
+  <div id="toc-wrapper" class="toc-wrapper">
+    <div class="toc-title">
+      <i class="fa-solid fa-list-ol"></i>
+      <span>文章目录</span>
+    </div>
+    <div class="toc-content">
+      <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#P14078"><span class="toc-text">P14078</span></a></li></ol>
+    </div>
+  </div>
+
+
+        </aside>
+      
+    
+  </div>
+
+  <script src="/blog/js/main.js"></script>
+</body>
+</html>
