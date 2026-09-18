@@ -289,10 +289,34 @@ mjx-container[display="true"] + br {
 
   <div class="post-content markdown-body">
     
-<div class="typst-content">
-<h2>Hello Typst</h2><p>这是没有 YAML 头部的纯 Typst 测试。</p><math display="block"><mi>𝐸</mi><mo>=</mo><mi>𝑚</mi><msup><mi>𝑐</mi><mn>2</mn></msup></math>
-</div>
+    <div class="typst-content">
+    <style>
+    .typst-content math {
+      font-family:
+        "STIX Two Math",
+        "Latin Modern Math",
+        "New Computer Modern Math",
+        "Cambria Math",
+        math,
+        serif;
 
+      font-size: 1.08em;
+    }
+
+    .typst-content math[display="block"] {
+      margin: 1.2em 0;
+      overflow-x: auto;
+      overflow-y: hidden;
+    }
+
+    .typst-content math[display="inline"] {
+      font-size: 1em;
+    }
+    </style>
+
+    <h2>Hello Typst</h2><p>这是没有 YAML 头部的纯 Typst 测试。</p><math display="block"><mtable class="multiline-equation"><mtr><mtd><mi>𝐸</mi><mo>=</mo><mi>𝑚</mi><msup><mi>𝑐</mi><mn>2</mn></msup></mtd></mtr><mtr><mtd><mtext>Fuck you</mtext></mtd></mtr></mtable></math>
+    </div>
+    
   </div>
 
   
