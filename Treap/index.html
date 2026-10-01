@@ -37,119 +37,7 @@
   
     <style>:root { --color-accent: #7952b3; }</style>
   
-<meta name="generator" content="Hexo 8.1.2"><style>mjx-container[jax="SVG"] {
-  direction: ltr;
-}
-
-mjx-container[jax="SVG"] > svg {
-  overflow: visible;
-}
-
-mjx-container[jax="SVG"][display="true"] {
-  display: block;
-  text-align: center;
-  margin: 1em 0;
-}
-
-mjx-container[jax="SVG"][justify="left"] {
-  text-align: left;
-}
-
-mjx-container[jax="SVG"][justify="right"] {
-  text-align: right;
-}
-
-g[data-mml-node="merror"] > g {
-  fill: red;
-  stroke: red;
-}
-
-g[data-mml-node="merror"] > rect[data-background] {
-  fill: yellow;
-  stroke: none;
-}
-
-g[data-mml-node="mtable"] > line[data-line] {
-  stroke-width: 70px;
-  fill: none;
-}
-
-g[data-mml-node="mtable"] > rect[data-frame] {
-  stroke-width: 70px;
-  fill: none;
-}
-
-g[data-mml-node="mtable"] > .mjx-dashed {
-  stroke-dasharray: 140;
-}
-
-g[data-mml-node="mtable"] > .mjx-dotted {
-  stroke-linecap: round;
-  stroke-dasharray: 0,140;
-}
-
-g[data-mml-node="mtable"] > svg {
-  overflow: visible;
-}
-
-[jax="SVG"] mjx-tool {
-  display: inline-block;
-  position: relative;
-  width: 0;
-  height: 0;
-}
-
-[jax="SVG"] mjx-tool > mjx-tip {
-  position: absolute;
-  top: 0;
-  left: 0;
-}
-
-mjx-tool > mjx-tip {
-  display: inline-block;
-  padding: .2em;
-  border: 1px solid #888;
-  font-size: 70%;
-  background-color: #F8F8F8;
-  color: black;
-  box-shadow: 2px 2px 5px #AAAAAA;
-}
-
-g[data-mml-node="maction"][data-toggle] {
-  cursor: pointer;
-}
-
-mjx-status {
-  display: block;
-  position: fixed;
-  left: 1em;
-  bottom: 1em;
-  min-width: 25%;
-  padding: .2em .4em;
-  border: 1px solid #888;
-  font-size: 90%;
-  background-color: #F8F8F8;
-  color: black;
-}
-
-foreignObject[data-mjx-xml] {
-  font-family: initial;
-  line-height: normal;
-  overflow: visible;
-}
-
-.MathJax path {
-  stroke-width: 3;
-}
-
-mjx-container[display="true"] {
-  overflow: auto hidden;
-}
-
-mjx-container[display="true"] + br {
-  display: none;
-}
-</style></head>
+<meta name="generator" content="Hexo 8.1.2"></head>
 <body class="chirpy-body preset-chirpy">
   
     <div id="reading-progress" class="reading-progress"></div>
@@ -186,7 +74,7 @@ mjx-container[display="true"] + br {
       <h1 class="site-title">
         <a href="/blog/">Hardsoft</a>
       </h1>
-      <p class="site-subtitle">Sharing thoughts and knowledge</p>
+      <p class="site-subtitle">Keep going, OIer!</p>
     </div>
 
     <nav class="sidebar-nav">
@@ -213,6 +101,12 @@ mjx-container[display="true"] + br {
           <a href="/blog/archives">
             <i class="fa-solid fa-box-archive fa-fw"></i>
             <span>归档</span>
+          </a>
+        </li>
+        <li class="nav-item ">
+          <a href="/blog/search/">
+            <i class="fa-solid fa-magnifying-glass fa-fw"></i>
+            <span>搜索</span>
           </a>
         </li>
         <li class="nav-item ">
@@ -275,7 +169,7 @@ mjx-container[display="true"] + br {
       
         <span class="meta-item">
           <i class="fa-regular fa-clock"></i>
-          更新于 2026-09-18
+          更新于 2026-09-23
         </span>
       
       
@@ -288,17 +182,2952 @@ mjx-container[display="true"] + br {
   </header>
 
   <div class="post-content markdown-body">
-    <p>讲是 Treap，实际上只有 FHQ Treap 会用到。FHQ Treap 就是非旋 Treap。</p>
+    <style>
+mjx-container[overflow="scroll"][display] {
+  overflow: auto clip;
+  min-width: initial !important;
+}
+
+mjx-container[overflow="truncate"][display] {
+  overflow: hidden clip;
+  min-width: initial !important;
+}
+
+mjx-container[display] {
+  display: block;
+  text-align: center;
+  justify-content: center;
+  margin: .7em 0;
+  padding: .3em 2px;
+}
+
+mjx-container[display][width="full"] {
+  display: flex;
+}
+
+mjx-container[justify="left"] {
+  text-align: left;
+  justify-content: left;
+}
+
+mjx-container[justify="right"] {
+  text-align: right;
+  justify-content: right;
+}
+
+mjx-container[jax="CHTML"] {
+  white-space: nowrap;
+}
+
+mjx-mo > mjx-c, mjx-mi > mjx-c, mjx-mn > mjx-c, mjx-ms > mjx-c, mjx-mtext > mjx-c {
+  clip-path: padding-box polygon(-1em -2px, calc(100% + 1em) -2px, calc(100% + 1em) calc(100% + 2px), -1em calc(100% + 2px));
+}
+
+mjx-stretchy-h {
+  clip-path: padding-box polygon(0 -2px, 100% -2px, 100% calc(100% + 2px), 0 calc(100% + 2px));
+}
+
+mjx-stretchy-v {
+  clip-path: padding-box polygon(-2px 0, calc(100% + 2px) 0, calc(100% + 2px) 100%, -2px 100%);
+}
+
+mjx-container [space="1"] {
+  margin-left: .111em;
+}
+
+mjx-container [space="2"] {
+  margin-left: .167em;
+}
+
+mjx-container [space="3"] {
+  margin-left: .222em;
+}
+
+mjx-container [space="4"] {
+  margin-left: .278em;
+}
+
+mjx-container [space="5"] {
+  margin-left: .333em;
+}
+
+mjx-container [rspace="1"] {
+  margin-right: .111em;
+}
+
+mjx-container [rspace="2"] {
+  margin-right: .167em;
+}
+
+mjx-container [rspace="3"] {
+  margin-right: .222em;
+}
+
+mjx-container [rspace="4"] {
+  margin-right: .278em;
+}
+
+mjx-container [rspace="5"] {
+  margin-right: .333em;
+}
+
+mjx-container [size="s"] {
+  font-size: 70.7%;
+}
+
+mjx-container [size="ss"] {
+  font-size: 50%;
+}
+
+mjx-container [size="Tn"] {
+  font-size: 60%;
+}
+
+mjx-container [size="sm"] {
+  font-size: 85%;
+}
+
+mjx-container [size="lg"] {
+  font-size: 120%;
+}
+
+mjx-container [size="Lg"] {
+  font-size: 144%;
+}
+
+mjx-container [size="LG"] {
+  font-size: 173%;
+}
+
+mjx-container [size="hg"] {
+  font-size: 207%;
+}
+
+mjx-container [size="HG"] {
+  font-size: 249%;
+}
+
+mjx-container [width="full"] {
+  width: 100%;
+}
+
+mjx-box {
+  display: inline-block;
+}
+
+mjx-block {
+  display: block;
+}
+
+mjx-itable {
+  display: inline-table;
+}
+
+mjx-row {
+  display: table-row;
+}
+
+mjx-row > mjx-cell, mjx-row > mjx-base, mjx-row > mjx-under, mjx-row > mjx-over, mjx-row > mjx-den {
+  display: table-cell;
+}
+
+mjx-container [inline-breaks] {
+  display: inline;
+}
+
+mjx-container .mjx-selected {
+  outline: 2px solid black;
+}
+
+@media (prefers-color-scheme: dark) {
+  mjx-container .mjx-selected {
+    outline: 2px solid #C8C8C8;
+  }
+}
+
+mjx-mtext {
+  display: inline-block;
+  text-align: left;
+}
+
+mjx-mstyle {
+  display: inline-block;
+}
+
+mjx-merror {
+  display: inline-block;
+  color: red;
+  background-color: yellow;
+}
+
+mjx-mphantom {
+  visibility: hidden;
+}
+
+mjx-math {
+  display: inline-block;
+  text-align: left;
+  line-height: 0;
+  text-indent: 0;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 100%;
+  font-size-adjust: none;
+  letter-spacing: normal;
+  word-wrap: normal;
+  word-spacing: normal;
+  direction: ltr;
+  padding: 1px 0;
+}
+
+mjx-container[jax="CHTML"][display="true"] mjx-math {
+  padding: 0;
+}
+
+mjx-math[breakable] {
+  display: inline;
+}
+
+mjx-container[jax="CHTML"] mjx-break {
+  white-space: normal;
+  line-height: 0;
+  clip-path: rect(0 0 0 0);
+  font-family: MJX-BRK !important;
+}
+
+mjx-break[size="0"] {
+  letter-spacing: -0.999em;
+}
+
+mjx-break[size="1"] {
+  letter-spacing: -0.889em;
+}
+
+mjx-break[size="2"] {
+  letter-spacing: -0.833em;
+}
+
+mjx-break[size="3"] {
+  letter-spacing: -0.778em;
+}
+
+mjx-break[size="4"] {
+  letter-spacing: -0.722em;
+}
+
+mjx-break[size="5"] {
+  letter-spacing: -0.667em;
+}
+
+mjx-TeXAtom {
+  display: inline-block;
+  text-align: left;
+}
+
+mjx-mi {
+  display: inline-block;
+  text-align: left;
+}
+
+mjx-c {
+  display: inline-block;
+  width: 0;
+  text-align: right;
+}
+
+mjx-utext {
+  display: inline-block;
+  padding: .75em 0 .2em 0;
+}
+
+mjx-container[jax="CHTML"] > mjx-math.NCM-N[breakable] > * {
+  font-family: MJX-NCM-ZERO, MJX-NCM-N;
+}
+
+.NCM-N {
+  font-family: MJX-NCM-ZERO, MJX-NCM-N;
+}
+
+.NCM-B {
+  font-family: MJX-NCM-ZERO, MJX-NCM-B;
+}
+
+.NCM-I {
+  font-family: MJX-NCM-ZERO, MJX-NCM-I;
+}
+
+.NCM-BI {
+  font-family: MJX-NCM-ZERO, MJX-NCM-BI;
+}
+
+.NCM-DS {
+  font-family: MJX-NCM-ZERO, MJX-NCM-DS;
+}
+
+.NCM-F {
+  font-family: MJX-NCM-ZERO, MJX-NCM-F;
+}
+
+.NCM-FB {
+  font-family: MJX-NCM-ZERO, MJX-NCM-FB;
+}
+
+.NCM-SS {
+  font-family: MJX-NCM-ZERO, MJX-NCM-SS;
+}
+
+.NCM-SSB {
+  font-family: MJX-NCM-ZERO, MJX-NCM-SSB;
+}
+
+.NCM-SSI {
+  font-family: MJX-NCM-ZERO, MJX-NCM-SSI;
+}
+
+.NCM-SSBI {
+  font-family: MJX-NCM-ZERO, MJX-NCM-SSBI;
+}
+
+.NCM-M {
+  font-family: MJX-NCM-ZERO, MJX-NCM-M;
+}
+
+.NCM-SO {
+  font-family: MJX-NCM-ZERO, MJX-NCM-SO;
+}
+
+.NCM-LO {
+  font-family: MJX-NCM-ZERO, MJX-NCM-LO;
+}
+
+.NCM-S3 {
+  font-family: MJX-NCM-ZERO, MJX-NCM-S3;
+}
+
+.NCM-S4 {
+  font-family: MJX-NCM-ZERO, MJX-NCM-S4;
+}
+
+.NCM-S5 {
+  font-family: MJX-NCM-ZERO, MJX-NCM-S5;
+}
+
+.NCM-S6 {
+  font-family: MJX-NCM-ZERO, MJX-NCM-S6;
+}
+
+.NCM-S7 {
+  font-family: MJX-NCM-ZERO, MJX-NCM-S7;
+}
+
+.NCM-MI {
+  font-family: MJX-NCM-ZERO, MJX-NCM-MI;
+}
+
+.NCM-C {
+  font-family: MJX-NCM-ZERO, MJX-NCM-C;
+}
+
+.NCM-CB {
+  font-family: MJX-NCM-ZERO, MJX-NCM-CB;
+}
+
+.NCM-OS {
+  font-family: MJX-NCM-ZERO, MJX-NCM-OS;
+}
+
+.NCM-OB {
+  font-family: MJX-NCM-ZERO, MJX-NCM-OB;
+}
+
+.NCM-V {
+  font-family: MJX-NCM-ZERO, MJX-NCM-V;
+}
+
+.NCM-LT {
+  font-family: MJX-NCM-ZERO, MJX-NCM-LT;
+}
+
+.NCM-RB {
+  font-family: MJX-NCM-ZERO, MJX-NCM-RB;
+}
+
+.NCM-EM {
+  font-family: MJX-NCM-ZERO, MJX-NCM-EM;
+}
+
+.NCM-B-a {
+  font-family: MJX-NCM-ZERO, MJX-NCM-B-a;
+}
+
+.NCM-U {
+  font-family: MJX-NCM-ZERO, MJX-NCM-U;
+}
+
+.NCM-U-a {
+  font-family: MJX-NCM-ZERO, MJX-NCM-U-a;
+}
+
+.NCM-S {
+  font-family: MJX-NCM-ZERO, MJX-NCM-S;
+}
+
+.NCM-SB {
+  font-family: MJX-NCM-ZERO, MJX-NCM-SB;
+}
+
+.NCM-LR {
+  font-family: MJX-NCM-ZERO, MJX-NCM-LR;
+}
+
+@font-face /* NCM-LR */ {
+  font-family: MJX-NCM-LR;
+  src: url("https://cdn.jsdelivr.net/npm/@mathjax/mathjax-newcm-font@4.1.3/chtml/woff2/mjx-ncm-lr.woff2") format("woff2");
+}
+
+.NCM-LB {
+  font-family: MJX-NCM-ZERO, MJX-NCM-LB;
+}
+
+@font-face /* NCM-LB */ {
+  font-family: MJX-NCM-LB;
+  src: url("https://cdn.jsdelivr.net/npm/@mathjax/mathjax-newcm-font@4.1.3/chtml/woff2/mjx-ncm-lb.woff2") format("woff2");
+}
+
+.NCM-LI {
+  font-family: MJX-NCM-ZERO, MJX-NCM-LI;
+}
+
+@font-face /* NCM-LI */ {
+  font-family: MJX-NCM-LI;
+  src: url("https://cdn.jsdelivr.net/npm/@mathjax/mathjax-newcm-font@4.1.3/chtml/woff2/mjx-ncm-li.woff2") format("woff2");
+}
+
+.NCM-LIB {
+  font-family: MJX-NCM-ZERO, MJX-NCM-LIB;
+}
+
+@font-face /* NCM-LIB */ {
+  font-family: MJX-NCM-LIB;
+  src: url("https://cdn.jsdelivr.net/npm/@mathjax/mathjax-newcm-font@4.1.3/chtml/woff2/mjx-ncm-lib.woff2") format("woff2");
+}
+
+.NCM-SSLR {
+  font-family: MJX-NCM-ZERO, MJX-NCM-SSLR;
+}
+
+@font-face /* NCM-SSLR */ {
+  font-family: MJX-NCM-SSLR;
+  src: url("https://cdn.jsdelivr.net/npm/@mathjax/mathjax-newcm-font@4.1.3/chtml/woff2/mjx-ncm-sslr.woff2") format("woff2");
+}
+
+.NCM-SSLB {
+  font-family: MJX-NCM-ZERO, MJX-NCM-SSLB;
+}
+
+@font-face /* NCM-SSLB */ {
+  font-family: MJX-NCM-SSLB;
+  src: url("https://cdn.jsdelivr.net/npm/@mathjax/mathjax-newcm-font@4.1.3/chtml/woff2/mjx-ncm-sslb.woff2") format("woff2");
+}
+
+.NCM-SSLI {
+  font-family: MJX-NCM-ZERO, MJX-NCM-SSLI;
+}
+
+@font-face /* NCM-SSLI */ {
+  font-family: MJX-NCM-SSLI;
+  src: url("https://cdn.jsdelivr.net/npm/@mathjax/mathjax-newcm-font@4.1.3/chtml/woff2/mjx-ncm-ssli.woff2") format("woff2");
+}
+
+.NCM-SSLIB {
+  font-family: MJX-NCM-ZERO, MJX-NCM-SSLIB;
+}
+
+@font-face /* NCM-SSLIB */ {
+  font-family: MJX-NCM-SSLIB;
+  src: url("https://cdn.jsdelivr.net/npm/@mathjax/mathjax-newcm-font@4.1.3/chtml/woff2/mjx-ncm-sslib.woff2") format("woff2");
+}
+
+.NCM-SSX {
+  font-family: MJX-NCM-ZERO, MJX-NCM-SSX;
+}
+
+.NCM-SSBX {
+  font-family: MJX-NCM-ZERO, MJX-NCM-SSBX;
+}
+
+.NCM-SSIX {
+  font-family: MJX-NCM-ZERO, MJX-NCM-SSIX;
+}
+
+.NCM-SSBIX {
+  font-family: MJX-NCM-ZERO, MJX-NCM-SSBIX;
+}
+
+@font-face /* NCM-SSX */ {
+  font-family: MJX-NCM-SSX;
+  src: url("https://cdn.jsdelivr.net/npm/@mathjax/mathjax-newcm-font@4.1.3/chtml/woff2/mjx-ncm-ssx.woff2") format("woff2");
+}
+
+@font-face /* NCM-SSBX */ {
+  font-family: MJX-NCM-SSBX;
+  src: url("https://cdn.jsdelivr.net/npm/@mathjax/mathjax-newcm-font@4.1.3/chtml/woff2/mjx-ncm-ssbx.woff2") format("woff2");
+}
+
+@font-face /* NCM-SSIX */ {
+  font-family: MJX-NCM-SSIX;
+  src: url("https://cdn.jsdelivr.net/npm/@mathjax/mathjax-newcm-font@4.1.3/chtml/woff2/mjx-ncm-ssix.woff2") format("woff2");
+}
+
+@font-face /* NCM-SSBIX */ {
+  font-family: MJX-NCM-SSBIX;
+  src: url("https://cdn.jsdelivr.net/npm/@mathjax/mathjax-newcm-font@4.1.3/chtml/woff2/mjx-ncm-ssbix.woff2") format("woff2");
+}
+
+.NCM-ML {
+  font-family: MJX-NCM-ZERO, MJX-NCM-ML;
+}
+
+@font-face /* NCM-ML */ {
+  font-family: MJX-NCM-ML;
+  src: url("https://cdn.jsdelivr.net/npm/@mathjax/mathjax-newcm-font@4.1.3/chtml/woff2/mjx-ncm-ml.woff2") format("woff2");
+}
+
+.NCM-MX {
+  font-family: MJX-NCM-ZERO, MJX-NCM-MX;
+}
+
+@font-face /* NCM-MX */ {
+  font-family: MJX-NCM-MX;
+  src: url("https://cdn.jsdelivr.net/npm/@mathjax/mathjax-newcm-font@4.1.3/chtml/woff2/mjx-ncm-mx.woff2") format("woff2");
+}
+
+.NCM-MM {
+  font-family: MJX-NCM-ZERO, MJX-NCM-MM;
+}
+
+@font-face /* NCM-MM */ {
+  font-family: MJX-NCM-MM;
+  src: url("https://cdn.jsdelivr.net/npm/@mathjax/mathjax-newcm-font@4.1.3/chtml/woff2/mjx-ncm-mm.woff2") format("woff2");
+}
+
+.NCM-SY {
+  font-family: MJX-NCM-ZERO, MJX-NCM-SY;
+}
+
+@font-face /* NCM-SY */ {
+  font-family: MJX-NCM-SY;
+  src: url("https://cdn.jsdelivr.net/npm/@mathjax/mathjax-newcm-font@4.1.3/chtml/woff2/mjx-ncm-sy.woff2") format("woff2");
+}
+
+.NCM-SYB {
+  font-family: MJX-NCM-ZERO, MJX-NCM-SYB;
+}
+
+.NCM-SYI {
+  font-family: MJX-NCM-ZERO, MJX-NCM-SYI;
+}
+
+.NCM-SYBI {
+  font-family: MJX-NCM-ZERO, MJX-NCM-SYBI;
+}
+
+@font-face /* NCM-SYB */ {
+  font-family: MJX-NCM-SYB;
+  src: url("https://cdn.jsdelivr.net/npm/@mathjax/mathjax-newcm-font@4.1.3/chtml/woff2/mjx-ncm-syb.woff2") format("woff2");
+}
+
+@font-face /* NCM-SYI */ {
+  font-family: MJX-NCM-SYI;
+  src: url("https://cdn.jsdelivr.net/npm/@mathjax/mathjax-newcm-font@4.1.3/chtml/woff2/mjx-ncm-syi.woff2") format("woff2");
+}
+
+@font-face /* NCM-SYBI */ {
+  font-family: MJX-NCM-SYBI;
+  src: url("https://cdn.jsdelivr.net/npm/@mathjax/mathjax-newcm-font@4.1.3/chtml/woff2/mjx-ncm-sybi.woff2") format("woff2");
+}
+
+.NCM-GK {
+  font-family: MJX-NCM-ZERO, MJX-NCM-GK;
+}
+
+.NCM-GKB {
+  font-family: MJX-NCM-ZERO, MJX-NCM-GKB;
+}
+
+.NCM-GKI {
+  font-family: MJX-NCM-ZERO, MJX-NCM-GKI;
+}
+
+.NCM-GKBI {
+  font-family: MJX-NCM-ZERO, MJX-NCM-GKBI;
+}
+
+@font-face /* NCM-GK */ {
+  font-family: MJX-NCM-GK;
+  src: url("https://cdn.jsdelivr.net/npm/@mathjax/mathjax-newcm-font@4.1.3/chtml/woff2/mjx-ncm-gk.woff2") format("woff2");
+}
+
+@font-face /* NCM-GKB */ {
+  font-family: MJX-NCM-GKB;
+  src: url("https://cdn.jsdelivr.net/npm/@mathjax/mathjax-newcm-font@4.1.3/chtml/woff2/mjx-ncm-gkb.woff2") format("woff2");
+}
+
+@font-face /* NCM-GKI */ {
+  font-family: MJX-NCM-GKI;
+  src: url("https://cdn.jsdelivr.net/npm/@mathjax/mathjax-newcm-font@4.1.3/chtml/woff2/mjx-ncm-gki.woff2") format("woff2");
+}
+
+@font-face /* NCM-GKBI */ {
+  font-family: MJX-NCM-GKBI;
+  src: url("https://cdn.jsdelivr.net/npm/@mathjax/mathjax-newcm-font@4.1.3/chtml/woff2/mjx-ncm-gkbi.woff2") format("woff2");
+}
+
+.NCM-GKSS {
+  font-family: MJX-NCM-ZERO, MJX-NCM-GKSS;
+}
+
+.NCM-GKSSB {
+  font-family: MJX-NCM-ZERO, MJX-NCM-GKSSB;
+}
+
+.NCM-GKSSI {
+  font-family: MJX-NCM-ZERO, MJX-NCM-GKSSI;
+}
+
+.NCM-GKSSBI {
+  font-family: MJX-NCM-ZERO, MJX-NCM-GKSSBI;
+}
+
+@font-face /* NCM-GKSS */ {
+  font-family: MJX-NCM-GKSS;
+  src: url("https://cdn.jsdelivr.net/npm/@mathjax/mathjax-newcm-font@4.1.3/chtml/woff2/mjx-ncm-gkss.woff2") format("woff2");
+}
+
+@font-face /* NCM-GKSSB */ {
+  font-family: MJX-NCM-GKSSB;
+  src: url("https://cdn.jsdelivr.net/npm/@mathjax/mathjax-newcm-font@4.1.3/chtml/woff2/mjx-ncm-gkssb.woff2") format("woff2");
+}
+
+@font-face /* NCM-GKSSI */ {
+  font-family: MJX-NCM-GKSSI;
+  src: url("https://cdn.jsdelivr.net/npm/@mathjax/mathjax-newcm-font@4.1.3/chtml/woff2/mjx-ncm-gkssi.woff2") format("woff2");
+}
+
+@font-face /* NCM-GKSSBI */ {
+  font-family: MJX-NCM-GKSSBI;
+  src: url("https://cdn.jsdelivr.net/npm/@mathjax/mathjax-newcm-font@4.1.3/chtml/woff2/mjx-ncm-gkssbi.woff2") format("woff2");
+}
+
+.NCM-CY {
+  font-family: MJX-NCM-ZERO, MJX-NCM-CY;
+}
+
+.NCM-CYB {
+  font-family: MJX-NCM-ZERO, MJX-NCM-CYB;
+}
+
+.NCM-CYI {
+  font-family: MJX-NCM-ZERO, MJX-NCM-CYI;
+}
+
+.NCM-CYBI {
+  font-family: MJX-NCM-ZERO, MJX-NCM-CYBI;
+}
+
+@font-face /* NCM-CY */ {
+  font-family: MJX-NCM-CY;
+  src: url("https://cdn.jsdelivr.net/npm/@mathjax/mathjax-newcm-font@4.1.3/chtml/woff2/mjx-ncm-cy.woff2") format("woff2");
+}
+
+@font-face /* NCM-CYB */ {
+  font-family: MJX-NCM-CYB;
+  src: url("https://cdn.jsdelivr.net/npm/@mathjax/mathjax-newcm-font@4.1.3/chtml/woff2/mjx-ncm-cyb.woff2") format("woff2");
+}
+
+@font-face /* NCM-CYI */ {
+  font-family: MJX-NCM-CYI;
+  src: url("https://cdn.jsdelivr.net/npm/@mathjax/mathjax-newcm-font@4.1.3/chtml/woff2/mjx-ncm-cyi.woff2") format("woff2");
+}
+
+@font-face /* NCM-CYBI */ {
+  font-family: MJX-NCM-CYBI;
+  src: url("https://cdn.jsdelivr.net/npm/@mathjax/mathjax-newcm-font@4.1.3/chtml/woff2/mjx-ncm-cybi.woff2") format("woff2");
+}
+
+.NCM-CYSS {
+  font-family: MJX-NCM-ZERO, MJX-NCM-CYSS;
+}
+
+.NCM-CYSSB {
+  font-family: MJX-NCM-ZERO, MJX-NCM-CYSSB;
+}
+
+.NCM-CYSSI {
+  font-family: MJX-NCM-ZERO, MJX-NCM-CYSSI;
+}
+
+.NCM-CYSSBI {
+  font-family: MJX-NCM-ZERO, MJX-NCM-CYSSBI;
+}
+
+@font-face /* NCM-CYSS */ {
+  font-family: MJX-NCM-CYSS;
+  src: url("https://cdn.jsdelivr.net/npm/@mathjax/mathjax-newcm-font@4.1.3/chtml/woff2/mjx-ncm-cyss.woff2") format("woff2");
+}
+
+@font-face /* NCM-CYSSB */ {
+  font-family: MJX-NCM-CYSSB;
+  src: url("https://cdn.jsdelivr.net/npm/@mathjax/mathjax-newcm-font@4.1.3/chtml/woff2/mjx-ncm-cyssb.woff2") format("woff2");
+}
+
+@font-face /* NCM-CYSSI */ {
+  font-family: MJX-NCM-CYSSI;
+  src: url("https://cdn.jsdelivr.net/npm/@mathjax/mathjax-newcm-font@4.1.3/chtml/woff2/mjx-ncm-cyssi.woff2") format("woff2");
+}
+
+@font-face /* NCM-CYSSBI */ {
+  font-family: MJX-NCM-CYSSBI;
+  src: url("https://cdn.jsdelivr.net/npm/@mathjax/mathjax-newcm-font@4.1.3/chtml/woff2/mjx-ncm-cyssbi.woff2") format("woff2");
+}
+
+.NCM-PH {
+  font-family: MJX-NCM-ZERO, MJX-NCM-PH;
+}
+
+.NCM-PHB {
+  font-family: MJX-NCM-ZERO, MJX-NCM-PHB;
+}
+
+.NCM-PHI {
+  font-family: MJX-NCM-ZERO, MJX-NCM-PHI;
+}
+
+.NCM-PHBI {
+  font-family: MJX-NCM-ZERO, MJX-NCM-PHBI;
+}
+
+@font-face /* NCM-PH */ {
+  font-family: MJX-NCM-PH;
+  src: url("https://cdn.jsdelivr.net/npm/@mathjax/mathjax-newcm-font@4.1.3/chtml/woff2/mjx-ncm-ph.woff2") format("woff2");
+}
+
+@font-face /* NCM-PHB */ {
+  font-family: MJX-NCM-PHB;
+  src: url("https://cdn.jsdelivr.net/npm/@mathjax/mathjax-newcm-font@4.1.3/chtml/woff2/mjx-ncm-phb.woff2") format("woff2");
+}
+
+@font-face /* NCM-PHI */ {
+  font-family: MJX-NCM-PHI;
+  src: url("https://cdn.jsdelivr.net/npm/@mathjax/mathjax-newcm-font@4.1.3/chtml/woff2/mjx-ncm-phi.woff2") format("woff2");
+}
+
+@font-face /* NCM-PHBI */ {
+  font-family: MJX-NCM-PHBI;
+  src: url("https://cdn.jsdelivr.net/npm/@mathjax/mathjax-newcm-font@4.1.3/chtml/woff2/mjx-ncm-phbi.woff2") format("woff2");
+}
+
+.NCM-PHSS {
+  font-family: MJX-NCM-ZERO, MJX-NCM-PHSS;
+}
+
+.NCM-PHSSB {
+  font-family: MJX-NCM-ZERO, MJX-NCM-PHSSB;
+}
+
+.NCM-PHSSI {
+  font-family: MJX-NCM-ZERO, MJX-NCM-PHSSI;
+}
+
+.NCM-PHSSBI {
+  font-family: MJX-NCM-ZERO, MJX-NCM-PHSSBI;
+}
+
+@font-face /* NCM-PHSS */ {
+  font-family: MJX-NCM-PHSS;
+  src: url("https://cdn.jsdelivr.net/npm/@mathjax/mathjax-newcm-font@4.1.3/chtml/woff2/mjx-ncm-phss.woff2") format("woff2");
+}
+
+@font-face /* NCM-PHSSB */ {
+  font-family: MJX-NCM-PHSSB;
+  src: url("https://cdn.jsdelivr.net/npm/@mathjax/mathjax-newcm-font@4.1.3/chtml/woff2/mjx-ncm-phssb.woff2") format("woff2");
+}
+
+@font-face /* NCM-PHSSI */ {
+  font-family: MJX-NCM-PHSSI;
+  src: url("https://cdn.jsdelivr.net/npm/@mathjax/mathjax-newcm-font@4.1.3/chtml/woff2/mjx-ncm-phssi.woff2") format("woff2");
+}
+
+@font-face /* NCM-PHSSBI */ {
+  font-family: MJX-NCM-PHSSBI;
+  src: url("https://cdn.jsdelivr.net/npm/@mathjax/mathjax-newcm-font@4.1.3/chtml/woff2/mjx-ncm-phssbi.woff2") format("woff2");
+}
+
+.NCM-HE {
+  font-family: MJX-NCM-ZERO, MJX-NCM-HE;
+}
+
+.NCM-HEB {
+  font-family: MJX-NCM-ZERO, MJX-NCM-HEB;
+}
+
+.NCM-HEI {
+  font-family: MJX-NCM-ZERO, MJX-NCM-HEI;
+}
+
+.NCM-HEBI {
+  font-family: MJX-NCM-ZERO, MJX-NCM-HEBI;
+}
+
+@font-face /* NCM-HE */ {
+  font-family: MJX-NCM-HE;
+  src: url("https://cdn.jsdelivr.net/npm/@mathjax/mathjax-newcm-font@4.1.3/chtml/woff2/mjx-ncm-he.woff2") format("woff2");
+}
+
+@font-face /* NCM-HEB */ {
+  font-family: MJX-NCM-HEB;
+  src: url("https://cdn.jsdelivr.net/npm/@mathjax/mathjax-newcm-font@4.1.3/chtml/woff2/mjx-ncm-heb.woff2") format("woff2");
+}
+
+@font-face /* NCM-HEI */ {
+  font-family: MJX-NCM-HEI;
+  src: url("https://cdn.jsdelivr.net/npm/@mathjax/mathjax-newcm-font@4.1.3/chtml/woff2/mjx-ncm-hei.woff2") format("woff2");
+}
+
+@font-face /* NCM-HEBI */ {
+  font-family: MJX-NCM-HEBI;
+  src: url("https://cdn.jsdelivr.net/npm/@mathjax/mathjax-newcm-font@4.1.3/chtml/woff2/mjx-ncm-hebi.woff2") format("woff2");
+}
+
+.NCM-DV {
+  font-family: MJX-NCM-ZERO, MJX-NCM-DV;
+}
+
+.NCM-DVB {
+  font-family: MJX-NCM-ZERO, MJX-NCM-DVB;
+}
+
+.NCM-DVI {
+  font-family: MJX-NCM-ZERO, MJX-NCM-DVI;
+}
+
+.NCM-DVBI {
+  font-family: MJX-NCM-ZERO, MJX-NCM-DVBI;
+}
+
+@font-face /* NCM-DV */ {
+  font-family: MJX-NCM-DV;
+  src: url("https://cdn.jsdelivr.net/npm/@mathjax/mathjax-newcm-font@4.1.3/chtml/woff2/mjx-ncm-dv.woff2") format("woff2");
+}
+
+@font-face /* NCM-DVB */ {
+  font-family: MJX-NCM-DVB;
+  src: url("https://cdn.jsdelivr.net/npm/@mathjax/mathjax-newcm-font@4.1.3/chtml/woff2/mjx-ncm-dvb.woff2") format("woff2");
+}
+
+@font-face /* NCM-DVI */ {
+  font-family: MJX-NCM-DVI;
+  src: url("https://cdn.jsdelivr.net/npm/@mathjax/mathjax-newcm-font@4.1.3/chtml/woff2/mjx-ncm-dvi.woff2") format("woff2");
+}
+
+@font-face /* NCM-DVBI */ {
+  font-family: MJX-NCM-DVBI;
+  src: url("https://cdn.jsdelivr.net/npm/@mathjax/mathjax-newcm-font@4.1.3/chtml/woff2/mjx-ncm-dvbi.woff2") format("woff2");
+}
+
+.NCM-CH {
+  font-family: MJX-NCM-ZERO, MJX-NCM-CH;
+}
+
+.NCM-CHB {
+  font-family: MJX-NCM-ZERO, MJX-NCM-CHB;
+}
+
+.NCM-CHI {
+  font-family: MJX-NCM-ZERO, MJX-NCM-CHI;
+}
+
+.NCM-CHBI {
+  font-family: MJX-NCM-ZERO, MJX-NCM-CHBI;
+}
+
+@font-face /* NCM-CH */ {
+  font-family: MJX-NCM-CH;
+  src: url("https://cdn.jsdelivr.net/npm/@mathjax/mathjax-newcm-font@4.1.3/chtml/woff2/mjx-ncm-ch.woff2") format("woff2");
+}
+
+@font-face /* NCM-CHB */ {
+  font-family: MJX-NCM-CHB;
+  src: url("https://cdn.jsdelivr.net/npm/@mathjax/mathjax-newcm-font@4.1.3/chtml/woff2/mjx-ncm-chb.woff2") format("woff2");
+}
+
+@font-face /* NCM-CHI */ {
+  font-family: MJX-NCM-CHI;
+  src: url("https://cdn.jsdelivr.net/npm/@mathjax/mathjax-newcm-font@4.1.3/chtml/woff2/mjx-ncm-chi.woff2") format("woff2");
+}
+
+@font-face /* NCM-CHBI */ {
+  font-family: MJX-NCM-CHBI;
+  src: url("https://cdn.jsdelivr.net/npm/@mathjax/mathjax-newcm-font@4.1.3/chtml/woff2/mjx-ncm-chbi.woff2") format("woff2");
+}
+
+.NCM-AB {
+  font-family: MJX-NCM-ZERO, MJX-NCM-AB;
+}
+
+.NCM-ABB {
+  font-family: MJX-NCM-ZERO, MJX-NCM-ABB;
+}
+
+.NCM-ABI {
+  font-family: MJX-NCM-ZERO, MJX-NCM-ABI;
+}
+
+.NCM-ABBI {
+  font-family: MJX-NCM-ZERO, MJX-NCM-ABBI;
+}
+
+@font-face /* NCM-AB */ {
+  font-family: MJX-NCM-AB;
+  src: url("https://cdn.jsdelivr.net/npm/@mathjax/mathjax-newcm-font@4.1.3/chtml/woff2/mjx-ncm-ab.woff2") format("woff2");
+}
+
+@font-face /* NCM-ABB */ {
+  font-family: MJX-NCM-ABB;
+  src: url("https://cdn.jsdelivr.net/npm/@mathjax/mathjax-newcm-font@4.1.3/chtml/woff2/mjx-ncm-abb.woff2") format("woff2");
+}
+
+@font-face /* NCM-ABI */ {
+  font-family: MJX-NCM-ABI;
+  src: url("https://cdn.jsdelivr.net/npm/@mathjax/mathjax-newcm-font@4.1.3/chtml/woff2/mjx-ncm-abi.woff2") format("woff2");
+}
+
+@font-face /* NCM-ABBI */ {
+  font-family: MJX-NCM-ABBI;
+  src: url("https://cdn.jsdelivr.net/npm/@mathjax/mathjax-newcm-font@4.1.3/chtml/woff2/mjx-ncm-abbi.woff2") format("woff2");
+}
+
+.NCM-brd {
+  font-family: MJX-NCM-ZERO, MJX-NCM-brd;
+}
+
+@font-face /* NCM-brd */ {
+  font-family: MJX-NCM-brd;
+  src: url("https://cdn.jsdelivr.net/npm/@mathjax/mathjax-newcm-font@4.1.3/chtml/woff2/mjx-ncm-brd.woff2") format("woff2");
+}
+
+.NCM-br {
+  font-family: MJX-NCM-ZERO, MJX-NCM-br;
+}
+
+@font-face /* NCM-br */ {
+  font-family: MJX-NCM-br;
+  src: url("https://cdn.jsdelivr.net/npm/@mathjax/mathjax-newcm-font@4.1.3/chtml/woff2/mjx-ncm-br.woff2") format("woff2");
+}
+
+.NCM-AR {
+  font-family: MJX-NCM-ZERO, MJX-NCM-AR;
+}
+
+.NCM-ARL {
+  font-family: MJX-NCM-ZERO, MJX-NCM-ARL;
+}
+
+@font-face /* NCM-AR */ {
+  font-family: MJX-NCM-AR;
+  src: url("https://cdn.jsdelivr.net/npm/@mathjax/mathjax-newcm-font@4.1.3/chtml/woff2/mjx-ncm-ar.woff2") format("woff2");
+}
+
+@font-face /* NCM-ARL */ {
+  font-family: MJX-NCM-ARL;
+  src: url("https://cdn.jsdelivr.net/npm/@mathjax/mathjax-newcm-font@4.1.3/chtml/woff2/mjx-ncm-arl.woff2") format("woff2");
+}
+
+.NCM-MAR {
+  font-family: MJX-NCM-ZERO, MJX-NCM-MAR;
+}
+
+@font-face /* NCM-MAR */ {
+  font-family: MJX-NCM-MAR;
+  src: url("https://cdn.jsdelivr.net/npm/@mathjax/mathjax-newcm-font@4.1.3/chtml/woff2/mjx-ncm-mar.woff2") format("woff2");
+}
+
+.NCM-AI {
+  font-family: MJX-NCM-ZERO, MJX-NCM-AI;
+}
+
+@font-face /* NCM-AI */ {
+  font-family: MJX-NCM-AI;
+  src: url("https://cdn.jsdelivr.net/npm/@mathjax/mathjax-newcm-font@4.1.3/chtml/woff2/mjx-ncm-ai.woff2") format("woff2");
+}
+
+.NCM-SH {
+  font-family: MJX-NCM-ZERO, MJX-NCM-SH;
+}
+
+.NCM-SHB {
+  font-family: MJX-NCM-ZERO, MJX-NCM-SHB;
+}
+
+.NCM-SHI {
+  font-family: MJX-NCM-ZERO, MJX-NCM-SHI;
+}
+
+.NCM-SHBI {
+  font-family: MJX-NCM-ZERO, MJX-NCM-SHBI;
+}
+
+@font-face /* NCM-SH */ {
+  font-family: MJX-NCM-SH;
+  src: url("https://cdn.jsdelivr.net/npm/@mathjax/mathjax-newcm-font@4.1.3/chtml/woff2/mjx-ncm-sh.woff2") format("woff2");
+}
+
+@font-face /* NCM-SHB */ {
+  font-family: MJX-NCM-SHB;
+  src: url("https://cdn.jsdelivr.net/npm/@mathjax/mathjax-newcm-font@4.1.3/chtml/woff2/mjx-ncm-shb.woff2") format("woff2");
+}
+
+@font-face /* NCM-SHI */ {
+  font-family: MJX-NCM-SHI;
+  src: url("https://cdn.jsdelivr.net/npm/@mathjax/mathjax-newcm-font@4.1.3/chtml/woff2/mjx-ncm-shi.woff2") format("woff2");
+}
+
+@font-face /* NCM-SHBI */ {
+  font-family: MJX-NCM-SHBI;
+  src: url("https://cdn.jsdelivr.net/npm/@mathjax/mathjax-newcm-font@4.1.3/chtml/woff2/mjx-ncm-shbi.woff2") format("woff2");
+}
+
+.NCM-MSH {
+  font-family: MJX-NCM-ZERO, MJX-NCM-MSH;
+}
+
+@font-face /* NCM-MSH */ {
+  font-family: MJX-NCM-MSH;
+  src: url("https://cdn.jsdelivr.net/npm/@mathjax/mathjax-newcm-font@4.1.3/chtml/woff2/mjx-ncm-msh.woff2") format("woff2");
+}
+
+.NCM-VX {
+  font-family: MJX-NCM-ZERO, MJX-NCM-VX;
+}
+
+@font-face /* NCM-VX */ {
+  font-family: MJX-NCM-VX;
+  src: url("https://cdn.jsdelivr.net/npm/@mathjax/mathjax-newcm-font@4.1.3/chtml/woff2/mjx-ncm-vx.woff2") format("woff2");
+}
+
+.NCM-PU {
+  font-family: MJX-NCM-ZERO, MJX-NCM-PU;
+}
+
+.NCM-PUB {
+  font-family: MJX-NCM-ZERO, MJX-NCM-PUB;
+}
+
+.NCM-PUI {
+  font-family: MJX-NCM-ZERO, MJX-NCM-PUI;
+}
+
+.NCM-PUBI {
+  font-family: MJX-NCM-ZERO, MJX-NCM-PUBI;
+}
+
+@font-face /* NCM-PU */ {
+  font-family: MJX-NCM-PU;
+  src: url("https://cdn.jsdelivr.net/npm/@mathjax/mathjax-newcm-font@4.1.3/chtml/woff2/mjx-ncm-pu.woff2") format("woff2");
+}
+
+@font-face /* NCM-PUB */ {
+  font-family: MJX-NCM-PUB;
+  src: url("https://cdn.jsdelivr.net/npm/@mathjax/mathjax-newcm-font@4.1.3/chtml/woff2/mjx-ncm-pub.woff2") format("woff2");
+}
+
+@font-face /* NCM-PUI */ {
+  font-family: MJX-NCM-PUI;
+  src: url("https://cdn.jsdelivr.net/npm/@mathjax/mathjax-newcm-font@4.1.3/chtml/woff2/mjx-ncm-pui.woff2") format("woff2");
+}
+
+@font-face /* NCM-PUBI */ {
+  font-family: MJX-NCM-PUBI;
+  src: url("https://cdn.jsdelivr.net/npm/@mathjax/mathjax-newcm-font@4.1.3/chtml/woff2/mjx-ncm-pubi.woff2") format("woff2");
+}
+
+@font-face /* MJX-NCM-ZERO */ {
+  font-family: MJX-NCM-ZERO;
+  src: url("https://cdn.jsdelivr.net/npm/@mathjax/mathjax-newcm-font@4.1.3/chtml/woff2/mjx-ncm-zero.woff2") format("woff2");
+}
+
+@font-face /* MJX-BRK */ {
+  font-family: MJX-BRK;
+  src: url("https://cdn.jsdelivr.net/npm/@mathjax/mathjax-newcm-font@4.1.3/chtml/woff2/mjx-ncm-brk.woff2") format("woff2");
+}
+
+@font-face /* MJX-NCM-N */ {
+  font-family: MJX-NCM-N;
+  src: url("https://cdn.jsdelivr.net/npm/@mathjax/mathjax-newcm-font@4.1.3/chtml/woff2/mjx-ncm-n.woff2") format("woff2");
+}
+
+@font-face /* MJX-NCM-B */ {
+  font-family: MJX-NCM-B;
+  src: url("https://cdn.jsdelivr.net/npm/@mathjax/mathjax-newcm-font@4.1.3/chtml/woff2/mjx-ncm-b.woff2") format("woff2");
+}
+
+@font-face /* MJX-NCM-I */ {
+  font-family: MJX-NCM-I;
+  src: url("https://cdn.jsdelivr.net/npm/@mathjax/mathjax-newcm-font@4.1.3/chtml/woff2/mjx-ncm-i.woff2") format("woff2");
+}
+
+@font-face /* MJX-NCM-BI */ {
+  font-family: MJX-NCM-BI;
+  src: url("https://cdn.jsdelivr.net/npm/@mathjax/mathjax-newcm-font@4.1.3/chtml/woff2/mjx-ncm-bi.woff2") format("woff2");
+}
+
+@font-face /* MJX-NCM-DS */ {
+  font-family: MJX-NCM-DS;
+  src: url("https://cdn.jsdelivr.net/npm/@mathjax/mathjax-newcm-font@4.1.3/chtml/woff2/mjx-ncm-ds.woff2") format("woff2");
+}
+
+@font-face /* MJX-NCM-F */ {
+  font-family: MJX-NCM-F;
+  src: url("https://cdn.jsdelivr.net/npm/@mathjax/mathjax-newcm-font@4.1.3/chtml/woff2/mjx-ncm-f.woff2") format("woff2");
+}
+
+@font-face /* MJX-NCM-FB */ {
+  font-family: MJX-NCM-FB;
+  src: url("https://cdn.jsdelivr.net/npm/@mathjax/mathjax-newcm-font@4.1.3/chtml/woff2/mjx-ncm-fb.woff2") format("woff2");
+}
+
+@font-face /* MJX-NCM-SS */ {
+  font-family: MJX-NCM-SS;
+  src: url("https://cdn.jsdelivr.net/npm/@mathjax/mathjax-newcm-font@4.1.3/chtml/woff2/mjx-ncm-ss.woff2") format("woff2");
+}
+
+@font-face /* MJX-NCM-SSB */ {
+  font-family: MJX-NCM-SSB;
+  src: url("https://cdn.jsdelivr.net/npm/@mathjax/mathjax-newcm-font@4.1.3/chtml/woff2/mjx-ncm-ssb.woff2") format("woff2");
+}
+
+@font-face /* MJX-NCM-SSI */ {
+  font-family: MJX-NCM-SSI;
+  src: url("https://cdn.jsdelivr.net/npm/@mathjax/mathjax-newcm-font@4.1.3/chtml/woff2/mjx-ncm-ssi.woff2") format("woff2");
+}
+
+@font-face /* MJX-NCM-SSBI */ {
+  font-family: MJX-NCM-SSBI;
+  src: url("https://cdn.jsdelivr.net/npm/@mathjax/mathjax-newcm-font@4.1.3/chtml/woff2/mjx-ncm-ssbi.woff2") format("woff2");
+}
+
+@font-face /* MJX-NCM-M */ {
+  font-family: MJX-NCM-M;
+  src: url("https://cdn.jsdelivr.net/npm/@mathjax/mathjax-newcm-font@4.1.3/chtml/woff2/mjx-ncm-m.woff2") format("woff2");
+}
+
+@font-face /* MJX-NCM-SO */ {
+  font-family: MJX-NCM-SO;
+  src: url("https://cdn.jsdelivr.net/npm/@mathjax/mathjax-newcm-font@4.1.3/chtml/woff2/mjx-ncm-so.woff2") format("woff2");
+}
+
+@font-face /* MJX-NCM-LO */ {
+  font-family: MJX-NCM-LO;
+  src: url("https://cdn.jsdelivr.net/npm/@mathjax/mathjax-newcm-font@4.1.3/chtml/woff2/mjx-ncm-lo.woff2") format("woff2");
+}
+
+@font-face /* MJX-NCM-S3 */ {
+  font-family: MJX-NCM-S3;
+  src: url("https://cdn.jsdelivr.net/npm/@mathjax/mathjax-newcm-font@4.1.3/chtml/woff2/mjx-ncm-s3.woff2") format("woff2");
+}
+
+@font-face /* MJX-NCM-S4 */ {
+  font-family: MJX-NCM-S4;
+  src: url("https://cdn.jsdelivr.net/npm/@mathjax/mathjax-newcm-font@4.1.3/chtml/woff2/mjx-ncm-s4.woff2") format("woff2");
+}
+
+@font-face /* MJX-NCM-S5 */ {
+  font-family: MJX-NCM-S5;
+  src: url("https://cdn.jsdelivr.net/npm/@mathjax/mathjax-newcm-font@4.1.3/chtml/woff2/mjx-ncm-s5.woff2") format("woff2");
+}
+
+@font-face /* MJX-NCM-S6 */ {
+  font-family: MJX-NCM-S6;
+  src: url("https://cdn.jsdelivr.net/npm/@mathjax/mathjax-newcm-font@4.1.3/chtml/woff2/mjx-ncm-s6.woff2") format("woff2");
+}
+
+@font-face /* MJX-NCM-S7 */ {
+  font-family: MJX-NCM-S7;
+  src: url("https://cdn.jsdelivr.net/npm/@mathjax/mathjax-newcm-font@4.1.3/chtml/woff2/mjx-ncm-s7.woff2") format("woff2");
+}
+
+@font-face /* MJX-NCM-MI */ {
+  font-family: MJX-NCM-MI;
+  src: url("https://cdn.jsdelivr.net/npm/@mathjax/mathjax-newcm-font@4.1.3/chtml/woff2/mjx-ncm-mi.woff2") format("woff2");
+}
+
+@font-face /* MJX-NCM-C */ {
+  font-family: MJX-NCM-C;
+  src: url("https://cdn.jsdelivr.net/npm/@mathjax/mathjax-newcm-font@4.1.3/chtml/woff2/mjx-ncm-c.woff2") format("woff2");
+}
+
+@font-face /* MJX-NCM-CB */ {
+  font-family: MJX-NCM-CB;
+  src: url("https://cdn.jsdelivr.net/npm/@mathjax/mathjax-newcm-font@4.1.3/chtml/woff2/mjx-ncm-cb.woff2") format("woff2");
+}
+
+@font-face /* MJX-NCM-OS */ {
+  font-family: MJX-NCM-OS;
+  src: url("https://cdn.jsdelivr.net/npm/@mathjax/mathjax-newcm-font@4.1.3/chtml/woff2/mjx-ncm-os.woff2") format("woff2");
+}
+
+@font-face /* MJX-NCM-OB */ {
+  font-family: MJX-NCM-OB;
+  src: url("https://cdn.jsdelivr.net/npm/@mathjax/mathjax-newcm-font@4.1.3/chtml/woff2/mjx-ncm-ob.woff2") format("woff2");
+}
+
+@font-face /* MJX-NCM-V */ {
+  font-family: MJX-NCM-V;
+  src: url("https://cdn.jsdelivr.net/npm/@mathjax/mathjax-newcm-font@4.1.3/chtml/woff2/mjx-ncm-v.woff2") format("woff2");
+}
+
+@font-face /* MJX-NCM-LT */ {
+  font-family: MJX-NCM-LT;
+  src: url("https://cdn.jsdelivr.net/npm/@mathjax/mathjax-newcm-font@4.1.3/chtml/woff2/mjx-ncm-lt.woff2") format("woff2");
+}
+
+@font-face /* MJX-NCM-RB */ {
+  font-family: MJX-NCM-RB;
+  src: url("https://cdn.jsdelivr.net/npm/@mathjax/mathjax-newcm-font@4.1.3/chtml/woff2/mjx-ncm-rb.woff2") format("woff2");
+}
+
+@font-face /* MJX-NCM-EM */ {
+  font-family: MJX-NCM-EM;
+  src: url("https://cdn.jsdelivr.net/npm/@mathjax/mathjax-newcm-font@4.1.3/chtml/woff2/mjx-ncm-em.woff2") format("woff2");
+}
+
+@font-face /* MJX-NCM-B-a */ {
+  font-family: MJX-NCM-B-a;
+  src: url("https://cdn.jsdelivr.net/npm/@mathjax/mathjax-newcm-font@4.1.3/chtml/woff2/mjx-ncm-b-a.woff2") format("woff2");
+}
+
+@font-face /* MJX-NCM-U */ {
+  font-family: MJX-NCM-U;
+  src: url("https://cdn.jsdelivr.net/npm/@mathjax/mathjax-newcm-font@4.1.3/chtml/woff2/mjx-ncm-u.woff2") format("woff2");
+}
+
+@font-face /* MJX-NCM-U-a */ {
+  font-family: MJX-NCM-U-a;
+  src: url("https://cdn.jsdelivr.net/npm/@mathjax/mathjax-newcm-font@4.1.3/chtml/woff2/mjx-ncm-u-a.woff2") format("woff2");
+}
+
+@font-face /* MJX-NCM-S */ {
+  font-family: MJX-NCM-S;
+  src: url("https://cdn.jsdelivr.net/npm/@mathjax/mathjax-newcm-font@4.1.3/chtml/woff2/mjx-ncm-s.woff2") format("woff2");
+}
+
+@font-face /* MJX-NCM-SB */ {
+  font-family: MJX-NCM-SB;
+  src: url("https://cdn.jsdelivr.net/npm/@mathjax/mathjax-newcm-font@4.1.3/chtml/woff2/mjx-ncm-sb.woff2") format("woff2");
+}
+
+mjx-c.mjx-c2115.NCM-DS {
+  padding: 0.685em 0.722em 0.019em 0;
+}
+
+mjx-c.mjx-c1D672.NCM-M {
+  padding: 0.622em 0.525em 0.011em 0;
+}
+
+mjx-c.mjx-c1D691.NCM-M {
+  padding: 0.611em 0.525em 0 0;
+}
+
+mjx-c.mjx-c1D692.NCM-M {
+  padding: 0.605em 0.525em 0 0;
+}
+
+mjx-c.mjx-c1D68C.NCM-M {
+  padding: 0.44em 0.525em 0.006em 0;
+}
+
+mjx-c.mjx-c1D694.NCM-M {
+  padding: 0.611em 0.525em 0 0;
+}
+
+mjx-c.mjx-c1D68E.NCM-M {
+  padding: 0.44em 0.525em 0.006em 0;
+}
+
+mjx-c.mjx-c1D697.NCM-M {
+  padding: 0.437em 0.525em 0 0;
+}
+
+mjx-c.mjx-c1D673.NCM-M {
+  padding: 0.611em 0.525em 0 0;
+}
+
+mjx-c.mjx-c1D69B.NCM-M {
+  padding: 0.437em 0.525em 0 0;
+}
+
+mjx-c.mjx-c1D67C.NCM-M {
+  padding: 0.611em 0.525em 0 0;
+}
+
+mjx-c.mjx-c1D695.NCM-M {
+  padding: 0.611em 0.525em 0 0;
+}
+
+mjx-c.mjx-c1D69C.NCM-M {
+  padding: 0.44em 0.525em 0.006em 0;
+}
+
+mjx-c.mjx-c1D69D.NCM-M {
+  padding: 0.554em 0.525em 0.006em 0;
+}
+
+mjx-c.mjx-c1D698.NCM-M {
+  padding: 0.44em 0.525em 0.006em 0;
+}
+
+mjx-c.mjx-c2E.NCM-M {
+  padding: 0.125em 0.525em 0 0;
+}
+
+mjx-c.mjx-c1D6A2.NCM-M {
+  padding: 0.431em 0.525em 0.228em 0;
+}
+
+mjx-c.mjx-c1D699.NCM-M {
+  padding: 0.437em 0.525em 0.222em 0;
+}
+
+mjx-c.mjx-cEC.NCM-ML {
+  padding: 0.622em 0.525em 0 0;
+}
+
+mjx-c.mjx-c1D6A1.NCM-M {
+  padding: 0.431em 0.525em 0 0;
+}
+
+
+
+
+mjx-mo {
+  display: inline-block;
+  text-align: left;
+}
+
+mjx-stretchy-h {
+  display: inline-block;
+}
+
+mjx-stretchy-h > mjx-beg, mjx-stretchy-h > mjx-ext, mjx-stretchy-h > mjx-end, mjx-stretchy-h > mjx-mid {
+  display: inline-block;
+  width: 0;
+  text-align: right;
+}
+
+mjx-stretchy-h > mjx-ext {
+  clip-path: padding-box polygon(0 -1em, 100% -1em, 100% calc(100% + 1em), 0 calc(100% + 1em));
+  width: 100%;
+  border: 0px solid transparent;
+  box-sizing: border-box;
+  text-align: left;
+}
+
+mjx-stretchy-v {
+  display: inline-block;
+  text-align: center;
+}
+
+mjx-stretchy-v > mjx-beg, mjx-stretchy-v > mjx-ext, mjx-stretchy-v > mjx-end, mjx-stretchy-v > mjx-mid {
+  display: block;
+  height: 0;
+  margin: 0 auto;
+}
+
+mjx-stretchy-v > mjx-ext > mjx-spacer {
+  display: block;
+}
+
+mjx-stretchy-v > mjx-ext {
+  clip-path: padding-box polygon(-1em 0, calc(100% + 1em) 0, calc(100% + 1em) 100%, -1em 100%);
+  height: 100%;
+  border: 0.1px solid transparent;
+  box-sizing: border-box;
+  white-space: pre;
+}
+
+mjx-mark {
+  display: inline-block;
+  height: 0;
+}
+
+mjx-mn {
+  display: inline-block;
+  text-align: left;
+}
+
+mjx-msub {
+  display: inline-block;
+  text-align: left;
+}
+
+mjx-msubsup {
+  display: inline-block;
+  text-align: left;
+}
+
+mjx-script {
+  display: inline-block;
+  padding-right: .05em;
+  padding-left: .033em;
+}
+
+mjx-script > mjx-spacer {
+  display: block;
+}
+
+mjx-c.mjx-c1D44F {
+  padding: 0.694em 0.429em 0.011em 0;
+}
+
+mjx-c.mjx-c1D465 {
+  padding: 0.442em 0.572em 0.011em 0;
+}
+
+mjx-c.mjx-c61 {
+  padding: 0.448em 0.5em 0.011em 0;
+}
+
+mjx-c.mjx-c6E {
+  padding: 0.442em 0.556em 0 0;
+}
+
+mjx-c.mjx-c64 {
+  padding: 0.694em 0.556em 0.011em 0;
+}
+
+mjx-c.mjx-c2061 {
+  padding: 0 0 0 0;
+}
+
+mjx-c.mjx-c1D466 {
+  padding: 0.442em 0.49em 0.205em 0;
+}
+
+mjx-c.mjx-c3D {
+  padding: 0.367em 0.778em 0 0;
+}
+
+mjx-c.mjx-c1D467 {
+  padding: 0.442em 0.467em 0.011em 0;
+}
+
+mjx-c.mjx-c1D44E {
+  padding: 0.442em 0.529em 0.011em 0;
+}
+
+mjx-c.mjx-c30 {
+  padding: 0.666em 0.5em 0.022em 0;
+}
+
+mjx-c.mjx-c1D450 {
+  padding: 0.442em 0.433em 0.011em 0;
+}
+
+mjx-c.mjx-c2C {
+  padding: 0.106em 0.278em 0.193em 0;
+}
+
+mjx-c.mjx-c31 {
+  padding: 0.666em 0.5em 0 0;
+}
+
+mjx-c.mjx-c51 {
+  padding: 0.705em 0.778em 0.194em 0;
+}
+
+mjx-c.mjx-c2E {
+  padding: 0.106em 0.278em 0 0;
+}
+
+mjx-c.mjx-c45 {
+  padding: 0.68em 0.681em 0 0;
+}
+
+mjx-c.mjx-c44 {
+  padding: 0.683em 0.764em 0 0;
+}
+
+mjx-c.mjx-c32 {
+  padding: 0.666em 0.5em 0 0;
+}
+
+mjx-c.mjx-c33 {
+  padding: 0.666em 0.5em 0.022em 0;
+}
+
+mjx-c.mjx-c34 {
+  padding: 0.677em 0.5em 0 0;
+}
+
+mjx-c.mjx-c2B {
+  padding: 0.583em 0.778em 0.083em 0;
+}
+
+mjx-c.mjx-c1D45B {
+  padding: 0.442em 0.6em 0.011em 0;
+}
+
+mjx-c.mjx-c35 {
+  padding: 0.666em 0.5em 0.022em 0;
+}
+
+mjx-c.mjx-c28 {
+  padding: 0.748em 0.389em 0.248em 0;
+}
+
+mjx-c.mjx-c2208 {
+  padding: 0.543em 0.667em 0.043em 0;
+}
+
+mjx-c.mjx-c29 {
+  padding: 0.748em 0.389em 0.248em 0;
+}
+
+mjx-c.mjx-c6D {
+  padding: 0.442em 0.833em 0 0;
+}
+
+mjx-c.mjx-c6F {
+  padding: 0.448em 0.5em 0.011em 0;
+}
+
+mjx-c.mjx-c2260 {
+  padding: 0.73em 0.778em 0.23em 0;
+}
+
+mjx-c.mjx-c1D453 {
+  padding: 0.705em 0.552em 0.205em 0;
+}
+
+mjx-c.mjx-c1D456 {
+  padding: 0.661em 0.345em 0.011em 0;
+}
+
+mjx-c.mjx-c69 {
+  padding: 0.657em 0.278em 0 0;
+}
+
+mjx-c.mjx-c2212 {
+  padding: 0.583em 0.778em 0.083em 0;
+}
+
+mjx-c.mjx-c7C {
+  padding: 0.75em 0.278em 0.25em 0;
+}
+
+mjx-c.mjx-c78 {
+  padding: 0.431em 0.528em 0 0;
+}
+
+mjx-c.mjx-c7B {
+  padding: 0.75em 0.5em 0.25em 0;
+}
+
+mjx-c.mjx-c7D {
+  padding: 0.75em 0.5em 0.25em 0;
+}
+
+
+
+mjx-mrow {
+  display: inline-block;
+  text-align: left;
+}
+
+mjx-linestack, mjx-mrow[break-top] {
+  display: inline-table;
+  width: 100%;
+}
+
+mjx-linestack[break-align="bottom"], mjx-mrow[break-top][break-align="bottom"] {
+  display: inline-block;
+}
+
+mjx-linestack[break-align="middle"], mjx-mrow[break-top][break-align="middle"] {
+  vertical-align: middle;
+}
+
+mjx-linestack[break-align="center"], mjx-mrow[break-top][break-align="center"] {
+  vertical-align: middle;
+}
+
+mjx-linestack[breakable] {
+  display: inline;
+}
+
+mjx-linestack[breakable] > mjx-linebox {
+  display: inline;
+}
+
+mjx-linestack[breakable] > mjx-linebox::before {
+  white-space: pre;
+  content: "\A";
+}
+
+mjx-linestack[breakable] > mjx-linebox::after {
+  white-space: normal;
+  content: " ";
+  letter-spacing: -.999em;
+  font-family: MJX-BRK;
+}
+
+mjx-linestack[breakable] > mjx-linebox:first-of-type::before {
+  display: none;
+}
+
+mjx-linestack[breakable] > mjx-linebox:last-of-type::after {
+  display: none;
+}
+
+mjx-linebox {
+  display: block;
+}
+
+mjx-linebox[align="left"] {
+  text-align: left;
+}
+
+mjx-linebox[align="center"] {
+  text-align: center;
+}
+
+mjx-linebox[align="right"] {
+  text-align: right;
+}
+
+mjx-linestrut {
+  display: inline-block;
+  height: 1em;
+  vertical-align: -.25em;
+}
+
+mjx-mtable {
+  display: inline-block;
+  text-align: center;
+  vertical-align: .25em;
+  position: relative;
+  box-sizing: border-box;
+  border-spacing: 0;
+  border-collapse: collapse;
+}
+
+mjx-mstyle[size="s"] mjx-mtable {
+  vertical-align: .354em;
+}
+
+mjx-labels {
+  position: absolute;
+  left: 0;
+  top: 0;
+}
+
+mjx-table {
+  display: inline-block;
+  vertical-align: -.5ex;
+  box-sizing: border-box;
+}
+
+mjx-table > mjx-itable {
+  vertical-align: middle;
+  text-align: left;
+  box-sizing: border-box;
+}
+
+mjx-labels > mjx-itable {
+  position: absolute;
+  top: 0;
+}
+
+mjx-mtable[justify="left"] {
+  text-align: left;
+}
+
+mjx-mtable[justify="right"] {
+  text-align: right;
+}
+
+mjx-mtable[justify="left"][side="left"] {
+  padding-right: 0 ! important;
+}
+
+mjx-mtable[justify="left"][side="right"] {
+  padding-left: 0 ! important;
+}
+
+mjx-mtable[justify="right"][side="left"] {
+  padding-right: 0 ! important;
+}
+
+mjx-mtable[justify="right"][side="right"] {
+  padding-left: 0 ! important;
+}
+
+mjx-mtable[align] {
+  vertical-align: baseline;
+}
+
+mjx-mtable[align="top"] > mjx-table {
+  vertical-align: top;
+}
+
+mjx-mtable[align="bottom"] > mjx-table {
+  vertical-align: bottom;
+}
+
+mjx-mtable[side="right"] mjx-labels {
+  min-width: 100%;
+}
+
+mjx-mtr {
+  display: table-row;
+  text-align: left;
+}
+
+mjx-mtr[rowalign="top"] > mjx-mtd {
+  vertical-align: top;
+}
+
+mjx-mtr[rowalign="center"] > mjx-mtd {
+  vertical-align: middle;
+}
+
+mjx-mtr[rowalign="bottom"] > mjx-mtd {
+  vertical-align: bottom;
+}
+
+mjx-mtr[rowalign="baseline"] > mjx-mtd {
+  vertical-align: baseline;
+}
+
+mjx-mtr[rowalign="axis"] > mjx-mtd {
+  vertical-align: .25em;
+}
+
+mjx-mtd {
+  display: table-cell;
+  text-align: center;
+  padding: .215em .4em;
+}
+
+mjx-mtd:first-child {
+  padding-left: 0;
+}
+
+mjx-mtd:last-child {
+  padding-right: 0;
+}
+
+mjx-mtable > * > mjx-itable > *:first-child > mjx-mtd {
+  padding-top: 0;
+}
+
+mjx-mtable > * > mjx-itable > *:last-child > mjx-mtd {
+  padding-bottom: 0;
+}
+
+mjx-tstrut {
+  display: inline-block;
+  height: 1em;
+  vertical-align: -.25em;
+}
+
+mjx-labels[align="left"] > mjx-mtr > mjx-mtd {
+  text-align: left;
+}
+
+mjx-labels[align="right"] > mjx-mtr > mjx-mtd {
+  text-align: right;
+}
+
+mjx-mtd[extra] {
+  padding: 0;
+}
+
+mjx-mtd[rowalign="top"] {
+  vertical-align: top;
+}
+
+mjx-mtd[rowalign="center"] {
+  vertical-align: middle;
+}
+
+mjx-mtd[rowalign="bottom"] {
+  vertical-align: bottom;
+}
+
+mjx-mtd[rowalign="baseline"] {
+  vertical-align: baseline;
+}
+
+mjx-mtd[rowalign="axis"] {
+  vertical-align: .25em;
+}
+
+mjx-mspace {
+  display: inline-block;
+  text-align: left;
+}
+
+mjx-mover {
+  display: inline-block;
+  text-align: left;
+}
+
+mjx-mover:not([limits="false"]) {
+  padding-top: .1em;
+}
+
+mjx-mover:not([limits="false"]) > mjx-base, mjx-mover:not([limits="false"]) > mjx-over {
+  display: block;
+  text-align: left;
+}
+
+mjx-msup {
+  display: inline-block;
+  text-align: left;
+}
+
+mjx-stretchy-h.mjx-c2015 > mjx-ext > mjx-spacer {
+  margin-left: -0.576em;
+  letter-spacing: -0.182em;
+}
+
+mjx-stretchy-h.mjx-c2015 > mjx-ext {
+  padding: 0.27em 0 0 0;
+}
+
+mjx-c.mjx-c4D {
+  padding: 0.683em 0.917em 0 0;
+}
+
+mjx-c.mjx-c58 {
+  padding: 0.683em 0.75em 0 0;
+}
+
+mjx-c.mjx-c2203 {
+  padding: 0.684em 0.556em 0 0;
+}
+
+mjx-c.mjx-c394 {
+  padding: 0.716em 0.833em 0 0;
+}
+
+mjx-c.mjx-c7B.NCM-S5 {
+  padding: 1.3em 0.707em 0.8em 0;
+}
+
+mjx-c.mjx-c3E {
+  padding: 0.547em 0.778em 0.047em 0;
+}
+
+mjx-c.mjx-c2B.NCM-M {
+  padding: 0.531em 0.525em 0 0;
+}
+
+mjx-c.mjx-c5B {
+  padding: 0.75em 0.278em 0.25em 0;
+}
+
+mjx-c.mjx-c5D {
+  padding: 0.75em 0.278em 0.25em 0;
+}
+
+mjx-c.mjx-c2026 {
+  padding: 0.106em 0.837em 0 0;
+}
+
+mjx-c.mjx-c1D45D {
+  padding: 0.442em 0.503em 0.194em 0;
+}
+
+mjx-c.mjx-c36 {
+  padding: 0.666em 0.5em 0.022em 0;
+}
+
+mjx-c.mjx-c1D671.NCM-M {
+  padding: 0.611em 0.525em 0 0;
+}
+
+mjx-c.mjx-c4F {
+  padding: 0.705em 0.778em 0.022em 0;
+}
+
+mjx-c.mjx-c52 {
+  padding: 0.683em 0.736em 0.022em 0;
+}
+
+mjx-c.mjx-c2295 {
+  padding: 0.591em 0.782em 0.093em 0;
+}
+
+mjx-c.mjx-c22EF {
+  padding: 0.303em 0.776em 0 0;
+}
+
+mjx-c.mjx-c1D446 {
+  padding: 0.705em 0.645em 0.022em 0;
+}
+
+mjx-c.mjx-c2200 {
+  padding: 0.688em 0.666em 0 0;
+}
+
+mjx-c.mjx-c1D45E {
+  padding: 0.442em 0.452em 0.194em 0;
+}
+
+mjx-c.mjx-c2282 {
+  padding: 0.543em 0.778em 0.043em 0;
+}
+
+mjx-c.mjx-c2209 {
+  padding: 0.73em 0.667em 0.23em 0;
+}
+
+mjx-c.mjx-c1D693.NCM-M {
+  padding: 0.605em 0.525em 0.228em 0;
+}
+
+mjx-c.mjx-c1D69E.NCM-M {
+  padding: 0.431em 0.525em 0.006em 0;
+}
+
+mjx-c.mjx-c39 {
+  padding: 0.666em 0.5em 0.022em 0;
+}
+
+mjx-c.mjx-c2032.NCM-V {
+  padding: 0.549em 0.407em 0 0;
+}
+
+mjx-c.mjx-c3A {
+  padding: 0.431em 0.278em 0 0;
+}
+
+mjx-c.mjx-c222A {
+  padding: 0.604em 0.667em 0.02em 0;
+}
+
+mjx-c.mjx-c1D442 {
+  padding: 0.705em 0.763em 0.022em 0;
+}
+
+mjx-c.mjx-c1D459 {
+  padding: 0.694em 0.298em 0.011em 0;
+}
+
+mjx-c.mjx-c1D45F {
+  padding: 0.442em 0.451em 0.011em 0;
+}
+
+mjx-c.mjx-c1D457 {
+  padding: 0.661em 0.412em 0.205em 0;
+}
+
+mjx-c.mjx-c1D45A {
+  padding: 0.442em 0.878em 0.011em 0;
+}
+
+mjx-c.mjx-c1D43A {
+  padding: 0.705em 0.786em 0.022em 0;
+}
+
+mjx-c.mjx-c4F.NCM-C {
+  padding: 0.686em 0.699em 0.018em 0;
+}
+
+mjx-c.mjx-c6C {
+  padding: 0.694em 0.278em 0 0;
+}
+
+mjx-c.mjx-c67 {
+  padding: 0.453em 0.5em 0.206em 0;
+}
+
+mjx-c.mjx-c2264 {
+  padding: 0.631em 0.778em 0.119em 0;
+}
+
+
+
+mjx-munderover {
+  display: inline-block;
+  text-align: left;
+}
+
+mjx-munderover:not([limits="false"]) {
+  padding-top: .1em;
+}
+
+mjx-munderover:not([limits="false"]) > mjx-over, mjx-munderover:not([limits="false"]) > mjx-box {
+  display: block;
+}
+
+mjx-munder {
+  display: inline-block;
+  text-align: left;
+}
+
+mjx-over {
+  text-align: left;
+}
+
+mjx-munder:not([limits="false"]) {
+  display: inline-table;
+}
+
+mjx-munder > mjx-row {
+  text-align: left;
+}
+
+mjx-under {
+  padding-bottom: .1em;
+}
+
+mjx-mfrac {
+  display: inline-block;
+  text-align: left;
+}
+
+mjx-frac {
+  display: inline-block;
+  vertical-align: 0.17em;
+  padding: 0 .22em;
+}
+
+mjx-frac[type="d"] {
+  vertical-align: .04em;
+}
+
+mjx-frac[delims] {
+  padding: 0 .1em;
+}
+
+mjx-frac[atop] {
+  padding: 0 .12em;
+}
+
+mjx-frac[atop][delims] {
+  padding: 0;
+}
+
+mjx-dtable {
+  display: inline-table;
+  width: 100%;
+}
+
+mjx-dtable > mjx-line, mjx-dtable > mjx-row {
+  font-size: 2000%;
+}
+
+mjx-dbox {
+  display: block;
+  font-size: 5%;
+}
+
+mjx-num {
+  display: block;
+  text-align: center;
+}
+
+mjx-den {
+  display: block;
+  text-align: center;
+}
+
+mjx-mfrac[bevelled] > mjx-num {
+  display: inline-block;
+}
+
+mjx-mfrac[bevelled] > mjx-den {
+  display: inline-block;
+}
+
+mjx-den[align="right"], mjx-num[align="right"] {
+  text-align: right;
+}
+
+mjx-den[align="left"], mjx-num[align="left"] {
+  text-align: left;
+}
+
+mjx-nstrut {
+  display: inline-block;
+  height: .054em;
+  width: 0;
+  vertical-align: -.054em;
+}
+
+mjx-nstrut[type="d"] {
+  height: .217em;
+  vertical-align: -.217em;
+}
+
+mjx-dstrut {
+  display: inline-block;
+  height: .505em;
+  width: 0;
+}
+
+mjx-dstrut[type="d"] {
+  height: .726em;
+}
+
+mjx-line {
+  display: block;
+  box-sizing: border-box;
+  min-height: 1px;
+  height: .06em;
+  border-top: .075em solid;
+  margin: .06em -.1em;
+  overflow: hidden;
+}
+
+mjx-line[type="d"] {
+  margin: .18em -.1em;
+}
+
+mjx-mlabeledtr {
+  display: table-row;
+  text-align: left;
+}
+
+mjx-mlabeledtr[rowalign="top"] > mjx-mtd {
+  vertical-align: top;
+}
+
+mjx-mlabeledtr[rowalign="center"] > mjx-mtd {
+  vertical-align: middle;
+}
+
+mjx-mlabeledtr[rowalign="bottom"] > mjx-mtd {
+  vertical-align: bottom;
+}
+
+mjx-mlabeledtr[rowalign="baseline"] > mjx-mtd {
+  vertical-align: baseline;
+}
+
+mjx-mlabeledtr[rowalign="axis"] > mjx-mtd {
+  vertical-align: .25em;
+}
+
+mjx-stretchy-v.mjx-c7B > mjx-beg {
+  width: 0.902em;
+  margin: 0.75em auto -0.75em;
+}
+
+mjx-stretchy-v.mjx-c7B > mjx-ext > mjx-spacer {
+  margin-top: 0.339em;
+}
+
+mjx-stretchy-v.mjx-c7B > mjx-ext {
+  width: 0.902em;
+  line-height: 0.678em;
+}
+
+mjx-stretchy-v.mjx-c7B > mjx-end {
+  width: 0.902em;
+  margin: 0 auto 0;
+}
+
+mjx-stretchy-v.mjx-c7B > mjx-mid {
+  width: 0.902em;
+  margin: 0.75em auto -0.75em;
+}
+
+mjx-stretchy-v.mjx-c7B > mjx-ext:first-of-type {
+  height: 50%;
+  border-width: 0.72em 0 0.72em;
+}
+
+mjx-stretchy-v.mjx-c7B > mjx-ext:last-of-type {
+  height: 50%;
+  border-width: 0.72em 0 0.72em;
+}
+
+mjx-stretchy-v.mjx-c7D > mjx-beg {
+  width: 0.902em;
+  margin: 0.75em auto -0.75em;
+}
+
+mjx-stretchy-v.mjx-c7D > mjx-ext > mjx-spacer {
+  margin-top: 0.339em;
+}
+
+mjx-stretchy-v.mjx-c7D > mjx-ext {
+  width: 0.902em;
+  line-height: 0.678em;
+}
+
+mjx-stretchy-v.mjx-c7D > mjx-end {
+  width: 0.902em;
+  margin: 0 auto 0;
+}
+
+mjx-stretchy-v.mjx-c7D > mjx-mid {
+  width: 0.902em;
+  margin: 0.75em auto -0.75em;
+}
+
+mjx-stretchy-v.mjx-c7D > mjx-ext:first-of-type {
+  height: 50%;
+  border-width: 0.72em 0 0.72em;
+}
+
+mjx-stretchy-v.mjx-c7D > mjx-ext:last-of-type {
+  height: 50%;
+  border-width: 0.72em 0 0.72em;
+}
+
+mjx-c.mjx-c1D68F.NCM-M {
+  padding: 0.617em 0.525em 0 0;
+}
+
+mjx-c.mjx-c1D434 {
+  padding: 0.716em 0.75em 0 0;
+}
+
+mjx-c.mjx-c1D435 {
+  padding: 0.683em 0.759em 0 0;
+}
+
+mjx-c.mjx-c2211.NCM-LO {
+  padding: 0.95em 1.444em 0.45em 0;
+}
+
+mjx-c.mjx-c2265 {
+  padding: 0.631em 0.778em 0.119em 0;
+}
+
+mjx-c.mjx-c1D6A0.NCM-M {
+  padding: 0.431em 0.525em 0.004em 0;
+}
+
+mjx-c.mjx-c1D68A.NCM-M {
+  padding: 0.44em 0.525em 0.006em 0;
+}
+
+mjx-c.mjx-c3A.NCM-M {
+  padding: 0.431em 0.525em 0 0;
+}
+
+mjx-c.mjx-cA0.NCM-M {
+  padding: 0 0.525em 0 0;
+}
+
+mjx-c.mjx-c1D451 {
+  padding: 0.694em 0.52em 0.011em 0;
+}
+
+mjx-c.mjx-c1D454 {
+  padding: 0.442em 0.477em 0.205em 0;
+}
+
+mjx-c.mjx-cA0 {
+  padding: 0 0.332em 0 0;
+}
+
+mjx-c.mjx-c22EE {
+  padding: 0.582em 0.218em 0.082em 0;
+}
+
+mjx-c.mjx-c2211 {
+  padding: 0.75em 1.056em 0.25em 0;
+}
+
+mjx-c.mjx-c221E {
+  padding: 0.442em 1em 0.011em 0;
+}
+
+mjx-c.mjx-c1D690.NCM-M {
+  padding: 0.442em 0.525em 0.229em 0;
+}
+
+mjx-c.mjx-c1D438 {
+  padding: 0.68em 0.766em 0 0;
+}
+
+mjx-c.mjx-c1D449 {
+  padding: 0.683em 0.77em 0.022em 0;
+}
+
+mjx-c.mjx-c1D460 {
+  padding: 0.442em 0.469em 0.011em 0;
+}
+
+mjx-c.mjx-c1D68D.NCM-M {
+  padding: 0.611em 0.525em 0.006em 0;
+}
+
+
+
+mjx-inferredMrow {
+  display: inline-block;
+  text-align: left;
+}
+
+mjx-linestack, mjx-mrow[break-top] {
+  display: inline-table;
+  width: 100%;
+}
+
+mjx-linestack[break-align="bottom"], mjx-mrow[break-top][break-align="bottom"] {
+  display: inline-block;
+}
+
+mjx-linestack[break-align="middle"], mjx-mrow[break-top][break-align="middle"] {
+  vertical-align: middle;
+}
+
+mjx-linestack[break-align="center"], mjx-mrow[break-top][break-align="center"] {
+  vertical-align: middle;
+}
+
+mjx-linestack[breakable] {
+  display: inline;
+}
+
+mjx-linestack[breakable] > mjx-linebox {
+  display: inline;
+}
+
+mjx-linestack[breakable] > mjx-linebox::before {
+  white-space: pre;
+  content: "\A";
+}
+
+mjx-linestack[breakable] > mjx-linebox::after {
+  white-space: normal;
+  content: " ";
+  letter-spacing: -.999em;
+  font-family: MJX-BRK;
+}
+
+mjx-linestack[breakable] > mjx-linebox:first-of-type::before {
+  display: none;
+}
+
+mjx-linestack[breakable] > mjx-linebox:last-of-type::after {
+  display: none;
+}
+
+mjx-linebox {
+  display: block;
+}
+
+mjx-linebox[align="left"] {
+  text-align: left;
+}
+
+mjx-linebox[align="center"] {
+  text-align: center;
+}
+
+mjx-linebox[align="right"] {
+  text-align: right;
+}
+
+mjx-linestrut {
+  display: inline-block;
+  height: 1em;
+  vertical-align: -.25em;
+}
+
+mjx-stretchy-v.mjx-c5B > mjx-beg {
+  width: 0.667em;
+  margin: 1.5em auto -1.5em;
+}
+
+mjx-stretchy-v.mjx-c5B > mjx-ext > mjx-spacer {
+  margin-top: 0.465em;
+}
+
+mjx-stretchy-v.mjx-c5B > mjx-ext {
+  width: 0.667em;
+  line-height: 0.93em;
+  border-width: 1.47em 0 1.47em;
+}
+
+mjx-stretchy-v.mjx-c5B > mjx-end {
+  width: 0.667em;
+  margin: 0 auto 0;
+}
+
+mjx-stretchy-v.mjx-c5D > mjx-beg {
+  width: 0.667em;
+  margin: 1.5em auto -1.5em;
+}
+
+mjx-stretchy-v.mjx-c5D > mjx-ext > mjx-spacer {
+  margin-top: 0.465em;
+}
+
+mjx-stretchy-v.mjx-c5D > mjx-ext {
+  width: 0.667em;
+  line-height: 0.93em;
+  border-width: 1.47em 0 1.47em;
+}
+
+mjx-stretchy-v.mjx-c5D > mjx-end {
+  width: 0.667em;
+  margin: 0 auto 0;
+}
+
+mjx-c.mjx-c25 {
+  padding: 0.75em 0.833em 0.056em 0;
+}
+
+mjx-c.mjx-c1D43F {
+  padding: 0.684em 0.681em 0 0;
+}
+
+mjx-c.mjx-c1D445 {
+  padding: 0.683em 0.759em 0.022em 0;
+}
+
+mjx-c.mjx-c38 {
+  padding: 0.666em 0.5em 0.022em 0;
+}
+
+mjx-c.mjx-c1D447 {
+  padding: 0.677em 0.704em 0 0;
+}
+
+mjx-c.mjx-cD7 {
+  padding: 0.491em 0.778em 0 0;
+}
+
+mjx-c.mjx-c37 {
+  padding: 0.676em 0.5em 0.022em 0;
+}
+
+mjx-c.mjx-c1D452 {
+  padding: 0.442em 0.466em 0.011em 0;
+}
+
+mjx-c.mjx-c1D405 {
+  padding: 0.68em 0.724em 0 0;
+}
+
+mjx-c.mjx-c1D428 {
+  padding: 0.453em 0.575em 0.006em 0;
+}
+
+mjx-c.mjx-c1D42B {
+  padding: 0.45em 0.474em 0 0;
+}
+
+mjx-c.mjx-cA0.NCM-B {
+  padding: 0 0.383em 0 0;
+}
+
+mjx-c.mjx-c1D458 {
+  padding: 0.694em 0.521em 0.011em 0;
+}
+
+mjx-c.mjx-c3C {
+  padding: 0.547em 0.778em 0.052em 0;
+}
+
+mjx-c.mjx-c1D40B {
+  padding: 0.686em 0.692em 0 0;
+}
+
+mjx-c.mjx-c1D41E {
+  padding: 0.453em 0.527em 0.006em 0;
+}
+
+mjx-c.mjx-c1D42D {
+  padding: 0.635em 0.447em 0.006em 0;
+}
+
+mjx-c.mjx-c50 {
+  padding: 0.683em 0.681em 0 0;
+}
+
+mjx-c.mjx-c75 {
+  padding: 0.442em 0.556em 0.011em 0;
+}
+
+mjx-c.mjx-c73 {
+  padding: 0.448em 0.394em 0.011em 0;
+}
+
+mjx-c.mjx-c22C5 {
+  padding: 0.303em 0.278em 0 0;
+}
+
+mjx-c.mjx-c21 {
+  padding: 0.716em 0.278em 0 0;
+}
+
+mjx-c.mjx-c63 {
+  padding: 0.448em 0.444em 0.011em 0;
+}
+
+mjx-c.mjx-c1D441 {
+  padding: 0.683em 0.881em 0 0;
+}
+
+mjx-c.mjx-c1D440 {
+  padding: 0.683em 1.044em 0 0;
+}
+
+mjx-c.mjx-c1D444 {
+  padding: 0.705em 0.791em 0.194em 0;
+}
+
+
+
+mjx-c.mjx-c1D69F.NCM-M {
+  padding: 0.431em 0.525em 0.004em 0;
+}
+
+mjx-c.mjx-c1D696.NCM-M {
+  padding: 0.437em 0.525em 0 0;
+}
+
+mjx-c.mjx-c1D463 {
+  padding: 0.442em 0.485em 0.011em 0;
+}
+
+mjx-c.mjx-c1D462 {
+  padding: 0.442em 0.572em 0.011em 0;
+}
+
+
+
+mjx-c.mjx-c1D437 {
+  padding: 0.683em 0.828em 0 0;
+}
+
+mjx-c.mjx-c1D461 {
+  padding: 0.626em 0.361em 0.011em 0;
+}
+
+
+
+mjx-c.mjx-c4C {
+  padding: 0.683em 0.625em 0 0;
+}
+
+mjx-c.mjx-c6B {
+  padding: 0.694em 0.528em 0 0;
+}
+
+mjx-c.mjx-c2D {
+  padding: 0.245em 0.333em 0 0;
+}
+
+mjx-c.mjx-c43 {
+  padding: 0.705em 0.722em 0.022em 0;
+}
+
+mjx-c.mjx-c74 {
+  padding: 0.615em 0.389em 0.011em 0;
+}
+
+mjx-c.mjx-c54 {
+  padding: 0.677em 0.722em 0 0;
+}
+
+mjx-c.mjx-c72 {
+  padding: 0.442em 0.392em 0 0;
+}
+
+mjx-c.mjx-c65 {
+  padding: 0.448em 0.444em 0.011em 0;
+}
+
+mjx-c.mjx-c210E {
+  padding: 0.694em 0.576em 0.011em 0;
+}
+
+mjx-c.mjx-c2F {
+  padding: 0.75em 0.5em 0.25em 0;
+}
+
+mjx-c.mjx-c2192 {
+  padding: 0.51em 1em 0.01em 0;
+}
+
+mjx-c.mjx-c1D45C {
+  padding: 0.442em 0.485em 0.011em 0;
+}
+
+
+
+mjx-msqrt {
+  display: inline-block;
+  text-align: left;
+}
+
+mjx-root {
+  display: inline-block;
+  white-space: nowrap;
+}
+
+mjx-surd {
+  display: inline-block;
+  vertical-align: top;
+}
+
+mjx-sqrt {
+  display: inline-block;
+  padding-top: .075em;
+}
+
+mjx-sqrt > mjx-box {
+  border-top: .075em solid;
+  padding-left: .03em;
+  margin-left: -.03em;
+}
+
+mjx-sqrt.mjx-tall > mjx-box {
+  padding-left: .3em;
+  margin-left: -.3em;
+}
+
+mjx-c.mjx-c230A {
+  padding: 0.75em 0.444em 0.25em 0;
+}
+
+mjx-c.mjx-c230B {
+  padding: 0.75em 0.444em 0.25em 0;
+}
+
+mjx-c.mjx-c7B.NCM-S7 {
+  padding: 1.75em 0.902em 1.25em 0;
+}
+
+mjx-c.mjx-c2261 {
+  padding: 0.464em 0.778em 0 0;
+}
+
+mjx-c.mjx-c22F1 {
+  padding: 0.5em 0.613em 0 0;
+}
+
+mjx-c.mjx-c220F.NCM-LO {
+  padding: 0.95em 1.278em 0.45em 0;
+}
+
+mjx-c.mjx-c27F9 {
+  padding: 0.52em 1.457em 0.02em 0;
+}
+
+mjx-c.mjx-c1D420 {
+  padding: 0.455em 0.575em 0.201em 0;
+}
+
+mjx-c.mjx-c1D41C {
+  padding: 0.453em 0.511em 0.006em 0;
+}
+
+mjx-c.mjx-c1D41D {
+  padding: 0.694em 0.639em 0.006em 0;
+}
+
+mjx-c.mjx-c28.NCM-B {
+  padding: 0.75em 0.447em 0.249em 0;
+}
+
+mjx-c.mjx-c1D48E {
+  padding: 0.452em 1.032em 0.008em 0;
+}
+
+mjx-c.mjx-c1D7CF {
+  padding: 0.655em 0.575em 0 0;
+}
+
+mjx-c.mjx-c2C.NCM-B {
+  padding: 0.156em 0.319em 0.194em 0;
+}
+
+mjx-c.mjx-c1D7D0 {
+  padding: 0.655em 0.575em 0 0;
+}
+
+mjx-c.mjx-c29.NCM-B {
+  padding: 0.75em 0.447em 0.249em 0;
+}
+
+mjx-c.mjx-c2224 {
+  padding: 0.75em 0.388em 0.25em 0;
+}
+
+mjx-c.mjx-c1D482 {
+  padding: 0.452em 0.633em 0.008em 0;
+}
+
+mjx-c.mjx-c2212.NCM-B {
+  padding: 0.281em 0.894em 0 0;
+}
+
+mjx-c.mjx-c3D.NCM-B {
+  padding: 0.393em 0.894em 0 0;
+}
+
+mjx-c.mjx-c221A {
+  padding: 0.04em 0.853em 0.96em 0;
+}
+
+mjx-c.mjx-c1D46B {
+  padding: 0.686em 0.938em 0 0;
+}
+
+mjx-c.mjx-c1D483 {
+  padding: 0.694em 0.521em 0.008em 0;
+}
+
+mjx-c.mjx-c1D499 {
+  padding: 0.452em 0.659em 0.008em 0;
+}
+
+mjx-c.mjx-c2208 {
+  padding: 0.543em 0.667em 0.043em 0;
+}
+
+mjx-c.mjx-c5B.NCM-B {
+  padding: 0.75em 0.319em 0.25em 0;
+}
+
+mjx-c.mjx-c1D7CE {
+  padding: 0.655em 0.575em 0.011em 0;
+}
+
+mjx-c.mjx-c1D48F {
+  padding: 0.452em 0.713em 0.008em 0;
+}
+
+mjx-c.mjx-c1D711 {
+  padding: 0.442em 0.654em 0.218em 0;
+}
+
+mjx-c.mjx-c27FA {
+  padding: 0.52em 1.534em 0.02em 0;
+}
+
+mjx-c.mjx-c2262 {
+  padding: 0.73em 0.778em 0.23em 0;
+}
+
+mjx-c.mjx-c223C {
+  padding: 0.366em 0.773em 0 0;
+}
+
+
+
+
+
+
+
+mjx-c.mjx-c1D43C {
+  padding: 0.684em 0.497em 0.001em 0;
+}
+
+mjx-c.mjx-c2124.NCM-DS {
+  padding: 0.685em 0.666em 0 0;
+}
+
+mjx-c.mjx-c2217 {
+  padding: 0.462em 0.5em 0 0;
+}
+
+mjx-c.mjx-c2C6 {
+  padding: 0.694em 0.5em 0 0;
+}
+
+mjx-c.mjx-c1D716 {
+  padding: 0.431em 0.406em 0.011em 0;
+}
+
+mjx-c.mjx-c1D707 {
+  padding: 0.442em 0.603em 0.216em 0;
+}
+
+mjx-c.mjx-c66 {
+  padding: 0.705em 0.357em 0 0;
+}
+
+mjx-c.mjx-c20 {
+  padding: 0 0.332em 0 0;
+}
+
+mjx-c.mjx-c68 {
+  padding: 0.694em 0.556em 0 0;
+}
+
+mjx-c.mjx-c77 {
+  padding: 0.431em 0.722em 0.011em 0;
+}
+
+mjx-c.mjx-c1D70F {
+  padding: 0.431em 0.511em 0.012em 0;
+}
+
+mjx-c.mjx-c1D70E {
+  padding: 0.431em 0.571em 0.011em 0;
+}
+
+mjx-c.mjx-c70 {
+  padding: 0.442em 0.556em 0.194em 0;
+}
+
+mjx-c.mjx-c27F8 {
+  padding: 0.52em 1.457em 0.02em 0;
+}
+
+mjx-c.mjx-c2227 {
+  padding: 0.602em 0.667em 0.02em 0;
+}
+
+mjx-c.mjx-c2229 {
+  padding: 0.604em 0.667em 0.02em 0;
+}
+
+mjx-c.mjx-c53 {
+  padding: 0.705em 0.556em 0.022em 0;
+}
+
+mjx-c.mjx-c22C2 {
+  padding: 0.772em 0.833em 0.25em 0;
+}
+
+mjx-c.mjx-c2205.NCM-V {
+  padding: 0.597em 0.778em 0.097em 0;
+}
+
+mjx-c.mjx-c22C3 {
+  padding: 0.75em 0.833em 0.272em 0;
+}
+
+mjx-c.mjx-c41 {
+  padding: 0.716em 0.75em 0 0;
+}
+
+mjx-c.mjx-c2A7D {
+  padding: 0.634em 0.778em 0.134em 0;
+}
+
+mjx-c.mjx-c1D443 {
+  padding: 0.683em 0.754em 0 0;
+}
+
+mjx-c.mjx-c220F {
+  padding: 0.75em 0.944em 0.25em 0;
+}
+
+
+
+mjx-mpadded {
+  display: inline-block;
+  text-align: left;
+}
+
+mjx-rbox {
+  display: inline-block;
+  position: relative;
+}
+
+mjx-c.mjx-c1D44B {
+  padding: 0.683em 0.851em 0 0;
+}
+
+mjx-c.mjx-c1D44C {
+  padding: 0.683em 0.762em 0.001em 0;
+}
+
+mjx-c.mjx-c2204 {
+  padding: 0.789em 0.556em 0.105em 0;
+}
+
+mjx-c.mjx-c2228 {
+  padding: 0.601em 0.667em 0.02em 0;
+}
+
+
+
+mjx-c.mjx-c1D464 {
+  padding: 0.442em 0.716em 0.011em 0;
+}
+
+mjx-c.mjx-c1D43E {
+  padding: 0.684em 0.889em 0 0;
+}
+
+mjx-c.mjx-c1D7F6.NCM-M {
+  padding: 0.622em 0.525em 0.011em 0;
+}
+
+mjx-c.mjx-c1D68B.NCM-M {
+  padding: 0.611em 0.525em 0.006em 0;
+}
+
+mjx-c.mjx-c1D7F7.NCM-M {
+  padding: 0.622em 0.525em 0 0;
+}
+
+mjx-c.mjx-c57 {
+  padding: 0.683em 1.028em 0.022em 0;
+}
+
+mjx-c.mjx-c62 {
+  padding: 0.694em 0.556em 0.011em 0;
+}
+
+mjx-c.mjx-c79 {
+  padding: 0.431em 0.528em 0.205em 0;
+}
+
+
+
+
+
+
+
+mjx-c.mjx-c28.NCM-M {
+  padding: 0.694em 0.525em 0.082em 0;
+}
+
+mjx-c.mjx-c29.NCM-M {
+  padding: 0.694em 0.525em 0.082em 0;
+}
+
+mjx-c.mjx-c76 {
+  padding: 0.431em 0.528em 0.011em 0;
+}
+
+mjx-c.mjx-c3F {
+  padding: 0.705em 0.472em 0 0;
+}
+
+
+
+
+
+</style><p>讲是 Treap，实际上只有 FHQ Treap 会用到。FHQ Treap 就是非旋 Treap。</p>
 <h2 id="一、定义">一、定义</h2>
-<p>定义一个树为 Treap 当且仅当每个节点的 <mjx-container class="MathJax" jax="SVG" overflow="overflow"><svg style="vertical-align: -0.464ex;" xmlns="http://www.w3.org/2000/svg" width="3.342ex" height="2.034ex" role="img" focusable="false" viewBox="0 -694 1477 899"><g stroke="currentColor" fill="currentColor" stroke-width="0" transform="scale(1,-1)"><g data-mml-node="math" data-latex="key"><g data-mml-node="mi" data-latex="k"><path data-c="1D458" d="M409 353C409 327 423 314 450 314C485 314 508 345 508 379C508 418 476 445 437 445C392 445 344 415 291 356C250 311 217 282 190 269L291 679C289 688 287 694 274 694C242 694 166 685 154 684C139 682 132 675 132 660C132 650 141 645 159 645C178 645 204 646 204 632L59 43C56 32 55 25 55 21C55 0 66-11 87-11C104-11 117-3 124 12C129 21 147 92 179 226C231 221 286 196 286 146C286 131 279 101 279 91C279 34 316-11 373-11C431-11 470 41 490 145C490 154 485 159 475 159C466 159 460 152 457 138C435 59 408 19 375 19C357 19 348 33 348 61C348 77 360 131 360 147C360 204 314 239 221 253C244 269 270 292 298 322C326 352 346 371 359 382C386 404 412 415 435 415C445 415 453 413 459 409C432 404 409 379 409 353Z"></path></g><g data-mml-node="mi" data-latex="e" transform="translate(521,0)"><path data-c="1D452" d="M124 129C124 153 129 186 139 227L188 227C253 227 303 235 339 250C372 264 394 284 405 309C412 326 415 342 415 355C415 410 363 442 307 442C268 442 229 432 190 412C113 372 46 281 46 171C46 69 105-11 204-11C257-11 304 2 345 27C379 48 404 69 420 90C427 99 430 106 430 109C430 120 425 126 414 126C409 126 404 122 398 114C365 70 324 42 277 30C246 22 223 18 206 18C149 18 124 72 124 129M375 355C375 289 311 256 182 256L147 256C166 322 194 366 232 387C262 404 287 413 307 413C343 413 375 391 375 355Z"></path></g><g data-mml-node="mi" data-latex="y" transform="translate(987,0)"><path data-c="1D466" d="M163 442C118 442 83 417 58 367C39 328 29 301 29 286C29 277 34 272 45 272C59 272 60 278 64 293C87 372 119 412 160 412C173 412 180 403 180 385C180 369 175 346 164 317C126 214 107 145 107 108C107 32 154-13 231-13C264-13 295-1 323 23C288-109 233-175 158-175C124-175 101-164 89-142C129-140 149-121 149-85C149-60 136-47 109-47C72-47 50-78 50-115C50-170 100-205 158-205C273-205 367-99 392-1L486 377C489 388 490 396 490 401C490 421 479 431 458 431C442 431 429 423 420 408C414 387 409 369 406 354L342 97C332 61 279 16 234 16C196 16 177 41 177 92C177 134 194 198 227 284C240 319 247 343 247 357C247 406 212 442 163 442Z"></path></g></g></g></svg></mjx-container>（关键字）满足二叉搜索树的性质（中序遍历是有序的），且 <mjx-container class="MathJax" jax="SVG" overflow="overflow"><svg style="vertical-align: -0.439ex;" xmlns="http://www.w3.org/2000/svg" width="2.939ex" height="1.934ex" role="img" focusable="false" viewBox="0 -661 1299 855"><g stroke="currentColor" fill="currentColor" stroke-width="0" transform="scale(1,-1)"><g data-mml-node="math" data-latex="pri"><g data-mml-node="mi" data-latex="p"><path data-c="1D45D" d="M355 442C311 442 269 419 228 373C217 419 186 442 137 442C96 442 66 409 45 344C35 311 30 292 30 286C30 277 35 272 46 272C51 272 54 273 57 275C62 284 65 291 66 298C84 374 107 412 134 412C152 412 161 398 161 371C161 356 159 339 154 321L44-118C35-151 34-155-5-155C-23-155-32-163-32-178C-32-189-26-194-15-194C0-194 52-191 67-191C86-191 146-194 165-194C180-194 187-186 187-170C187-160 178-155 159-155C141-155 114-156 114-144C114-131 155 26 159 43C179 6 209-13 249-13C314-13 371 20 421 87C467 148 490 213 490 280C490 367 438 442 355 442M352 412C391 412 411 382 411 323C411 296 405 260 394 215C371 128 342 71 307 42C286 25 267 16 248 16C219 16 199 29 188 56C179 77 174 92 174 100L225 309C230 331 248 354 276 377C304 400 329 412 352 412Z"></path></g><g data-mml-node="mi" data-latex="r" transform="translate(503,0)"><path data-c="1D45F" d="M436 374C436 416 395 442 351 442C302 442 261 419 227 372C217 411 183 442 136 442C95 442 65 410 44 345C34 312 29 293 29 287C29 278 34 273 45 273C50 273 53 274 56 276C61 285 64 292 65 299C83 375 106 413 133 413C150 413 159 399 159 371C159 358 154 331 144 290L87 63C84 50 78 24 78 19C78-1 89-11 110-11C130-11 143-1 150 19L169 91C180 134 187 162 190 175L221 303C223 311 231 324 244 343C271 381 302 413 351 413C363 413 373 411 382 406C352 397 337 378 337 351C337 325 351 312 378 312C411 312 436 341 436 374Z"></path></g><g data-mml-node="mi" data-latex="i" transform="translate(954,0)"><path data-c="1D456" d="M284 621C284 648 271 661 244 661C216 661 188 633 188 605C188 578 202 565 229 565C257 565 284 593 284 621M259 138C237 59 205 19 164 19C151 19 144 28 144 47C144 64 173 150 232 306C240 329 244 347 244 360C244 409 210 445 161 445C118 445 84 420 59 369C39 328 29 301 29 288C29 279 34 275 45 275C58 275 60 281 64 295C87 375 118 415 158 415C171 415 178 406 178 387C178 373 175 357 168 338C145 275 121 208 101 155C86 115 78 88 78 74C78 25 114-11 162-11C205-11 239 14 264 64C283 103 293 130 293 145C293 154 288 159 277 159C274 159 259 150 259 138Z"></path></g></g></g></svg></mjx-container>（优先级）满足小根堆的性质（父亲永远比孩子小）。</p>
+<p>定义一个树为 Treap 当且仅当每个节点的 <mjx-container class="MathJax" jax="CHTML" overflow="overflow" style="font-size: 113.1%;"><mjx-math data-latex="key" class="NCM-N"><mjx-mi data-latex="k"><mjx-c class="mjx-c1D458">𝑘</mjx-c></mjx-mi><mjx-mi data-latex="e"><mjx-c class="mjx-c1D452">𝑒</mjx-c></mjx-mi><mjx-mi data-latex="y"><mjx-c class="mjx-c1D466">𝑦</mjx-c></mjx-mi></mjx-math></mjx-container>（关键字）满足二叉搜索树的性质（中序遍历是有序的），且 <mjx-container class="MathJax" jax="CHTML" overflow="overflow" style="font-size: 113.1%;"><mjx-math data-latex="pri" class="NCM-N"><mjx-mi data-latex="p"><mjx-c class="mjx-c1D45D">𝑝</mjx-c></mjx-mi><mjx-mi data-latex="r"><mjx-c class="mjx-c1D45F">𝑟</mjx-c></mjx-mi><mjx-mi data-latex="i"><mjx-c class="mjx-c1D456">𝑖</mjx-c></mjx-mi></mjx-math></mjx-container>（优先级）满足小根堆的性质（父亲永远比孩子小）。</p>
 <h2 id="二、操作">二、操作</h2>
 <p>讲白了就两种，一个分裂一个合并。</p>
 <ol>
 <li>
 <p>合并<br>
-现在有一个 Treap <em>L</em> 和一个 Treap <em>R</em>，<em>L</em> 中所有元素 <mjx-container class="MathJax" jax="SVG" overflow="overflow"><svg style="vertical-align: -0.464ex;" xmlns="http://www.w3.org/2000/svg" width="3.342ex" height="2.034ex" role="img" focusable="false" viewBox="0 -694 1477 899"><g stroke="currentColor" fill="currentColor" stroke-width="0" transform="scale(1,-1)"><g data-mml-node="math" data-latex="key"><g data-mml-node="mi" data-latex="k"><path data-c="1D458" d="M409 353C409 327 423 314 450 314C485 314 508 345 508 379C508 418 476 445 437 445C392 445 344 415 291 356C250 311 217 282 190 269L291 679C289 688 287 694 274 694C242 694 166 685 154 684C139 682 132 675 132 660C132 650 141 645 159 645C178 645 204 646 204 632L59 43C56 32 55 25 55 21C55 0 66-11 87-11C104-11 117-3 124 12C129 21 147 92 179 226C231 221 286 196 286 146C286 131 279 101 279 91C279 34 316-11 373-11C431-11 470 41 490 145C490 154 485 159 475 159C466 159 460 152 457 138C435 59 408 19 375 19C357 19 348 33 348 61C348 77 360 131 360 147C360 204 314 239 221 253C244 269 270 292 298 322C326 352 346 371 359 382C386 404 412 415 435 415C445 415 453 413 459 409C432 404 409 379 409 353Z"></path></g><g data-mml-node="mi" data-latex="e" transform="translate(521,0)"><path data-c="1D452" d="M124 129C124 153 129 186 139 227L188 227C253 227 303 235 339 250C372 264 394 284 405 309C412 326 415 342 415 355C415 410 363 442 307 442C268 442 229 432 190 412C113 372 46 281 46 171C46 69 105-11 204-11C257-11 304 2 345 27C379 48 404 69 420 90C427 99 430 106 430 109C430 120 425 126 414 126C409 126 404 122 398 114C365 70 324 42 277 30C246 22 223 18 206 18C149 18 124 72 124 129M375 355C375 289 311 256 182 256L147 256C166 322 194 366 232 387C262 404 287 413 307 413C343 413 375 391 375 355Z"></path></g><g data-mml-node="mi" data-latex="y" transform="translate(987,0)"><path data-c="1D466" d="M163 442C118 442 83 417 58 367C39 328 29 301 29 286C29 277 34 272 45 272C59 272 60 278 64 293C87 372 119 412 160 412C173 412 180 403 180 385C180 369 175 346 164 317C126 214 107 145 107 108C107 32 154-13 231-13C264-13 295-1 323 23C288-109 233-175 158-175C124-175 101-164 89-142C129-140 149-121 149-85C149-60 136-47 109-47C72-47 50-78 50-115C50-170 100-205 158-205C273-205 367-99 392-1L486 377C489 388 490 396 490 401C490 421 479 431 458 431C442 431 429 423 420 408C414 387 409 369 406 354L342 97C332 61 279 16 234 16C196 16 177 41 177 92C177 134 194 198 227 284C240 319 247 343 247 357C247 406 212 442 163 442Z"></path></g></g></g></svg></mjx-container> 比 <em>R</em> 小。<br>
+现在有一个 Treap <em>L</em> 和一个 Treap <em>R</em>，<em>L</em> 中所有元素 <mjx-container class="MathJax" jax="CHTML" overflow="overflow" style="font-size: 113.1%;"><mjx-math data-latex="key" class="NCM-N"><mjx-mi data-latex="k"><mjx-c class="mjx-c1D458">𝑘</mjx-c></mjx-mi><mjx-mi data-latex="e"><mjx-c class="mjx-c1D452">𝑒</mjx-c></mjx-mi><mjx-mi data-latex="y"><mjx-c class="mjx-c1D466">𝑦</mjx-c></mjx-mi></mjx-math></mjx-container> 比 <em>R</em> 小。<br>
 我们考虑跟左偏树一样的合并，就是每次不是 <code>l = merge(l, r.ls)</code> 就是 <code>r = merge(l.rs, r)</code>。
-考虑这样进行合并。下图中以粗体表示 <mjx-container class="MathJax" jax="SVG" overflow="overflow"><svg style="vertical-align: -0.464ex;" xmlns="http://www.w3.org/2000/svg" width="3.342ex" height="2.034ex" role="img" focusable="false" viewBox="0 -694 1477 899"><g stroke="currentColor" fill="currentColor" stroke-width="0" transform="scale(1,-1)"><g data-mml-node="math" data-latex="key"><g data-mml-node="mi" data-latex="k"><path data-c="1D458" d="M409 353C409 327 423 314 450 314C485 314 508 345 508 379C508 418 476 445 437 445C392 445 344 415 291 356C250 311 217 282 190 269L291 679C289 688 287 694 274 694C242 694 166 685 154 684C139 682 132 675 132 660C132 650 141 645 159 645C178 645 204 646 204 632L59 43C56 32 55 25 55 21C55 0 66-11 87-11C104-11 117-3 124 12C129 21 147 92 179 226C231 221 286 196 286 146C286 131 279 101 279 91C279 34 316-11 373-11C431-11 470 41 490 145C490 154 485 159 475 159C466 159 460 152 457 138C435 59 408 19 375 19C357 19 348 33 348 61C348 77 360 131 360 147C360 204 314 239 221 253C244 269 270 292 298 322C326 352 346 371 359 382C386 404 412 415 435 415C445 415 453 413 459 409C432 404 409 379 409 353Z"></path></g><g data-mml-node="mi" data-latex="e" transform="translate(521,0)"><path data-c="1D452" d="M124 129C124 153 129 186 139 227L188 227C253 227 303 235 339 250C372 264 394 284 405 309C412 326 415 342 415 355C415 410 363 442 307 442C268 442 229 432 190 412C113 372 46 281 46 171C46 69 105-11 204-11C257-11 304 2 345 27C379 48 404 69 420 90C427 99 430 106 430 109C430 120 425 126 414 126C409 126 404 122 398 114C365 70 324 42 277 30C246 22 223 18 206 18C149 18 124 72 124 129M375 355C375 289 311 256 182 256L147 256C166 322 194 366 232 387C262 404 287 413 307 413C343 413 375 391 375 355Z"></path></g><g data-mml-node="mi" data-latex="y" transform="translate(987,0)"><path data-c="1D466" d="M163 442C118 442 83 417 58 367C39 328 29 301 29 286C29 277 34 272 45 272C59 272 60 278 64 293C87 372 119 412 160 412C173 412 180 403 180 385C180 369 175 346 164 317C126 214 107 145 107 108C107 32 154-13 231-13C264-13 295-1 323 23C288-109 233-175 158-175C124-175 101-164 89-142C129-140 149-121 149-85C149-60 136-47 109-47C72-47 50-78 50-115C50-170 100-205 158-205C273-205 367-99 392-1L486 377C489 388 490 396 490 401C490 421 479 431 458 431C442 431 429 423 420 408C414 387 409 369 406 354L342 97C332 61 279 16 234 16C196 16 177 41 177 92C177 134 194 198 227 284C240 319 247 343 247 357C247 406 212 442 163 442Z"></path></g></g></g></svg></mjx-container>，斜体表示 <mjx-container class="MathJax" jax="SVG" overflow="overflow"><svg style="vertical-align: -0.439ex;" xmlns="http://www.w3.org/2000/svg" width="2.939ex" height="1.934ex" role="img" focusable="false" viewBox="0 -661 1299 855"><g stroke="currentColor" fill="currentColor" stroke-width="0" transform="scale(1,-1)"><g data-mml-node="math" data-latex="pri"><g data-mml-node="mi" data-latex="p"><path data-c="1D45D" d="M355 442C311 442 269 419 228 373C217 419 186 442 137 442C96 442 66 409 45 344C35 311 30 292 30 286C30 277 35 272 46 272C51 272 54 273 57 275C62 284 65 291 66 298C84 374 107 412 134 412C152 412 161 398 161 371C161 356 159 339 154 321L44-118C35-151 34-155-5-155C-23-155-32-163-32-178C-32-189-26-194-15-194C0-194 52-191 67-191C86-191 146-194 165-194C180-194 187-186 187-170C187-160 178-155 159-155C141-155 114-156 114-144C114-131 155 26 159 43C179 6 209-13 249-13C314-13 371 20 421 87C467 148 490 213 490 280C490 367 438 442 355 442M352 412C391 412 411 382 411 323C411 296 405 260 394 215C371 128 342 71 307 42C286 25 267 16 248 16C219 16 199 29 188 56C179 77 174 92 174 100L225 309C230 331 248 354 276 377C304 400 329 412 352 412Z"></path></g><g data-mml-node="mi" data-latex="r" transform="translate(503,0)"><path data-c="1D45F" d="M436 374C436 416 395 442 351 442C302 442 261 419 227 372C217 411 183 442 136 442C95 442 65 410 44 345C34 312 29 293 29 287C29 278 34 273 45 273C50 273 53 274 56 276C61 285 64 292 65 299C83 375 106 413 133 413C150 413 159 399 159 371C159 358 154 331 144 290L87 63C84 50 78 24 78 19C78-1 89-11 110-11C130-11 143-1 150 19L169 91C180 134 187 162 190 175L221 303C223 311 231 324 244 343C271 381 302 413 351 413C363 413 373 411 382 406C352 397 337 378 337 351C337 325 351 312 378 312C411 312 436 341 436 374Z"></path></g><g data-mml-node="mi" data-latex="i" transform="translate(954,0)"><path data-c="1D456" d="M284 621C284 648 271 661 244 661C216 661 188 633 188 605C188 578 202 565 229 565C257 565 284 593 284 621M259 138C237 59 205 19 164 19C151 19 144 28 144 47C144 64 173 150 232 306C240 329 244 347 244 360C244 409 210 445 161 445C118 445 84 420 59 369C39 328 29 301 29 288C29 279 34 275 45 275C58 275 60 281 64 295C87 375 118 415 158 415C171 415 178 406 178 387C178 373 175 357 168 338C145 275 121 208 101 155C86 115 78 88 78 74C78 25 114-11 162-11C205-11 239 14 264 64C283 103 293 130 293 145C293 154 288 159 277 159C274 159 259 150 259 138Z"></path></g></g></g></svg></mjx-container>。</p>
+考虑这样进行合并。下图中以粗体表示 <mjx-container class="MathJax" jax="CHTML" overflow="overflow" style="font-size: 113.1%;"><mjx-math data-latex="key" class="NCM-N"><mjx-mi data-latex="k"><mjx-c class="mjx-c1D458">𝑘</mjx-c></mjx-mi><mjx-mi data-latex="e"><mjx-c class="mjx-c1D452">𝑒</mjx-c></mjx-mi><mjx-mi data-latex="y"><mjx-c class="mjx-c1D466">𝑦</mjx-c></mjx-mi></mjx-math></mjx-container>，斜体表示 <mjx-container class="MathJax" jax="CHTML" overflow="overflow" style="font-size: 113.1%;"><mjx-math data-latex="pri" class="NCM-N"><mjx-mi data-latex="p"><mjx-c class="mjx-c1D45D">𝑝</mjx-c></mjx-mi><mjx-mi data-latex="r"><mjx-c class="mjx-c1D45F">𝑟</mjx-c></mjx-mi><mjx-mi data-latex="i"><mjx-c class="mjx-c1D456">𝑖</mjx-c></mjx-mi></mjx-math></mjx-container>。</p>
  <pre><code class="highlight mermaid">flowchart TD
 classDef red stroke:red
 classDef cyan stroke:cyan
@@ -336,13 +3165,13 @@ subgraph BEF[ ]
 end
 BEF &lt;--&gt; AFT
 linkStyle 13 fill:transparent,stroke:transparent</code></pre>
-<p>注意到我们既保持了 <mjx-container class="MathJax" jax="SVG" overflow="overflow"><svg style="vertical-align: -0.464ex;" xmlns="http://www.w3.org/2000/svg" width="3.342ex" height="2.034ex" role="img" focusable="false" viewBox="0 -694 1477 899"><g stroke="currentColor" fill="currentColor" stroke-width="0" transform="scale(1,-1)"><g data-mml-node="math" data-latex="key"><g data-mml-node="mi" data-latex="k"><path data-c="1D458" d="M409 353C409 327 423 314 450 314C485 314 508 345 508 379C508 418 476 445 437 445C392 445 344 415 291 356C250 311 217 282 190 269L291 679C289 688 287 694 274 694C242 694 166 685 154 684C139 682 132 675 132 660C132 650 141 645 159 645C178 645 204 646 204 632L59 43C56 32 55 25 55 21C55 0 66-11 87-11C104-11 117-3 124 12C129 21 147 92 179 226C231 221 286 196 286 146C286 131 279 101 279 91C279 34 316-11 373-11C431-11 470 41 490 145C490 154 485 159 475 159C466 159 460 152 457 138C435 59 408 19 375 19C357 19 348 33 348 61C348 77 360 131 360 147C360 204 314 239 221 253C244 269 270 292 298 322C326 352 346 371 359 382C386 404 412 415 435 415C445 415 453 413 459 409C432 404 409 379 409 353Z"></path></g><g data-mml-node="mi" data-latex="e" transform="translate(521,0)"><path data-c="1D452" d="M124 129C124 153 129 186 139 227L188 227C253 227 303 235 339 250C372 264 394 284 405 309C412 326 415 342 415 355C415 410 363 442 307 442C268 442 229 432 190 412C113 372 46 281 46 171C46 69 105-11 204-11C257-11 304 2 345 27C379 48 404 69 420 90C427 99 430 106 430 109C430 120 425 126 414 126C409 126 404 122 398 114C365 70 324 42 277 30C246 22 223 18 206 18C149 18 124 72 124 129M375 355C375 289 311 256 182 256L147 256C166 322 194 366 232 387C262 404 287 413 307 413C343 413 375 391 375 355Z"></path></g><g data-mml-node="mi" data-latex="y" transform="translate(987,0)"><path data-c="1D466" d="M163 442C118 442 83 417 58 367C39 328 29 301 29 286C29 277 34 272 45 272C59 272 60 278 64 293C87 372 119 412 160 412C173 412 180 403 180 385C180 369 175 346 164 317C126 214 107 145 107 108C107 32 154-13 231-13C264-13 295-1 323 23C288-109 233-175 158-175C124-175 101-164 89-142C129-140 149-121 149-85C149-60 136-47 109-47C72-47 50-78 50-115C50-170 100-205 158-205C273-205 367-99 392-1L486 377C489 388 490 396 490 401C490 421 479 431 458 431C442 431 429 423 420 408C414 387 409 369 406 354L342 97C332 61 279 16 234 16C196 16 177 41 177 92C177 134 194 198 227 284C240 319 247 343 247 357C247 406 212 442 163 442Z"></path></g></g></g></svg></mjx-container> 又保持了 <mjx-container class="MathJax" jax="SVG" overflow="overflow"><svg style="vertical-align: -0.439ex;" xmlns="http://www.w3.org/2000/svg" width="2.939ex" height="1.934ex" role="img" focusable="false" viewBox="0 -661 1299 855"><g stroke="currentColor" fill="currentColor" stroke-width="0" transform="scale(1,-1)"><g data-mml-node="math" data-latex="pri"><g data-mml-node="mi" data-latex="p"><path data-c="1D45D" d="M355 442C311 442 269 419 228 373C217 419 186 442 137 442C96 442 66 409 45 344C35 311 30 292 30 286C30 277 35 272 46 272C51 272 54 273 57 275C62 284 65 291 66 298C84 374 107 412 134 412C152 412 161 398 161 371C161 356 159 339 154 321L44-118C35-151 34-155-5-155C-23-155-32-163-32-178C-32-189-26-194-15-194C0-194 52-191 67-191C86-191 146-194 165-194C180-194 187-186 187-170C187-160 178-155 159-155C141-155 114-156 114-144C114-131 155 26 159 43C179 6 209-13 249-13C314-13 371 20 421 87C467 148 490 213 490 280C490 367 438 442 355 442M352 412C391 412 411 382 411 323C411 296 405 260 394 215C371 128 342 71 307 42C286 25 267 16 248 16C219 16 199 29 188 56C179 77 174 92 174 100L225 309C230 331 248 354 276 377C304 400 329 412 352 412Z"></path></g><g data-mml-node="mi" data-latex="r" transform="translate(503,0)"><path data-c="1D45F" d="M436 374C436 416 395 442 351 442C302 442 261 419 227 372C217 411 183 442 136 442C95 442 65 410 44 345C34 312 29 293 29 287C29 278 34 273 45 273C50 273 53 274 56 276C61 285 64 292 65 299C83 375 106 413 133 413C150 413 159 399 159 371C159 358 154 331 144 290L87 63C84 50 78 24 78 19C78-1 89-11 110-11C130-11 143-1 150 19L169 91C180 134 187 162 190 175L221 303C223 311 231 324 244 343C271 381 302 413 351 413C363 413 373 411 382 406C352 397 337 378 337 351C337 325 351 312 378 312C411 312 436 341 436 374Z"></path></g><g data-mml-node="mi" data-latex="i" transform="translate(954,0)"><path data-c="1D456" d="M284 621C284 648 271 661 244 661C216 661 188 633 188 605C188 578 202 565 229 565C257 565 284 593 284 621M259 138C237 59 205 19 164 19C151 19 144 28 144 47C144 64 173 150 232 306C240 329 244 347 244 360C244 409 210 445 161 445C118 445 84 420 59 369C39 328 29 301 29 288C29 279 34 275 45 275C58 275 60 281 64 295C87 375 118 415 158 415C171 415 178 406 178 387C178 373 175 357 168 338C145 275 121 208 101 155C86 115 78 88 78 74C78 25 114-11 162-11C205-11 239 14 264 64C283 103 293 130 293 145C293 154 288 159 277 159C274 159 259 150 259 138Z"></path></g></g></g></svg></mjx-container>。</p>
+<p>注意到我们既保持了 <mjx-container class="MathJax" jax="CHTML" overflow="overflow" style="font-size: 113.1%;"><mjx-math data-latex="key" class="NCM-N"><mjx-mi data-latex="k"><mjx-c class="mjx-c1D458">𝑘</mjx-c></mjx-mi><mjx-mi data-latex="e"><mjx-c class="mjx-c1D452">𝑒</mjx-c></mjx-mi><mjx-mi data-latex="y"><mjx-c class="mjx-c1D466">𝑦</mjx-c></mjx-mi></mjx-math></mjx-container> 又保持了 <mjx-container class="MathJax" jax="CHTML" overflow="overflow" style="font-size: 113.1%;"><mjx-math data-latex="pri" class="NCM-N"><mjx-mi data-latex="p"><mjx-c class="mjx-c1D45D">𝑝</mjx-c></mjx-mi><mjx-mi data-latex="r"><mjx-c class="mjx-c1D45F">𝑟</mjx-c></mjx-mi><mjx-mi data-latex="i"><mjx-c class="mjx-c1D456">𝑖</mjx-c></mjx-mi></mjx-math></mjx-container>。</p>
 </li>
 <li>
 <p>分裂<br>
 考虑我们将一个树中序遍历出来的序列分成两个部分，也就是逆向刚刚的操作。
-可以使用树上二分递归地去做。如果当前根就是左部分的最后一个，那就直接断成 <mjx-container class="MathJax" jax="SVG" overflow="overflow"><svg style="vertical-align: -0.561ex;" xmlns="http://www.w3.org/2000/svg" width="7.004ex" height="2.253ex" role="img" focusable="false" viewBox="0 -748 3095.7 996"><g stroke="currentColor" fill="currentColor" stroke-width="0" transform="scale(1,-1)"><g data-mml-node="math" data-latex="(u,u.r)"><g data-mml-node="mo" data-latex="("><path data-c="28" d="M318-248C327-248 332-243 332-234C332-231 330-227 327-223C275-183 233-117 202-26C175 53 161 131 161 208L161 292C161 369 175 447 202 526C233 617 275 683 327 723C330 726 332 730 332 734C332 743 327 748 318 748C317 748 314 747 311 745C251 699 201 631 160 540C121 453 101 371 101 292L101 208C101 129 121 47 160-40C201-131 251-199 311-245C314-247 317-248 318-248Z"></path></g><g data-mml-node="mi" data-latex="u" transform="translate(389,0)"><path data-c="1D462" d="M543 144C543 153 538 158 527 158C518 158 513 151 510 137C505 118 500 99 493 80C480 39 462 18 440 18C422 18 413 32 413 60C413 77 420 111 433 161L460 267C469 303 477 328 483 359L489 386C491 393 492 398 492 401C492 421 481 431 459 431C437 431 423 419 417 394L343 98C342 95 338 88 330 76C314 50 275 18 235 18C197 18 178 44 178 95C178 136 196 202 231 294C242 324 248 345 248 357C248 407 213 442 163 442C118 442 83 417 58 367C39 328 29 301 29 287C29 278 34 273 45 273C58 273 60 279 64 293C87 373 119 413 160 413C174 413 181 403 181 384C181 369 175 348 164 319C126 218 107 148 107 111C107 34 155-11 232-11C275-11 314 9 347 50C361 9 391-11 437-11C506-11 527 70 543 144Z"></path></g><g data-mml-node="mo" data-latex="," transform="translate(961,0)"><path data-c="2C" d="M139 106C107 106 86 82 86 50C86 20 109-5 139-5C153-5 165-1 174 8L175 0C175-63 154-117 112-160C105-168 101-174 101-178C101-188 105-193 114-193C123-193 135-181 152-158C186-110 203-57 203 0C203 53 185 106 139 106Z"></path></g><g data-mml-node="mi" data-latex="u" transform="translate(1405.7,0)"><path data-c="1D462" d="M543 144C543 153 538 158 527 158C518 158 513 151 510 137C505 118 500 99 493 80C480 39 462 18 440 18C422 18 413 32 413 60C413 77 420 111 433 161L460 267C469 303 477 328 483 359L489 386C491 393 492 398 492 401C492 421 481 431 459 431C437 431 423 419 417 394L343 98C342 95 338 88 330 76C314 50 275 18 235 18C197 18 178 44 178 95C178 136 196 202 231 294C242 324 248 345 248 357C248 407 213 442 163 442C118 442 83 417 58 367C39 328 29 301 29 287C29 278 34 273 45 273C58 273 60 279 64 293C87 373 119 413 160 413C174 413 181 403 181 384C181 369 175 348 164 319C126 218 107 148 107 111C107 34 155-11 232-11C275-11 314 9 347 50C361 9 391-11 437-11C506-11 527 70 543 144Z"></path></g><g data-mml-node="mo" data-latex="." transform="translate(1977.7,0)"><path data-c="2E" d="M192 53C192 82 168 106 139 106C110 106 86 82 86 53C86 24 110 0 139 0C168 0 192 24 192 53Z"></path></g><g data-mml-node="mi" data-latex="r" transform="translate(2255.7,0)"><path data-c="1D45F" d="M436 374C436 416 395 442 351 442C302 442 261 419 227 372C217 411 183 442 136 442C95 442 65 410 44 345C34 312 29 293 29 287C29 278 34 273 45 273C50 273 53 274 56 276C61 285 64 292 65 299C83 375 106 413 133 413C150 413 159 399 159 371C159 358 154 331 144 290L87 63C84 50 78 24 78 19C78-1 89-11 110-11C130-11 143-1 150 19L169 91C180 134 187 162 190 175L221 303C223 311 231 324 244 343C271 381 302 413 351 413C363 413 373 411 382 406C352 397 337 378 337 351C337 325 351 312 378 312C411 312 436 341 436 374Z"></path></g><g data-mml-node="mo" data-latex=")" transform="translate(2706.7,0)"><path data-c="29" d="M78-245C138-199 188-131 229-40C268 47 288 129 288 208L288 292C288 371 268 453 229 540C188 631 138 699 78 745C75 747 72 748 71 748C62 748 57 743 57 734C57 730 59 726 62 723C114 683 156 617 187 526C214 447 228 369 228 292L228 208C228 131 214 53 187-26C156-117 114-183 62-223C59-227 57-231 57-234C57-243 62-248 71-248C72-248 75-247 78-245Z"></path></g></g></g></svg></mjx-container>。否则根据当前的 <mjx-container class="MathJax" jax="SVG" overflow="overflow"><svg style="vertical-align: -0.464ex;" xmlns="http://www.w3.org/2000/svg" width="3.342ex" height="2.034ex" role="img" focusable="false" viewBox="0 -694 1477 899"><g stroke="currentColor" fill="currentColor" stroke-width="0" transform="scale(1,-1)"><g data-mml-node="math" data-latex="key"><g data-mml-node="mi" data-latex="k"><path data-c="1D458" d="M409 353C409 327 423 314 450 314C485 314 508 345 508 379C508 418 476 445 437 445C392 445 344 415 291 356C250 311 217 282 190 269L291 679C289 688 287 694 274 694C242 694 166 685 154 684C139 682 132 675 132 660C132 650 141 645 159 645C178 645 204 646 204 632L59 43C56 32 55 25 55 21C55 0 66-11 87-11C104-11 117-3 124 12C129 21 147 92 179 226C231 221 286 196 286 146C286 131 279 101 279 91C279 34 316-11 373-11C431-11 470 41 490 145C490 154 485 159 475 159C466 159 460 152 457 138C435 59 408 19 375 19C357 19 348 33 348 61C348 77 360 131 360 147C360 204 314 239 221 253C244 269 270 292 298 322C326 352 346 371 359 382C386 404 412 415 435 415C445 415 453 413 459 409C432 404 409 379 409 353Z"></path></g><g data-mml-node="mi" data-latex="e" transform="translate(521,0)"><path data-c="1D452" d="M124 129C124 153 129 186 139 227L188 227C253 227 303 235 339 250C372 264 394 284 405 309C412 326 415 342 415 355C415 410 363 442 307 442C268 442 229 432 190 412C113 372 46 281 46 171C46 69 105-11 204-11C257-11 304 2 345 27C379 48 404 69 420 90C427 99 430 106 430 109C430 120 425 126 414 126C409 126 404 122 398 114C365 70 324 42 277 30C246 22 223 18 206 18C149 18 124 72 124 129M375 355C375 289 311 256 182 256L147 256C166 322 194 366 232 387C262 404 287 413 307 413C343 413 375 391 375 355Z"></path></g><g data-mml-node="mi" data-latex="y" transform="translate(987,0)"><path data-c="1D466" d="M163 442C118 442 83 417 58 367C39 328 29 301 29 286C29 277 34 272 45 272C59 272 60 278 64 293C87 372 119 412 160 412C173 412 180 403 180 385C180 369 175 346 164 317C126 214 107 145 107 108C107 32 154-13 231-13C264-13 295-1 323 23C288-109 233-175 158-175C124-175 101-164 89-142C129-140 149-121 149-85C149-60 136-47 109-47C72-47 50-78 50-115C50-170 100-205 158-205C273-205 367-99 392-1L486 377C489 388 490 396 490 401C490 421 479 431 458 431C442 431 429 423 420 408C414 387 409 369 406 354L342 97C332 61 279 16 234 16C196 16 177 41 177 92C177 134 194 198 227 284C240 319 247 343 247 357C247 406 212 442 163 442Z"></path></g></g></g></svg></mjx-container> 判断是要往左孩子递归还是右孩子递归。将得到的分割 <mjx-container class="MathJax" jax="SVG" overflow="overflow"><svg style="vertical-align: -0.561ex;" xmlns="http://www.w3.org/2000/svg" width="4.461ex" height="2.253ex" role="img" focusable="false" viewBox="0 -748 1971.7 996"><g stroke="currentColor" fill="currentColor" stroke-width="0" transform="scale(1,-1)"><g data-mml-node="math" data-latex="(l,r)"><g data-mml-node="mo" data-latex="("><path data-c="28" d="M318-248C327-248 332-243 332-234C332-231 330-227 327-223C275-183 233-117 202-26C175 53 161 131 161 208L161 292C161 369 175 447 202 526C233 617 275 683 327 723C330 726 332 730 332 734C332 743 327 748 318 748C317 748 314 747 311 745C251 699 201 631 160 540C121 453 101 371 101 292L101 208C101 129 121 47 160-40C201-131 251-199 311-245C314-247 317-248 318-248Z"></path></g><g data-mml-node="mi" data-latex="l" transform="translate(389,0)"><path data-c="1D459" d="M173 632L49 119C46 105 44 93 44 84C44 31 83-11 136-11C185-11 220 41 241 145C241 154 236 159 225 159C217 159 211 152 208 138C188 59 165 19 138 19C121 19 113 33 113 60C113 75 115 91 119 107L258 679L258 683C255 690 249 694 242 694C210 694 136 685 124 684C109 682 102 674 102 659C102 650 111 645 130 645C147 645 173 645 173 632Z"></path></g><g data-mml-node="mo" data-latex="," transform="translate(687,0)"><path data-c="2C" d="M139 106C107 106 86 82 86 50C86 20 109-5 139-5C153-5 165-1 174 8L175 0C175-63 154-117 112-160C105-168 101-174 101-178C101-188 105-193 114-193C123-193 135-181 152-158C186-110 203-57 203 0C203 53 185 106 139 106Z"></path></g><g data-mml-node="mi" data-latex="r" transform="translate(1131.7,0)"><path data-c="1D45F" d="M436 374C436 416 395 442 351 442C302 442 261 419 227 372C217 411 183 442 136 442C95 442 65 410 44 345C34 312 29 293 29 287C29 278 34 273 45 273C50 273 53 274 56 276C61 285 64 292 65 299C83 375 106 413 133 413C150 413 159 399 159 371C159 358 154 331 144 290L87 63C84 50 78 24 78 19C78-1 89-11 110-11C130-11 143-1 150 19L169 91C180 134 187 162 190 175L221 303C223 311 231 324 244 343C271 381 302 413 351 413C363 413 373 411 382 406C352 397 337 378 337 351C337 325 351 312 378 312C411 312 436 341 436 374Z"></path></g><g data-mml-node="mo" data-latex=")" transform="translate(1582.7,0)"><path data-c="29" d="M78-245C138-199 188-131 229-40C268 47 288 129 288 208L288 292C288 371 268 453 229 540C188 631 138 699 78 745C75 747 72 748 71 748C62 748 57 743 57 734C57 730 59 726 62 723C114 683 156 617 187 526C214 447 228 369 228 292L228 208C228 131 214 53 187-26C156-117 114-183 62-223C59-227 57-231 57-234C57-243 62-248 71-248C72-248 75-247 78-245Z"></path></g></g></g></svg></mjx-container> 再做相应的合并即可。</p>
-<p>注意这里有一个变种，就是如果我们选择根据序列下标（也就是中序遍历之后给一个下标分裂成 <mjx-container class="MathJax" jax="SVG" overflow="overflow"><svg style="vertical-align: -0.566ex;" xmlns="http://www.w3.org/2000/svg" width="4.076ex" height="2.262ex" role="img" focusable="false" viewBox="0 -750 1801.7 1000"><g stroke="currentColor" fill="currentColor" stroke-width="0" transform="scale(1,-1)"><g data-mml-node="math" data-latex="[l,p]"><g data-mml-node="mo" data-latex="["><path data-c="5B" d="M233-202L159-202L159 702L233 702C248 702 256 710 256 726C256 742 248 750 233 750L114 750L114-250L233-250C248-250 256-242 256-226C256-214 245-202 233-202Z"></path></g><g data-mml-node="mi" data-latex="l" transform="translate(278,0)"><path data-c="1D459" d="M173 632L49 119C46 105 44 93 44 84C44 31 83-11 136-11C185-11 220 41 241 145C241 154 236 159 225 159C217 159 211 152 208 138C188 59 165 19 138 19C121 19 113 33 113 60C113 75 115 91 119 107L258 679L258 683C255 690 249 694 242 694C210 694 136 685 124 684C109 682 102 674 102 659C102 650 111 645 130 645C147 645 173 645 173 632Z"></path></g><g data-mml-node="mo" data-latex="," transform="translate(576,0)"><path data-c="2C" d="M139 106C107 106 86 82 86 50C86 20 109-5 139-5C153-5 165-1 174 8L175 0C175-63 154-117 112-160C105-168 101-174 101-178C101-188 105-193 114-193C123-193 135-181 152-158C186-110 203-57 203 0C203 53 185 106 139 106Z"></path></g><g data-mml-node="mi" data-latex="p" transform="translate(1020.7,0)"><path data-c="1D45D" d="M355 442C311 442 269 419 228 373C217 419 186 442 137 442C96 442 66 409 45 344C35 311 30 292 30 286C30 277 35 272 46 272C51 272 54 273 57 275C62 284 65 291 66 298C84 374 107 412 134 412C152 412 161 398 161 371C161 356 159 339 154 321L44-118C35-151 34-155-5-155C-23-155-32-163-32-178C-32-189-26-194-15-194C0-194 52-191 67-191C86-191 146-194 165-194C180-194 187-186 187-170C187-160 178-155 159-155C141-155 114-156 114-144C114-131 155 26 159 43C179 6 209-13 249-13C314-13 371 20 421 87C467 148 490 213 490 280C490 367 438 442 355 442M352 412C391 412 411 382 411 323C411 296 405 260 394 215C371 128 342 71 307 42C286 25 267 16 248 16C219 16 199 29 188 56C179 77 174 92 174 100L225 309C230 331 248 354 276 377C304 400 329 412 352 412Z"></path></g><g data-mml-node="mo" data-latex="]" transform="translate(1523.7,0)"><path data-c="5D" d="M45-250L164-250L164 750L45 750C30 750 22 742 22 726C22 710 30 702 45 702L119 702L119-202L45-202C30-202 22-210 22-226C22-242 30-250 45-250Z"></path></g></g></g></svg></mjx-container> 和 <mjx-container class="MathJax" jax="SVG" overflow="overflow"><svg style="vertical-align: -0.566ex;" xmlns="http://www.w3.org/2000/svg" width="1.767ex" height="2.262ex" role="img" focusable="false" viewBox="0 -750 781 1000"><g stroke="currentColor" fill="currentColor" stroke-width="0" transform="scale(1,-1)"><g data-mml-node="math" data-latex="[p+1,r]"><g data-mml-node="mo" data-latex="["><path data-c="5B" d="M233-202L159-202L159 702L233 702C248 702 256 710 256 726C256 742 248 750 233 750L114 750L114-250L233-250C248-250 256-242 256-226C256-214 245-202 233-202Z"></path></g><g data-mml-node="mi" data-latex="p" transform="translate(278,0)"><path data-c="1D45D" d="M355 442C311 442 269 419 228 373C217 419 186 442 137 442C96 442 66 409 45 344C35 311 30 292 30 286C30 277 35 272 46 272C51 272 54 273 57 275C62 284 65 291 66 298C84 374 107 412 134 412C152 412 161 398 161 371C161 356 159 339 154 321L44-118C35-151 34-155-5-155C-23-155-32-163-32-178C-32-189-26-194-15-194C0-194 52-191 67-191C86-191 146-194 165-194C180-194 187-186 187-170C187-160 178-155 159-155C141-155 114-156 114-144C114-131 155 26 159 43C179 6 209-13 249-13C314-13 371 20 421 87C467 148 490 213 490 280C490 367 438 442 355 442M352 412C391 412 411 382 411 323C411 296 405 260 394 215C371 128 342 71 307 42C286 25 267 16 248 16C219 16 199 29 188 56C179 77 174 92 174 100L225 309C230 331 248 354 276 377C304 400 329 412 352 412Z"></path></g></g></g></svg><mjx-break size="3"> </mjx-break><svg style="vertical-align: -0.566ex;" xmlns="http://www.w3.org/2000/svg" width="6.05ex" height="2.262ex" role="img" focusable="false" viewBox="0 -750 2673.9 1000"><g stroke="currentColor" fill="currentColor" stroke-width="0" transform="scale(1,-1)"><g data-mml-node="math" data-latex="[p+1,r]"><g data-mml-node="mo" data-latex="+"><path data-c="2B" d="M698 274L413 274L413 559C413 575 405 583 389 583C373 583 365 575 365 559L365 274L80 274C64 274 56 266 56 250C56 234 64 226 80 226L365 226L365-59C365-75 373-83 389-83C405-83 413-75 413-59L413 226L698 226C714 226 722 234 722 250C722 263 711 274 698 274Z"></path></g><g data-mml-node="mn" data-latex="1" transform="translate(1000.2,0)"><path data-c="31" d="M269 666C228 624 168 603 89 603L89 564C141 564 184 572 217 588L217 82C217 64 213 52 204 47C195 42 170 39 130 39L95 39L95 0C120 2 174 3 257 3C340 3 394 2 419 0L419 39L384 39C343 39 318 42 310 47C302 52 297 64 297 82L297 636C297 660 295 666 269 666Z"></path></g><g data-mml-node="mo" data-latex="," transform="translate(1500.2,0)"><path data-c="2C" d="M139 106C107 106 86 82 86 50C86 20 109-5 139-5C153-5 165-1 174 8L175 0C175-63 154-117 112-160C105-168 101-174 101-178C101-188 105-193 114-193C123-193 135-181 152-158C186-110 203-57 203 0C203 53 185 106 139 106Z"></path></g><g data-mml-node="mi" data-latex="r" transform="translate(1944.9,0)"><path data-c="1D45F" d="M436 374C436 416 395 442 351 442C302 442 261 419 227 372C217 411 183 442 136 442C95 442 65 410 44 345C34 312 29 293 29 287C29 278 34 273 45 273C50 273 53 274 56 276C61 285 64 292 65 299C83 375 106 413 133 413C150 413 159 399 159 371C159 358 154 331 144 290L87 63C84 50 78 24 78 19C78-1 89-11 110-11C130-11 143-1 150 19L169 91C180 134 187 162 190 175L221 303C223 311 231 324 244 343C271 381 302 413 351 413C363 413 373 411 382 406C352 397 337 378 337 351C337 325 351 312 378 312C411 312 436 341 436 374Z"></path></g><g data-mml-node="mo" data-latex="]" transform="translate(2395.9,0)"><path data-c="5D" d="M45-250L164-250L164 750L45 750C30 750 22 742 22 726C22 710 30 702 45 702L119 702L119-202L45-202C30-202 22-210 22-226C22-242 30-250 45-250Z"></path></g></g></g></svg></mjx-container>）。这种变种其实是将左子树的节点数量 <mjx-container class="MathJax" jax="SVG" overflow="overflow"><svg style="vertical-align: -0.188ex;" xmlns="http://www.w3.org/2000/svg" width="2.891ex" height="1.695ex" role="img" focusable="false" viewBox="0 -666 1278 749"><g stroke="currentColor" fill="currentColor" stroke-width="0" transform="scale(1,-1)"><g data-mml-node="math" data-latex="+ 1"><g data-mml-node="mo" data-latex="+"><path data-c="2B" d="M698 274L413 274L413 559C413 575 405 583 389 583C373 583 365 575 365 559L365 274L80 274C64 274 56 266 56 250C56 234 64 226 80 226L365 226L365-59C365-75 373-83 389-83C405-83 413-75 413-59L413 226L698 226C714 226 722 234 722 250C722 263 711 274 698 274Z"></path></g><g data-mml-node="mn" data-latex="1" transform="translate(778,0)"><path data-c="31" d="M269 666C228 624 168 603 89 603L89 564C141 564 184 572 217 588L217 82C217 64 213 52 204 47C195 42 170 39 130 39L95 39L95 0C120 2 174 3 257 3C340 3 394 2 419 0L419 39L384 39C343 39 318 42 310 47C302 52 297 64 297 82L297 636C297 660 295 666 269 666Z"></path></g></g></g></svg></mjx-container> 作为 <mjx-container class="MathJax" jax="SVG" overflow="overflow"><svg style="vertical-align: -0.464ex;" xmlns="http://www.w3.org/2000/svg" width="3.342ex" height="2.034ex" role="img" focusable="false" viewBox="0 -694 1477 899"><g stroke="currentColor" fill="currentColor" stroke-width="0" transform="scale(1,-1)"><g data-mml-node="math" data-latex="key"><g data-mml-node="mi" data-latex="k"><path data-c="1D458" d="M409 353C409 327 423 314 450 314C485 314 508 345 508 379C508 418 476 445 437 445C392 445 344 415 291 356C250 311 217 282 190 269L291 679C289 688 287 694 274 694C242 694 166 685 154 684C139 682 132 675 132 660C132 650 141 645 159 645C178 645 204 646 204 632L59 43C56 32 55 25 55 21C55 0 66-11 87-11C104-11 117-3 124 12C129 21 147 92 179 226C231 221 286 196 286 146C286 131 279 101 279 91C279 34 316-11 373-11C431-11 470 41 490 145C490 154 485 159 475 159C466 159 460 152 457 138C435 59 408 19 375 19C357 19 348 33 348 61C348 77 360 131 360 147C360 204 314 239 221 253C244 269 270 292 298 322C326 352 346 371 359 382C386 404 412 415 435 415C445 415 453 413 459 409C432 404 409 379 409 353Z"></path></g><g data-mml-node="mi" data-latex="e" transform="translate(521,0)"><path data-c="1D452" d="M124 129C124 153 129 186 139 227L188 227C253 227 303 235 339 250C372 264 394 284 405 309C412 326 415 342 415 355C415 410 363 442 307 442C268 442 229 432 190 412C113 372 46 281 46 171C46 69 105-11 204-11C257-11 304 2 345 27C379 48 404 69 420 90C427 99 430 106 430 109C430 120 425 126 414 126C409 126 404 122 398 114C365 70 324 42 277 30C246 22 223 18 206 18C149 18 124 72 124 129M375 355C375 289 311 256 182 256L147 256C166 322 194 366 232 387C262 404 287 413 307 413C343 413 375 391 375 355Z"></path></g><g data-mml-node="mi" data-latex="y" transform="translate(987,0)"><path data-c="1D466" d="M163 442C118 442 83 417 58 367C39 328 29 301 29 286C29 277 34 272 45 272C59 272 60 278 64 293C87 372 119 412 160 412C173 412 180 403 180 385C180 369 175 346 164 317C126 214 107 145 107 108C107 32 154-13 231-13C264-13 295-1 323 23C288-109 233-175 158-175C124-175 101-164 89-142C129-140 149-121 149-85C149-60 136-47 109-47C72-47 50-78 50-115C50-170 100-205 158-205C273-205 367-99 392-1L486 377C489 388 490 396 490 401C490 421 479 431 458 431C442 431 429 423 420 408C414 387 409 369 406 354L342 97C332 61 279 16 234 16C196 16 177 41 177 92C177 134 194 198 227 284C240 319 247 343 247 357C247 406 212 442 163 442Z"></path></g></g></g></svg></mjx-container>，维护是一样的。</p>
+可以使用树上二分递归地去做。如果当前根就是左部分的最后一个，那就直接断成 <mjx-container class="MathJax" jax="CHTML" overflow="overflow" style="font-size: 113.1%;"><mjx-math data-latex="(u,u.r)" class="NCM-N"><mjx-mo data-latex="("><mjx-c class="mjx-c28">(</mjx-c></mjx-mo><mjx-mi data-latex="u"><mjx-c class="mjx-c1D462">𝑢</mjx-c></mjx-mi><mjx-mo data-latex=","><mjx-c class="mjx-c2C">,</mjx-c></mjx-mo><mjx-mi space="2" data-latex="u"><mjx-c class="mjx-c1D462">𝑢</mjx-c></mjx-mi><mjx-mo data-latex="."><mjx-c class="mjx-c2E">.</mjx-c></mjx-mo><mjx-mi data-latex="r"><mjx-c class="mjx-c1D45F">𝑟</mjx-c></mjx-mi><mjx-mo data-latex=")"><mjx-c class="mjx-c29">)</mjx-c></mjx-mo></mjx-math></mjx-container>。否则根据当前的 <mjx-container class="MathJax" jax="CHTML" overflow="overflow" style="font-size: 113.1%;"><mjx-math data-latex="key" class="NCM-N"><mjx-mi data-latex="k"><mjx-c class="mjx-c1D458">𝑘</mjx-c></mjx-mi><mjx-mi data-latex="e"><mjx-c class="mjx-c1D452">𝑒</mjx-c></mjx-mi><mjx-mi data-latex="y"><mjx-c class="mjx-c1D466">𝑦</mjx-c></mjx-mi></mjx-math></mjx-container> 判断是要往左孩子递归还是右孩子递归。将得到的分割 <mjx-container class="MathJax" jax="CHTML" overflow="overflow" style="font-size: 113.1%;"><mjx-math data-latex="(l,r)" class="NCM-N"><mjx-mo data-latex="("><mjx-c class="mjx-c28">(</mjx-c></mjx-mo><mjx-mi data-latex="l"><mjx-c class="mjx-c1D459">𝑙</mjx-c></mjx-mi><mjx-mo data-latex=","><mjx-c class="mjx-c2C">,</mjx-c></mjx-mo><mjx-mi space="2" data-latex="r"><mjx-c class="mjx-c1D45F">𝑟</mjx-c></mjx-mi><mjx-mo data-latex=")"><mjx-c class="mjx-c29">)</mjx-c></mjx-mo></mjx-math></mjx-container> 再做相应的合并即可。</p>
+<p>注意这里有一个变种，就是如果我们选择根据序列下标（也就是中序遍历之后给一个下标分裂成 <mjx-container class="MathJax" jax="CHTML" overflow="overflow" style="font-size: 113.1%;"><mjx-math data-latex="[l,p]" class="NCM-N"><mjx-mo data-latex="["><mjx-c class="mjx-c5B">[</mjx-c></mjx-mo><mjx-mi data-latex="l"><mjx-c class="mjx-c1D459">𝑙</mjx-c></mjx-mi><mjx-mo data-latex=","><mjx-c class="mjx-c2C">,</mjx-c></mjx-mo><mjx-mi space="2" data-latex="p"><mjx-c class="mjx-c1D45D">𝑝</mjx-c></mjx-mi><mjx-mo data-latex="]"><mjx-c class="mjx-c5D">]</mjx-c></mjx-mo></mjx-math></mjx-container> 和 <mjx-container class="MathJax" jax="CHTML" overflow="overflow" style="font-size: 113.1%;"><mjx-math data-latex="[p+1,r]" breakable="true" class="NCM-N"><mjx-mo data-latex="["><mjx-c class="mjx-c5B">[</mjx-c></mjx-mo><mjx-mi data-latex="p"><mjx-c class="mjx-c1D45D">𝑝</mjx-c></mjx-mi><mjx-break size="3"> </mjx-break><mjx-mo data-latex="+"><mjx-c class="mjx-c2B">+</mjx-c></mjx-mo><mjx-mn space="3" data-latex="1"><mjx-c class="mjx-c31">1</mjx-c></mjx-mn><mjx-mo data-latex=","><mjx-c class="mjx-c2C">,</mjx-c></mjx-mo><mjx-mi space="2" data-latex="r"><mjx-c class="mjx-c1D45F">𝑟</mjx-c></mjx-mi><mjx-mo data-latex="]"><mjx-c class="mjx-c5D">]</mjx-c></mjx-mo></mjx-math></mjx-container>）。这种变种其实是将左子树的节点数量 <mjx-container class="MathJax" jax="CHTML" overflow="overflow" style="font-size: 113.1%;"><mjx-math data-latex="+ 1" class="NCM-N"><mjx-mo data-latex="+"><mjx-c class="mjx-c2B">+</mjx-c></mjx-mo><mjx-mn data-latex="1"><mjx-c class="mjx-c31">1</mjx-c></mjx-mn></mjx-math></mjx-container> 作为 <mjx-container class="MathJax" jax="CHTML" overflow="overflow" style="font-size: 113.1%;"><mjx-math data-latex="key" class="NCM-N"><mjx-mi data-latex="k"><mjx-c class="mjx-c1D458">𝑘</mjx-c></mjx-mi><mjx-mi data-latex="e"><mjx-c class="mjx-c1D452">𝑒</mjx-c></mjx-mi><mjx-mi data-latex="y"><mjx-c class="mjx-c1D466">𝑦</mjx-c></mjx-mi></mjx-math></mjx-container>，维护是一样的。</p>
 </li>
 </ol>
 <h2 id="三、实现">三、实现</h2>
@@ -355,7 +3184,8 @@ linkStyle 13 fill:transparent,stroke:transparent</code></pre>
 <p>注意到这里面有一个神秘函数 <code>clone</code>，其实他是用来可持久化的。因为 Splay 挺好写的而且又快，所以一般不用 Treap。所以其优势在于可持久化。<br>
 写的时候注意如果更改节点信息就复制一份就可以了。</p>
 <ol start="3">
-<li>应用示例 <figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">inline</span> <span class="type">int</span> <span class="title">querySum</span><span class="params">(<span class="type">int</span> l, <span class="type">int</span> r)</span> </span>{</span><br><span class="line">    <span class="comment">// 这里相当于是查询 key 在 [l+1,r+1] 的序列统计信息，这样写是因为我前后放了哨兵</span></span><br><span class="line">    <span class="keyword">auto</span> [mid, rs] = <span class="built_in">splitByOrd</span>(rt, ++r);</span><br><span class="line">    <span class="keyword">auto</span> [ls, u] = <span class="built_in">splitByOrd</span>(mid, l);</span><br><span class="line">    <span class="keyword">auto</span> res = U.sum;</span><br><span class="line">    rt = <span class="built_in">merge</span>(<span class="built_in">merge</span>(ls, u), rs);</span><br><span class="line">    <span class="keyword">return</span> res;</span><br><span class="line">}</span><br><span class="line"><span class="function"><span class="type">void</span> <span class="title">extract</span><span class="params">(std::vector&lt;<span class="type">int</span>&gt;&amp; arr, <span class="type">int</span> u = rt)</span> </span>{ <span class="comment">// 中序遍历出序列</span></span><br><span class="line">    <span class="keyword">if</span> (!u) <span class="keyword">return</span>;</span><br><span class="line">    <span class="built_in">pushdown</span>(u);</span><br><span class="line">    <span class="built_in">extract</span>(arr, U.ls);</span><br><span class="line">    arr.<span class="built_in">push_back</span>(U.val);</span><br><span class="line">    <span class="built_in">extract</span>(arr, U.rs);</span><br><span class="line">}</span><br></pre></td></tr></table></figure></li>
+<li>应用示例 <figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">inline</span> <span class="type">int</span> <span class="title">querySum</span><span class="params">(<span class="type">int</span> l, <span class="type">int</span> r)</span> </span>{</span><br><span class="line">    <span class="comment">// 这里相当于是查询 key 在 [l+1,r+1] 的序列统计信息，这样写是因为我前后放了哨兵</span></span><br><span class="line">    <span class="keyword">auto</span> [mid, rs] = <span class="built_in">splitByOrd</span>(rt, ++r);</span><br><span class="line">    <span class="keyword">auto</span> [ls, u] = <span class="built_in">splitByOrd</span>(mid, l);</span><br><span class="line">    <span class="keyword">auto</span> res = U.sum;</span><br><span class="line">    rt = <span class="built_in">merge</span>(<span class="built_in">merge</span>(ls, u), rs);</span><br><span class="line">    <span class="keyword">return</span> res;</span><br><span class="line">}</span><br><span class="line"><span class="function"><span class="type">void</span> <span class="title">extract</span><span class="params">(std::vector&lt;<span class="type">int</span>&gt;&amp; arr, <span class="type">int</span> u = rt)</span> </span>{ <span class="comment">// 中序遍历出序列</span></span><br><span class="line">    <span class="keyword">if</span> (!u) <span class="keyword">return</span>;</span><br><span class="line">    <span class="built_in">pushdown</span>(u);</span><br><span class="line">    <span class="built_in">extract</span>(arr, U.ls);</span><br><span class="line">    arr.<span class="built_in">push_back</span>(U.val);</span><br><span class="line">    <span class="built_in">extract</span>(arr, U.rs);</span><br><span class="line">}</span><br></pre></td></tr></table></figure>
+</li>
 </ol>
 
   </div>

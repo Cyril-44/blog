@@ -238,7 +238,7 @@ a:hover { opacity: 0.85; }
   .mobile-topbar { display: flex; }
 
   .app-layout {
-    grid-template-columns: 1fr;
+    grid-template-columns: minmax(0, 1fr);
     padding-top: 56px; /* offset for fixed topbar */
   }
 
@@ -367,9 +367,10 @@ a:hover { opacity: 0.85; }
 }
 
 /* Main Content Container Limits */
-.main-content { padding: 2.5rem 2rem; }
+.main-content { min-width: 0; padding: 2.5rem 2rem; }
 
 .content-container {
+  min-width: 0;
   max-width: 900px;
   margin: 0 auto;
 }
@@ -3677,6 +3678,50 @@ html[data-preset="sketch"] .post-card, html[data-preset="doodle"] .post-card {
 }
 
 /* ===== Markdown Post Article Typography & Spacing ===== */
+@font-face {
+  font-family: 'New Computer Modern Math Web';
+  src: url('../fonts/newcm-math.woff2') format('woff2');
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+}
+
+.typst-content {
+  max-width: 100%;
+  overflow-x: auto;
+}
+
+.typst-content math {
+  font-family: 'New Computer Modern Math Web', 'New Computer Modern Math', math, serif;
+  font-size: 1em;
+  line-height: normal;
+}
+
+.typst-content math[display="block"] {
+  margin: 0.9em 0;
+}
+
+:is(.post-content, .post-excerpt) mjx-container[jax="CHTML"][display] {
+  min-width: 0 !important;
+  width: 100%;
+  max-width: 100%;
+  overflow-x: auto;
+  overflow-y: hidden;
+  scrollbar-width: none;
+}
+
+:is(.post-content, .post-excerpt) mjx-container[jax="CHTML"][display]::-webkit-scrollbar {
+  display: none;
+}
+
+:is(.post-content, .post-excerpt) mjx-container[jax="CHTML"][display].has-horizontal-overflow {
+  scrollbar-width: thin;
+}
+
+:is(.post-content, .post-excerpt) mjx-container[jax="CHTML"][display].has-horizontal-overflow::-webkit-scrollbar {
+  display: block;
+}
+
 .post-content,
 .markdown-body {
   font-family: var(--font-sans, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif);
@@ -3949,6 +3994,131 @@ html[data-scheme="dark"] #waline {
 }
 
 /* ===== Search Results Dropdown ===== */
+.full-search {
+  max-width: 850px;
+}
+
+.full-search-header p,
+.full-search-status {
+  color: var(--text-muted);
+  line-height: 1.65;
+}
+
+.full-search-header p {
+  margin: -0.75rem 0 1.5rem;
+}
+
+.full-search-form {
+  padding: 1.5rem;
+  background: var(--bg-card);
+  border: 1px solid var(--border-color);
+  border-radius: 12px;
+}
+
+.full-search-form label {
+  display: block;
+  margin-bottom: 0.65rem;
+  color: var(--text-primary);
+  font-weight: 600;
+}
+
+.full-search-controls {
+  display: flex;
+  gap: 0.75rem;
+}
+
+.full-search-controls input {
+  min-width: 0;
+  flex: 1;
+  padding: 0.8rem 1rem;
+  background: var(--bg-secondary);
+  border: 1px solid var(--border-color);
+  border-radius: 8px;
+  color: var(--text-primary);
+  font: inherit;
+}
+
+.full-search-controls input:focus {
+  outline: 2px solid var(--color-accent);
+  outline-offset: 1px;
+}
+
+.full-search-controls button {
+  padding: 0.8rem 1.25rem;
+  border: 0;
+  border-radius: 8px;
+  background: var(--color-accent);
+  color: #fff;
+  font: inherit;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.full-search-status {
+  margin: 1.25rem 0;
+}
+
+.full-search-results {
+  display: grid;
+  gap: 0.85rem;
+}
+
+.full-search-result {
+  min-width: 0;
+  padding: 1.2rem 1.4rem;
+  background: var(--bg-card);
+  border: 1px solid var(--border-color);
+  border-radius: 12px;
+}
+
+.full-search-result h2 {
+  margin: 0;
+  font-size: 1.08rem;
+  line-height: 1.45;
+}
+
+.full-search-result h2 a {
+  color: var(--text-primary);
+}
+
+.full-search-result h2 a:hover {
+  color: var(--color-accent);
+}
+
+.full-search-result-meta,
+.full-search-result-snippet {
+  margin: 0.55rem 0 0;
+  color: var(--text-muted);
+  overflow-wrap: anywhere;
+  line-height: 1.6;
+}
+
+.full-search-result-meta {
+  font-size: 0.8rem;
+}
+
+.full-search-result-snippet {
+  font-size: 0.91rem;
+}
+
+.full-search-result mark {
+  padding: 0 0.1em;
+  border-radius: 2px;
+  background: #facc15;
+  color: #27272a;
+}
+
+@media (max-width: 600px) {
+  .full-search-form,
+  .full-search-result {
+    padding: 1rem;
+  }
+
+  .full-search-controls {
+    flex-direction: column;
+  }
+}
+
 .widget-search {
   position: relative;
 }
@@ -4140,11 +4310,3 @@ html[data-scheme="dark"] #waline {
   color: var(--text-muted, #a1a1aa) !important;
   padding: 0 4px !important;
 }
-
-
-
-
-
-
-
-

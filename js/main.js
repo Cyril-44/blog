@@ -1,4 +1,17 @@
 document.addEventListener('DOMContentLoaded', () => {
+  // Hide MathJax's tiny rounding scrollbars, but keep real long equations scrollable.
+  const displayMath = document.querySelectorAll(':is(.post-content, .post-excerpt) mjx-container[jax="CHTML"][display]');
+  if (displayMath.length) {
+    const updateMathOverflow = () => {
+      displayMath.forEach((math) => {
+        math.classList.toggle('has-horizontal-overflow', math.scrollWidth - math.clientWidth > 6);
+      });
+    };
+    updateMathOverflow();
+    document.fonts?.ready.then(updateMathOverflow);
+    window.addEventListener('resize', updateMathOverflow);
+  }
+
   // 1. Reading Progress Bar
   const progressBar = document.getElementById('reading-progress');
   if (progressBar) {
@@ -123,24 +136,26 @@ document.addEventListener('DOMContentLoaded', () => {
   // 5. Right Sidebar Global Title Search Dropdown (search.json)
   const searchInput = document.getElementById('sidebar-search-input');
   const searchDropdown = document.getElementById('search-results-dropdown');
-  let searchPostsCache = null;
+  let searchPostsPromise = null;
 
   if (searchInput && searchDropdown) {
-    const fetchSearchPosts = async () => {
-      if (searchPostsCache) return searchPostsCache;
-      try {
-        const rootUrl = window.location.pathname.startsWith('/hexo-theme-chirpy') ? '/hexo-theme-chirpy' : '';
-        const res = await fetch(rootUrl + '/search.json');
-        if (res.ok) {
-          searchPostsCache = await res.json();
-          return searchPostsCache;
-        }
-      } catch (e) {}
-      return [];
+    const fetchSearchPosts = () => {
+      if (!searchPostsPromise) {
+        searchPostsPromise = fetch(searchInput.dataset.searchUrl)
+          .then((res) => {
+            if (!res.ok) throw new Error(`Search index returned ${res.status}`);
+            return res.json();
+          })
+          .catch((error) => {
+            searchPostsPromise = null;
+            throw error;
+          });
+      }
+      return searchPostsPromise;
     };
 
     searchInput.addEventListener('focus', () => {
-      fetchSearchPosts();
+      fetchSearchPosts().catch(() => {});
     });
 
     searchInput.addEventListener('input', async (e) => {
@@ -151,7 +166,17 @@ document.addEventListener('DOMContentLoaded', () => {
         return;
       }
 
-      const posts = await fetchSearchPosts();
+      let posts;
+      try {
+        posts = await fetchSearchPosts();
+      } catch (error) {
+        if (searchInput.value.toLowerCase().trim() === q) {
+          searchDropdown.textContent = '搜索索引加载失败，请稍后重试';
+          searchDropdown.style.display = 'block';
+        }
+        return;
+      }
+      if (searchInput.value.toLowerCase().trim() !== q) return;
       const matched = posts.filter((p) => p.title.toLowerCase().includes(q));
 
       if (matched.length === 0) {

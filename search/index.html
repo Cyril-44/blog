@@ -37,119 +37,7 @@
   
     <style>:root { --color-accent: #7952b3; }</style>
   
-<meta name="generator" content="Hexo 8.1.2"><style>mjx-container[jax="SVG"] {
-  direction: ltr;
-}
-
-mjx-container[jax="SVG"] > svg {
-  overflow: visible;
-}
-
-mjx-container[jax="SVG"][display="true"] {
-  display: block;
-  text-align: center;
-  margin: 1em 0;
-}
-
-mjx-container[jax="SVG"][justify="left"] {
-  text-align: left;
-}
-
-mjx-container[jax="SVG"][justify="right"] {
-  text-align: right;
-}
-
-g[data-mml-node="merror"] > g {
-  fill: red;
-  stroke: red;
-}
-
-g[data-mml-node="merror"] > rect[data-background] {
-  fill: yellow;
-  stroke: none;
-}
-
-g[data-mml-node="mtable"] > line[data-line] {
-  stroke-width: 70px;
-  fill: none;
-}
-
-g[data-mml-node="mtable"] > rect[data-frame] {
-  stroke-width: 70px;
-  fill: none;
-}
-
-g[data-mml-node="mtable"] > .mjx-dashed {
-  stroke-dasharray: 140;
-}
-
-g[data-mml-node="mtable"] > .mjx-dotted {
-  stroke-linecap: round;
-  stroke-dasharray: 0,140;
-}
-
-g[data-mml-node="mtable"] > svg {
-  overflow: visible;
-}
-
-[jax="SVG"] mjx-tool {
-  display: inline-block;
-  position: relative;
-  width: 0;
-  height: 0;
-}
-
-[jax="SVG"] mjx-tool > mjx-tip {
-  position: absolute;
-  top: 0;
-  left: 0;
-}
-
-mjx-tool > mjx-tip {
-  display: inline-block;
-  padding: .2em;
-  border: 1px solid #888;
-  font-size: 70%;
-  background-color: #F8F8F8;
-  color: black;
-  box-shadow: 2px 2px 5px #AAAAAA;
-}
-
-g[data-mml-node="maction"][data-toggle] {
-  cursor: pointer;
-}
-
-mjx-status {
-  display: block;
-  position: fixed;
-  left: 1em;
-  bottom: 1em;
-  min-width: 25%;
-  padding: .2em .4em;
-  border: 1px solid #888;
-  font-size: 90%;
-  background-color: #F8F8F8;
-  color: black;
-}
-
-foreignObject[data-mjx-xml] {
-  font-family: initial;
-  line-height: normal;
-  overflow: visible;
-}
-
-.MathJax path {
-  stroke-width: 3;
-}
-
-mjx-container[display="true"] {
-  overflow: auto hidden;
-}
-
-mjx-container[display="true"] + br {
-  display: none;
-}
-</style></head>
+<meta name="generator" content="Hexo 8.1.2"></head>
 <body class="chirpy-body preset-chirpy">
   
     <div id="reading-progress" class="reading-progress"></div>
@@ -186,7 +74,7 @@ mjx-container[display="true"] + br {
       <h1 class="site-title">
         <a href="/blog/">Hardsoft</a>
       </h1>
-      <p class="site-subtitle">Sharing thoughts and knowledge</p>
+      <p class="site-subtitle">Keep going, OIer!</p>
     </div>
 
     <nav class="sidebar-nav">
@@ -213,6 +101,12 @@ mjx-container[display="true"] + br {
           <a href="/blog/archives">
             <i class="fa-solid fa-box-archive fa-fw"></i>
             <span>归档</span>
+          </a>
+        </li>
+        <li class="nav-item active">
+          <a href="/blog/search/">
+            <i class="fa-solid fa-magnifying-glass fa-fw"></i>
+            <span>搜索</span>
           </a>
         </li>
         <li class="nav-item ">
@@ -264,15 +158,25 @@ mjx-container[display="true"] + br {
     <main class="main-content">
       <div class="content-container">
         
-  <article class="page-detail">
-    <header class="page-header">
-      <h1 class="page-title">搜索</h1>
-    </header>
+  <section class="full-search" data-index-url="/blog/search-content.json">
+  <header class="full-search-header">
+    <h1 class="page-title"><i class="fa-solid fa-magnifying-glass"></i> 全文搜索</h1>
+    <p>搜索文章标题、分类、标签和正文，也支持代码与公式源码。</p>
+  </header>
 
-    <div class="page-content markdown-body">
-      
+  <form id="full-search-form" class="full-search-form" role="search">
+    <label for="full-search-input">关键词</label>
+    <div class="full-search-controls">
+      <input id="full-search-input" type="search" placeholder="输入关键词，例如 Mobius、莫比乌斯、\\mu" autocomplete="off" spellcheck="false" />
+      <button type="submit"><i class="fa-solid fa-magnifying-glass" aria-hidden="true"></i> 搜索</button>
     </div>
-  </article>
+  </form>
+
+  <p id="full-search-status" class="full-search-status" role="status" aria-live="polite">输入关键词后开始搜索。</p>
+  <div id="full-search-results" class="full-search-results"></div>
+</section>
+<script defer src="/blog/js/search-page.js"></script>
+
 
 
       </div>
@@ -292,7 +196,7 @@ mjx-container[display="true"] + br {
     <div class="widget widget-search">
       <div class="search-input-box">
         <i class="fa-solid fa-magnifying-glass search-icon"></i>
-        <input type="text" id="sidebar-search-input" placeholder="搜索全站文章标题..." autocomplete="off" />
+        <input type="text" id="sidebar-search-input" data-search-url="/blog/search.json" placeholder="搜索全站文章标题..." autocomplete="off" />
       </div>
       <div id="search-results-dropdown" class="search-results-dropdown"></div>
     </div>
@@ -304,13 +208,13 @@ mjx-container[display="true"] + br {
       <ul class="recent-posts-list">
         
           <li class="recent-post-item">
-            <a href="/blog/test/" class="recent-post-title">temp</a>
-            <span class="recent-post-date">2027-11-02</span>
+            <a href="/blog/Mo-on-tree/" class="recent-post-title">树上莫队</a>
+            <span class="recent-post-date">2026-09-30</span>
           </li>
         
           <li class="recent-post-item">
-            <a href="/blog/hello-world/" class="recent-post-title">Hello World</a>
-            <span class="recent-post-date">2026-09-18</span>
+            <a href="/blog/counting-1/" class="recent-post-title">一些计数题汇总 (1)</a>
+            <span class="recent-post-date">2026-09-24</span>
           </li>
         
           <li class="recent-post-item">
@@ -348,6 +252,10 @@ mjx-container[display="true"] + br {
             平衡树 <span class="tag-count">(3)</span>
           </a>
         
+          <a href="/blog/tags/%E7%BA%BF%E6%80%A7-DP/" class="widget-tag-pill">
+            线性 DP <span class="tag-count">(2)</span>
+          </a>
+        
           <a href="/blog/tags/Mobius/" class="widget-tag-pill">
             莫比乌斯反演 <span class="tag-count">(2)</span>
           </a>
@@ -360,28 +268,24 @@ mjx-container[display="true"] + br {
             数学 <span class="tag-count">(1)</span>
           </a>
         
-          <a href="/blog/tags/%E7%BA%BF%E6%80%A7DP/" class="widget-tag-pill">
-            线性DP <span class="tag-count">(1)</span>
-          </a>
-        
           <a href="/blog/tags/%E7%A0%B4%E7%8E%AF%E6%88%90%E9%93%BE/" class="widget-tag-pill">
             破环成链 <span class="tag-count">(1)</span>
           </a>
         
-          <a href="/blog/tags/%E8%83%8C%E5%8C%85DP/" class="widget-tag-pill">
-            背包DP <span class="tag-count">(1)</span>
+          <a href="/blog/tags/BinarySearch/" class="widget-tag-pill">
+            二分查找 <span class="tag-count">(1)</span>
           </a>
         
-          <a href="/blog/tags/%E5%8D%95%E8%B0%83%E9%98%9F%E5%88%97/" class="widget-tag-pill">
-            单调队列 <span class="tag-count">(1)</span>
+          <a href="/blog/tags/%E5%9B%BE%E8%AE%BA/" class="widget-tag-pill">
+            图论 <span class="tag-count">(1)</span>
           </a>
         
-          <a href="/blog/tags/SIMD/" class="widget-tag-pill">
-            指令集优化 <span class="tag-count">(1)</span>
+          <a href="/blog/tags/%E7%9F%A9%E9%98%B5%E5%BF%AB%E9%80%9F%E5%B9%82/" class="widget-tag-pill">
+            矩阵快速幂 <span class="tag-count">(1)</span>
           </a>
         
-          <a href="/blog/tags/EXGCD/" class="widget-tag-pill">
-            扩展欧几里德 <span class="tag-count">(1)</span>
+          <a href="/blog/tags/Tarjan/" class="widget-tag-pill">
+            塔扬算法 <span class="tag-count">(1)</span>
           </a>
         
       </div>
@@ -400,7 +304,7 @@ mjx-container[display="true"] + br {
           <span class="stat-lbl">分类</span>
         </div>
         <div class="stat-box">
-          <span class="stat-val">36</span>
+          <span class="stat-val">40</span>
           <span class="stat-lbl">标签</span>
         </div>
       </div>
