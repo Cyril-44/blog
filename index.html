@@ -5773,6 +5773,8 @@ mjx-c.mjx-c1D6FC {
 
 
 
+
+
 </style><p>介绍一道 Kruskal 重构树的题目。</p> <h2 id="P3684-机棚障碍"><a target="_blank" rel="noopener" href="https://www.luogu.com.cn/problem/P3684">P3684 机棚障碍</a></h2> <p>为了方便，我们对于每一个点，二分出来以它作为中心点，最大能够放置多大的集装箱，记为 <mjx-container class="MathJax" jax="CHTML" overflow="overflow" style="font-size: 113.1%;"><mjx-math data-latex="f_{(i,j)}" class="NCM-N"><mjx-msub data-latex="f_{(i,j)}"><mjx-mi data-latex="f"><mjx-c class="mjx-c1D453">𝑓</mjx-c></mjx-mi><mjx-script style="vertical-align: -0.175em; margin-left: -0.062em;"><mjx-texatom size="s" data-latex="{(i,j)}" texclass="ORD"><mjx-mo data-latex="("><mjx-c class="mjx-c28">(</mjx-c></mjx-mo><mjx-mi data-latex="i"><mjx-c class="mjx-c1D456">𝑖</mjx-c></mjx-mi><mjx-mo data-latex=","><mjx-c class="mjx-c2C">,</mjx-c></mjx-mo><mjx-mi data-latex="j"><mjx-c class="mjx-c1D457">𝑗</mjx-c></mjx-mi><mjx-mo data-latex=")"><mjx-c class="mjx-c29">)</mjx-c></mjx-mo></mjx-texatom></mjx-script></mjx-msub></mjx-math></mjx-container></p> <p>这道题本质是：求 <mjx-container class="MathJax" jax="CHTML" overflow="overflow" style="font-size: 113.1%;"><mjx-math data-latex="(A_x, A_y)" class="NCM-N"><mjx-mo data-latex="("><mjx-c class="mjx-c28">(</mjx-c></mjx-mo><mjx-msub data-latex="A_x"><mjx-mi data-latex="A"><mjx-c class="mjx-c1D434">𝐴</mjx-c></mjx-mi><mjx-script style="vertical-align: -0.15em;"><mjx-mi size="s" data-latex="x"><mjx-c class="mjx-c1D465">𝑥</mjx-c></mjx-mi></mjx-script></mjx-msub><mjx-mo data-latex=","><mjx-c class="mjx-c2C">,</mjx-c></mjx-mo><mjx-msub space="2" data-latex="A_y"><mjx-mi data-latex="A"><mjx-c class="mjx-c1D434">𝐴</mjx-c></mjx-mi><mjx-script style="vertical-align: -0.15em;"><mjx-mi size="s" data-latex="y"><mjx-c class="mjx-c1D466">𝑦</mjx-c></mjx-mi></mjx-script></mjx-msub><mjx-mo data-latex=")"><mjx-c class="mjx-c29">)</mjx-c></mjx-mo></mjx-math></mjx-container> 到 <mjx-container class="MathJax" jax="CHTML" overflow="overflow" style="font-size: 113.1%;"><mjx-math data-latex="(B_x, B_y)" class="NCM-N"><mjx-mo data-latex="("><mjx-c class="mjx-c28">(</mjx-c></mjx-mo><mjx-msub data-latex="B_x"><mjx-mi data-latex="B"><mjx-c class="mjx-c1D435">𝐵</mjx-c></mjx-mi><mjx-script style="vertical-align: -0.15em;"><mjx-mi size="s" data-latex="x"><mjx-c class="mjx-c1D465">𝑥</mjx-c></mjx-mi></mjx-script></mjx-msub><mjx-mo data-latex=","><mjx-c class="mjx-c2C">,</mjx-c></mjx-mo><mjx-msub space="2" data-latex="B_y"><mjx-mi data-latex="B"><mjx-c class="mjx-c1D435">𝐵</mjx-c></mjx-mi><mjx-script style="vertical-align: -0.15em;"><mjx-mi size="s" data-latex="y"><mjx-c class="mjx-c1D466">𝑦</mjx-c></mjx-mi></mjx-script></mjx-msub><mjx-mo data-latex=")"><mjx-c class="mjx-c29">)</mjx-c></mjx-mo></mjx-math></mjx-container> 的一条路径，使得其上最小的 <mjx-container class="MathJax" jax="CHTML" overflow="overflow" style="font-size: 113.1%;"><mjx-math data-latex="f_{(i,j)}" class="NCM-N"><mjx-msub data-latex="f_{(i,j)}"><mjx-mi data-latex="f"><mjx-c class="mjx-c1D453">𝑓</mjx-c></mjx-mi><mjx-script style="vertical-align: -0.175em; margin-left: -0.062em;"><mjx-texatom size="s" data-latex="{(i,j)}" texclass="ORD"><mjx-mo data-latex="("><mjx-c class="mjx-c28">(</mjx-c></mjx-mo><mjx-mi data-latex="i"><mjx-c class="mjx-c1D456">𝑖</mjx-c></mjx-mi><mjx-mo data-latex=","><mjx-c class="mjx-c2C">,</mjx-c></mjx-mo><mjx-mi data-latex="j"><mjx-c class="mjx-c1D457">𝑗</mjx-c></mjx-mi><mjx-mo data-latex=")"><mjx-c class="mjx-c29">)</mjx-c></mjx-mo></mjx-texatom></mjx-script></mjx-msub></mjx-math></mjx-container> 最大。</p> <h3 id="这样的图上-最小值最大-或者类似的问题，我们第一时间要有-Kruskal-重构树的想法。">这样的图上 <strong>最小值最大</strong> 或者类似的问题，我们第一时…</h3>
         </div>
 
@@ -11661,11 +11663,11 @@ mjx-c.mjx-c1D6FC {
 
 
 
-
-
 mjx-c.mjx-c1D677.NCM-M {
   padding: 0.611em 0.525em 0 0;
 }
+
+
 
 
 
